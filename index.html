@@ -29,8 +29,8 @@ header {
   box-shadow: 0 3px 10px rgba(0,0,0,0.3);
 }
 .header-inner {
-  max-width: 1500px; margin: 0 auto;
-  display: flex; align-items: center; gap: 20px; padding: 12px 28px;
+  max-width: 1920px; margin: 0 auto;
+  display: flex; align-items: center; gap: 20px; padding: 12px 36px;
 }
 .logo { font-size: 1.4rem; font-weight: 800; }
 .logo span { color: #63b3ed; }
@@ -40,7 +40,7 @@ header {
 .header-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem; }
 .header-links a:hover { color: white; }
 
-.layout { display: flex; max-width: 1500px; margin: 0 auto; }
+.layout { display: flex; max-width: 1920px; margin: 0 auto; }
 
 nav.sidebar {
   width: var(--sidebar-w); flex-shrink: 0;
@@ -63,9 +63,9 @@ nav.sidebar ul li a:hover { background: var(--accent); border-left-color: var(--
 nav.sidebar .nav-section { font-weight: 700; color: var(--dark-blue); font-size: 0.78rem; padding: 10px 18px 4px; text-transform: uppercase; letter-spacing: 0.8px; background: #f8fafc; border-top: 1px solid var(--border); margin-top: 4px; }
 nav.sidebar .nav-sub a { padding-left: 30px; color: #4a5568; font-size: 0.8rem; }
 
-main { flex: 1; padding: 28px 36px 60px; min-width: 0; }
+main { flex: 1; padding: 32px 48px 60px; min-width: 0; }
 
-.section { background: white; border-radius: 12px; padding: 36px 42px; margin-bottom: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); border-top: 4px solid var(--dark-blue); }
+.section { background: white; border-radius: 14px; padding: 40px 52px; margin-bottom: 32px; box-shadow: 0 2px 10px rgba(0,0,0,0.07); border-top: 4px solid var(--dark-blue); }
 .chapter-badge { display: inline-block; background: var(--dark-blue); color: white; font-size: 0.72rem; font-weight: 700; padding: 3px 12px; border-radius: 4px; margin-bottom: 10px; letter-spacing: 1.5px; text-transform: uppercase; }
 h1 { font-size: 2rem; color: var(--dark-blue); margin-bottom: 10px; font-weight: 800; }
 h2 { font-size: 1.6rem; color: var(--dark-blue); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 3px solid var(--light-blue); font-weight: 700; }
@@ -117,7 +117,8 @@ tr:hover { background: var(--accent); }
   margin-top: -8px; margin-bottom: 16px; font-style: italic;
 }
 .screenshot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
-.screenshot-grid img { width: 100%; border-radius: 8px; border: 2px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.screenshot-grid > div { display: flex; flex-direction: column; }
+.screenshot-grid img { width: 100%; height: auto; max-height: 420px; object-fit: contain; background: #f8fafc; border-radius: 8px; border: 2px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: block; }
 .screenshot-grid .cap { font-size: 0.78rem; color: #718096; text-align: center; margin-top: 4px; }
 
 .project-header {
@@ -170,6 +171,19 @@ nav.sidebar ul li a.active { background: var(--accent); border-left-color: var(-
   main { padding: 0; }
   .section { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
 }
+/* Kapitel 21 Komponentenraster */
+.comp-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:14px; margin:14px 0; }
+.comp-grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:14px 0; }
+.wiki-link { font-size:0.72em; color:var(--light-blue); text-decoration:none; margin-top:6px; display:inline-block; }
+.wiki-link:hover { text-decoration:underline; }
+.comp-tile { background:var(--light-bg); border:1px solid var(--border); border-radius:12px; padding:18px; text-align:center; }
+.comp-tile img { width:100px; height:100px; object-fit:contain; margin:6px auto; display:block; background:white; border-radius:10px; padding:8px; border:1px solid #dde; }
+.comp-tile strong { display:block; font-size:1.05em; color:var(--dark-blue); margin:10px 0 6px; }
+.comp-tile p { font-size:0.88em; margin:0; color:#444; text-align:left; line-height:1.55; }
+.comp-icon-fb { width:100px;height:100px;background:var(--dark-blue);color:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:0.8em;font-weight:700;letter-spacing:0.3px;text-align:center;margin:6px auto;padding:8px;line-height:1.3;word-break:break-word; }
+.cat-title { background:var(--dark-blue); color:white; padding:8px 16px; border-radius:6px; margin:24px 0 12px; font-size:1.05em; font-weight:700; }
+.logic-sym { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin:8px 0; }
+.logic-sym img { height:50px; width:auto; max-width:140px; background:white; border-radius:4px; padding:3px; border:1px solid #ddd; display:inline-block; }
 </style>
 </head>
 <body>
@@ -253,8 +267,10 @@ nav.sidebar ul li a.active { background: var(--accent); border-left-color: var(-
     <li><a href="#kap11">11. Häufige Fehler</a></li>
     <li><a href="#kap12">12. Glossar</a></li>
     <li><a href="#kap13">13. Ressourcen</a></li>
-    <li><a href="#kap14">14. Tinkercad-Plattform</a></li>
-    <li class="nav-sub"><a href="#kap14">Alle Screenshots erklärt</a></li>
+    <li><a href="#kap14">14. Tinkercad Editor-Funktionen</a></li>
+    <li class="nav-sub"><a href="#kap14-bauteile">Bauteil-Bibliothek</a></li>
+    <li class="nav-sub"><a href="#kap14-code">Code-Editor</a></li>
+    <li class="nav-sub"><a href="#kap14-sim">Simulation</a></li>
     <li><a href="#kap15">15. Erweiterte Sensoren</a></li>
     <li class="nav-sub"><a href="#kap15">BMP280, MPU-6050, GPS...</a></li>
     <li><a href="#kap16">16. Profi-Programmierung</a></li>
@@ -339,6 +355,16 @@ nav.sidebar ul li a.active { background: var(--accent); border-left-color: var(-
   <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Profil einrichten</strong> — Wählen Sie einen Nutzernamen und bestätigen Sie Ihre E-Mail-Adresse.</div></div>
   <div class="step"><div class="step-num">5</div><div class="step-content"><strong>Dashboard</strong> — Nach der Anmeldung sehen Sie Ihr persönliches Dashboard mit allen Projekten.</div></div>
 
+  <div class="component-card" style="border-left:4px solid #3182ce;">
+    <h4>Was ist die "Cloud" — und warum spart es alles automatisch?</h4>
+    <p><strong>Cloud</strong> bedeutet, dass deine Daten nicht auf deinem Computer gespeichert werden, sondern auf Servern (riesigen Computern) irgendwo im Internet — zugänglich von überall. Tinkercad speichert automatisch alle deine Projekte in der Cloud. Das bedeutet: kein Speichern vergessen, kein "mein USB-Stick ist kaputt". Von jedem Gerät aus kannst du dich anmelden und deine Projekte öffnen.</p>
+  </div>
+
+  <div class="component-card" style="border-left:4px solid #38a169;">
+    <h4>Was bedeutet "Open Source"?</h4>
+    <p><strong>Open Source</strong> bedeutet, dass der Quellcode (der "Blueprint" des Programms) öffentlich zugänglich und frei nutzbar ist. Arduino ist Open Source — das heißt, du darfst den Code lesen, verändern und sogar deinen eigenen Arduino bauen. Millionen Menschen weltweit tragen zu Open-Source-Projekten bei und verbessern sie ständig. Das ist der Grund warum Arduino so viele Bibliotheken und Tutorials hat.</p>
+  </div>
+
   <div class="tip">Wenn Sie Tinkercad in der Schule / im Kurs nutzen, können Sie einem <strong>Klassenraum</strong> beitreten (über tinkercad.com/classrooms). Dort können Lehrer Aufgaben stellen und Projekte einsehen.</div>
 
   <h3 id="kap1-dashboard">Das Tinkercad-Dashboard</h3>
@@ -367,6 +393,11 @@ nav.sidebar ul li a.active { background: var(--accent); border-left-color: var(-
   <h2>Circuits – Die Oberfläche</h2>
 
   <p>Um ein neues Circuit-Projekt zu starten, klicken Sie im Dashboard auf <strong>"Circuits"</strong>, dann auf den grünen Button <strong>"+ Create your first Circuits design"</strong>. Das neue Projekt öffnet sich im Circuit-Editor.</p>
+
+  <div class="component-card" style="border-left:4px solid #3182ce;">
+    <h4>Was ist eine "Simulation"?</h4>
+    <p>Eine <strong>Simulation</strong> ist eine computergestützte Nachbildung der Realität. In Tinkercad simulierst du eine echte Schaltung — der Computer berechnet wie Strom fließen würde, ob LEDs leuchten würden, welche Werte Sensoren ausgeben würden. Das ist kein echtes Experiment, aber es zeigt dir das Ergebnis ohne echte Bauteile kaufen zu müssen. Fehler in der Simulation kosten nichts.</p>
+  </div>
 
   <h3 id="kap2-canvas">Die Arbeitsfläche (Canvas)</h3>
 
@@ -481,6 +512,17 @@ nav.sidebar ul li a.active { background: var(--accent); border-left-color: var(-
   <div class="chapter-badge">Kapitel 3</div>
   <h2>Das Breadboard – Herzstück jeder Schaltung</h2>
 
+  <div class="component-card" style="border-left:4px solid #3182ce;">
+    <h4>Was ist Löten — und warum brauche ich es NICHT?</h4>
+    <p><strong>Löten</strong> ist ein Verfahren, bei dem man zwei Metallteile mit einem heißen Zinn-Legierungsdraht dauerhaft verbindet — ähnlich wie Schweißen, aber für Elektronik. Im echten Labor muss man Bauteile oft löten damit sie dauerhaft halten.</p>
+    <p style="margin-top:6px;">Ein Breadboard (Steckbrett) ist dafür gemacht, dass du Bauteile einfach <strong>reinsteckst und rausziehst</strong> — ohne Löten! Das macht es ideal zum Lernen und Ausprobieren. In Tinkercad musst du natürlich gar nicht löten — alles passiert virtuell.</p>
+  </div>
+
+  <div class="component-card" style="border-left:4px solid #e53e3e;">
+    <h4>Was ist ein Kurzschluss?</h4>
+    <p>Ein <strong>Kurzschluss</strong> passiert wenn Plus (+) und Minus (−) direkt miteinander verbunden werden — ohne einen Widerstand dazwischen. Das ist wie ein Rohr das direkt in den Abfluss führt: der gesamte Strom fließt sofort ab. Im echten Leben kann das Bauteile zerstören, Drähte erhitzen oder Batterien entladen. In Tinkercad wird eine Warnung angezeigt und die Simulation verhält sich merkwürdig. Beim Breadboard: Nie Plus-Schiene direkt mit Minus-Schiene verbinden!</p>
+  </div>
+
   <p>Das <strong>Breadboard</strong> (Steckbrett) ist eines der wichtigsten Hilfsmittel in der Elektronik. Es ermöglicht, Bauteile ohne Löten miteinander zu verbinden. In Tinkercad finden Sie es in der Kategorie "Basic" als "Breadboard Small" (170 Punkte) oder als großes Breadboard.</p>
 
   <h3>Aufbau des Breadboards</h3>
@@ -530,84 +572,164 @@ nav.sidebar ul li a.active { background: var(--accent); border-left-color: var(-
   <div class="chapter-badge">Kapitel 4</div>
   <h2>Arduino – Der Mikrocontroller</h2>
 
-  <p>Ein <strong>Mikrocontroller</strong> ist ein kleiner Computer auf einem einzigen Chip. Er kann Eingaben lesen (Sensoren, Taster), Entscheidungen treffen (Programm) und Ausgaben steuern (LEDs, Motoren, Displays). Arduino ist die beliebteste Mikrocontroller-Familie der Welt für Einsteiger und Maker.</p>
+  <p>Bevor wir starten: Mach dir keine Sorgen, wenn du noch nie etwas mit Elektronik gemacht hast. Dieses Kapitel erklärt alles von Grund auf — Schritt für Schritt, mit einfachen Alltagsbeispielen.</p>
 
-  <p>Das Arduino-Projekt startete 2003 am Interaction Design Institute Ivrea (Italien). Das Ziel: Einen einfachen, günstigen Mikrocontroller für Designer und Künstler ohne technischen Hintergrund zu schaffen. Heute ist Arduino <strong>Open Source</strong> — der gesamte Hardware-Plan und alle Software sind öffentlich zugänglich.</p>
+  <h3>Was ist ein Mikrocontroller?</h3>
+  <p>Ein <strong>Mikrocontroller</strong> ist ein winziger Computer — so klein, dass er auf einen einzigen Chip passt. Im Gegensatz zu einem normalen Computer (der Texte schreibt, Videos spielt usw.) ist ein Mikrocontroller speziell dafür gemacht, die <strong>physische Welt zu steuern</strong>.</p>
 
-  <h3 id="kap4-uno">Arduino Uno R3 – Das Standardboard</h3>
-  <p>Der <strong>Arduino Uno R3</strong> ist das häufigste Board in Tinkercad. "Uno" bedeutet "Eins" auf Italienisch — es war der erste standardisierte Arduino. Das R3 steht für Revision 3 (aktuelle Version).</p>
+  <p>Stell dir vor, du baust eine automatische Pflanzenbewässerung. Der Mikrocontroller:</p>
+  <ul>
+    <li><strong>Liest</strong> wie feucht die Erde ist (über einen Sensor)</li>
+    <li><strong>Entscheidet</strong> ob Wasser nötig ist (Programm im Chip)</li>
+    <li><strong>Schaltet</strong> eine Wasserpumpe an oder aus</li>
+  </ul>
+  <p>Das ist das Grundprinzip hinter jedem Arduino-Projekt: <strong>Messen → Entscheiden → Reagieren</strong>.</p>
+
+  <div class="info">Arduino ist <strong>Open Source</strong> — das bedeutet: Der komplette Bauplan des Boards und alle Software sind kostenlos und öffentlich verfügbar. Jeder darf Arduino-kompatible Boards herstellen oder die Software verändern. Das Arduino-Projekt startete 2003 in Italien mit dem Ziel, Elektronik auch für Menschen ohne technischen Hintergrund zugänglich zu machen.</div>
+
+  <h3 id="kap4-uno">Das Arduino Uno R3 Board — Was sehe ich da?</h3>
+  <p>Der <strong>Arduino Uno R3</strong> ist das am häufigsten verwendete Board — ideal für Einsteiger. "Uno" bedeutet auf Italienisch "Eins" (es war der erste standardisierte Arduino), "R3" steht für Revision 3, also die dritte überarbeitete Version.</p>
 
   <div class="screenshot-grid">
     <div>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Arduino_Uno_-_R3.jpg" alt="Arduino Uno R3 Foto" style="width:100%;border-radius:8px;border:2px solid var(--border);">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Arduino_Uno_-_R3.jpg" alt="Arduino Uno R3 Foto">
       <p class="cap">Das echte Arduino Uno R3 Board (Foto: Wikimedia Commons, CC BY-SA)</p>
     </div>
     <div>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/Arduino-uno-pinout.png" alt="Arduino Uno R3 Pinout" style="width:100%;border-radius:8px;border:2px solid var(--border);">
-      <p class="cap">Vollständiges Pin-Diagramm des Arduino Uno R3 (Wikimedia Commons, CC BY-SA)</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/Arduino-uno-pinout.png" alt="Arduino Uno R3 Pinout">
+      <p class="cap">Vollständiges Pin-Diagramm — alle Anschlüsse auf einen Blick (Wikimedia Commons, CC BY-SA)</p>
     </div>
   </div>
 
-  <div class="info">In der Komponentenbibliothek von Tinkercad finden Sie den Arduino Uno R3 unter "Basic" → "Arduino Uno R3". Ziehen Sie ihn einfach auf die Arbeitsfläche.</div>
+  <p>Wenn du das Board anschaust, siehst du viele kleine Löcher an den Rändern — das sind die <strong>Pins</strong>. Daneben befinden sich verschiedene Chips, ein USB-Anschluss und eine Stromanzeige-LED.</p>
 
-  <h3 id="kap4-pins">Alle Pins des Arduino Uno R3 erklärt</h3>
+  <div class="info">In Tinkercad findest du den Arduino Uno R3 in der Komponentenbibliothek unter <strong>"Basic" → "Arduino Uno R3"</strong>. Einfach per Drag &amp; Drop auf die Arbeitsfläche ziehen.</div>
+
+  <h3 id="kap4-begriffe">Die wichtigsten Begriffe erklärt — bevor du weiterließt</h3>
+  <p>In der folgenden Pin-Tabelle kommen Begriffe vor, die auf den ersten Blick unverständlich wirken. Hier ist eine einfache Erklärung für jeden davon:</p>
+
+  <div class="component-card" style="border-left:4px solid #3182ce;">
+    <h4>Was ist ein PIN?</h4>
+    <p>Ein <strong>Pin</strong> ist ein einzelner Anschluss am Arduino-Board — buchstäblich ein kleiner Metallstift. Über Pins verbindest du den Arduino mit der Außenwelt: du steckst Kabel oder Bauteile daran. Der Arduino Uno hat insgesamt <strong>32 Pins</strong> für verschiedene Zwecke.</p>
+    <p style="margin-top:8px;">Die Nummern neben dem "D" (z.B. D0, D3, D13) sind einfach die <strong>Nummern der Pins</strong> — wie Hausnummern. Im Programm schreibst du diese Nummer, um den Arduino zu sagen, welchen Pin er benutzen soll.</p>
+  </div>
+
+  <div class="component-card" style="border-left:4px solid #38a169;">
+    <h4>Was bedeutet "Digital" vs. "Analog"?</h4>
+    <p><strong>Digital</strong> kennt nur zwei Zustände: AN oder AUS — wie ein normaler Lichtschalter. In Elektronik heißt das:</p>
+    <ul>
+      <li>AN = 5 Volt = Zahl "1" = HIGH</li>
+      <li>AUS = 0 Volt = Zahl "0" = LOW</li>
+    </ul>
+    <p style="margin-top:8px;"><strong>Analog</strong> kennt viele Zwischenwerte — wie ein Dimmer, mit dem du das Licht von komplett aus bis voll hell stufenlos einstellen kannst. Die analogen Pins A0–A5 können jede Spannung zwischen 0V und 5V messen und als Zahl zwischen 0 und 1023 ausgeben.</p>
+    <p style="margin-top:8px;"><em>Beispiel: Ein Temperatursensor liefert 2.3V → das ist ein analoges Signal. Ein Taster liefert entweder 0V oder 5V → das ist ein digitales Signal.</em></p>
+  </div>
+
+  <div class="component-card" style="border-left:4px solid #d69e2e;">
+    <h4>Was bedeutet "I/O" (Eingang / Ausgang)?</h4>
+    <p><strong>I/O</strong> steht für englisch <em>Input / Output</em>, auf Deutsch: <strong>Eingang / Ausgang</strong>.</p>
+    <ul>
+      <li><strong>Input (Eingang):</strong> Der Pin EMPFÄNGT Information von außen. Beispiel: Der Arduino erkennt, ob ein Taster gedrückt wird.</li>
+      <li><strong>Output (Ausgang):</strong> Der Pin SENDET Strom nach außen. Beispiel: Der Arduino schaltet eine LED ein.</li>
+    </ul>
+    <p style="margin-top:8px;">Die meisten digitalen Pins (D0–D13) können beides! Du legst im Programm mit dem Befehl <code>pinMode(pinnummer, INPUT)</code> oder <code>pinMode(pinnummer, OUTPUT)</code> fest, was der Pin gerade tun soll.</p>
+  </div>
+
+  <div class="component-card" style="border-left:4px solid #805ad5;">
+    <h4>Was ist PWM — und was bedeutet das Zeichen ~ ?</h4>
+    <p><strong>PWM</strong> steht für <em>Pulse Width Modulation</em> — auf Deutsch: <strong>Pulsweitenmodulation</strong>. Es klingt kompliziert, ist aber simpel:</p>
+    <p style="margin-top:6px;">Digital bedeutet nur AN oder AUS. Aber manchmal will man eine LED dimmen — also nicht voll hell, nicht ganz aus, sondern irgendwo dazwischen. Mit PWM trickst man das aus: Der Pin schaltet so schnell AN und AUS (490 Mal pro Sekunde!), dass das Auge es nicht merkt und nur eine mittlere Helligkeit sieht.</p>
+    <ul>
+      <li>Wert 0 → 0% AN → LED aus</li>
+      <li>Wert 128 → 50% AN → LED halb hell</li>
+      <li>Wert 255 → 100% AN → LED voll hell</li>
+    </ul>
+    <p style="margin-top:8px;">PWM-Pins sind mit einer <strong>Tilde (~)</strong> markiert. Beim Uno sind das: Pin 3, 5, 6, 9, 10 und 11. Im Programm: <code>analogWrite(pin, 0–255)</code></p>
+  </div>
+
+  <div class="component-card" style="border-left:4px solid #e53e3e;">
+    <h4>Was ist TX/RX — serielle Kommunikation?</h4>
+    <p><strong>TX</strong> = Transmit = <strong>Senden</strong>. <strong>RX</strong> = Receive = <strong>Empfangen</strong>.</p>
+    <p style="margin-top:6px;">Pin 0 (RX) und Pin 1 (TX) sind die "Gesprächskanäle" des Arduino zum Computer. Darüber kann der Arduino Textnachrichten senden — du siehst sie im "Seriellen Monitor" in Tinkercad. Das ist sehr nützlich zum Debuggen (Fehler finden): Du schreibst <code>Serial.println("Hallo!")</code> in deinen Code und siehst die Nachricht am Bildschirm.</p>
+    <p style="margin-top:8px;"><strong>Wichtig:</strong> Wenn du den Arduino über USB programmierst, sind Pins 0 und 1 belegt. Schließe dort nichts anderes an — sonst gibt es Konflikte!</p>
+  </div>
+
+  <div class="component-card" style="border-left:4px solid #ed8936;">
+    <h4>Was ist ein Interrupt?</h4>
+    <p>Stell dir vor, du lernst konzentriert und jemand klingelt an der Tür. Du unterbrichst sofort dein Lernen und gehst zur Tür — egal was du gerade gemacht hast.</p>
+    <p style="margin-top:6px;">Genauso funktioniert ein <strong>Interrupt</strong>: Pins 2 und 3 können das laufende Programm <strong>sofort unterbrechen</strong>, wenn sich ihr Zustand ändert (z.B. jemand drückt einen Taster). Der Arduino springt dann zu einer speziellen Funktion (ISR — Interrupt Service Routine) und kommt danach zu seiner eigentlichen Arbeit zurück.</p>
+    <p style="margin-top:8px;">Interrupts sind für zeitkritische Reaktionen wichtig — z.B. wenn eine Lichtschranke unterbrochen wird und der Arduino sofort stoppen soll.</p>
+  </div>
+
+  <div class="component-card" style="border-left:4px solid #718096;">
+    <h4>Was sind GND, 5V, 3.3V, VIN?</h4>
+    <p>Diese Pins liefern oder verbinden Strom:</p>
+    <ul>
+      <li><strong>GND</strong> (Ground = Erdung = Masse): Das ist der Minuspol — der Rückweg des Stroms. JEDE Komponente muss mit GND verbunden sein, sonst fließt kein Strom. GND ist immer 0 Volt.</li>
+      <li><strong>5V:</strong> Gibt 5 Volt Spannung aus — zum Betrieb von Komponenten direkt vom Arduino. Maximaler Strom: 500mA insgesamt.</li>
+      <li><strong>3.3V:</strong> Gibt 3,3 Volt aus — für Komponenten die 5V nicht vertragen (z.B. manche Bluetooth-Module). Max. 150mA.</li>
+      <li><strong>VIN:</strong> Hier kannst du eine externe Stromquelle (7–12V, z.B. 9V-Batterie) anschließen, wenn kein USB verfügbar ist.</li>
+    </ul>
+  </div>
+
+  <h3 id="kap4-pins">Alle Pins des Arduino Uno R3 — Übersicht</h3>
+  <p>Jetzt, wo du die Begriffe kennst, macht die Tabelle Sinn:</p>
+
   <table>
-    <tr><th>Pin</th><th>Bezeichnung</th><th>Funktion</th><th>Spannung / Wert</th></tr>
-    <tr><td>0</td><td>D0 / RX</td><td>Digital I/O, serielle Datenempfang</td><td>0V oder 5V</td></tr>
-    <tr><td>1</td><td>D1 / TX</td><td>Digital I/O, serielle Datenübertragung</td><td>0V oder 5V</td></tr>
-    <tr><td>2</td><td>D2</td><td>Digital I/O, Interrupt-fähig</td><td>0V oder 5V</td></tr>
-    <tr><td>3</td><td>D3 ~</td><td>Digital I/O, <strong>PWM</strong>, Interrupt-fähig</td><td>0V / 5V / PWM 0-255</td></tr>
-    <tr><td>4</td><td>D4</td><td>Digital I/O</td><td>0V oder 5V</td></tr>
-    <tr><td>5</td><td>D5 ~</td><td>Digital I/O, <strong>PWM</strong></td><td>0V / 5V / PWM 0-255</td></tr>
-    <tr><td>6</td><td>D6 ~</td><td>Digital I/O, <strong>PWM</strong></td><td>0V / 5V / PWM 0-255</td></tr>
-    <tr><td>7</td><td>D7</td><td>Digital I/O</td><td>0V oder 5V</td></tr>
-    <tr><td>8</td><td>D8</td><td>Digital I/O</td><td>0V oder 5V</td></tr>
-    <tr><td>9</td><td>D9 ~</td><td>Digital I/O, <strong>PWM</strong></td><td>0V / 5V / PWM 0-255</td></tr>
-    <tr><td>10</td><td>D10 ~</td><td>Digital I/O, <strong>PWM</strong>, SPI SS</td><td>0V / 5V / PWM 0-255</td></tr>
-    <tr><td>11</td><td>D11 ~</td><td>Digital I/O, <strong>PWM</strong>, SPI MOSI</td><td>0V / 5V / PWM 0-255</td></tr>
-    <tr><td>12</td><td>D12</td><td>Digital I/O, SPI MISO</td><td>0V oder 5V</td></tr>
-    <tr><td>13</td><td>D13</td><td>Digital I/O, <strong>eingebaute LED (L)</strong>, SPI CLK</td><td>0V oder 5V</td></tr>
-    <tr><td>A0–A5</td><td>Analog 0–5</td><td>Analoge Eingänge (auch als Digital nutzbar)</td><td>0–1023 (10-bit, entspricht 0–5V)</td></tr>
-    <tr><td>5V</td><td>VCC</td><td>5V Stromversorgungsausgang</td><td>5V (max. 500mA gesamt)</td></tr>
-    <tr><td>3.3V</td><td>3V3</td><td>3.3V Stromversorgungsausgang</td><td>3.3V (max. 150mA)</td></tr>
-    <tr><td>GND</td><td>GND</td><td>Masse / Minus / Erdung (2× vorhanden)</td><td>0V</td></tr>
-    <tr><td>VIN</td><td>VIN</td><td>Externe Spannungsversorgung (7–12V)</td><td>7–12V Eingang</td></tr>
-    <tr><td>RST</td><td>RESET</td><td>Arduino neu starten (LOW = Reset)</td><td>–</td></tr>
-    <tr><td>AREF</td><td>AREF</td><td>Externe Referenzspannung für analogRead()</td><td>–</td></tr>
+    <tr><th>Pin-Nr.</th><th>Name</th><th>Was kann er?</th><th>Einfach erklärt</th></tr>
+    <tr><td>0</td><td>D0 / RX</td><td>Digital Eingang/Ausgang, Daten EMPFANGEN</td><td>Kanal zum Empfangen von Nachrichten. Im Normalbetrieb: normaler digitaler Pin.</td></tr>
+    <tr><td>1</td><td>D1 / TX</td><td>Digital Eingang/Ausgang, Daten SENDEN</td><td>Kanal zum Senden von Nachrichten (z.B. an Seriellen Monitor). Pins 0+1 möglichst freilassen!</td></tr>
+    <tr><td>2</td><td>D2</td><td>Digital Eingang/Ausgang, Interrupt</td><td>Normaler Digital-Pin. Kann auch sofort auf Ereignisse reagieren (Interrupt-fähig).</td></tr>
+    <tr><td>3</td><td>D3 ~</td><td>Digital Eingang/Ausgang, <strong>PWM</strong>, Interrupt</td><td>Kann LED dimmen oder Motorgeschwindigkeit regeln (~=PWM). Auch Interrupt-fähig.</td></tr>
+    <tr><td>4</td><td>D4</td><td>Digital Eingang/Ausgang</td><td>Einfacher AN/AUS-Pin. LED an, LED aus. Taster lesen usw.</td></tr>
+    <tr><td>5</td><td>D5 ~</td><td>Digital Eingang/Ausgang, <strong>PWM</strong></td><td>Wie D4, aber zusätzlich dimmfähig (~=PWM).</td></tr>
+    <tr><td>6</td><td>D6 ~</td><td>Digital Eingang/Ausgang, <strong>PWM</strong></td><td>Wie D5 — dimmfähig.</td></tr>
+    <tr><td>7</td><td>D7</td><td>Digital Eingang/Ausgang</td><td>Einfacher AN/AUS-Pin.</td></tr>
+    <tr><td>8</td><td>D8</td><td>Digital Eingang/Ausgang</td><td>Einfacher AN/AUS-Pin.</td></tr>
+    <tr><td>9</td><td>D9 ~</td><td>Digital Eingang/Ausgang, <strong>PWM</strong></td><td>Dimmfähig — gut für Servo-Motoren oder RGB-LEDs.</td></tr>
+    <tr><td>10</td><td>D10 ~</td><td>Digital Eingang/Ausgang, <strong>PWM</strong></td><td>Dimmfähig. Auch für Kommunikation mit SD-Karten nutzbar.</td></tr>
+    <tr><td>11</td><td>D11 ~</td><td>Digital Eingang/Ausgang, <strong>PWM</strong></td><td>Dimmfähig. Für fortgeschrittene Kommunikation (SPI) nutzbar.</td></tr>
+    <tr><td>12</td><td>D12</td><td>Digital Eingang/Ausgang</td><td>Einfacher AN/AUS-Pin. Auch für SPI-Kommunikation nutzbar.</td></tr>
+    <tr><td>13</td><td>D13 (LED L)</td><td>Digital Eingang/Ausgang, <strong>eingebaute LED</strong></td><td>Besonderer Pin: Hat eine eingebaute LED direkt am Board (LED "L"). Perfekt für erste Tests ohne extra Bauteile!</td></tr>
+    <tr style="background:#fff8e1;"><td>A0–A5</td><td>Analog 0–5</td><td>Analoge Eingänge (auch digital nutzbar)</td><td>Messen stufenlose Werte zwischen 0V und 5V → Werte 0 bis 1023. Für Sensoren (Temperatur, Helligkeit, Poti...)</td></tr>
+    <tr style="background:#e8f5e9;"><td>5V</td><td>5V (VCC)</td><td>Strom-Ausgang 5 Volt</td><td>Versorgt Komponenten mit Strom. Nie mehr als 500mA insgesamt abnehmen!</td></tr>
+    <tr style="background:#e8f5e9;"><td>3.3V</td><td>3V3</td><td>Strom-Ausgang 3,3 Volt</td><td>Für Komponenten, die nur 3,3V vertragen (ESP-Module, manche Sensoren). Max. 150mA.</td></tr>
+    <tr style="background:#fce4ec;"><td>GND</td><td>GND (Masse)</td><td>Minus / Erdung (2× vorhanden)</td><td>Der Rückweg des Stroms. MUSS mit jeder Komponente verbunden sein — sonst funktioniert gar nichts! Immer 0V.</td></tr>
+    <tr style="background:#e8f5e9;"><td>VIN</td><td>VIN</td><td>Strom-Eingang extern</td><td>Hier 7–12V Batterie anschließen wenn kein USB. Interner Regler wandelt auf 5V um.</td></tr>
+    <tr><td>RST</td><td>RESET</td><td>Arduino neu starten</td><td>Wenn dieser Pin kurz auf 0V gezogen wird, startet der Arduino neu — wie ein Neustart-Knopf.</td></tr>
+    <tr><td>AREF</td><td>AREF</td><td>Externe Referenzspannung</td><td>Fortgeschritten: Setzt den Maximalwert für analoge Messungen auf eine eigene Spannung. Für Einsteiger nicht relevant.</td></tr>
   </table>
 
-  <div class="note">PWM-Pins sind mit einer Tilde (~) markiert: 3, 5, 6, 9, 10, 11. Nur diese Pins können analogWrite() für stufenlose Helligkeitssteuerung oder Motorgeschwindigkeit!</div>
+  <div class="note"><strong>Merkhilfe — die 6 dimmfähigen Pins:</strong> 3, 5, 6, 9, 10, 11 — erkennbar am ~ Zeichen. Nur diese können <code>analogWrite()</code> für stufenlose Steuerung. Für alle anderen Pins nur <code>digitalWrite()</code> mit HIGH oder LOW.</div>
 
-  <h3>Technische Daten Arduino Uno R3</h3>
+  <h3>Technische Daten des Arduino Uno R3 — mit Erklärungen</h3>
   <table>
-    <tr><th>Eigenschaft</th><th>Wert</th></tr>
-    <tr><td>Prozessor</td><td>ATmega328P (Microchip)</td></tr>
-    <tr><td>Taktfrequenz</td><td>16 MHz</td></tr>
-    <tr><td>Betriebsspannung</td><td>5V</td></tr>
-    <tr><td>Flash-Speicher (Programm)</td><td>32 KB (0.5 KB für Bootloader belegt)</td></tr>
-    <tr><td>SRAM (Arbeitsspeicher)</td><td>2 KB</td></tr>
-    <tr><td>EEPROM (Dauerspeicher)</td><td>1 KB</td></tr>
-    <tr><td>Digitale I/O-Pins</td><td>14 (davon 6× PWM)</td></tr>
-    <tr><td>Analoge Eingänge</td><td>6 (10-bit ADC, Werte 0–1023)</td></tr>
-    <tr><td>Max. Strom pro Pin</td><td>40 mA</td></tr>
-    <tr><td>Max. Gesamtstrom (5V/GND)</td><td>500 mA</td></tr>
-    <tr><td>PWM-Frequenz</td><td>490 Hz (Pin 5,6: 980 Hz)</td></tr>
-    <tr><td>Versorgung USB</td><td>5V über USB-B Anschluss</td></tr>
-    <tr><td>Versorgung extern</td><td>7–12V über VIN oder Hohlstecker</td></tr>
+    <tr><th>Eigenschaft</th><th>Wert</th><th>Was bedeutet das?</th></tr>
+    <tr><td>Prozessor (CPU)</td><td>ATmega328P</td><td>Das "Gehirn" des Arduino — führt deinen Code aus</td></tr>
+    <tr><td>Taktfrequenz</td><td>16 MHz</td><td>Der Prozessor macht 16 Millionen Schritte pro Sekunde — sehr schnell für unsere einfachen Aufgaben</td></tr>
+    <tr><td>Betriebsspannung</td><td>5V</td><td>Der Arduino arbeitet intern mit 5 Volt</td></tr>
+    <tr><td>Flash-Speicher</td><td>32 KB</td><td>Hier wird dein Programm dauerhaft gespeichert — bleibt auch ohne Strom erhalten (wie ein USB-Stick)</td></tr>
+    <tr><td>SRAM (RAM)</td><td>2 KB</td><td>Arbeitsspeicher für laufende Berechnungen — geht verloren wenn Strom weg ist (wie PC-RAM)</td></tr>
+    <tr><td>EEPROM</td><td>1 KB</td><td>Kleiner Dauerspeicher für Einstellungen — bleibt ohne Strom erhalten. Schreibst du selbst per Code.</td></tr>
+    <tr><td>Digitale I/O-Pins</td><td>14 (davon 6 mit PWM)</td><td>14 AN/AUS-Pins, 6 davon können auch dimmen</td></tr>
+    <tr><td>Analoge Eingänge</td><td>6 (Werte 0–1023)</td><td>6 Pins die Spannungen stufenlos messen können</td></tr>
+    <tr><td>Maximaler Strom pro Pin</td><td>40 mA</td><td>Nie mehr als 40 Milliampere an einem Pin abnehmen! Eine normale LED braucht ~20mA.</td></tr>
+    <tr><td>USB-Anschluss</td><td>USB-B (quadratisch)</td><td>Zum Programmieren und Stromversorgung vom Computer</td></tr>
   </table>
 
   <h3 id="kap4-weitere">Weitere Arduino-Boards in Tinkercad</h3>
+  <p>Es gibt nicht nur den Uno — hier sind weitere Boards, die du in Tinkercad findest:</p>
   <div class="component-card">
     <h4>Arduino Nano</h4>
-    <p>Kompakter als der Uno — gleiche Leistung (ATmega328P), deutlich kleinere Baugröße. Ideal für Projekte mit wenig Platz. 8 analoge Eingänge (A0–A7). In Tinkercad über Suche "Arduino Nano" verfügbar.</p>
+    <p><strong>Kleiner, aber gleich leistungsstark.</strong> Der Nano verwendet denselben Prozessor wie der Uno (ATmega328P), passt aber auf ein Steckbrett (Breadboard). Ideal wenn du wenig Platz hast. Hat 8 analoge Eingänge (A0–A7) statt 6. In Tinkercad über die Suche "Arduino Nano" verfügbar.</p>
   </div>
   <div class="component-card">
     <h4>Arduino Mega 2560</h4>
-    <p>Großes Board mit ATmega2560: 54 digitale I/O-Pins (15× PWM!), 16 analoge Eingänge, 4 serielle Ports, 256 KB Flash. Für komplexe Projekte mit vielen Komponenten. In Tinkercad verfügbar.</p>
+    <p><strong>Für große Projekte mit vielen Bauteilen.</strong> Der Mega hat 54 digitale Pins (davon 15 PWM-fähig!), 16 analoge Eingänge und 4 serielle Ports — das Dreifache vom Uno. Für komplexe Projekte wie Roboter oder Automatisierungen. In Tinkercad verfügbar.</p>
   </div>
   <div class="component-card">
     <h4>micro:bit</h4>
-    <p>Britischer Mikrocontroller mit eingebautem 5×5 LED-Display, Beschleunigungssensor, Kompass und Bluetooth. Besonders einsteigerfreundlich. In Tinkercad simulierbar — eigene Blocke-Programmierung.</p>
+    <p><strong>Für absolute Einsteiger und Schulen konzipiert.</strong> Hat ein eingebautes 5×5 LED-Display, zwei Taster, Bluetooth, Beschleunigungssensor (erkennt Neigung) und Kompass — alles direkt auf dem Board ohne extra Bauteile. Programmierung per Drag-and-Drop in MakeCode oder Python. In Tinkercad simulierbar.</p>
   </div>
 </div>
 
@@ -616,7 +738,22 @@ nav.sidebar ul li a.active { background: var(--accent); border-left-color: var(-
   <div class="chapter-badge">Kapitel 5</div>
   <h2>Arduino Programmierung</h2>
 
-  <p>Arduino wird in <strong>C++</strong> programmiert — genauer in einem vereinfachten C++, das speziell für Mikrocontroller entwickelt wurde. Tinkercad bietet zwei Programmiermodi: einen <strong>blockbasierten Editor</strong> für Einsteiger und einen <strong>Text-Editor</strong> für C++.</p>
+  <p>Jetzt kommt das Herzstück: Wir bringen dem Arduino bei, was er tun soll — durch <strong>Programmierung</strong>. Klingt schwierig? Keine Sorge. Du musst kein Informatikstudium haben. Wir erklären alles Schritt für Schritt.</p>
+
+  <h3>Was ist Programmierung überhaupt?</h3>
+  <p>Programmierung bedeutet: Du schreibst eine Liste von Anweisungen (den <strong>Code</strong>), die der Arduino der Reihe nach ausführt. Stell dir vor, du schreibst einer Küchenhilfe eine genaue Anleitung auf einem Zettel: "1. Ofen auf 180°C vorheizen. 2. Teig formen. 3. 30 Minuten backen." — Das ist im Prinzip Code.</p>
+
+  <p>Arduino wird in der Programmiersprache <strong>C++</strong> programmiert — genauer in einer vereinfachten Version, die speziell für Mikrocontroller gemacht wurde. C++ ist eine der meistverbreiteten Programmiersprachen der Welt. Du musst nicht alles über C++ wissen — nur die Teile, die für Arduino relevant sind.</p>
+
+  <div class="component-card" style="border-left:4px solid #3182ce;">
+    <h4>Was ist ein "Sketch"?</h4>
+    <p>In der Arduino-Welt nennt man ein Programm <strong>"Sketch"</strong> (englisch für "Skizze"). Das ist einfach ein anderes Wort für dein Programm. Jedes Projekt hat seinen eigenen Sketch. In Tinkercad klickst du auf den "Code"-Button um den Sketch zu öffnen und zu schreiben.</p>
+  </div>
+
+  <div class="component-card" style="border-left:4px solid #38a169;">
+    <h4>Was ist eine Bibliothek (Library)?</h4>
+    <p>Stell dir vor, jemand hat bereits fertigen Code für ein LCD-Display geschrieben — du musst das Rad nicht neu erfinden. Diese vorgeschriebenen Code-Sammlungen heißen <strong>Bibliotheken</strong> (englisch: Libraries). Mit dem Befehl <code>#include &lt;Name.h&gt;</code> bindest du eine Bibliothek in deinen Sketch ein. Danach kannst du alle Funktionen dieser Bibliothek benutzen. Beispiel: <code>#include &lt;Servo.h&gt;</code> gibt dir sofort Zugriff auf alle Servo-Steuerbefehle.</p>
+  </div>
 
   <h3 id="kap5-editor">Der Code-Editor in Tinkercad</h3>
 
@@ -643,19 +780,32 @@ nav.sidebar ul li a.active { background: var(--accent); border-left-color: var(-
   <img src="tinkercad/Screenshot 2026-06-24 110157.png" alt="Simulation mit Debugger" class="screenshot">
   <p class="screenshot-caption">Während der Simulation: "Stop Simulation"-Button und der eingebaute Debugger-Hinweis</p>
 
+  <div class="component-card" style="border-left:4px solid #805ad5;">
+    <h4>Was ist ein Debugger?</h4>
+    <p>Wenn dein Programm nicht das tut was es soll, musst du den Fehler finden — das nennt man <strong>Debuggen</strong> (englisch: "bug" = Käfer, Fehler; "debug" = Fehler entfernen). Der Debugger ist ein Werkzeug das dir dabei hilft. Es hält das Programm an einer bestimmten Stelle an, damit du genau hinschauen kannst was der Arduino in diesem Moment "denkt".</p>
+    <p style="margin-top:6px;">Ein <strong>Breakpoint</strong> (Haltepunkt) ist eine markierte Zeile in deinem Code. Wenn die Simulation diesen Punkt erreicht, hält sie an — damit du in Ruhe prüfen kannst was gerade passiert.</p>
+  </div>
+
   <p>Der <strong>Debugger</strong> in Tinkercad ermöglicht:</p>
   <ul>
-    <li><strong>Breakpoints:</strong> Durch Klick auf Zeilennummern — Programm hält dort an</li>
-    <li><strong>Variablenwerte:</strong> Hover über Variablen während Pause zeigt aktuellen Wert</li>
-    <li><strong>Schrittweise:</strong> Buttons zum Weiterspringen Zeile für Zeile</li>
-    <li><strong>Serial Monitor:</strong> Unten erscheint das Serial-Fenster für <code>Serial.println()</code> Ausgaben</li>
+    <li><strong>Breakpoints (Haltepunkte):</strong> Klick auf eine Zeilennummer → Programm stoppt genau dort</li>
+    <li><strong>Variablenwerte lesen:</strong> Mit der Maus über eine Variable fahren zeigt ihren aktuellen Wert</li>
+    <li><strong>Schrittweise vorwärts:</strong> Zeile für Zeile durch den Code gehen</li>
+    <li><strong>Serial Monitor:</strong> Das Textausgabe-Fenster — zeigt alles was du mit <code>Serial.println()</code> sendest</li>
   </ul>
 
   <div class="tip">Tipp: Während der Simulation können Sie Bauteilwerte ändern! Potentiometer drehen, Temperatursensor-Wert setzen, Taster drücken — alles interaktiv.</div>
 
-  <h3 id="kap5-grundlagen">C++ Grundlagen für Arduino</h3>
+  <h3 id="kap5-grundlagen">C++ Grundlagen für Arduino — mit einfachen Erklärungen</h3>
 
-  <h4>Die zwei Pflichtfunktionen jedes Sketches</h4>
+  <div class="component-card" style="border-left:4px solid #d69e2e;">
+    <h4>Was ist eine Funktion?</h4>
+    <p>Eine <strong>Funktion</strong> ist ein benannter Block von Code — wie ein Rezept mit einem Namen. Du gibst dem Rezept einen Namen (z.B. "kuchenBacken"), und wenn du später "kuchenBacken" schreibst, werden alle Schritte darin ausgeführt. In Arduino schreibst du <code>delay(1000)</code> und sofort wartet der Arduino 1000 Millisekunden — du musst nicht selber schreiben wie das Warten funktioniert, das steckt schon in der Funktion <code>delay()</code>.</p>
+    <p style="margin-top:6px;"><code>void</code> vor dem Namen bedeutet: Diese Funktion gibt keinen Wert zurück — sie macht einfach etwas, gibt aber keine Antwort.</p>
+  </div>
+
+  <h4>Die zwei Pflichtfunktionen jedes Sketches — und warum es sie gibt</h4>
+  <p>Jeder Arduino-Sketch muss genau diese zwei Funktionen haben — nicht mehr, nicht weniger. Arduino erwartet sie und ruft sie automatisch auf:</p>
 
   <pre><code><span class="cm">// setup() läuft EINMAL beim Start (oder nach Reset)</span>
 <span class="tp">void</span> <span class="fn">setup</span>() {
@@ -667,9 +817,24 @@ nav.sidebar ul li a.active { background: var(--accent); border-left-color: var(-
   <span class="cm">// Hier: der eigentliche Programmcode — Sensoren lesen, Aktoren steuern</span>
 }</code></pre>
 
-  <h4>Variablen und Datentypen</h4>
+  <div class="info"><strong>Merkhilfe setup() und loop():</strong><br>
+  Denke an einen Wecker: <code>setup()</code> = du stellst den Wecker einmal ein. <code>loop()</code> = der Wecker klingelt jeden Morgen. Setup läuft einmal, loop läuft für immer.</div>
+
+  <h4>Variablen und Datentypen — Was ist das?</h4>
+
+  <div class="component-card" style="border-left:4px solid #38a169;">
+    <h4>Was ist eine Variable?</h4>
+    <p>Eine <strong>Variable</strong> ist ein Speicherplatz für einen Wert — wie eine beschriftete Schublade. Du gibst der Schublade einen Namen (<code>temperatur</code>) und legst einen Wert hinein (<code>23</code>). Später kannst du die Schublade öffnen und den Wert lesen oder ändern. Ohne Variablen müsste man jeden Wert immer neu tippen — mit Variablen kann man Werte speichern und wiederverwenden.</p>
+    <p style="margin-top:6px;">Beispiel: <code>int lampenPin = 13;</code> — das heißt: "Erstelle eine Schublade namens 'lampenPin' und lege die Zahl 13 hinein." Ab jetzt kann ich im ganzen Code <code>lampenPin</code> schreiben statt immer <code>13</code>.</p>
+  </div>
+
+  <div class="component-card" style="border-left:4px solid #e53e3e;">
+    <h4>Was ist ein Datentyp?</h4>
+    <p>Ein <strong>Datentyp</strong> sagt dem Arduino, welche Art von Wert in der Schublade (Variable) liegt. Warum? Weil der Arduino unterschiedliche Speichermengen braucht für: eine ganze Zahl (z.B. 42), eine Dezimalzahl (z.B. 3.14), einen Text ("Hallo") oder nur Ja/Nein (true/false). Der Typ kommt immer VOR dem Namen der Variable.</p>
+  </div>
+
   <table>
-    <tr><th>Typ</th><th>Beispiel</th><th>Bereich / Erklärung</th></tr>
+    <tr><th>Typ</th><th>Beispiel</th><th>Einfach erklärt</th></tr>
     <tr><td><code>int</code></td><td><code>int zahl = 42;</code></td><td>Ganze Zahlen: −32.768 bis 32.767</td></tr>
     <tr><td><code>long</code></td><td><code>long gross = 100000L;</code></td><td>Große ganze Zahlen: ±2 Milliarden</td></tr>
     <tr><td><code>unsigned long</code></td><td><code>unsigned long t = millis();</code></td><td>Positive Zahlen bis 4 Milliarden (für millis())</td></tr>
@@ -826,15 +991,41 @@ nav.sidebar ul li a.active { background: var(--accent); border-left-color: var(-
   <div class="chapter-badge">Kapitel 6</div>
   <h2>Alle Komponenten in Tinkercad Circuits</h2>
 
+  <p>In diesem Kapitel lernst du alle Bauteile kennen, die du in Tinkercad verwenden kannst. Bevor wir starten, klären wir die wichtigsten Grundbegriffe der Elektronik — die du in fast jeder Beschreibung wiederfindest:</p>
+
+  <div class="component-card" style="border-left:4px solid #3182ce;">
+    <h4>Grundbegriffe Elektronik: Spannung, Strom, Widerstand</h4>
+    <p>Stell dir Wasser in einem Rohr vor:</p>
+    <ul>
+      <li><strong>Spannung (Volt, V):</strong> Der "Wasserdruck" — wie stark das Wasser drückt. Der Arduino arbeitet mit 5V. Eine 9V-Batterie hat mehr Druck. Ohne Spannung fließt kein Strom.</li>
+      <li><strong>Strom (Ampere, A / Milliampere, mA):</strong> Die "Wassermenge pro Sekunde" — wie viel Strom fließt. 1000 mA = 1 A. Eine LED braucht ~20 mA. Ein Motor braucht viel mehr.</li>
+      <li><strong>Widerstand (Ohm, Ω):</strong> Die "Verengung im Rohr" — bremst den Strom. Je mehr Widerstand, desto weniger Strom fließt. Formel: <strong>U = I × R</strong> (Spannung = Strom × Widerstand)</li>
+      <li><strong>mV (Millivolt):</strong> 1/1000 Volt. Sensoren geben oft sehr kleine Spannungen aus — z.B. 750 mV = 0,75 V.</li>
+    </ul>
+  </div>
+
+  <div class="component-card" style="border-left:4px solid #d69e2e;">
+    <h4>Was ist ein Spannungsteiler?</h4>
+    <p>Ein Spannungsteiler ist eine einfache Schaltung mit zwei Widerständen in Reihe. Warum braucht man das? Manche Sensoren (wie der LDR) ändern nur ihren Widerstand — sie liefern keine Spannung. Mit einem Spannungsteiler wandeln wir die Widerstandsänderung in eine messbare Spannungsänderung um:</p>
+    <p style="margin-top:6px;"><code>5V → Sensor/LDR → Messpunkt (zu A0) → 10kΩ-Widerstand → GND</code></p>
+    <p style="margin-top:6px;">Am Messpunkt sehen wir dann eine Spannung, die sich je nach Sensorwert ändert — und genau das liest <code>analogRead(A0)</code>.</p>
+  </div>
+
+  <div class="component-card" style="border-left:4px solid #38a169;">
+    <h4>Was ist ein Sensor?</h4>
+    <p>Ein <strong>Sensor</strong> ist ein Bauteil das die physische Welt misst und in ein elektrisches Signal umwandelt — das der Arduino dann lesen kann. Genauso wie deine Sinne (Augen, Ohren, Haut) der Welt Signale geben, sind Sensoren die "Sinne" des Arduino.</p>
+    <p style="margin-top:6px;">Beispiele: Ein Temperatursensor misst Wärme → liefert Spannung. Ein Ultraschallsensor misst Entfernung → liefert Zeitdauer. Ein Lichtresistor misst Helligkeit → ändert seinen Widerstand.</p>
+  </div>
+
   <h3 id="kap6-sensoren">6.1 Sensoren</h3>
 
   <h4>Temperatursensoren</h4>
   <div class="component-card">
     <h4>TMP36 – Analoger Temperatursensor</h4>
-    <p>Der TMP36 ist der häufigste Temperatursensor in Tinkercad. Er gibt eine Spannung proportional zur Temperatur aus.</p>
+    <p>Der TMP36 ist der häufigste Temperatursensor in Tinkercad. Er gibt eine Spannung proportional zur Temperatur aus — je wärmer, desto mehr Volt am Signal-Pin.</p>
     <ul>
-      <li><strong>Pins (Flachseite vorne):</strong> Links = VCC (5V), Mitte = Signal (zu A0), Rechts = GND</li>
-      <li><strong>Ausgabe:</strong> 10 mV pro °C, Offset 500 mV. Bei 25°C → 750 mV.</li>
+      <li><strong>Pins (Flachseite vorne):</strong> Links = VCC (5V — Stromversorgung), Mitte = Signal (zu A0 — hier liest du), Rechts = GND (Minuspol)</li>
+      <li><strong>Ausgabe:</strong> 10 mV pro °C, plus 500 mV Offset. Bei 25°C → 750 mV. Bei 0°C → 500 mV. Bei 100°C → 1500 mV.</li>
       <li><strong>Messbereich:</strong> −40°C bis +125°C</li>
       <li><strong>Formel:</strong> <code>temperatur = (analogRead(A0) * 5.0 / 1023.0 - 0.5) * 100</code></li>
       <li><strong>Anwendung:</strong> Thermometer, Thermostat, Temperaturalarm, Kühlüberwachung</li>
@@ -929,7 +1120,7 @@ nav.sidebar ul li a.active { background: var(--accent); border-left-color: var(-
     <h4>DHT11 – Temperatur- &amp; Luftfeuchtigkeitssensor</h4>
     <div class="screenshot-grid">
       <div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/DHT11.png" alt="DHT11 Sensor" style="width:100%;border-radius:8px;border:2px solid var(--border);">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/DHT11.png" alt="DHT11 Sensor">
         <p class="cap">DHT11 – günstiger Einstiegssensor (Wikimedia Commons)</p>
       </div>
       <div style="display:flex;flex-direction:column;justify-content:center;">
@@ -1146,11 +1337,11 @@ decode_results signal;
     <h4>Rotary Encoder (KY-040) – Drehgeber</h4>
     <div class="screenshot-grid">
       <div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Rotary_encoder.jpg" alt="Rotary Encoder" style="width:100%;border-radius:8px;border:2px solid var(--border);">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Rotary_encoder.jpg" alt="Rotary Encoder">
         <p class="cap">Rotary Encoder Modul (Wikimedia Commons, CC BY 4.0)</p>
       </div>
       <div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Incremental_directional_encoder.gif" alt="Encoder Animation" style="width:100%;border-radius:8px;border:2px solid var(--border);">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Incremental_directional_encoder.gif" alt="Encoder Animation">
         <p class="cap">Animation: Encoder gibt Pulse aus je nach Drehrichtung (Wikimedia Commons)</p>
       </div>
     </div>
@@ -1501,7 +1692,7 @@ MFRC522 rfid(<span class="num">10</span>, <span class="num">9</span>);  <span cl
 
   <div class="component-card">
     <h4>PIR Sensor — Foto &amp; Details</h4>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/PIR_Motion_Sensor-Sensinova_%28SN-PR11%29.png" alt="PIR Sensor" style="max-width:280px;width:100%;border-radius:8px;border:2px solid var(--border);background:white;margin:8px 0;">
+    <img src="https://editor.tinkercad.com/components/thumbnails/sensorPassiveInfrared.png" alt="PIR Sensor" style="max-width:280px;width:100%;border-radius:8px;border:2px solid var(--border);background:white;margin:8px 0;">
     <p class="screenshot-caption" style="margin-top:4px;">PIR-Bewegungssensor mit weißer Fresnel-Linse die den Erkennungsbereich fokussiert (Wikimedia Commons)</p>
     <p>Die weiße Kunststoff-Kuppel ist eine <strong>Fresnel-Linse</strong> — sie bündelt die Infrarotstrahlung von einem breiten Winkelbereich (~120°) auf den empfindlichen Pyroelektrischen Sensor darunter.</p>
   </div>
@@ -1593,6 +1784,12 @@ MFRC522 rfid(<span class="num">10</span>, <span class="num">9</span>);  <span cl
 
   <h3 id="kap6-ics">6.4 Integrierte Schaltkreise (ICs)</h3>
 
+  <div class="component-card" style="border-left:4px solid #805ad5;">
+    <h4>Was ist ein IC (Integrierter Schaltkreis)?</h4>
+    <p>Ein <strong>IC</strong> (Integrierter Schaltkreis, englisch: Integrated Circuit) ist eine ganze Schaltung — mit Transistoren, Widerständen und Kondensatoren — die auf einen winzigen Siliziumchip gepackt wurde. Ein IC sieht aus wie ein schwarzes Plastikgehäuse mit vielen Metallbeinen (Pins). Statt viele einzelne Bauteile zusammenzubauen, benutzt du einfach den einen fertigen IC-Chip.</p>
+    <p style="margin-top:6px;">Beispiel: Der L293D-IC enthält 4 Transistoren, 8 Dioden und Schutzschaltungen — alles in einem 16-Pin-Chip. Ohne IC müsstest du das alles manuell aufbauen.</p>
+  </div>
+
   <div class="component-card">
     <h4>555-Timer</h4>
     <p>Einer der meistverkauften Chips der Welt (~1 Milliarde Stück/Jahr). Extrem vielseitig für Zeit- und Frequenzanwendungen.</p>
@@ -1634,8 +1831,10 @@ MFRC522 rfid(<span class="num">10</span>, <span class="num">9</span>);  <span cl
   <div class="chapter-badge">Kapitel 7</div>
   <h2>Schaltkreis-Theorie</h2>
 
-  <h3 id="kap7-ohm">Das Ohmsche Gesetz</h3>
-  <p>Das <strong>Ohmsche Gesetz</strong> ist die wichtigste Formel der Elektronik. Formuliert von Georg Simon Ohm (1827). Es beschreibt den Zusammenhang zwischen Spannung (U), Strom (I) und Widerstand (R):</p>
+  <p>In diesem Kapitel lernst du die Theorie hinter Schaltkreisen. Das klingt trocken — aber ohne diese Grundlagen kann man Schaltungen nicht verstehen oder Fehler beheben. Alle Formeln werden mit Alltagsbeispielen erklärt.</p>
+
+  <h3 id="kap7-ohm">Das Ohmsche Gesetz — die wichtigste Formel der Elektronik</h3>
+  <p>Das <strong>Ohmsche Gesetz</strong> wurde 1827 von dem deutschen Physiker Georg Simon Ohm entdeckt. Es beschreibt, wie Spannung, Strom und Widerstand zusammenhängen:</p>
 
   <div style="text-align:center; background: var(--dark-blue); color: white; padding: 24px; border-radius: 10px; font-size: 1.4rem; font-weight: 700; margin: 16px 0; letter-spacing: 1px;">
     U = R × I &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; I = U / R &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; R = U / I
@@ -1649,8 +1848,9 @@ MFRC522 rfid(<span class="num">10</span>, <span class="num">9</span>);  <span cl
     <tr><td>Leistung</td><td>Watt (W)</td><td>P</td><td>P = U × I — verbrauchte elektrische Leistung</td></tr>
   </table>
 
-  <h4>LED-Vorwiderstand berechnen</h4>
-  <p>Gegeben: Arduino 5V, rote LED (Durchlassspannung U_LED = 2V, empfohlener Strom I = 20 mA = 0.02 A)</p>
+  <h4>LED-Vorwiderstand berechnen — Warum braucht eine LED einen Widerstand?</h4>
+  <p>Eine LED (Leuchtdiode) ist kein normaler Widerstand — sie hat eine feste <strong>Durchlassspannung</strong> (englisch: forward voltage). Das ist die Spannung die sie "verbraucht" wenn sie leuchtet. Rote LEDs: ~2V. Blaue/weiße LEDs: ~3,2V. Den Rest der Spannung (5V minus LED-Spannung) muss ein Vorwiderstand "vernichten" — sonst fließt zu viel Strom und die LED verbrennt.</p>
+  <p style="margin-top:6px;">Gegeben: Arduino 5V, rote LED (Durchlassspannung U_LED = 2V, empfohlener Strom I = 20 mA = 0,02 A)</p>
   <pre><code>R = (U_Versorgung - U_LED) / I_LED
 R = (5V - 2V) / 0.02A
 R = 3V / 0.02A = 150 Ω → nächster Standardwert: 220 Ω
@@ -1658,6 +1858,11 @@ R = 3V / 0.02A = 150 Ω → nächster Standardwert: 220 Ω
 Verlustleistung: P = (U_Versorgung - U_LED) × I = 3V × 0.02A = 60 mW</code></pre>
 
   <h3 id="kap7-schaltungen">Reihen- und Parallelschaltung</h3>
+  <div class="component-card" style="border-left:4px solid #3182ce;">
+    <h4>Was ist Reihen- vs. Parallelschaltung?</h4>
+    <p><strong>Reihenschaltung:</strong> Bauteile werden hintereinander verbunden — wie Dominosteine in einer Reihe. Der Strom hat nur einen Weg. Fällt eines aus, fällt alles aus. Ältere Weihnachtsbaumlichter waren oft so geschaltet — eine Birne kaputt, alle aus.</p>
+    <p style="margin-top:6px;"><strong>Parallelschaltung:</strong> Bauteile werden nebeneinander verbunden — jedes hat seinen eigenen Weg vom Plus- zum Minuspol. Fällt eines aus, laufen die anderen weiter. Haushalts-Steckdosen sind parallel geschaltet — du kannst eine Lampe ausstecken ohne dass der Rest ausgeht.</p>
+  </div>
   <table>
     <tr><th>Eigenschaft</th><th>Reihenschaltung</th><th>Parallelschaltung</th></tr>
     <tr><td>Strom</td><td>Überall gleich (I₁ = I₂ = I)</td><td>Teilt sich auf (I = I₁ + I₂)</td></tr>
@@ -1684,10 +1889,16 @@ Verlustleistung: P = (U_Versorgung - U_LED) × I = 3V × 0.02A = 60 mW</code></p
     <tr><td>255</td><td>100%</td><td>5V</td><td>Volle Helligkeit</td></tr>
   </table>
 
-  <h3>I2C-Bus</h3>
+  <h3>I2C-Bus — Viele Geräte mit nur 2 Drähten</h3>
+
+  <div class="component-card" style="border-left:4px solid #805ad5;">
+    <h4>Was ist ein "Bus"?</h4>
+    <p>Ein <strong>Bus</strong> ist in der Elektronik eine gemeinsame Leitung, über die mehrere Geräte kommunizieren können — wie eine Stadtbus-Linie, die an mehreren Haltestellen hält. Statt jedes Gerät einzeln zu verkabeln, teilen sich alle Geräte dieselben Drähte und bekommen jeweils eine eigene <strong>Adresse</strong> (wie Hausnummern). Der Arduino ruft jedes Gerät bei seiner Adresse auf.</p>
+  </div>
+
   <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/I2C.svg" alt="I2C Bus Diagramm" style="max-width:500px;width:100%;background:white;border-radius:8px;border:2px solid var(--border);padding:8px;display:block;margin:10px 0;">
   <p class="screenshot-caption">I2C-Bus: 1 Master (Arduino) steuert mehrere Slaves über nur 2 Leitungen (SDA + SCL) mit je eigener Adresse (Wikimedia Commons)</p>
-  <p>I2C (Inter-Integrated Circuit, "I-Quadrat-C") ermöglicht es, viele Geräte mit nur 2 Drähten zu verbinden:</p>
+  <p><strong>I2C</strong> (ausgesprochen "I-Quadrat-C", steht für "Inter-Integrated Circuit") ist ein Kommunikationsprotokoll das es erlaubt, viele Geräte mit nur 2 Drähten zu verbinden — genial wenn man Platz sparen will:</p>
   <ul>
     <li><strong>SDA (Serial Data):</strong> Daten-Leitung → Arduino A4 (Uno) / Pin 20 (Mega)</li>
     <li><strong>SCL (Serial Clock):</strong> Takt-Leitung → Arduino A5 (Uno) / Pin 21 (Mega)</li>
@@ -1696,8 +1907,9 @@ Verlustleistung: P = (U_Versorgung - U_LED) × I = 3V × 0.02A = 60 mW</code></p
     <li><strong>Pull-up Widerstände</strong> (4.7 kΩ) auf SDA und SCL zu 5V nötig</li>
   </ul>
 
-  <h3>SPI-Bus</h3>
-  <p>SPI (Serial Peripheral Interface) ist schneller als I2C aber braucht mehr Drähte:</p>
+  <h3>SPI-Bus — Schneller aber mehr Drähte</h3>
+  <p><strong>SPI</strong> (Serial Peripheral Interface) ist ein anderes Kommunikationsprotokoll — schneller als I2C, aber braucht 4 Drähte statt 2. Wird für schnelle Übertragungen benutzt (z.B. SD-Karten, TFT-Displays).</p>
+  <p>Begriffserklärung: <strong>Master</strong> = derjenige, der das Gespräch steuert (hier: der Arduino). <strong>Slave</strong> = das Gerät das antwortet (LCD, Sensor, etc.).</p>
   <ul>
     <li><strong>MOSI:</strong> Master Out Slave In → Daten vom Arduino zum Gerät</li>
     <li><strong>MISO:</strong> Master In Slave Out → Daten vom Gerät zum Arduino</li>
@@ -1705,8 +1917,13 @@ Verlustleistung: P = (U_Versorgung - U_LED) × I = 3V × 0.02A = 60 mW</code></p
     <li><strong>SS/CS:</strong> Chip Select — wählt das angesprochene Gerät aus</li>
   </ul>
 
-  <h3>Pull-up und Pull-down Widerstände</h3>
-  <p>Ohne Pull-up/Pull-down "schwimmt" ein nicht verbundener Eingang zwischen HIGH und LOW — gibt zufällige Werte. Ein Widerstand "zieht" den Eingang auf einen definierten Pegel:</p>
+  <h3>Pull-up und Pull-down Widerstände — Was passiert ohne sie?</h3>
+  <div class="component-card" style="border-left:4px solid #e53e3e;">
+    <h4>Das Problem: "Floating" (schwebender Eingang)</h4>
+    <p>Stell dir vor, du fragst jemanden "Bist du da?" und bekommst keine Antwort — du weißt nicht ob sie da sind oder nicht. Genauso geht es dem Arduino wenn ein Eingangs-Pin nicht angeschlossen ist: Er "hört" zufällige Signale aus der Luft (Elektromagnetische Störungen) und gibt sinnlose Werte zurück. Das nennt man einen <strong>floating input</strong> (schwebender Eingang).</p>
+    <p style="margin-top:6px;">Die Lösung: Ein Pull-up oder Pull-down Widerstand "zieht" den Pin auf einen eindeutigen Wert (HIGH oder LOW) wenn nichts angeschlossen ist.</p>
+  </div>
+  <p>Ein Widerstand "zieht" den Eingang auf einen definierten Pegel:</p>
   <table>
     <tr><th>Variante</th><th>Schaltung</th><th>Zustand ohne Eingabe</th><th>Zustand mit Taster</th></tr>
     <tr><td>Pull-down (10 kΩ)</td><td>Signal-Pin → 10 kΩ → GND</td><td>LOW (0V)</td><td>HIGH (5V)</td></tr>
@@ -1719,7 +1936,19 @@ Verlustleistung: P = (U_Versorgung - U_LED) × I = 3V × 0.02A = 60 mW</code></p
 <div class="section" id="kap8">
   <div class="chapter-badge">Kapitel 8</div>
   <h2>Schritt-für-Schritt Projekte</h2>
-  <p>Alle 12 Projekte sind vollständig in Tinkercad Circuits nachbaubar. Lesen Sie jede Verbindungstabelle sorgfältig, bevor Sie mit dem Code beginnen. Die Projekte bauen aufeinander auf — empfehlenswert der Reihe nach.</p>
+  <p>Jetzt wird es praktisch! Du baust echte Projekte — von der simplen blinkenden LED bis zur Mini-Wetterstation. Jedes Projekt hat eine Bauteilliste, eine Verbindungstabelle und fertigen Code. Lies alles sorgfältig durch bevor du loslegst.</p>
+
+  <div class="component-card" style="border-left:4px solid #3182ce;">
+    <h4>Was bedeuten die Begriffe in den Verbindungstabellen?</h4>
+    <p>In allen Projekten kommen diese Begriffe immer wieder vor:</p>
+    <ul>
+      <li><strong>LED — Anode (+) / Kathode (−):</strong> Eine LED hat zwei Beine. Das <em>längere</em> Bein ist die Anode (Pluspol, da fließt Strom rein). Das <em>kürzere</em> Bein ist die Kathode (Minuspol, Strom fließt raus). Anode immer zum Arduino-Pin, Kathode immer zu GND.</li>
+      <li><strong>Ω (Ohm):</strong> Die Einheit des Widerstands. 220 Ω ist ein kleiner Widerstand (Schutz für LEDs). 10 kΩ = 10.000 Ω ist ein großer Widerstand (Pull-down/Pull-up).</li>
+      <li><strong>Verbindungstabelle (Von → Nach):</strong> "Von" = wo startet das Kabel. "Nach" = wo endet das Kabel. Im Tinkercad: Klick auf einen Pin und dann auf den Zielpunkt — ein farbiges Kabel erscheint automatisch.</li>
+      <li><strong>Drahtfarben:</strong> Nur zur Übersicht — in Tinkercad funktioniert jede Farbe gleich. Konvention: Rot = 5V/Plus, Schwarz = GND/Minus, andere Farben = Signal.</li>
+      <li><strong>IN REIHE:</strong> Zwei Bauteile "in Reihe" schalten bedeutet: das Ende des ersten ist mit dem Anfang des zweiten verbunden — wie Dominosteine in einer Reihe.</li>
+    </ul>
+  </div>
 
   <div class="toc-grid">
     <div class="toc-card"><a href="#proj1">P1: Blinkende LED</a><p>Einsteiger | 10 Min</p></div>
@@ -1744,7 +1973,7 @@ Verlustleistung: P = (U_Versorgung - U_LED) × I = 3V × 0.02A = 60 mW</code></p
     <h2 style="color:white;border:none;padding:0;margin:8px 0">Blinkende LED – Hello World!</h2>
     <div class="project-meta"><span>Einsteiger</span><span>10 Minuten</span><span>2 Bauteile</span></div>
   </div>
-  <p>Das "Hallo Welt" der Elektronik! Eine LED blinkt im Sekundentakt — einfach, aber der perfekte Einstieg in Tinkercad und Arduino.</p>
+  <p>Das erste Programm das ein Anfänger in jeder Programmiersprache schreibt, heißt traditionell "Hello World" — es tut nur das Allernötigste. In der Elektronik ist das entsprechend eine blinkende LED: einfach, aber du lernst dabei alles Grundlegende — wie man einen Pin konfiguriert, eine LED anschließt und Code schreibt.</p>
   <h3>Benötigte Bauteile</h3>
   <table>
     <tr><th>Bauteil</th><th>Wert</th><th>Anzahl</th></tr>
@@ -2222,7 +2451,24 @@ LiquidCrystal lcd(<span class="num">12</span>, <span class="num">11</span>, <spa
   <div class="chapter-badge">Kapitel 9</div>
   <h2>Tinkercad für CPS (Cyber-Physical Systems)</h2>
 
-  <p><strong>Cyber-Physical Systems (CPS)</strong> verbinden die digitale Welt (Computer, Algorithmen, Software) mit der physischen Welt (Motoren, Sensoren, Umgebung). Jedes CPS folgt dem Sense-Compute-Actuate-Kreislauf:</p>
+  <div class="component-card" style="border-left:4px solid #3182ce;">
+    <h4>Was ist ein Cyber-Physical System (CPS)?</h4>
+    <p>Das klingt kompliziert, ist aber eine simple Idee: Ein <strong>Cyber-Physical System</strong> verknüpft die digitale Welt (Software, Algorithmen, Computer) mit der physischen Welt (Motoren, Sensoren, Maschinen).</p>
+    <p style="margin-top:6px;"><strong>Alltagsbeispiele:</strong></p>
+    <ul>
+      <li>Automatische Türen im Supermarkt — Sensor erkennt dich → Computer öffnet die Tür</li>
+      <li>Heizung mit Thermostat — Temperatursensor misst → Heizung schaltet ein/aus</li>
+      <li>Antiblockiersystem (ABS) im Auto — Sensor erkennt Blockieren → Computer regelt Bremskraft</li>
+    </ul>
+    <p style="margin-top:6px;">Mit Arduino und Tinkercad kannst du genau solche Systeme selbst bauen und simulieren.</p>
+  </div>
+
+  <div class="component-card" style="border-left:4px solid #38a169;">
+    <h4>Was bedeutet "Sense-Compute-Actuate"?</h4>
+    <p>Das ist das Grundprinzip jedes CPS — auf Deutsch: <strong>Messen → Berechnen → Handeln</strong>. Das Wort <strong>Aktor</strong> bezeichnet dabei jedes Bauteil das etwas bewegt oder verändert — Motor, LED, Buzzer, Servo sind alles Aktoren.</p>
+  </div>
+
+  <p><strong>Cyber-Physical Systems (CPS)</strong> verbinden die digitale Welt mit der physischen Welt. Jedes CPS folgt dem Sense-Compute-Actuate-Kreislauf:</p>
 
   <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin:24px 0;flex-wrap:wrap;">
     <div style="background:#1E3A5F;color:white;padding:18px 22px;border-radius:8px;text-align:center;font-weight:700;min-width:120px;">Sensoren<br><span style="font-weight:400;font-size:0.85rem">Umwelt messen</span></div>
@@ -2262,6 +2508,12 @@ LiquidCrystal lcd(<span class="num">12</span>, <span class="num">11</span>, <spa
 <div class="section" id="kap10">
   <div class="chapter-badge">Kapitel 10</div>
   <h2>Projektvorschläge für Kursteilnehmer</h2>
+
+  <div class="component-card" style="border-left:4px solid #3182ce;">
+    <h4>Wie benutze ich diese Liste?</h4>
+    <p>Die Projekte sind in drei Schwierigkeitsstufen eingeteilt — fange bei Einsteiger an und steigere dich nach oben. Jedes Projekt kannst du vollständig in Tinkercad Circuits simulieren, ohne echte Hardware zu kaufen. Bei den Projekten mit einem "<strong>Kernbauteile</strong>"-Eintrag suchst du genau nach diesem Bauteil in der Tinkercad-Komponentenliste (rechte Seite). Alle benötigten Bauteile sind kostenlos in Tinkercad enthalten.</p>
+    <p style="margin-top:6px;">★ = Anfänger | ★★ = Mittelstufe | ★★★ = Fortgeschritten</p>
+  </div>
 
   <h3><span class="stars">★</span> Einsteiger (Woche 1–2)</h3>
   <table>
@@ -2323,6 +2575,12 @@ LiquidCrystal lcd(<span class="num">12</span>, <span class="num">11</span>, <spa
 <div class="section" id="kap11">
   <div class="chapter-badge">Kapitel 11</div>
   <h2>Häufige Fehler und ihre Lösungen</h2>
+
+  <div class="component-card" style="border-left:4px solid #e53e3e;">
+    <h4>Fehler sind normal — und lehrreich!</h4>
+    <p>Kein Anfänger baut eine Schaltung beim ersten Mal perfekt. Die meisten Fehler sind dieselben für alle — darum gibt es diese Liste. Bevor du lange grübelst: such hier nach deinem Symptom (was passiert) und lies die Lösung. Elektronik-Debugging ist eine Fähigkeit die man mit der Zeit lernt.</p>
+  </div>
+
   <table>
     <tr><th>#</th><th>Fehler / Symptom</th><th>Ursache</th><th>Lösung</th></tr>
     <tr><td>1</td><td>LED leuchtet nicht</td><td>Falsch herum eingebaut (Anode/Kathode vertauscht)</td><td>Anode (langes Bein, +) zum Arduino, Kathode (−) zu GND</td></tr>
@@ -2357,6 +2615,8 @@ LiquidCrystal lcd(<span class="num">12</span>, <span class="num">11</span>, <spa
 <div class="section" id="kap12">
   <div class="chapter-badge">Kapitel 12</div>
   <h2>Glossar – Alle Fachbegriffe erklärt</h2>
+
+  <p>Hier findest du alle Fachbegriffe aus diesem Tutorial alphabetisch geordnet. Wenn du irgendwo im Tutorial auf ein unbekanntes Wort stößt, such es hier nach!</p>
 
   <table>
     <tr><th>Begriff</th><th>Erklärung</th></tr>
@@ -2441,6 +2701,8 @@ LiquidCrystal lcd(<span class="num">12</span>, <span class="num">11</span>, <spa
   <div class="chapter-badge">Kapitel 13</div>
   <h2>Weiterführende Ressourcen</h2>
 
+  <p>Du hast die Grundlagen gelernt — aber das Lernen hört hier nicht auf. Die Elektronik-Community ist riesig und hilfsbereit. Hier findest du die besten Orte zum Weitermachen.</p>
+
   <h3>Offizielle Dokumentation</h3>
   <table>
     <tr><th>Ressource</th><th>URL</th><th>Inhalt</th></tr>
@@ -2470,9 +2732,6 @@ LiquidCrystal lcd(<span class="num">12</span>, <span class="num">11</span>, <spa
     <h3 style="color:white;border:none;padding:0;font-size:1.5rem;">Herzlichen Glückwunsch!</h3>
     <p style="margin:12px 0 0;opacity:0.85;max-width:500px;margin:12px auto 0;">Sie haben das vollständige Tinkercad Circuits Handbuch abgeschlossen. Jetzt sind Sie bereit, eigene Cyber-Physical Systems zu entwerfen, zu simulieren und zu bauen!</p>
   </div>
-</div>
-
-</main>
 </div>
 
 <a href="#" class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#8679; Oben</a>
@@ -2537,7 +2796,10 @@ function compIconFallback(img) {
 /* ---- Globaler Fallback: alle kaputten Bilder nach dem Laden behandeln ---- */
 window.addEventListener('load', function() {
   document.querySelectorAll('img').forEach(function(img) {
-    if (!img.complete || img.naturalWidth === 0 || img.naturalHeight === 0) {
+    var isSvg = img.src && img.src.toLowerCase().indexOf('.svg') !== -1;
+    /* SVG-Bilder haben naturalWidth===0 auch wenn sie korrekt geladen sind */
+    var failed = !img.complete || (!isSvg && (img.naturalWidth === 0 || img.naturalHeight === 0));
+    if (failed) {
       if (img.closest('.comp-tile') || img.closest('.logic-sym')) {
         compIconFallback(img);
       } else {
@@ -2550,6 +2812,140 @@ window.addEventListener('load', function() {
     }
   });
 });
+
+/* ---- Wikipedia-Links für alle comp-tiles automatisch hinzufügen ---- */
+(function() {
+  var wikiMap = [
+    /* Passive Bauteile */
+    ['Zener Diode',          'Zener-Diode'],
+    ['Zener',                'Zener-Diode'],
+    ['Polarized Capacitor',  'Elektrolytkondensator'],
+    ['Elko',                 'Elektrolytkondensator'],
+    ['Capacitor',            'Kondensator_(Elektrotechnik)'],
+    ['Kondensator',          'Kondensator_(Elektrotechnik)'],
+    ['Resistor',             'Elektrischer_Widerstand_(Gleichstrom)'],
+    ['Widerstand',           'Elektrischer_Widerstand_(Gleichstrom)'],
+    ['Inductor',             'Spule_(Elektrotechnik)'],
+    ['Diode',                'Diode'],
+    /* Eingabe & Sensoren */
+    ['Pushbutton',           'Taster'],
+    ['Taster',               'Taster'],
+    ['Potentiometer',        'Potentiometer'],
+    ['Slideswitch',          'Elektrischer_Schalter'],
+    ['Photoresistor',        'Fotowiderstand'],
+    ['LDR',                  'Fotowiderstand'],
+    ['Photodiode',           'Fotodiode'],
+    ['Ambient Light',        'Fotowiderstand'],
+    ['Force Sensor',         'Drucksensor'],
+    ['FSR',                  'Drucksensor'],
+    ['Flex Sensor',          'Biegesensor'],
+    ['Ultrasonic',           'Ultraschallsensor'],
+    ['PIR Sensor',           'Passiver_Infrarotsensor'],
+    ['Bewegungsmelder',      'Passiver_Infrarotsensor'],
+    ['IR Sensor',            'Infrarotsensor'],
+    ['Infrarot-N',           'Infrarotsensor'],
+    ['Tilt Sensor',          'Neigungssensor'],
+    ['Temperature Sensor',   'Temperatursensor'],
+    ['Gas Sensor',           'Gassensor'],
+    ['Keypad',               'Tastenfeld'],
+    ['DIP Switch',           'DIP-Schalter'],
+    ['Soil Moisture',        'Bodenfeuchtesensor'],
+    /* Ausgabe & Aktoren */
+    ['NeoPixel',             'WS2812'],
+    ['LED RGB',              'Leuchtdiode'],
+    ['LED',                  'Leuchtdiode'],
+    ['Light Bulb',           'Gl%C3%BChlamp' + 'e'],
+    ['DC Motor with Encoder','Drehgeber'],
+    ['Encoder',              'Drehgeber'],
+    ['Micro Servo',          'Servomotor'],
+    ['Servo',                'Servomotor'],
+    ['Hobby Gearmotor',      'Getriebemotor'],
+    ['Gearmotor',            'Getriebemotor'],
+    ['DC Motor',             'Gleichstrommaschine'],
+    ['Vibration Motor',      'Elektromotor'],
+    ['Piezo',                'Piezosummer'],
+    ['Buzzer',               'Piezosummer'],
+    ['IR Remote',            'Fernbedienung'],
+    ['7-Segment Clock',      'Sieben-Segment-Anzeige'],
+    ['7-Segment Display',    'Sieben-Segment-Anzeige'],
+    ['7-Segment',            'Sieben-Segment-Anzeige'],
+    ['LCD',                  'Fl%C3%BCssigkristallanzeige'],
+    /* Stromversorgung */
+    ['Coin Cell',            'Knopfzelle'],
+    ['CR2032',               'Knopfzelle'],
+    ['Solar Cell',           'Solarzelle'],
+    ['Potato Battery',       'Galvanisches_Element'],
+    ['Lemon Battery',        'Galvanisches_Element'],
+    ['Battery',              'Elektrische_Batterie'],
+    /* Steckplatinen */
+    ['Breadboard',           'Steckplatine'],
+    /* Mikrocontroller */
+    ['Arduino',              'Arduino_(Plattform)'],
+    ['ATtiny',               'AVR-Mikrocontroller'],
+    ['micro:bit',            'Micro:bit'],
+    /* Messinstrumente */
+    ['Multimeter',           'Multimeter'],
+    ['Power Supply',         'Labornetzger%C3%A4t'],
+    ['Function Generator',   'Funktionsgenerator'],
+    ['Oscilloscope',         'Oszilloskop'],
+    ['Oszilloskop',          'Oszilloskop'],
+    /* Integrierte Schaltkreise */
+    ['555 Timer',            'NE555'],
+    ['556 Dual Timer',       'NE555'],
+    ['Operationsverstärker', 'Operationsverst%C3%A4rker'],
+    ['741',                  'Operationsverst%C3%A4rker'],
+    ['Op-Amp',               'Operationsverst%C3%A4rker'],
+    ['LM339',                'Komparator_(Elektronik)'],
+    ['LM393',                'Komparator_(Elektronik)'],
+    ['Comparator',           'Komparator_(Elektronik)'],
+    ['Optocoupler',          'Optokoppler'],
+    ['Optokoppler',          'Optokoppler'],
+    ['4N35',                 'Optokoppler'],
+    /* Transistoren & Leistungssteuerung */
+    ['TIP120',               'Darlington-Schaltung'],
+    ['Darlington',           'Darlington-Schaltung'],
+    ['NPN Transistor',       'Bipolartransistor'],
+    ['PNP Transistor',       'Bipolartransistor'],
+    ['nMOS',                 'Metall-Oxid-Halbleiter-Feldeffekttransistor'],
+    ['pMOS',                 'Metall-Oxid-Halbleiter-Feldeffekttransistor'],
+    ['MOSFET',               'Metall-Oxid-Halbleiter-Feldeffekttransistor'],
+    ['Relay SPDT',           'Relais'],
+    ['Relay DPDT',           'Relais'],
+    ['Relais',               'Relais'],
+    ['LM7805',               'Spannungsregler'],
+    ['LM1117',               'Spannungsregler'],
+    ['AMS1117',              'Spannungsregler'],
+    ['Regulator',            'Spannungsregler'],
+    ['H-Bridge',             'H-Br%C3%BCcke'],
+    ['L293D',                'H-Br%C3%BCcke'],
+    /* Verbinder */
+    ['Pin Header',           'Steckverbinder'],
+    ['Steckleiste',          'Steckverbinder'],
+    ['USB Standard',         'Universal_Serial_Bus'],
+    ['USB',                  'Universal_Serial_Bus']
+  ];
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.comp-tile').forEach(function(tile) {
+      if (tile.querySelector('.wiki-link')) return;
+      var strong = tile.querySelector('strong');
+      if (!strong) return;
+      var name = strong.textContent;
+      for (var i = 0; i < wikiMap.length; i++) {
+        if (name.indexOf(wikiMap[i][0]) !== -1) {
+          var a = document.createElement('a');
+          a.href = 'https://de.wikipedia.org/wiki/' + wikiMap[i][1];
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.className = 'wiki-link';
+          a.textContent = '→ Wikipedia';
+          tile.appendChild(a);
+          break;
+        }
+      }
+    });
+  });
+})();
 </script>
 
 <!-- ================================================================= -->
@@ -2658,7 +3054,18 @@ window.addEventListener('load', function() {
 <div class="section" id="kap15">
   <div class="chapter-badge">Kapitel 15</div>
   <h2>Fortgeschrittene Sensoren &amp; Module</h2>
-  <p>Nach den Grundsensoren kommen hier professionelle Module die in industriellen IoT-Projekten, Wetterstation und Robotern eingesetzt werden.</p>
+  <p>Nach den Grundsensoren kommen hier professionelle Module die in industriellen IoT-Projekten, Wetterstationen und Robotern eingesetzt werden.</p>
+
+  <div class="component-card" style="border-left:4px solid #3182ce;">
+    <h4>Begriffe in diesem Kapitel</h4>
+    <ul>
+      <li><strong>hPa (Hektopascal):</strong> Einheit des Luftdrucks. Normaler Luftdruck auf Meereshöhe = ~1013 hPa. Je höher du bist, desto kleiner der Wert — daher kann man Höhe aus dem Luftdruck berechnen.</li>
+      <li><strong>6 DOF (Degrees of Freedom):</strong> "6 Freiheitsgrade" — ein Objekt kann sich in 6 Richtungen bewegen: links/rechts, vor/zurück, hoch/runter, und um 3 Achsen drehen. Ein MPU-6050 misst alle 6.</li>
+      <li><strong>UART:</strong> Universal Asynchronous Receiver/Transmitter — eine serielle Schnittstelle (ähnlich wie I2C, aber mit nur 2 Drähten: TX senden, RX empfangen). GPS, Bluetooth, GSM nutzen UART.</li>
+      <li><strong>NMEA-Protokoll:</strong> Das GPS-Datenformat. GPS-Module senden Textzeilen wie "$GPGGA,..." über UART — die Bibliothek TinyGPS++ liest diese automatisch aus.</li>
+      <li><strong>Bibliothek (Library):</strong> Bereits in Kapitel 5 erklärt — fertige Code-Pakete die du einfach einbindest. Für jeden Sensor gibt es eine passende Bibliothek.</li>
+    </ul>
+  </div>
 
   <h3>15.1 BMP280 – Luftdruck- &amp; Höhensensor (I2C)</h3>
   <div class="component-card">
@@ -2834,7 +3241,19 @@ TinyGPSPlus gps;
 <div class="section" id="kap16">
   <div class="chapter-badge">Kapitel 16</div>
   <h2>Fortgeschrittene Arduino-Programmierung</h2>
-  <p>Wenn du die Grundlagen beherrschst, öffnet sich eine Welt professioneller Programmiertechniken: State Machines, EEPROM-Speicher, Timer-Interrupts und Energiesparmodi.</p>
+  <p>Wenn du die Grundlagen beherrschst, öffnet sich eine Welt professioneller Programmiertechniken: State Machines, EEPROM-Speicher, Interrupts und effizientes Timing. Dieses Kapitel ist für Fortgeschrittene — du solltest zuerst Kapitel 5 und die Projekte aus Kapitel 8 gemacht haben.</p>
+
+  <div class="component-card" style="border-left:4px solid #805ad5;">
+    <h4>Neue Konzepte in diesem Kapitel</h4>
+    <ul>
+      <li><strong>State Machine (Zustandsautomat):</strong> Ein Programmiermuster wo dein Programm immer in einem von mehreren klar definierten "Zuständen" ist (z.B. AUS, SCHWACH, HELL). Übergänge passieren nur durch bestimmte Ereignisse (Tastendruck). Viel übersichtlicher als viele verschachtelte if/else.</li>
+      <li><strong>Polling vs. Interrupt:</strong> <em>Polling</em> = dein Arduino prüft in jeder loop()-Runde "Ist der Taster gedrückt?" — auch wenn nichts passiert. <em>Interrupt</em> = der Arduino wird sofort informiert sobald etwas passiert — wie ein Klingelton statt ständig an die Tür klopfen.</li>
+      <li><strong>ISR (Interrupt Service Routine):</strong> Die Funktion die sofort ausgeführt wird wenn ein Interrupt ausgelöst wird. Sie muss kurz sein — keine langen Befehle!</li>
+      <li><strong>volatile:</strong> Ein Schlüsselwort in C++ das dem Compiler sagt "Diese Variable kann sich jederzeit ändern (durch einen Interrupt) — cache sie nicht!" Ohne volatile könnten Werte verloren gehen.</li>
+      <li><strong>EEPROM:</strong> Ein kleiner Speicher im Arduino der Daten behält wenn der Strom ausgeht — wie ein USB-Stick für den Arduino. Nur 1KB beim Uno, aber reicht für Einstellungen oder Zähler.</li>
+      <li><strong>struct:</strong> Ein Datentyp den du selbst definierst — fasst zusammengehörige Werte zusammen (z.B. pin + name + letzter Wert eines Sensors).</li>
+    </ul>
+  </div>
 
   <h3>16.1 State Machine – Zustandsautomat</h3>
   <p>Eine State Machine (Zustandsautomat) ist das mächtigste Muster für komplexe Arduino-Projekte. Statt verschachtelter if/else-Blöcke definierst du klare <em>Zustände</em> und <em>Übergänge</em>.</p>
@@ -3039,7 +3458,18 @@ Sensor sensoren[] = {
 <div class="section" id="kap17">
   <div class="chapter-badge">Kapitel 17</div>
   <h2>Neue Projekte – P13 bis P18</h2>
-  <p>Sechs weitere vollständige Projekte — von der Wetterstation bis zum digitalen Piano. Alle funktionieren in Tinkercad Circuits.</p>
+  <p>Sechs weitere vollständige Projekte — von der Wetterstation bis zum digitalen Piano. Alle funktionieren in Tinkercad Circuits. Diese Projekte bauen auf Kapitel 8 und 15 auf und nutzen fortgeschrittene Bauteile.</p>
+
+  <div class="component-card" style="border-left:4px solid #3182ce;">
+    <h4>Neue Bauteile in diesem Kapitel</h4>
+    <ul>
+      <li><strong>DHT22:</strong> Temperatur- UND Luftfeuchtigkeitssensor in einem. Genauer als der TMP36. Gibt digitale Werte aus (kein analogRead nötig).</li>
+      <li><strong>OLED SSD1306:</strong> Kleines schwarz-weißes OLED-Display (128×64 Pixel). Verbindet sich über I2C. Viel schärfer als LCD. Braucht die Bibliothek "Adafruit SSD1306".</li>
+      <li><strong>RFID RC522:</strong> Liest berührungslose Chipkarten (wie Bustickets oder Hotelschlüssel). Verbindet sich über SPI. Jede Karte hat eine eindeutige UID (Nummer).</li>
+      <li><strong>NeoPixel (WS2812B):</strong> Intelligente RGB-LEDs die sich alle mit nur einem Datenkabel steuern lassen — jede einzeln in jeder Farbe. Eine LED kann hunderte Farben zeigen.</li>
+      <li><strong>Microphone/Soundsensor:</strong> Misst die Lautstärke der Umgebung als analogen Wert (0–1023). Je lauter, desto höher der Wert.</li>
+    </ul>
+  </div>
 
   <div class="project-card" id="p13">
     <div class="project-header">P13 – Digitale Wetterstation mit OLED</div>
@@ -3255,6 +3685,16 @@ Adafruit_NeoPixel strip(<span class="num">12</span>, <span class="num">6</span>,
   <h2>Kommunikation &amp; Vernetzung</h2>
   <p>Arduinos können miteinander und mit der Außenwelt kommunizieren — über Kabel, Infrarot, Bluetooth, WiFi und sogar GSM (Handy-Netz).</p>
 
+  <div class="component-card" style="border-left:4px solid #3182ce;">
+    <h4>Was ist ein Kommunikationsprotokoll?</h4>
+    <p>Ein <strong>Protokoll</strong> ist eine Vereinbarung wie zwei Geräte Daten austauschen — welche Sprache sie sprechen, wie schnell, und wer anfängt. Genau wie Menschen Deutsch, Englisch oder Chinesisch sprechen, sprechen elektronische Geräte UART, I2C, SPI, Bluetooth oder WiFi.</p>
+    <ul>
+      <li><strong>Kabelgebunden:</strong> UART, I2C, SPI — schnell, zuverlässig, kurze Reichweite</li>
+      <li><strong>Drahtlos:</strong> Bluetooth (Smartphone), NRF24L01 (Arduino-zu-Arduino), WiFi (Internet), IR (Fernbedienung)</li>
+      <li><strong>bps (Bits pro Sekunde):</strong> Die Übertragungsgeschwindigkeit. 9600 bps = 9600 Bits pro Sekunde = ca. 1200 Buchstaben/Sekunde.</li>
+    </ul>
+  </div>
+
   <h3>18.1 Bluetooth HC-05/HC-06</h3>
   <div class="component-card">
     <p>Drahtlose serielle Kommunikation über Bluetooth 2.0. Dein Smartphone kann den Arduino steuern oder Daten empfangen.</p>
@@ -3334,6 +3774,17 @@ SoftwareSerial bt(<span class="num">10</span>, <span class="num">11</span>);   <
   <div class="chapter-badge">Kapitel 19</div>
   <h2>Nächste Schritte – ESP32, Raspberry Pi &amp; IoT</h2>
   <p>Der Arduino Uno ist ein fantastischer Einstieg — aber er hat Grenzen: kein WiFi, kein Bluetooth, wenig RAM. Hier erfährst du, wohin die Reise als nächstes gehen kann.</p>
+
+  <div class="component-card" style="border-left:4px solid #3182ce;">
+    <h4>Was ist IoT — Internet of Things?</h4>
+    <p><strong>IoT</strong> (Internet of Things = "Internet der Dinge") bezeichnet das Konzept, physische Geräte mit dem Internet zu verbinden. Deine Kaffeemaschine meldet wenn der Kaffee fertig ist. Dein Kühlschrank bestellt automatisch Milch nach. Dein Temperatursensor lädt die Daten in eine Cloud-Datenbank hoch.</p>
+    <p style="margin-top:6px;">Der Arduino Uno allein kann kein IoT — er hat kein WiFi. Aber der <strong>ESP32</strong> hat WiFi und Bluetooth eingebaut und kostet nur ~5€. Er programmiert sich genau wie ein Arduino.</p>
+  </div>
+
+  <div class="component-card" style="border-left:4px solid #805ad5;">
+    <h4>Was ist MQTT?</h4>
+    <p><strong>MQTT</strong> (Message Queuing Telemetry Transport) ist ein leichtgewichtiges Protokoll für IoT-Kommunikation. Prinzip: Es gibt einen zentralen <strong>Broker</strong> (Server) der Nachrichten weiterleitet. Geräte können Nachrichten <em>veröffentlichen</em> (publish) oder <em>abonnieren</em> (subscribe) — ähnlich wie ein Zeitungsverlag. Ein Temperatursensor "veröffentlicht" seine Daten → alle Abonnenten (Dashboard, Alexa, Heizung) empfangen sie automatisch.</p>
+  </div>
 
   <h3>19.1 ESP32 – der Arduino mit WiFi &amp; Bluetooth</h3>
   <div class="component-card">
@@ -3453,7 +3904,12 @@ WebServer server(<span class="num">80</span>);
 <div class="section" id="kap20">
   <div class="chapter-badge">Kapitel 20</div>
   <h2>Cheat Sheet – Vollständige Schnellreferenz</h2>
-  <p>Alle wichtigen Arduino-Befehle, Formeln und Pinbelegungen auf einen Blick — ideal als Nachschlagewerk.</p>
+  <p>Alle wichtigen Arduino-Befehle, Formeln und Pinbelegungen auf einen Blick — ideal als Nachschlagewerk. Wenn du dir etwas nicht mehr erinnerst, schau hier nach.</p>
+
+  <div class="component-card" style="border-left:4px solid #38a169;">
+    <h4>Was ist ein "Cheat Sheet"?</h4>
+    <p>Ein Cheat Sheet ("Spickzettel") ist eine kompakte Zusammenfassung der wichtigsten Informationen auf einer oder wenigen Seiten. Profis nutzen sie ständig — niemand erinnert sich alle Formeln auswendig. Das hier ist dein Spickzettel für Arduino und Elektronik.</p>
+  </div>
 
   <h3>20.1 Arduino Funktionen – Vollständige Referenz</h3>
   <table>
@@ -3535,7 +3991,7 @@ WebServer server(<span class="num">80</span>);
   </table>
 
   <h3>20.5 Arduino Uno Pinout – Komplette Tabelle</h3>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Arduino_Uno_-_R3.jpg" alt="Arduino Uno R3" style="max-width:450px;width:100%;border-radius:8px;border:2px solid var(--border);margin:10px 0;" onerror="this.style.display='none'">
+  <img src="https://editor.tinkercad.com/components/thumbnails/arduinoUnoR3.png" alt="Arduino Uno R3" style="max-width:450px;width:100%;border-radius:8px;border:2px solid var(--border);margin:10px 0;" onerror="this.style.display='none'">
   <table>
     <tr><th>Pin</th><th>Funktion</th><th>Besonderheit</th></tr>
     <tr><td><strong>0 (RX)</strong></td><td>Digital I/O</td><td>UART Empfang — nicht blockieren wenn Serial.begin() aktiv!</td></tr>
@@ -3582,56 +4038,43 @@ WebServer server(<span class="num">80</span>);
   <h2>Alle Tinkercad-Komponenten – Vollständige Referenz</h2>
   <p>Tinkercad Circuits enthält über 100 Bauteile in 9 Kategorien. Dieser Abschnitt dokumentiert jedes einzelne Bauteil mit Erklärung, Symbolen und Anwendungshinweisen.</p>
 
-  <style>
-    .comp-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:14px; margin:14px 0; }
-    .comp-tile { background:var(--light-bg); border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center; }
-    .comp-tile img { width:64px; height:64px; object-fit:contain; margin:4px auto; display:block; background:white; border-radius:6px; padding:4px; border:1px solid #dde; }
-    .comp-tile strong { display:block; font-size:0.9em; color:var(--dark-blue); margin:6px 0 3px; }
-    .comp-icon-fb { width:64px;height:64px;background:var(--dark-blue);color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.65em;font-weight:700;letter-spacing:0.3px;text-align:center;margin:4px auto;padding:4px;line-height:1.3;word-break:break-word; }
-    .logic-sym img { height:52px;width:auto;max-width:140px;background:white;border-radius:4px;padding:4px;border:1px solid #ddd;display:inline-block; }
-    .comp-tile p { font-size:0.78em; margin:0; color:#555; text-align:left; }
-    .cat-title { background:var(--dark-blue); color:white; padding:8px 16px; border-radius:6px; margin:24px 0 12px; font-size:1.05em; font-weight:700; }
-    .logic-sym { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin:8px 0; }
-    .logic-sym img { height:50px; width:auto; background:white; border-radius:4px; padding:3px; border:1px solid #ddd; }
-  </style>
-
   <!-- ===== 1. PASSIVE BAUTEILE ===== -->
   <div class="cat-title">Kategorie 1: Passive Bauteile (General)</div>
-  <div class="comp-grid">
+  <div class="comp-grid-2">
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Resistors.jpg" alt="Resistor" onerror="compIconFallback(this)" style="object-fit:cover;">
+      <img src="https://editor.tinkercad.com/components/thumbnails/resistor.png" alt="Resistor" onerror="compIconFallback(this)" style="object-fit:cover;">
       <strong>Resistor (Widerstand)</strong>
       <p>Begrenzt den Stromfluss. Gemessen in Ohm (Ω). Unentbehrlich für LEDs, Spannungsteiler und Signale. Farbcode auf dem Gehäuse zeigt den Wert.</p>
       <p style="margin-top:4px;"><em>Formel: R = U ÷ I | Typisch: 220Ω, 1kΩ, 10kΩ</em></p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Capacitors_%287189597135%29.jpg" alt="Capacitor" onerror="compIconFallback(this)" style="object-fit:cover;">
+      <img src="https://editor.tinkercad.com/components/thumbnails/capacitor.png" alt="Capacitor" onerror="compIconFallback(this)" style="object-fit:cover;">
       <strong>Capacitor (Kondensator)</strong>
       <p>Speichert elektrische Ladung. Puffert Spannungsschwankungen, filtert Rauschen. Nicht-gepolt — Einbaurichtung egal. Einheit: Farad (F), typisch: 100nF, 10µF.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://www.ato.com/content/images/thumbs/0011836_0033f-1kv-disc-ceramic-capacitor_550.jpeg" alt="Polarized Capacitor" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/capacitorPolarized.png" alt="Polarized Capacitor" onerror="compIconFallback(this)">
       <strong>Polarized Capacitor (Elko)</strong>
       <p>Elektrolyt-Kondensator mit Polung! Langer Bein = Plus (+). Bei falscher Polung kann er platzen. Hohe Kapazitäten: 100µF–10.000µF für Netzteil-Puffer.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Diodes.jpg" alt="Diode" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/diode.png" alt="Diode" onerror="compIconFallback(this)">
       <strong>Diode</strong>
       <p>Lässt Strom nur in eine Richtung durch (Anode → Kathode). Schutzelement gegen falsche Polung. Spannungsabfall: ~0.7V bei Silizium, ~0.3V bei Schottky.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Zener_diode_symbol.svg" alt="Zener Diode" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/diodeZener.png" alt="Zener Diode" onerror="compIconFallback(this)">
       <strong>Zener Diode</strong>
       <p>Spezielle Diode die ab einer bestimmten Spannung (Zenerspannung, z.B. 5.1V) auch rückwärts leitet. Wird als Spannungsstabilisator eingesetzt.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Electronic_component_inductors.jpg" alt="Inductor" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/inductor.png" alt="Inductor" onerror="compIconFallback(this)">
       <strong>Inductor (Spule)</strong>
       <p>Speichert Energie im Magnetfeld. Widerstand steigt mit Frequenz. Verwendung in Schaltnetzteilen, Filtern, Transformatoren. Einheit: Henry (H), typisch: 10µH–10mH.</p>
     </div>
@@ -3639,106 +4082,106 @@ WebServer server(<span class="num">80</span>);
 
   <!-- ===== 2. INPUT / SENSOREN ===== -->
   <div class="cat-title">Kategorie 2: Eingabe &amp; Sensoren (Input)</div>
-  <div class="comp-grid">
+  <div class="comp-grid-2">
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/3_Tact_switches.jpg" alt="Pushbutton" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/pushButton.png" alt="Pushbutton" onerror="compIconFallback(this)">
       <strong>Pushbutton (Taster)</strong>
       <p>Tastschalter — schließt Kontakt nur solange gedrückt. 4 Beine: gegenüberliegende Beine sind intern verbunden. Immer mit Pull-up (INPUT_PULLUP) oder Pull-down (10kΩ) verwenden.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/3_Potentiometers.jpg" alt="Potentiometer" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/potentiometer.png" alt="Potentiometer" onerror="compIconFallback(this)">
       <strong>Potentiometer (Poti)</strong>
       <p>Einstellbarer Widerstand mit 3 Pins: links = GND, rechts = VCC, Mitte = Schleifer (0–5V). Liest sich mit analogRead() aus. Typisch: 10kΩ.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Switches.jpg" alt="Slideswitch" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/slideSwitch.png" alt="Slideswitch" onerror="compIconFallback(this)">
       <strong>Slideswitch (Schiebeschalter)</strong>
       <p>Mechanischer Schalter der einrastet — bleibt in Position. Ideal für EIN/AUS-Funktion. 3 Pins: Mitte = gemeinsam, links/rechts = die zwei Schaltpositionen.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/LDR.jpg" alt="Photoresistor" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/photoResistor.png" alt="Photoresistor" onerror="compIconFallback(this)">
       <strong>Photoresistor (LDR)</strong>
       <p>Lichtabhängiger Widerstand (Light-Dependent Resistor). Im Dunkeln: hoher Widerstand (~1MΩ). Im Licht: niedriger Widerstand (~1kΩ). Mit 10kΩ Teiler an A0 anschließen.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Photodiodes.jpg" alt="Photodiode" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/photoDiode.png" alt="Photodiode" onerror="compIconFallback(this)">
       <strong>Photodiode</strong>
       <p>Erzeugt Strom wenn Licht auftrifft (Photovoltaik-Prinzip). Schneller als LDR, ideal für Lichtschranken und optische Kommunikation. In Sperrrichtung betreiben!</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Ambient_light_sensor.jpg" alt="Ambient Light Sensor" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/photoTransistor.png" alt="Ambient Light Sensor" onerror="compIconFallback(this)">
       <strong>Ambient Light Sensor</strong>
       <p>Professioneller Lichtsensor (z.B. BH1750, TSL2561) mit kalibrierter Lux-Ausgabe. Genauer als LDR. Gibt Lux-Werte aus die dem menschlichen Auge entsprechen.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Flex_sensor.jpg" alt="Flex Sensor" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/sensorFlex.png" alt="Flex Sensor" onerror="compIconFallback(this)">
       <strong>Flex Sensor (Biegesensor)</strong>
       <p>Langer dünner Streifen — Widerstand ändert sich je nach Biegung. Gerade: ~10kΩ, gebogen: bis ~50kΩ. Verwendet in Daten-Handschuh, Roboter-Finger, Körperhaltung.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Force_sensitive_resistor_%28FSR%29.jpg" alt="Force Sensor" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/sensorForce.png" alt="Force Sensor" onerror="compIconFallback(this)">
       <strong>Force Sensor (FSR)</strong>
       <p>Drucksensor — Widerstand sinkt mit zunehmendem Druck. Kein Druck: MΩ-Bereich. Leichter Druck: ~100kΩ, starker Druck: &lt;1kΩ. Analog über Spannungsteiler lesen.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/IR_sensor_module.jpg" alt="IR sensor" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/sensorInfrared.png" alt="IR sensor" onerror="compIconFallback(this)">
       <strong>IR Sensor (Infrarot-Nähe)</strong>
       <p>Sendet IR-Licht und erkennt Reflexion. Erkennt Objekte auf 2–30cm. Digital-Ausgang: LOW wenn Objekt erkannt. Verwendet in Linienverfolgung und Hinderniserkennung.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/HC_SR04_Ultrasonic_Module.jpg" alt="Ultrasonic Sensor" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/sensorUltrasonicDistance.png" alt="Ultrasonic Sensor" onerror="compIconFallback(this)">
       <strong>Ultrasonic Distance Sensor (HC-SR04)</strong>
       <p>Misst Entfernung per Schallecho: 2–400 cm, ±3mm Genauigkeit. 4 Pins: VCC, GND, Trig (Senden), Echo (Empfangen). Berechnung: d = pulseIn() × 0.0343 / 2.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/PIR_Motion_Sensor-Sensinova_%28SN-PR11%29.png" alt="PIR Sensor" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/sensorPassiveInfrared.png" alt="PIR Sensor" onerror="compIconFallback(this)">
       <strong>PIR Sensor (Bewegungsmelder)</strong>
       <p>Erkennt Körperwärme-Bewegung (pyroelektrisch). HIGH-Signal für 1–60s nach Bewegung. Verzögerung und Empfindlichkeit per Poti einstellbar. 5–12V, 3 Pins: VCC, GND, OUT.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Soil_hygrometer_sensor.jpg" alt="Soil Moisture Sensor" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/sensorSoilMoisture.png" alt="Soil Moisture Sensor" onerror="compIconFallback(this)">
       <strong>Soil Moisture Sensor</strong>
       <p>Misst Bodenfeuchte über elektrischen Widerstand zwischen zwei Sonden. Trocken = ~1000, nass = ~0 (analog). Für Bewässerungsautomatik, Zimmerpflanzen-Monitor.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Tilt_sensor.jpg" alt="Tilt Sensor" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/sensorTilt.png" alt="Tilt Sensor" onerror="compIconFallback(this)">
       <strong>Tilt Sensor (Neigungsschalter)</strong>
       <p>Kleine Kugel im Rohr — schließt Kontakt wenn geneigt. Einfachste Form der Lageerfassung. Kein Winkel, nur ein/aus. Für einfache Kippdetektion und Anti-Diebstahl.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/TMP36GZ.jpg" alt="Temperature Sensor TMP36" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/sensorTemperature.png" alt="Temperature Sensor TMP36" onerror="compIconFallback(this)">
       <strong>Temperature Sensor (TMP36)</strong>
       <p>Analoger Temperatursensor: Ausgangsspannung proportional zur Temperatur. Formel: T = (U_mV − 500) / 10°C. Bereich −40 bis +125°C. 3 Pins: VCC, OUT, GND.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/MQ-2_gas_sensor.jpg" alt="Gas Sensor MQ-2" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/sensorGas.png" alt="Gas Sensor MQ-2" onerror="compIconFallback(this)">
       <strong>Gas Sensor (MQ-2)</strong>
       <p>Erkennt brennbare Gase (LPG, Methan, Propan, Wasserstoff) und Rauch. Analog + Digital-Ausgang. 30s Aufwärmzeit nötig! Metalloxid-Schicht auf Keramikträger.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/4x4_Keypad.jpg" alt="Keypad 4x4" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/keypad.png" alt="Keypad 4x4" onerror="compIconFallback(this)">
       <strong>Keypad 4×4 (Zahlenblock)</strong>
       <p>16 Tasten (0–9, A–D, *, #) über Matrix mit nur 8 Leitungen. Bibliothek: Keypad.h. Anwendung: PIN-Code, Taschenrechner, Menüsteuerung, Safe-Schloss.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/DIP_switch.jpg" alt="DIP Switch" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/dipSwitchDPST.png" alt="DIP Switch" onerror="compIconFallback(this)">
       <strong>DIP Switch (DPST / SPST×4 / SPST×6)</strong>
       <p>Mehrere Miniatur-Schalter auf einem Gehäuse. DPST = Doppelpol. Für Hardware-Konfiguration, Adressen einstellen (I2C), Modusauswahl ohne Reprogrammierung.</p>
     </div>
@@ -3746,106 +4189,106 @@ WebServer server(<span class="num">80</span>);
 
   <!-- ===== 3. OUTPUT / AKTOREN ===== -->
   <div class="cat-title">Kategorie 3: Ausgabe &amp; Aktoren (Output)</div>
-  <div class="comp-grid">
+  <div class="comp-grid-2">
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Light-Emitting_Diode_22860_Composite.png" alt="LED" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/led.png" alt="LED" onerror="compIconFallback(this)">
       <strong>LED (Light Emitting Diode)</strong>
       <p>Leuchtet wenn Strom in Durchlassrichtung fließt. Immer Vorwiderstand! (150–470Ω). Langer Bein = Anode (+). Spannungsabfall: Rot ~2V, Blau/Weiß ~3.2V. max. 20mA.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/RGBLEDs.jpg" alt="LED RGB" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/ledRGB.png" alt="LED RGB" onerror="compIconFallback(this)">
       <strong>LED RGB</strong>
       <p>Drei LEDs (Rot, Grün, Blau) in einem Gehäuse. 4 Beine: gemeinsame Kathode (−) oder Anode (+). Jede Farbe separat über PWM dimmbar → 16,7 Millionen Farben möglich.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Glühlampe.jpg" alt="Light bulb" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/lightBulb.png" alt="Light bulb" onerror="compIconFallback(this)">
       <strong>Light Bulb (Glühbirne)</strong>
       <p>In Tinkercad als einfaches Ausgabe-Element. Im echten Leben: Schaltet man LEDs bevorzugt da Glühbirnen viel Strom und Wärme erzeugen. Für Simulation und Lernzwecke geeignet.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/NeoPixel_Ring.jpg" alt="NeoPixel" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/neopixelBreadboard.png" alt="NeoPixel" onerror="compIconFallback(this)">
       <strong>NeoPixel (WS2812B) — Einzeln</strong>
       <p>Eine adressierbare RGB-LED mit eingebautem WS2812B-Controller. Kaskadierbar über eine Datenleitung. Bibliothek: Adafruit_NeoPixel. VCC = 5V, max. 60mA pro LED.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Neopixel_ring.jpg" alt="NeoPixel Ring" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/neopixelRing16.png" alt="NeoPixel Ring" onerror="compIconFallback(this)">
       <strong>NeoPixel Ring (12 / 16 / 24 LEDs)</strong>
       <p>Kreisförmige NeoPixel-Anordnung. Ring 12 = Clock/Uhr, Ring 16 = Statusanzeige, Ring 24 = Equalizer. Alle auf einer Datenleitung. Externe 5V-Versorgung bei 24 LEDs nötig.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/WS2812B_LED_Strip.jpg" alt="NeoPixel Strip" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/neopixelStrip8.png" alt="NeoPixel Strip" onerror="compIconFallback(this)">
       <strong>NeoPixel Strip (4/6/8/10/12/16/20 LEDs)</strong>
       <p>Linearer LED-Streifen. Verfügbar in verschiedenen Längen. Einstieg: Strip 8 für Audio-Visualizer. Strip 20 für Ambilight. Alle identisch programmiert über Adafruit_NeoPixel.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Vibration_Motor.jpg" alt="Vibration Motor" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/motorVibration.png" alt="Vibration Motor" onerror="compIconFallback(this)">
       <strong>Vibration Motor</strong>
       <p>Kleiner Elektromotor mit exzentrischem Gewicht erzeugt Vibration. DC 3–5V, 85mA. Braucht Transistor (NPN) da Arduino nur 40mA ausgeben kann. Für Haptik, Alarme, Smartphone-Rütteleffekt.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Electric_motor.gif" alt="DC Motor" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/motorDCArduinoKit.png" alt="DC Motor" onerror="compIconFallback(this)">
       <strong>DC Motor</strong>
       <p>Gleichstrommotor — dreht sich wenn Spannung angelegt wird. Richtung durch Polung bestimmbar. Braucht L293D H-Bridge für Arduino-Steuerung da zu viel Strom. Drehzahl: PWM über Enable-Pin.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/DC_motor_encoder.jpg" alt="DC Motor with encoder" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/motorDCEncoderSmall.png" alt="DC Motor with encoder" onerror="compIconFallback(this)">
       <strong>DC Motor with Encoder</strong>
       <p>DC Motor + eingebautem Drehgeber (Encoder). Der Encoder gibt Pulse pro Umdrehung aus → genaue Positionsmessung und Geschwindigkeitsregelung möglich. Für Präzisions-Robotik.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Tower_Pro_SG90_micro_servo_motor.jpg" alt="Micro Servo SG90" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/motorServoDFRobotKit.png" alt="Micro Servo SG90" onerror="compIconFallback(this)">
       <strong>Micro Servo (SG90)</strong>
       <p>Präzisions-Motor für 0–180° Winkelsteuerung. 3 Drähte: Braun=GND, Rot=5V, Orange=Signal (PWM). Bibliothek: Servo.h. Drehmoment: 1.8 kg·cm. Ideal für Roboter-Greifer, Lenkung.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Gearmotor.jpg" alt="Hobby Gearmotor" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/motorDCHobbyGear.png" alt="Hobby Gearmotor" onerror="compIconFallback(this)">
       <strong>Hobby Gearmotor</strong>
       <p>DC Motor mit eingebautem Getriebe. Niedrigere Drehzahl aber höheres Drehmoment als reiner DC Motor. Typisch: 1:48 Untersetzung, ~100 RPM. Für Räder, Förderbänder, Greifer.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Buzzer.png" alt="Piezo" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/piezo.png" alt="Piezo" onerror="compIconFallback(this)">
       <strong>Piezo (Summers / Buzzer)</strong>
       <p>Erzeugt Töne durch Piezokeramik. Arduino: tone(pin, frequenz). Frequenzen: C4=262Hz, A4=440Hz. Passive Piezos brauchen Frequenz, aktive summen beim Anlegen von Spannung.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/IR_Remote_Control.jpg" alt="IR Remote" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/infraredRemoteControl.png" alt="IR Remote" onerror="compIconFallback(this)">
       <strong>IR Remote (Infrarot-Fernbedienung)</strong>
       <p>Sends NEC/RC5/Sony IR-Codes bei Tastendruck. Dazu: IR-Empfänger (TSOP38238) am Arduino. Bibliothek: IRremote.h. Jede Taste = einzigartiger 32-bit Hex-Code.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/7_Segment_Display_with_Labeled_Segments_AHGJBCDF.svg" alt="7 Segment Display" onerror="compIconFallback(this)" style="background:white;">
+      <img src="https://editor.tinkercad.com/components/thumbnails/display7SegmentCommonAnode.png" alt="7 Segment Display" onerror="compIconFallback(this)" style="background:white;">
       <strong>7-Segment Display</strong>
       <p>Sieben einzelne LEDs (A–G) plus Dezimalpunkt. Gemeinsame Anode oder Kathode. Direkt an Arduino: 7 Pins + je 220Ω. Für Multiplexed-Displays mit 74HC595 Schieberegister kombinieren.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/LCD_16x2.jpg" alt="LCD 16x2" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/displayLCD16x2.png" alt="LCD 16x2" onerror="compIconFallback(this)">
       <strong>LCD 16×2 (direkt)</strong>
       <p>16 Zeichen × 2 Zeilen Textdisplay mit HD44780 Controller. Direktanschluss: 6 Datenpins + Kontrastpoti + Hintergrundlicht. Bibliothek: LiquidCrystal.h (eingebaut).</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/LCD_I2C_Module.jpg" alt="LCD 16x2 I2C" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/displayLCD16x2I2C.png" alt="LCD 16x2 I2C" onerror="compIconFallback(this)">
       <strong>LCD 16×2 (I2C) — Empfohlen!</strong>
       <p>Gleiche Anzeige aber nur 4 Pins statt 16! I2C-Backpack mit PCF8574. Anschluss: VCC, GND, SDA(A4), SCL(A5). Bibliothek: LiquidCrystal_I2C. Adresse: 0x27 oder 0x3F.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/7_segment_clock.jpg" alt="7-Segment Clock Display" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/display7SegmentI2C.png" alt="7-Segment Clock Display" onerror="compIconFallback(this)">
       <strong>7-Segment Clock Display</strong>
       <p>Vier 7-Segment-Ziffern mit Doppelpunkt für Uhranzeige (HH:MM). Meist TM1637-Chip auf dem Modul → nur 2 Pins (CLK + DIO). Bibliothek: TM1637Display.h.</p>
     </div>
@@ -3853,40 +4296,40 @@ WebServer server(<span class="num">80</span>);
 
   <!-- ===== 4. STROMVERSORGUNG ===== -->
   <div class="cat-title">Kategorie 4: Stromversorgung (Power)</div>
-  <div class="comp-grid">
+  <div class="comp-grid-2">
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/9V_battery.jpg" alt="9V Battery" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/battery9V.png" alt="9V Battery" onerror="compIconFallback(this)">
       <strong>9V Battery (9V-Block)</strong>
       <p>Häufigste externe Spannungsquelle für Arduino. An Vin-Pin anschließen (7–12V erlaubt). Interner Regler wandelt auf 5V. Warnung: Zu viel Verlustleistung bei 9V → nutze 7V wenn möglich.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/AA_battery.jpg" alt="1.5V Battery" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/batteryAA.png" alt="1.5V Battery" onerror="compIconFallback(this)">
       <strong>1.5V Battery (AA/AAA)</strong>
       <p>Standard-Haushaltsbatterie. Einzelne Zelle = 1.5V. 4 in Reihe = 6V für Arduino. Geringe Belastbarkeit, schnell entladen bei Motorlasten. Besser: Li-Ion Akkus (3.7V).</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Coin_cell_battery_CR2032.jpg" alt="Coin Cell 3V" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/batteryCoinCell.png" alt="Coin Cell 3V" onerror="compIconFallback(this)">
       <strong>Coin Cell 3V (CR2032)</strong>
       <p>Knopfzelle mit 3V Nennspannung. Sehr geringe Kapazität (~220mAh). Ideal für RTC-Uhren (DS3231) als Backup-Strom, Bluetooth-Beacons, Temperatursensoren im Schlafmodus.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Amorphous_solar_cell.jpg" alt="Solar Cell" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/solarCell.png" alt="Solar Cell" onerror="compIconFallback(this)">
       <strong>Solar Cell (Solarzelle)</strong>
       <p>Wandelt Sonnenlicht in Strom um. Spannung je nach Größe: 0.5V/Zelle. Für Arduino: 6V-Panel + Laderegler + Akku. Simulation in Tinkercad: justierbare Lichtintensität.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Potato_battery.jpg" alt="Potato Battery" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/batteryPotato.png" alt="Potato Battery" onerror="compIconFallback(this)">
       <strong>Potato Battery (Kartoffelbatterie)</strong>
       <p>Galvanisches Element aus Kartoffel + Zink/Kupfer-Elektroden. Erzeugt ~0.8V pro Kartoffel. In Serie: bis ~3V. Bildungszwecke: zeigt elektrochemische Reaktion. Zu schwach für Arduino.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Lemon_Battery.jpg" alt="Lemon Battery" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/batteryLemon.png" alt="Lemon Battery" onerror="compIconFallback(this)">
       <strong>Lemon Battery (Zitronenbatterie)</strong>
       <p>Gleiche Funktionsweise wie Kartoffel — Zitronensäure als Elektrolyt. ~0.7–1V pro Zitrone. Klassisches Schulexperiment um Elektrochemie zu demonstrieren. Kann LED schwach leuchten.</p>
     </div>
@@ -3894,22 +4337,22 @@ WebServer server(<span class="num">80</span>);
 
   <!-- ===== 5. BREADBOARDS ===== -->
   <div class="cat-title">Kategorie 5: Steckplatinen (Breadboards)</div>
-  <div class="comp-grid">
+  <div class="comp-grid-2">
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/400_points_breadboard.jpg" alt="Breadboard" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/breadboard.png" alt="Breadboard" onerror="compIconFallback(this)">
       <strong>Breadboard (Vollgröße)</strong>
       <p>830 Steckpunkte. Zwei Stromschienen (+/−) oben &amp; unten. Mitte: 63 Spalten × 10 Reihen, durch Mittelgraben geteilt. Innen verbunden: jeweils 5 horizontale Punkte pro Reihe.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Breadboard_small.jpg" alt="Breadboard Small" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/breadboardSmall.png" alt="Breadboard Small" onerror="compIconFallback(this)">
       <strong>Breadboard Small (400 Punkte)</strong>
       <p>Halbgroßes Breadboard mit 400 Steckpunkten. Kompakter für kleinere Projekte. Weniger Stromschienen. Ideal für 1–3 ICs und einfache Schaltungen.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Breadboard_mini.jpg" alt="Breadboard Mini" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/breadboardMini.png" alt="Breadboard Mini" onerror="compIconFallback(this)">
       <strong>Breadboard Mini (170 Punkte)</strong>
       <p>Kleinstes Breadboard ohne Stromschienen. 170 Punkte in 17 Spalten. Für sehr einfache Schaltungen, Einzelkomponenten-Tests, platzsparend im Gehäuse.</p>
     </div>
@@ -3917,28 +4360,28 @@ WebServer server(<span class="num">80</span>);
 
   <!-- ===== 6. MIKROCONTROLLER ===== -->
   <div class="cat-title">Kategorie 6: Mikrocontroller</div>
-  <div class="comp-grid">
+  <div class="comp-grid-2">
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Micro_bit_v2.0.jpg" alt="micro:bit" onerror="compIconFallback(this)" style="object-fit:cover;">
+      <img src="https://editor.tinkercad.com/components/thumbnails/microbit.png" alt="micro:bit" onerror="compIconFallback(this)" style="object-fit:cover;">
       <strong>micro:bit (BBC)</strong>
       <p>Einsteiger-Mikrocontroller von BBC für Schulen. 5×5 LED-Matrix eingebaut, 2 Tasten, Bluetooth, Beschleunigungssensor, Kompass. Programmierung: MakeCode (Blöcke) oder MicroPython.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Microbit_with_breakout.jpg" alt="micro:bit with Breakout" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/microbitBreakout.png" alt="micro:bit with Breakout" onerror="compIconFallback(this)">
       <strong>micro:bit with Breakout</strong>
       <p>micro:bit + Erweiterungs-Platine die alle I/O-Pins auf Steckbrett-kompatible Header führt. Ermöglicht Anschluss von Sensoren und Modulen ohne Krokodilklemmen.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Arduino_Uno_-_R3.jpg" alt="Arduino Uno R3" onerror="compIconFallback(this)" style="object-fit:cover;">
+      <img src="https://editor.tinkercad.com/components/thumbnails/arduinoUnoR3.png" alt="Arduino Uno R3" onerror="compIconFallback(this)" style="object-fit:cover;">
       <strong>Arduino Uno R3</strong>
       <p>Der Standard-Arduino. ATmega328P, 16MHz, 32KB Flash, 2KB RAM. 14 digitale Pins (6 PWM), 6 analoge Eingänge (10-bit). USB-Programmierung. Spannung: 5V Logic.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/ATtiny85.jpg" alt="ATtiny" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/attiny.png" alt="ATtiny" onerror="compIconFallback(this)">
       <strong>ATtiny (ATtiny85 / ATtiny84)</strong>
       <p>Winziger 8-Pin Mikrocontroller aus der AVR-Familie. ATtiny85: 5 I/O-Pins, 8KB Flash, 512B RAM. Programmierbar mit Arduino IDE via ISP-Programmer. Für minimale, günstige Produkte.</p>
     </div>
@@ -3946,28 +4389,28 @@ WebServer server(<span class="num">80</span>);
 
   <!-- ===== 7. MESSINSTRUMENTE ===== -->
   <div class="cat-title">Kategorie 7: Messinstrumente (Instruments)</div>
-  <div class="comp-grid">
+  <div class="comp-grid-2">
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Fluke_87V_Multimeter.jpg" alt="Multimeter" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/multimeter.png" alt="Multimeter" onerror="compIconFallback(this)">
       <strong>Multimeter</strong>
       <p>Misst Spannung (V), Strom (A), Widerstand (Ω), Diodendurchgang, Kapazität. In Tinkercad: Virtuelles Multimeter misst Spannung und Strom an beliebigen Punkten der Schaltung in Echtzeit.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Power_supply_unit.jpg" alt="Power Supply" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/powerSupply.png" alt="Power Supply" onerror="compIconFallback(this)">
       <strong>Power Supply (Labornetzteil)</strong>
       <p>Einstellbare Spannungsquelle (0–30V) und Strombegrenzung. In Tinkercad: Virtuelle Versorgung mit einstellbarer Spannung &amp; Strom. Ersetzt Batterien in der Simulation.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Function_generator.jpg" alt="Function Generator" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/functionGenerator.png" alt="Function Generator" onerror="compIconFallback(this)">
       <strong>Function Generator (Signalgenerator)</strong>
       <p>Erzeugt periodische Signale: Sinus, Rechteck, Dreieck. In Tinkercad: Einstellbare Frequenz (Hz–MHz), Amplitude und Wellenform. Ideal zum Testen von Filtern und Verstärkern.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Tektronix_465_Oscilloscope.jpg" alt="Oscilloscope" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/oscilloscope.png" alt="Oscilloscope" onerror="compIconFallback(this)">
       <strong>Oscilloscope (Oszilloskop)</strong>
       <p>Visualisiert Spannungsverläufe über Zeit. X-Achse = Zeit, Y-Achse = Spannung. In Tinkercad: Misst PWM-Signale, Sensorwerte, digitale Protokolle. Einstellen: Zeitbasis und Volt/Division.</p>
     </div>
@@ -3977,42 +4420,42 @@ WebServer server(<span class="num">80</span>);
   <div class="cat-title">Kategorie 8: Integrierte Schaltkreise (ICs)</div>
 
   <h3>8.1 Timer ICs</h3>
-  <div class="comp-grid">
+  <div class="comp-grid-2">
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/JRC_NE555_beschriftet.jpg" alt="555 Timer" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/icTimer555.png" alt="555 Timer" onerror="compIconFallback(this)">
       <strong>555 Timer (NE555)</strong>
       <p>Einer der meistgenutzten ICs der Geschichte! 3 Modi: <strong>Astabil</strong> (Rechteck-Oszillator), <strong>Monostabil</strong> (Einmalige Verzögerung), <strong>Bistabil</strong> (Flip-Flop). 8-Pin DIP. Frequenz durch R1, R2 und C einstellbar: f = 1.44 / ((R1+2R2)×C).</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/556_Timer.jpg" alt="556 Dual Timer" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/icTimer556.png" alt="556 Dual Timer" onerror="compIconFallback(this)">
       <strong>556 Dual Timer</strong>
       <p>Zwei 555-Timer in einem 14-Pin DIP-Gehäuse. Beide unabhängig schaltbar. Spart Platz und gemeinsame Stromversorgung. Für Anwendungen die zwei unabhängige Timer benötigen.</p>
     </div>
   </div>
 
   <h3>8.2 Operationsverstärker</h3>
-  <div class="comp-grid">
+  <div class="comp-grid-2">
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Op-amp_symbol.svg" alt="741 Op-Amp" onerror="compIconFallback(this)" style="background:white;">
+      <img src="https://editor.tinkercad.com/components/thumbnails/icOperationalAmplifier741.png" alt="741 Op-Amp" onerror="compIconFallback(this)" style="background:white;">
       <strong>741 Operationsverstärker (µA741)</strong>
       <p>Klassischer Operationsverstärker (Op-Amp). Verstärkt Spannungsdifferenz zwischen (+) und (−) Eingang. Anwendungen: Verstärker, Komparator, Integrator, Addierer, Subtrahierer, aktive Filter. Verstärkung einstellbar durch Rückkopplungs-Widerstand.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Op-amp_symbol.svg" alt="LM339 Comparator" onerror="compIconFallback(this)" style="background:white;">
+      <img src="https://editor.tinkercad.com/components/thumbnails/icComparatorQuadLM339.png" alt="LM339 Comparator" onerror="compIconFallback(this)" style="background:white;">
       <strong>LM339 Quad Comparator</strong>
       <p>4 Komparatoren in einem IC. Vergleicht zwei Spannungen: wenn (+)>(−) → Ausgang HIGH, sonst LOW. Open-Collector-Ausgang braucht Pull-up-Widerstand. Für Schwellenwert-Detektion.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Op-amp_symbol.svg" alt="LM393 Comparator" onerror="compIconFallback(this)" style="background:white;">
+      <img src="https://editor.tinkercad.com/components/thumbnails/icComparatorDualLM393.png" alt="LM393 Comparator" onerror="compIconFallback(this)" style="background:white;">
       <strong>LM393 Dual Comparator</strong>
       <p>2 Komparatoren in einem 8-Pin IC. Günstigere Variante des LM339. Gleiche Funktionsweise. Häufig auf Sensor-Modulen (MQ-2, Schallsensor) für den Digital-Ausgang eingebaut.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/4N35_Optocoupler.jpg" alt="4N35 Optocoupler" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/icOptocoupler4N35.png" alt="4N35 Optocoupler" onerror="compIconFallback(this)">
       <strong>4N35 Optocoupler (Optokoppler)</strong>
       <p>Galvanische Trennung durch Licht! LED sendet, Phototransistor empfängt. Eingang und Ausgang sind elektrisch KOMPLETT getrennt. Schutz: Arduino von Hochspannungskreisen trennen, Schaltnetzteile, Industriesteuerung.</p>
     </div>
@@ -4022,78 +4465,78 @@ WebServer server(<span class="num">80</span>);
   <div class="cat-title">Kategorie 9: Transistoren &amp; Leistungssteuerung (Power Control)</div>
 
   <h3>9.1 Bipolar-Transistoren (BJT)</h3>
-  <div class="comp-grid">
+  <div class="comp-grid-2">
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/BJT_NPN_symbol_%28case%29.svg" alt="NPN Transistor" onerror="compIconFallback(this)" style="background:white;">
+      <img src="https://editor.tinkercad.com/components/thumbnails/transistorNPN.png" alt="NPN Transistor" onerror="compIconFallback(this)" style="background:white;">
       <strong>NPN Transistor (2N2222 / BC547)</strong>
       <p>Steuert großen Strom mit kleinem Strom. Basis(B) steuert, Kollektor(C) zur Last, Emitter(E) zu GND. Wenn B HIGH → Strom fließt C→E. Wichtig: Basiswiderstand (1–10kΩ) zwischen Arduino-Pin und Basis!</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/52/BJT_PNP_symbol_%28case%29.svg" alt="PNP Transistor" onerror="compIconFallback(this)" style="background:white;">
+      <img src="https://editor.tinkercad.com/components/thumbnails/transistorPNP.png" alt="PNP Transistor" onerror="compIconFallback(this)" style="background:white;">
       <strong>PNP Transistor (BC557)</strong>
       <p>Umgekehrte Polarität zum NPN. Emitter(E) zu VCC, Kollektor(C) zur Last, Basis(B) steuert. Wenn B LOW → Strom fließt E→C. Für High-Side-Schaltung (Last zwischen Transistor und GND).</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/TIP120_transistor.jpg" alt="TIP120" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/transistorTIP120.png" alt="TIP120" onerror="compIconFallback(this)">
       <strong>TIP120 (Darlington NPN)</strong>
       <p>Leistungs-Darlington-Transistor. Zwei NPN-Transistoren in einem Gehäuse — extrem hohe Stromverstärkung (β&gt;1000). Schaltet bis 5A, 60V. Für Schrittmotoren, größere DC-Motoren, Solenoids. Benötigt Freilaufdiode!</p>
     </div>
   </div>
 
   <h3>9.2 Feldeffekt-Transistoren (MOSFET)</h3>
-  <div class="comp-grid">
+  <div class="comp-grid-2">
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/MOSFET_N-Ch_Enh_Labelled.svg" alt="nMOS MOSFET" onerror="compIconFallback(this)" style="background:white;">
+      <img src="https://editor.tinkercad.com/components/thumbnails/transistorNMOS.png" alt="nMOS MOSFET" onerror="compIconFallback(this)" style="background:white;">
       <strong>Small Signal nMOS (BS170)</strong>
       <p>Kleiner N-Kanal MOSFET für Signalschaltungen bis ~500mA. Gate(G), Drain(D), Source(S). Einschalten wenn U_GS &gt; Threshold (~2V). Kein Gate-Widerstand nötig (kein Basisstrom). Sehr schnell schaltend.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/MOSFET_P-Ch_Enh_Labelled.svg" alt="pMOS MOSFET" onerror="compIconFallback(this)" style="background:white;">
+      <img src="https://editor.tinkercad.com/components/thumbnails/transistorPMOS.png" alt="pMOS MOSFET" onerror="compIconFallback(this)" style="background:white;">
       <strong>Small Signal pMOS (BS250)</strong>
       <p>P-Kanal MOSFET. Leitet wenn Gate NIEDRIGER als Source. Für High-Side-Switches. Komplementär zum nMOS — zusammen in CMOS-Logik oder Halbbrücken verwendet.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/N_channel_Mosfet.jpg" alt="nMOS Power" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/transistorNMOSFET.png" alt="nMOS Power" onerror="compIconFallback(this)">
       <strong>nMOS / pMOS (Power MOSFET)</strong>
       <p>Leistungs-MOSFETs (z.B. IRF520, IRLZ44N) schalten Ampere-Ströme bei geringen Gate-Spannungen. Sehr geringer Einschaltwiderstand (mΩ). Ideal für LED-Stripes, Motoren, Heizwiderstände.</p>
     </div>
   </div>
 
   <h3>9.3 Relais</h3>
-  <div class="comp-grid">
+  <div class="comp-grid-2">
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Relay_in_cross_section.JPG" alt="Relay SPDT" onerror="compIconFallback(this)" style="object-fit:cover;">
+      <img src="https://editor.tinkercad.com/components/thumbnails/relaySPDTBlack.png" alt="Relay SPDT" onerror="compIconFallback(this)" style="object-fit:cover;">
       <strong>Relay SPDT (Einpoliger Wechsler)</strong>
       <p>Mechanischer Schalter elektrisch gesteuert. SPDT = Single Pole Double Throw. Kontakte: COM (gemeinsam), NO (normally open), NC (normally closed). Steuerstrom: 5V/70mA. Schaltet: bis 250V AC / 10A.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Relay_DPDT.jpg" alt="Relay DPDT" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/relayDPDT.png" alt="Relay DPDT" onerror="compIconFallback(this)">
       <strong>Relay DPDT (Doppelpoliger Wechsler)</strong>
       <p>DPDT = Double Pole Double Throw. Schaltet zwei Stromkreise gleichzeitig — wie zwei SPDT in einem. Nützlich für Motorumkehr (Richtung) oder gleichzeitiges Schalten mehrerer Verbraucher.</p>
     </div>
   </div>
 
   <h3>9.4 Spannungsregler</h3>
-  <div class="comp-grid">
+  <div class="comp-grid-2">
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/7805-L.jpg" alt="LM7805" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/regulator5V.png" alt="LM7805" onerror="compIconFallback(this)">
       <strong>5V Regulator LM7805</strong>
       <p>Linearer Spannungsregler: Eingang 7–35V → Ausgang konstant 5V, max. 1A. 3 Pins: Eingang, GND, Ausgang. Erzeugt Wärme bei großer Spannungsdifferenz → Kühlkörper bei &gt;500mA nötig!</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/LM1117_3.3V.jpg" alt="3.3V Regulator" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/regulator3V.png" alt="3.3V Regulator" onerror="compIconFallback(this)">
       <strong>3.3V Regulator (LM1117-3.3 / AMS1117)</strong>
       <p>Wandelt 5V auf 3.3V — wichtig für ESP32, ESP8266, RFID RC522, Bluetooth-Module die 3.3V Logic brauchen. LDO (Low Drop-Out): nur 1.2V Spannungsdifferenz nötig. Bis 800mA.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/L293D_Motor_Driver.jpg" alt="H-bridge L293D" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/icHBridgeL293D.png" alt="H-bridge L293D" onerror="compIconFallback(this)">
       <strong>H-Bridge Motor Driver (L293D)</strong>
       <p>Steuert 2 DC-Motoren bidirektional (vorwärts + rückwärts). Enthält 4 Transistor-Halbbrücken. Eingang: Arduino-Steuersignale. Ausgang: Motor bis 600mA/Kanal, 4.5–36V. Eingebaute Freilaufdioden!</p>
     </div>
@@ -4101,15 +4544,15 @@ WebServer server(<span class="num">80</span>);
 
   <!-- ===== 10. VERBINDER ===== -->
   <div class="cat-title">Kategorie 10: Verbinder (Connectors)</div>
-  <div class="comp-grid">
+  <div class="comp-grid-2">
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Pin_Header_2.54mm.jpg" alt="8 Pin Header" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/header8pin.png" alt="8 Pin Header" onerror="compIconFallback(this)">
       <strong>8 Pin Header (Steckleiste)</strong>
       <p>Einreihige Steckleiste mit 2.54mm Rastermaß. Verbindet Module mit Breadboard oder PCB. Varianten: Einzel- (SIL) und Doppelreihig (DIL). Abschneidbar auf beliebige Länge.</p>
     </div>
 
     <div class="comp-tile">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/USB_Type-A_receptacle_Black.jpg" alt="USB standard A" onerror="compIconFallback(this)">
+      <img src="https://editor.tinkercad.com/components/thumbnails/usbStandardA.png" alt="USB standard A" onerror="compIconFallback(this)">
       <strong>USB Standard A (Stecker)</strong>
       <p>Liefert 5V/500mA (USB 2.0) oder 5V/900mA (USB 3.0). In Tinkercad als Stromquelle. Im echten Projekt: Arduino direkt per USB-B (Quadratisch) programmieren und versorgen.</p>
     </div>
@@ -4120,154 +4563,158 @@ WebServer server(<span class="num">80</span>);
   <p>Die 74HC-Serie sind CMOS-Logik-ICs (5V, schnell, geringer Stromverbrauch). Sie implementieren Grundgatter und kombinierte Schaltungen der Digitaltechnik.</p>
 
   <h3>11.1 Grundgatter</h3>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:12px 0;">
-
-    <div class="component-card" style="padding:12px;">
-      <div class="logic-sym">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/AND_ANSI_Labelled.svg" alt="AND gate">
-      </div>
+  <div class="comp-grid-2">
+    <div class="comp-tile">
+      <img src="https://editor.tinkercad.com/components/thumbnails/ic74HC08.png" alt="Quad AND Gate" onerror="compIconFallback(this)">
       <strong>Quad AND Gate (74HC08)</strong>
-      <p>4 unabhängige AND-Gatter in einem 14-Pin DIP. Ausgang = HIGH nur wenn ALLE Eingänge HIGH. Wahrheitstafel: 0&amp;0=0, 0&amp;1=0, 1&amp;1=1. Verwendung: Bedingungsverknüpfung, Masken.</p>
+      <p>4 AND-Gatter. Ausgang = HIGH nur wenn ALLE Eingänge HIGH. 0&amp;0=0, 0&amp;1=0, 1&amp;1=1. Bedingungsverknüpfung, Signalmasken.</p>
+      <a href="https://de.wikipedia.org/wiki/Logikgatter" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: Logikgatter</a>
     </div>
-
-    <div class="component-card" style="padding:12px;">
-      <div class="logic-sym">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/OR_ANSI_Labelled.svg" alt="OR gate">
-      </div>
+    <div class="comp-tile">
+      <img src="https://editor.tinkercad.com/components/thumbnails/ic74HC32.png" alt="Quad OR Gate" onerror="compIconFallback(this)">
       <strong>Quad OR Gate (74HC32)</strong>
-      <p>4 OR-Gatter. Ausgang = HIGH wenn MINDESTENS EIN Eingang HIGH. 0|0=0, 0|1=1, 1|1=1. Verwendung: Mehrere Auslöser zusammenführen (Alarm von Sensor A ODER Sensor B).</p>
+      <p>4 OR-Gatter. Ausgang = HIGH wenn MINDESTENS EIN Eingang HIGH. 0|0=0, 0|1=1, 1|1=1. Alarm-Zusammenführung.</p>
+      <a href="https://de.wikipedia.org/wiki/Logikgatter" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: Logikgatter</a>
     </div>
-
-    <div class="component-card" style="padding:12px;">
-      <div class="logic-sym">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/NAND_ANSI_Labelled.svg" alt="NAND gate">
-      </div>
+    <div class="comp-tile">
+      <img src="https://editor.tinkercad.com/components/thumbnails/ic74HC00.png" alt="Quad NAND Gate" onerror="compIconFallback(this)">
       <strong>Quad NAND Gate (74HC00)</strong>
-      <p>NOT-AND — Invertiertes AND. Ausgang = LOW nur wenn ALLE Eingänge HIGH. Das "universelle Gatter" — aus NAND allein kann man JEDE Logikfunktion aufbauen! 0↑0=1, 1↑1=0.</p>
+      <p>NOT-AND — invertiertes AND. Das "universelle Gatter" — aus NAND allein lässt sich JEDE Logikfunktion aufbauen!</p>
+      <a href="https://de.wikipedia.org/wiki/NAND-Gatter" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: NAND-Gatter</a>
     </div>
-
-    <div class="component-card" style="padding:12px;">
-      <div class="logic-sym">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/NOR_ANSI_Labelled.svg" alt="NOR gate">
-      </div>
+    <div class="comp-tile">
+      <img src="https://editor.tinkercad.com/components/thumbnails/ic74HC02.png" alt="Quad NOR Gate" onerror="compIconFallback(this)">
       <strong>Quad NOR Gate (74HC02)</strong>
-      <p>NOT-OR — Invertiertes OR. Ausgang = HIGH nur wenn ALLE Eingänge LOW. Auch ein universelles Gatter! 0↓0=1, 0↓1=0, 1↓1=0. In CMOS-Schaltungen häufig eingesetzt.</p>
+      <p>NOT-OR — invertiertes OR. Ausgang = HIGH nur wenn ALLE Eingänge LOW. Ebenfalls universelles Gatter.</p>
+      <a href="https://de.wikipedia.org/wiki/NOR-Gatter" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: NOR-Gatter</a>
     </div>
-
-    <div class="component-card" style="padding:12px;">
-      <div class="logic-sym">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/XOR_ANSI_Labelled.svg" alt="XOR gate">
-      </div>
+    <div class="comp-tile">
+      <img src="https://editor.tinkercad.com/components/thumbnails/ic74HC86.png" alt="Quad XOR Gate" onerror="compIconFallback(this)">
       <strong>Quad XOR Gate (74HC86)</strong>
-      <p>Exklusiv-ODER. Ausgang = HIGH wenn Eingänge VERSCHIEDEN. 0⊕0=0, 0⊕1=1, 1⊕1=0. Verwendung: Paritätsprüfung, Halbaddierer, Verschlüsselung (XOR-Cipher), Differenz-Detektor.</p>
+      <p>Exklusiv-ODER. HIGH wenn Eingänge VERSCHIEDEN. Paritätsprüfung, Halbaddierer, XOR-Verschlüsselung, Differenz-Detektor.</p>
+      <a href="https://de.wikipedia.org/wiki/Antivalenzgatter" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: Antivalenzgatter (XOR)</a>
     </div>
-
-    <div class="component-card" style="padding:12px;">
-      <div class="logic-sym">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/NOT_ANSI_Labelled.svg" alt="NOT gate">
-      </div>
+    <div class="comp-tile">
+      <img src="https://editor.tinkercad.com/components/thumbnails/ic74HC04.png" alt="Hex Inverter" onerror="compIconFallback(this)">
       <strong>Hex Inverter (74HC04)</strong>
-      <p>6 Inverter (NOT-Gatter). Dreht das Signal um: 0→1, 1→0. Verwendung: Signal invertieren, Bustreiber-Regeneration, Oszillator mit RC-Glied, Level-Shifter in Kombination.</p>
+      <p>6 NOT-Gatter. Dreht Signal um: 0→1, 1→0. Bustreiber-Regeneration, Oszillator mit RC-Glied, Level-Shifter.</p>
+      <a href="https://de.wikipedia.org/wiki/Logikgatter" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: Logikgatter</a>
     </div>
   </div>
 
   <h3>11.2 Schmitt-Trigger</h3>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:12px 0;">
-    <div class="component-card" style="padding:12px;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Smitt_hysteresis_graph.svg" alt="Schmitt Trigger Hysterese" style="width:100%;max-width:200px;background:white;padding:4px;border-radius:4px;" onerror="compIconFallback(this)">
+  <div class="comp-grid-2">
+    <div class="comp-tile">
+      <img src="https://editor.tinkercad.com/components/thumbnails/ic74HC14.png" alt="Inverting Schmitt Trigger" onerror="compIconFallback(this)">
       <strong>Inverting Schmitt Trigger (74HC14)</strong>
-      <p>6 Inverter mit Schmitt-Trigger-Eingang. Schaltet erst um wenn Spannung einen Schwellenwert überschreitet (Hysterese). Entprellt rauschende Signale — ideal für Taster, Sensoren mit langsamen Flanken.</p>
-      <p><em>Schwellenwerte bei 5V: Ein bei ~1.7V, Aus bei ~3.3V</em></p>
+      <p>6 NOT-Gatter mit Hysterese. Schaltet erst bei Schwellenwert um. Entprellt Taster &amp; rauschende Sensorsignale. Ein ~1.7V, Aus ~3.3V (bei 5V).</p>
+      <a href="https://de.wikipedia.org/wiki/Schmitt-Trigger" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: Schmitt-Trigger</a>
     </div>
-
-    <div class="component-card" style="padding:12px;">
+    <div class="comp-tile">
+      <img src="https://editor.tinkercad.com/components/thumbnails/ic74HC132.png" alt="Quad NAND Schmitt Trigger" onerror="compIconFallback(this)">
       <strong>Quad NAND Schmitt Trigger (74HC132)</strong>
-      <p>4 NAND-Gatter mit Schmitt-Trigger-Eingängen. Kombiniert NAND-Logik mit Rauschunterdrückung. Für kritische Schaltungen wo saubere digitale Flanken wichtig sind.</p>
+      <p>4 NAND-Gatter mit Schmitt-Trigger-Eingängen. Kombiniert NAND-Logik mit Rauschunterdrückung für kritische Flanken.</p>
+      <a href="https://de.wikipedia.org/wiki/Schmitt-Trigger" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: Schmitt-Trigger</a>
     </div>
   </div>
 
   <h3>11.3 Gatter mit 3+ Eingängen</h3>
-  <div class="comp-grid">
+  <div class="comp-grid-2">
     <div class="comp-tile">
-      <strong style="font-size:0.95em;">Triple 3-Input NAND (74HC10)</strong>
-      <p>3 NAND-Gatter mit je 3 Eingängen. Ausgang = LOW nur wenn ALLE 3 Eingänge HIGH. Für 3-Eingang Logikbedingungen ohne externe Verknüpfung.</p>
+      <img src="https://editor.tinkercad.com/components/thumbnails/ic74HC10.png" alt="Triple 3-Input NAND" onerror="compIconFallback(this)">
+      <strong>Triple 3-Input NAND (74HC10)</strong>
+      <p>3 NAND-Gatter mit je 3 Eingängen. Ausgang = LOW nur wenn ALLE 3 Eingänge HIGH. Logikbedingungen ohne externe Verknüpfung.</p>
+      <a href="https://de.wikipedia.org/wiki/NAND-Gatter" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: NAND-Gatter</a>
     </div>
     <div class="comp-tile">
-      <strong style="font-size:0.95em;">Triple 3-Input AND (74HC11)</strong>
-      <p>3 AND-Gatter mit je 3 Eingängen. Ausgang = HIGH nur wenn alle 3 HIGH. Für 3-fache Bedingungsverknüpfung, Sicherheitsschaltungen (A UND B UND C muss wahr sein).</p>
+      <img src="https://editor.tinkercad.com/components/thumbnails/ic74HC11.png" alt="Triple 3-Input AND" onerror="compIconFallback(this)">
+      <strong>Triple 3-Input AND (74HC11)</strong>
+      <p>3 AND-Gatter mit je 3 Eingängen. Alle 3 müssen HIGH sein. Sicherheitsschaltungen (A UND B UND C).</p>
+      <a href="https://de.wikipedia.org/wiki/Logikgatter" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: Logikgatter</a>
     </div>
     <div class="comp-tile">
-      <strong style="font-size:0.95em;">Triple 3-Input NOR (74HC27)</strong>
-      <p>3 NOR-Gatter mit je 3 Eingängen. Ausgang = HIGH nur wenn ALLE 3 Eingänge LOW. Für 3-Eingang Null-Detektion.</p>
+      <img src="https://editor.tinkercad.com/components/thumbnails/ic74HC27.png" alt="Triple 3-Input NOR" onerror="compIconFallback(this)">
+      <strong>Triple 3-Input NOR (74HC27)</strong>
+      <p>3 NOR-Gatter mit je 3 Eingängen. Ausgang = HIGH nur wenn ALLE 3 Eingänge LOW. Null-Detektion.</p>
+      <a href="https://de.wikipedia.org/wiki/NOR-Gatter" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: NOR-Gatter</a>
     </div>
     <div class="comp-tile">
-      <strong style="font-size:0.95em;">Dual 4-Input NAND (74HC20)</strong>
-      <p>2 NAND-Gatter mit je 4 Eingängen. Für komplexe 4-Eingang Logik in kompaktem Gehäuse. Typisch in Adressdekodierung und Steuerlogik.</p>
+      <img src="https://editor.tinkercad.com/components/thumbnails/ic74HC20.png" alt="Dual 4-Input NAND" onerror="compIconFallback(this)">
+      <strong>Dual 4-Input NAND (74HC20)</strong>
+      <p>2 NAND-Gatter mit je 4 Eingängen. Kompakte 4-Eingang-Logik. Adressdekodierung, Steuerlogik.</p>
+      <a href="https://de.wikipedia.org/wiki/NAND-Gatter" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: NAND-Gatter</a>
     </div>
     <div class="comp-tile">
-      <strong style="font-size:0.95em;">Dual 4-Input AND (74HC21)</strong>
-      <p>2 AND-Gatter mit je 4 Eingängen. Alle 4 müssen HIGH sein für HIGH-Ausgang. Für 4-fache Sicherheitsbedingungen.</p>
+      <img src="https://editor.tinkercad.com/components/thumbnails/ic74HC21.png" alt="Dual 4-Input AND" onerror="compIconFallback(this)">
+      <strong>Dual 4-Input AND (74HC21)</strong>
+      <p>2 AND-Gatter mit je 4 Eingängen. Alle 4 müssen HIGH sein. 4-fache Sicherheitsbedingungen.</p>
+      <a href="https://de.wikipedia.org/wiki/Logikgatter" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: Logikgatter</a>
     </div>
   </div>
 
   <h3>11.4 Flip-Flops &amp; Sequentielle Logik</h3>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:12px 0;">
-
-    <div class="component-card" style="padding:12px;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/D-Type_Flip-flop.svg" alt="D Flip-Flop" style="width:100%;max-width:180px;background:white;padding:4px;border-radius:4px;" onerror="compIconFallback(this)">
+  <div class="comp-grid-2">
+    <div class="comp-tile">
+      <img src="https://editor.tinkercad.com/components/thumbnails/ic74HC74.png" alt="Dual D Flip-Flop" onerror="compIconFallback(this)">
       <strong>Dual D Flip-Flop (74HC74)</strong>
-      <p>2 D-Typ Flip-Flops (Datenspeicher). Bei positiver CLK-Flanke wird D-Eingang auf Q gespeichert. Speichert 1 Bit pro FF. Anwendung: Register, Frequenzteiler (/2), Schieberegister-Baustein.</p>
+      <p>2 D-Typ Flip-Flops. Bei positiver CLK-Flanke wird D-Eingang auf Q gespeichert. Register, Frequenzteiler (/2), Schieberegister-Baustein.</p>
+      <a href="https://de.wikipedia.org/wiki/Flipflop" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: Flipflop</a>
     </div>
-
-    <div class="component-card" style="padding:12px;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/JK_flip_flop.svg" alt="JK Flip-Flop" style="width:100%;max-width:180px;background:white;padding:4px;border-radius:4px;" onerror="compIconFallback(this)">
+    <div class="comp-tile">
+      <img src="https://editor.tinkercad.com/components/thumbnails/ic74HC73.png" alt="Dual J-K Flip-Flop" onerror="compIconFallback(this)">
       <strong>Dual J-K Flip-Flop (74HC73)</strong>
-      <p>2 J-K Flip-Flops — flexibler als D-FF. 4 Modi: Speichern (J=K=0), Setzen (J=1,K=0), Rücksetzen (J=0,K=1), Toggle (J=K=1). Basis für Zähler und Zustandsmaschinen.</p>
+      <p>2 J-K Flip-Flops. 4 Modi: Speichern (J=K=0), Setzen (J=1,K=0), Rücksetzen (J=0,K=1), Toggle (J=K=1). Basis für Zähler.</p>
+      <a href="https://de.wikipedia.org/wiki/Flipflop" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: Flipflop</a>
     </div>
-
-    <div class="component-card" style="padding:12px;">
+    <div class="comp-tile">
+      <img src="https://editor.tinkercad.com/components/thumbnails/ic74HC75.png" alt="4-Bit Latch" onerror="compIconFallback(this)">
       <strong>4-Bit Latch (74HC75)</strong>
-      <p>Speichert 4 Bits gleichzeitig. Solange Enable=HIGH: Ausgang folgt Eingang (transparent). Bei Enable=LOW: Wert eingefroren. Für temporäres Datenspeichern beim Multiplexen.</p>
+      <p>Speichert 4 Bits gleichzeitig. Enable=HIGH: Ausgang folgt Eingang (transparent). Enable=LOW: Wert eingefroren. Multiplexing.</p>
+      <a href="https://de.wikipedia.org/wiki/Flipflop" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: Flipflop</a>
     </div>
   </div>
 
   <h3>11.5 Zähler &amp; Rechenwerke</h3>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:12px 0;">
-
-    <div class="component-card" style="padding:12px;">
+  <div class="comp-grid-2">
+    <div class="comp-tile">
+      <img src="https://editor.tinkercad.com/components/thumbnails/ic74HC93.png" alt="4-Bit Binary Counter" onerror="compIconFallback(this)">
       <strong>4-Bit Binary Counter (74HC93)</strong>
-      <p>Zählt Taktimpulse von 0 bis 15 (4-Bit = 2⁴=16 Zustände). Binärausgabe an Q0–Q3. Reset-Eingang. Kaskadierbar für mehr Bits. Anwendung: Frequenzteiler, Taktgenerator-Teiler, Ereigniszähler.</p>
+      <p>Zählt Taktimpulse 0–15 in Binär (2⁴=16 Zustände). Binärausgabe Q0–Q3. Kaskadierbar. Frequenzteiler, Ereigniszähler.</p>
+      <a href="https://de.wikipedia.org/wiki/Z%C3%A4hler_(Digitaltechnik)" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: Zähler (Digitaltechnik)</a>
     </div>
-
-    <div class="component-card" style="padding:12px;">
+    <div class="comp-tile">
+      <img src="https://editor.tinkercad.com/components/thumbnails/ic74HC283.png" alt="4-Bit Adder" onerror="compIconFallback(this)">
       <strong>4-Bit Adder (74HC283)</strong>
-      <p>Addiert zwei 4-Bit Zahlen (A + B = Summe + Übertrag). Carry-In/Out für Kaskadierung zu 8, 12, 16 Bit Addierer. Basis jedes Prozessor-ALU (Arithmetic Logic Unit).</p>
+      <p>Addiert zwei 4-Bit Zahlen (A+B = Summe + Übertrag). Kaskadierbar zu 8/12/16-Bit. Basis jeder Prozessor-ALU.</p>
+      <a href="https://de.wikipedia.org/wiki/Addierer" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: Addierer</a>
     </div>
-
-    <div class="component-card" style="padding:12px;">
+    <div class="comp-tile">
+      <img src="https://editor.tinkercad.com/components/thumbnails/ic74HC595.png" alt="8-Bit Shift Register" onerror="compIconFallback(this)">
       <strong>8-Bit Shift Register (74HC595)</strong>
-      <p>Der meistgenutzte IC mit Arduino! Steuert 8 Ausgänge mit nur 3 Arduino-Pins (DATA, CLOCK, LATCH). Kaskadierbar: 2× 74HC595 = 16 Ausgänge mit 3 Pins! Für 7-Segment, LED-Matrix, Tastatur-Scan.</p>
-      <pre style="font-size:0.7em;margin:4px 0;"><code>shiftOut(dataPin, clockPin, MSBFIRST, byte);</code></pre>
+      <p>Der meistgenutzte IC mit Arduino! 8 Ausgänge mit nur 3 Pins (DATA, CLOCK, LATCH). Kaskadierbar: 2× = 16 Ausgänge!</p>
+      <a href="https://de.wikipedia.org/wiki/Schieberegister" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: Schieberegister</a>
     </div>
-
-    <div class="component-card" style="padding:12px;">
+    <div class="comp-tile">
+      <img src="https://editor.tinkercad.com/components/thumbnails/ic74HC4017.png" alt="Johnson Decade Counter" onerror="compIconFallback(this)">
       <strong>Johnson Decade Counter (74HC4017)</strong>
-      <p>10-Output-Dekadenzähler — aktiviert Ausgänge Q0–Q9 der Reihe nach (ein HIGH wandert durch alle 10). Perfekt für Lauflicht-Sequenzen, 10-Stufen-Anzeige ohne Programmierung, Schrittfolgen.</p>
+      <p>10 Ausgänge Q0–Q9 der Reihe nach aktiviert — ein HIGH wandert durch alle 10. Lauflicht-Sequenzen ohne Programmierung.</p>
+      <a href="https://de.wikipedia.org/wiki/Ringz%C3%A4hler" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: Ringzähler</a>
     </div>
   </div>
 
   <h3>11.6 Display-Decoder &amp; Bus-Erweiter</h3>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:12px 0;">
-
-    <div class="component-card" style="padding:12px;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/7_Segment_Display_with_Labeled_Segments_AHGJBCDF.svg" alt="7 Segment Decoder" onerror="compIconFallback(this)" style="width:60px;background:white;padding:4px;border-radius:4px;">
+  <div class="comp-grid-2">
+    <div class="comp-tile">
+      <img src="https://editor.tinkercad.com/components/thumbnails/icCD4511.png" alt="7-Segment Decoder CD4511" onerror="compIconFallback(this)">
       <strong>7-Segment Decoder (CD4511)</strong>
-      <p>Wandelt 4-Bit BCD-Zahl (0–9) in 7-Segment-Ansteuersignale um. 4 BCD-Eingänge → 7 Segment-Ausgänge (a–g). Spart 3 Arduino-Pins statt direkter 7-Segment-Ansteuerung. Nur Ziffern 0–9!</p>
+      <p>Wandelt 4-Bit BCD-Zahl (0–9) in 7 Segment-Ausgänge (a–g) um. Spart Arduino-Pins. Nur Ziffern 0–9.</p>
+      <a href="https://de.wikipedia.org/wiki/Sieben-Segment-Anzeige" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: Sieben-Segment-Anzeige</a>
     </div>
-
-    <div class="component-card" style="padding:12px;">
+    <div class="comp-tile">
+      <img src="https://editor.tinkercad.com/components/thumbnails/icPCF8574.png" alt="8-Port I2C Expander PCF8574" onerror="compIconFallback(this)">
       <strong>8-Port I2C Expander (PCF8574)</strong>
-      <p>Erweitert Arduino um 8 zusätzliche digitale I/O-Pins über nur 2 I2C-Leitungen (SDA+SCL)! 3 Adresspins → 8 verschiedene Adressen möglich → bis 64 Extra-Pins über I2C! Das LCD-I2C-Modul benutzt diesen Chip intern.</p>
+      <p>8 zusätzliche digitale I/O-Pins über nur 2 I2C-Leitungen! Bis 8 Chips hintereinander = 64 Extra-Pins. LCD-I2C-Modul nutzt diesen Chip intern.</p>
+      <a href="https://de.wikipedia.org/wiki/I%C2%B2C" target="_blank" rel="noopener" class="wiki-link">→ Wikipedia: I²C-Bus</a>
     </div>
   </div>
 
@@ -4288,6 +4735,9 @@ WebServer server(<span class="num">80</span>);
     <tr><td>Logik-ICs (74HC)</td><td>22</td><td>AND/OR/NAND/NOR/XOR, Schmitt, FF, Counter, Adder, Shift Reg...</td></tr>
     <tr><td><strong>Gesamt</strong></td><td><strong>~102</strong></td><td><strong>Alle in Tinkercad Circuits verfügbaren Bauteile</strong></td></tr>
   </table>
+</div>
+
+</main>
 </div>
 
 <footer>
