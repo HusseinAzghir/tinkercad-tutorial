@@ -217,10 +217,17 @@ nav.sidebar ul li a.active { background: var(--accent); border-left-color: var(-
     <li class="nav-sub"><a href="#kap5-bibliotheken">Bibliotheken</a></li>
     <li class="nav-section">Komponenten</li>
     <li><a href="#kap6">6. Alle Komponenten</a></li>
-    <li class="nav-sub"><a href="#kap6-sensoren">Sensoren</a></li>
+    <li class="nav-sub"><a href="#kap6-sensoren">Sensoren (Temp/Distanz)</a></li>
     <li class="nav-sub"><a href="#kap6-aktoren">Aktoren & Ausgabe</a></li>
     <li class="nav-sub"><a href="#kap6-passiv">Passive Bauteile</a></li>
     <li class="nav-sub"><a href="#kap6-ics">ICs & Chips</a></li>
+    <li class="nav-section">Neue Sensoren</li>
+    <li><a href="#kap6-aktoren">DHT11/DHT22 Feuchtigkeit</a></li>
+    <li><a href="#kap6-aktoren">MQ-2 Gas / Rauch</a></li>
+    <li><a href="#kap6-aktoren">Soil / Regen / Sound</a></li>
+    <li><a href="#kap6-aktoren">IR / Joystick / Encoder</a></li>
+    <li><a href="#kap6-aktoren">OLED / NeoPixel / RFID</a></li>
+    <li><a href="#kap6-aktoren">Schrittmotor 28BYJ-48</a></li>
     <li class="nav-section">Theorie</li>
     <li><a href="#kap7">7. Schaltkreis-Theorie</a></li>
     <li class="nav-sub"><a href="#kap7-ohm">Ohmsches Gesetz</a></li>
@@ -246,6 +253,31 @@ nav.sidebar ul li a.active { background: var(--accent); border-left-color: var(-
     <li><a href="#kap11">11. Häufige Fehler</a></li>
     <li><a href="#kap12">12. Glossar</a></li>
     <li><a href="#kap13">13. Ressourcen</a></li>
+    <li><a href="#kap14">14. Tinkercad-Plattform</a></li>
+    <li class="nav-sub"><a href="#kap14">Alle Screenshots erklärt</a></li>
+    <li><a href="#kap15">15. Erweiterte Sensoren</a></li>
+    <li class="nav-sub"><a href="#kap15">BMP280, MPU-6050, GPS...</a></li>
+    <li><a href="#kap16">16. Profi-Programmierung</a></li>
+    <li class="nav-sub"><a href="#kap16">State Machine, EEPROM, Interrupts</a></li>
+    <li><a href="#kap17">17. Neue Projekte P13–P18</a></li>
+    <li class="nav-sub"><a href="#p13">P13: Wetterstation OLED</a></li>
+    <li class="nav-sub"><a href="#p14">P14: RFID Türschloss</a></li>
+    <li class="nav-sub"><a href="#p15">P15: Digitales Piano</a></li>
+    <li class="nav-sub"><a href="#p16">P16: Gas-Alarm NeoPixel</a></li>
+    <li class="nav-sub"><a href="#p17">P17: Gewächshaus</a></li>
+    <li class="nav-sub"><a href="#p18">P18: Audio-Visualizer</a></li>
+    <li><a href="#kap18">18. Kommunikation & Funk</a></li>
+    <li class="nav-sub"><a href="#kap18">Bluetooth, I2C, NRF24L01</a></li>
+    <li><a href="#kap19">19. ESP32 & IoT</a></li>
+    <li class="nav-sub"><a href="#kap19">WiFi, MQTT, Raspberry Pi</a></li>
+    <li><a href="#kap20">20. Cheat Sheet</a></li>
+    <li class="nav-sub"><a href="#kap20">Alle Formeln & Pinout</a></li>
+    <li><a href="#kap21">21. Alle Komponenten</a></li>
+    <li class="nav-sub"><a href="#kap21">~102 Bauteile erklärt</a></li>
+    <li class="nav-sub"><a href="#kap21">Passiv / Sensor / Output</a></li>
+    <li class="nav-sub"><a href="#kap21">Transistoren / MOSFETs</a></li>
+    <li class="nav-sub"><a href="#kap21">Relais / Regler / ICs</a></li>
+    <li class="nav-sub"><a href="#kap21">74HC Logik-ICs (22 Stück)</a></li>
   </ul>
 </nav>
 
@@ -453,6 +485,17 @@ nav.sidebar ul li a.active { background: var(--accent); border-left-color: var(-
 
   <h3>Aufbau des Breadboards</h3>
 
+  <div class="screenshot-grid">
+    <div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Breadboard_scheme.svg" alt="Breadboard Schema" style="width:100%;border-radius:8px;border:2px solid var(--border);background:white;padding:8px;">
+      <p class="cap">Schematische Darstellung: welche Punkte intern verbunden sind (Wikimedia Commons)</p>
+    </div>
+    <div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Breadboard_full_plus.svg" alt="Breadboard mit Stromschienen" style="width:100%;border-radius:8px;border:2px solid var(--border);background:white;padding:8px;">
+      <p class="cap">Vollständiges Breadboard mit roten (+) und blauen (−) Stromschienen (Wikimedia Commons)</p>
+    </div>
+  </div>
+
   <p>Ein typisches Breadboard (830 Kontaktpunkte) besteht aus drei Bereichen:</p>
   <ul>
     <li><strong>Stromschienen (Power Rails):</strong> Die langen Reihen oben und unten (+/−). Alle Punkte einer Stromschiene sind elektrisch verbunden. Rot = Plus (+), Blau/Schwarz = GND (−).</li>
@@ -493,6 +536,17 @@ nav.sidebar ul li a.active { background: var(--accent); border-left-color: var(-
 
   <h3 id="kap4-uno">Arduino Uno R3 – Das Standardboard</h3>
   <p>Der <strong>Arduino Uno R3</strong> ist das häufigste Board in Tinkercad. "Uno" bedeutet "Eins" auf Italienisch — es war der erste standardisierte Arduino. Das R3 steht für Revision 3 (aktuelle Version).</p>
+
+  <div class="screenshot-grid">
+    <div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Arduino_Uno_-_R3.jpg" alt="Arduino Uno R3 Foto" style="width:100%;border-radius:8px;border:2px solid var(--border);">
+      <p class="cap">Das echte Arduino Uno R3 Board (Foto: Wikimedia Commons, CC BY-SA)</p>
+    </div>
+    <div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/Arduino-uno-pinout.png" alt="Arduino Uno R3 Pinout" style="width:100%;border-radius:8px;border:2px solid var(--border);">
+      <p class="cap">Vollständiges Pin-Diagramm des Arduino Uno R3 (Wikimedia Commons, CC BY-SA)</p>
+    </div>
+  </div>
 
   <div class="info">In der Komponentenbibliothek von Tinkercad finden Sie den Arduino Uno R3 unter "Basic" → "Arduino Uno R3". Ziehen Sie ihn einfach auf die Arbeitsfläche.</div>
 
@@ -868,6 +922,324 @@ nav.sidebar ul li a.active { background: var(--accent); border-left-color: var(-
     <ul><li>Wie LDR anschließen (Spannungsteiler mit 10 kΩ)</li></ul>
   </div>
 
+  <!-- ===== ERWEITERTE SENSOREN ===== -->
+  <h4 style="margin-top:28px;color:var(--dark-blue);border-bottom:2px solid var(--light-blue);padding-bottom:6px;">Feuchtigkeits- & Klimasensoren</h4>
+
+  <div class="component-card">
+    <h4>DHT11 – Temperatur- &amp; Luftfeuchtigkeitssensor</h4>
+    <div class="screenshot-grid">
+      <div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/DHT11.png" alt="DHT11 Sensor" style="width:100%;border-radius:8px;border:2px solid var(--border);">
+        <p class="cap">DHT11 – günstiger Einstiegssensor (Wikimedia Commons)</p>
+      </div>
+      <div style="display:flex;flex-direction:column;justify-content:center;">
+        <p>Der DHT11 misst gleichzeitig <strong>Temperatur</strong> (0–50°C, ±2°C) und <strong>Luftfeuchtigkeit</strong> (20–90% RH, ±5%). Ein digitales Single-Wire-Protokoll — nur 1 Datenleitung nötig.</p>
+        <ul>
+          <li><strong>Pins (Vorderseite):</strong> VCC (3.3–5V), Data (zu Digital-Pin + 10 kΩ Pull-up zu VCC), NC (nicht belegt), GND</li>
+          <li><strong>Bibliothek:</strong> <code>#include &lt;DHT.h&gt;</code> (Adafruit DHT sensor library)</li>
+          <li><strong>Messrate:</strong> maximal 1× pro Sekunde</li>
+          <li><strong>Anwendung:</strong> Wetterstation, Raumklima, Gewächshaus, Klimaanlage</li>
+        </ul>
+      </div>
+    </div>
+    <pre><code>#include &lt;DHT.h&gt;
+<span class="kw">const int</span> DHT_PIN = <span class="num">7</span>;
+DHT dht(DHT_PIN, DHT11);   <span class="cm">// DHT22 → einfach DHT22 statt DHT11</span>
+
+<span class="tp">void</span> <span class="fn">setup</span>() { Serial.<span class="fn">begin</span>(<span class="num">9600</span>); dht.<span class="fn">begin</span>(); }
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="fn">delay</span>(<span class="num">2000</span>);
+  <span class="tp">float</span> feuchte = dht.<span class="fn">readHumidity</span>();
+  <span class="tp">float</span> temp    = dht.<span class="fn">readTemperature</span>();   <span class="cm">// Celsius</span>
+
+  <span class="kw">if</span> (<span class="fn">isnan</span>(feuchte) || <span class="fn">isnan</span>(temp)) {
+    Serial.<span class="fn">println</span>(<span class="str">"Fehler: Sensor nicht verbunden!"</span>);
+    <span class="kw">return</span>;
+  }
+  Serial.<span class="fn">print</span>(<span class="str">"Temp: "</span>);    Serial.<span class="fn">print</span>(temp);    Serial.<span class="fn">print</span>(<span class="str">" C  "</span>);
+  Serial.<span class="fn">print</span>(<span class="str">"Feuchte: "</span>); Serial.<span class="fn">print</span>(feuchte); Serial.<span class="fn">println</span>(<span class="str">"%"</span>);
+}</code></pre>
+  </div>
+
+  <div class="component-card">
+    <h4>DHT22 – Präzisions-Temperatur- &amp; Feuchtigkeitssensor</h4>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/DHT_22_Sensor.jpg" alt="DHT22 Sensor" style="width:180px;border-radius:8px;border:2px solid var(--border);">
+      <div style="flex:1;min-width:200px;">
+        <p>Der DHT22 (auch AM2302) ist die präzisere Version des DHT11 — teurer aber deutlich genauer.</p>
+        <table>
+          <tr><th>Eigenschaft</th><th>DHT11</th><th>DHT22</th></tr>
+          <tr><td>Temperatur-Bereich</td><td>0–50°C</td><td>−40 bis +80°C</td></tr>
+          <tr><td>Temperatur-Genauigkeit</td><td>±2°C</td><td>±0.5°C</td></tr>
+          <tr><td>Feuchtigkeits-Bereich</td><td>20–90% RH</td><td>0–100% RH</td></tr>
+          <tr><td>Feuchtigkeits-Genauigkeit</td><td>±5%</td><td>±2–5%</td></tr>
+          <tr><td>Messrate</td><td>1×/Sek.</td><td>0.5×/Sek. (alle 2s)</td></tr>
+        </table>
+        <div class="tip">Code ist identisch zum DHT11 — nur <code>DHT11</code> durch <code>DHT22</code> ersetzen!</div>
+      </div>
+    </div>
+  </div>
+
+  <h4 style="margin-top:28px;color:var(--dark-blue);border-bottom:2px solid var(--light-blue);padding-bottom:6px;">Umweltsensoren</h4>
+
+  <div class="component-card">
+    <h4>MQ-2 – Gassensor (Rauch, LPG, Methan)</h4>
+    <p>Der MQ-2 erkennt brennbare Gase und Rauch. Er hat eine beheizte Metalloxid-Schicht — je mehr Gas, desto leitfähiger.</p>
+    <ul>
+      <li><strong>Erkannte Gase:</strong> LPG, Methan (CH₄), Wasserstoff, Rauch, Alkohol, Propan</li>
+      <li><strong>Pins:</strong> VCC (5V), GND, DOUT (Digital: Alarm ja/nein), AOUT (Analog: Konzentration 0–1023)</li>
+      <li><strong>Aufwärmzeit:</strong> 20–30 Sekunden nach dem Einschalten!</li>
+      <li><strong>Schwellenwert (DOUT):</strong> Per Trimmpotentiometer auf dem Modul einstellbar</li>
+      <li><strong>Anwendung:</strong> Rauchmelder, Gasalarm, Brandfrüherkennung, Luftqualitätsstation</li>
+    </ul>
+    <pre><code><span class="kw">const int</span> MQ2_ANALOG = A0, MQ2_DIGITAL = <span class="num">7</span>;
+<span class="kw">const int</span> BUZZER = <span class="num">8</span>;
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  Serial.<span class="fn">begin</span>(<span class="num">9600</span>);
+  <span class="fn">pinMode</span>(MQ2_DIGITAL, INPUT);
+  <span class="fn">pinMode</span>(BUZZER, OUTPUT);
+  Serial.<span class="fn">println</span>(<span class="str">"MQ-2 wird aufgewaermt... 30 Sekunden"</span>);
+  <span class="fn">delay</span>(<span class="num">30000</span>);
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">int</span> rohwert = <span class="fn">analogRead</span>(MQ2_ANALOG);
+  <span class="tp">int</span> alarm   = <span class="fn">digitalRead</span>(MQ2_DIGITAL);
+
+  Serial.<span class="fn">print</span>(<span class="str">"Gas-Level: "</span>); Serial.<span class="fn">println</span>(rohwert);
+
+  <span class="kw">if</span> (alarm == LOW) {              <span class="cm">// LOW = Schwelle überschritten</span>
+    Serial.<span class="fn">println</span>(<span class="str">"ALARM: GAS/RAUCH ERKANNT!"</span>);
+    <span class="fn">tone</span>(BUZZER, <span class="num">3000</span>);
+  } <span class="kw">else</span> { <span class="fn">noTone</span>(BUZZER); }
+  <span class="fn">delay</span>(<span class="num">500</span>);
+}</code></pre>
+    <div class="warn">MQ-Sensoren werden warm während des Betriebs — ist normal! Aber nicht anfassen, da die Heizung bis zu 200°C erreichen kann.</div>
+  </div>
+
+  <div class="component-card">
+    <h4>Bodenfeuchtesensor (Soil Moisture Sensor)</h4>
+    <p>Zwei leitende Sonden messen den elektrischen Widerstand im Boden. Feuchter Boden leitet besser → niedrigerer Widerstand → höherer Analogwert.</p>
+    <ul>
+      <li><strong>Pins:</strong> VCC (3.3–5V), GND, AOUT (Analog), DOUT (Digital mit Schwellenwert)</li>
+      <li><strong>Werte:</strong> Trocken ~1000, feucht ~300, im Wasser ~0</li>
+      <li><strong>Achtung:</strong> Nur kurz einschalten (Pin steuert VCC) um Korrosion zu vermeiden!</li>
+      <li><strong>Anwendung:</strong> Automatische Pflanzenbewässerung, Gewächshaus-Steuerung</li>
+    </ul>
+    <pre><code><span class="kw">const int</span> SENSOR = A0, PUMPE = <span class="num">9</span>;
+<span class="kw">const int</span> SCHWELLE = <span class="num">500</span>;     <span class="cm">// unter 500 = zu trocken</span>
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  <span class="fn">pinMode</span>(PUMPE, OUTPUT);
+  Serial.<span class="fn">begin</span>(<span class="num">9600</span>);
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">int</span> feuchte = <span class="fn">analogRead</span>(SENSOR);
+  Serial.<span class="fn">print</span>(<span class="str">"Feuchte: "</span>); Serial.<span class="fn">println</span>(feuchte);
+
+  <span class="kw">if</span> (feuchte > SCHWELLE) {
+    <span class="fn">digitalWrite</span>(PUMPE, HIGH);  <span class="cm">// Pumpe/Ventil an</span>
+    <span class="fn">delay</span>(<span class="num">3000</span>);                  <span class="cm">// 3 Sekunden wässern</span>
+    <span class="fn">digitalWrite</span>(PUMPE, LOW);
+  }
+  <span class="fn">delay</span>(<span class="num">5000</span>);
+}</code></pre>
+  </div>
+
+  <div class="component-card">
+    <h4>Regensensor (Rain Sensor)</h4>
+    <p>Ähnlich wie Bodenfeuchtesensor — misst ob Tropfen auf der Platine vorhanden sind. Leiterbahnen werden durch Wasser kurzgeschlossen.</p>
+    <ul>
+      <li><strong>Analog-Ausgang:</strong> ~1023 = trocken, ~0 = nass</li>
+      <li><strong>Digital-Ausgang:</strong> LOW wenn es regnet (Schwelle per Poti einstellbar)</li>
+      <li><strong>Anwendung:</strong> Auto-Scheibenwischer, Markisensteuerung, Regenalarm, Pflanzenschutz</li>
+    </ul>
+    <pre><code><span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">int</span> regen = <span class="fn">analogRead</span>(A0);
+  <span class="kw">if</span> (regen < <span class="num">400</span>) {
+    Serial.<span class="fn">println</span>(<span class="str">"Es regnet!"</span>);
+  } <span class="kw">else</span> {
+    Serial.<span class="fn">println</span>(<span class="str">"Kein Regen."</span>);
+  }
+  <span class="fn">delay</span>(<span class="num">1000</span>);
+}</code></pre>
+  </div>
+
+  <div class="component-card">
+    <h4>Schallsensor (Sound Sensor / KY-038)</h4>
+    <p>Erkennt Töne und Geräusche über ein Kondensatormikrofon. Reagiert auf Klatschen, laute Töne, Sprache.</p>
+    <ul>
+      <li><strong>Pins:</strong> VCC, GND, AOUT (Lautstärke 0–1023), DOUT (HIGH bei Geräusch)</li>
+      <li><strong>Empfindlichkeit:</strong> Per Trimmpotentiometer auf dem Modul einstellbar</li>
+      <li><strong>Anwendung:</strong> Klatsch-Schalter, Lautstärkemessung, Sound-aktivierte Lampe, Einschlafwächter</li>
+    </ul>
+    <pre><code><span class="kw">const int</span> SOUND_D = <span class="num">7</span>, SOUND_A = A0, LED = <span class="num">13</span>;
+
+<span class="tp">void</span> <span class="fn">setup</span>() { <span class="fn">pinMode</span>(LED, OUTPUT); <span class="fn">pinMode</span>(SOUND_D, INPUT); }
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="kw">if</span> (<span class="fn">digitalRead</span>(SOUND_D) == HIGH) {
+    <span class="fn">digitalWrite</span>(LED, !<span class="fn">digitalRead</span>(LED));   <span class="cm">// Toggle</span>
+    <span class="fn">delay</span>(<span class="num">300</span>);                               <span class="cm">// Entprellung</span>
+  }
+}</code></pre>
+  </div>
+
+  <h4 style="margin-top:28px;color:var(--dark-blue);border-bottom:2px solid var(--light-blue);padding-bottom:6px;">Eingabe-Module</h4>
+
+  <div class="component-card">
+    <h4>IR-Empfänger + Fernbedienung</h4>
+    <p>Ein Infrarot-Empfänger (TSOP4838, VS1838B) empfängt Signale einer handelsüblichen Fernbedienung. Jeder Tastendruck sendet einen einzigartigen Code.</p>
+    <ul>
+      <li><strong>Pins:</strong> Signal (zu Digital-Pin), GND, VCC (5V)</li>
+      <li><strong>Bibliothek:</strong> <code>#include &lt;IRremote.h&gt;</code></li>
+      <li><strong>Protokolle:</strong> NEC, Sony SIRC, RC5, RC6 — alle unterstützt</li>
+      <li><strong>Anwendung:</strong> TV-Fernbedienung steuert Arduino, Projektor, smarte Lampe, Robotersteuerung</li>
+    </ul>
+    <pre><code>#include &lt;IRremote.h&gt;
+
+IRrecv ir(<span class="num">11</span>);      <span class="cm">// IR-Empfänger an Pin 11</span>
+decode_results signal;
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  Serial.<span class="fn">begin</span>(<span class="num">9600</span>);
+  ir.<span class="fn">enableIRIn</span>();
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="kw">if</span> (ir.<span class="fn">decode</span>(&signal)) {
+    Serial.<span class="fn">print</span>(<span class="str">"Code: 0x"</span>);
+    Serial.<span class="fn">println</span>(signal.value, HEX);
+    ir.<span class="fn">resume</span>();   <span class="cm">// nächsten Code empfangen</span>
+  }
+}</code></pre>
+    <div class="tip">In Tinkercad: IR-Sensor und "IR Remote" aus der Bibliothek verwenden. Jede Taste hat eine Hex-Adresse — einmal auslesen, dann im Code abfragen.</div>
+  </div>
+
+  <div class="component-card">
+    <h4>Joystick-Modul (KY-023)</h4>
+    <p>Analoger 2-Achsen-Joystick mit Drucktaster. Gibt X- und Y-Position als Analogwert aus.</p>
+    <ul>
+      <li><strong>Pins:</strong> VCC (5V), GND, VRx (X-Achse → A0), VRy (Y-Achse → A1), SW (Taster → Digital-Pin)</li>
+      <li><strong>Werte Mitte:</strong> X ≈ 512, Y ≈ 512. Links/Rechts/Oben/Unten → 0 oder 1023</li>
+      <li><strong>Taster:</strong> LOW wenn gedrückt (hat internen Pull-up)</li>
+      <li><strong>Anwendung:</strong> Robotersteuerung, Menünavigation, Spielcontroller, Kamerasteuerung</li>
+    </ul>
+    <pre><code><span class="tp">void</span> <span class="fn">setup</span>() { Serial.<span class="fn">begin</span>(<span class="num">9600</span>); <span class="fn">pinMode</span>(<span class="num">7</span>, INPUT_PULLUP); }
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">int</span> x = <span class="fn">analogRead</span>(A0);
+  <span class="tp">int</span> y = <span class="fn">analogRead</span>(A1);
+  <span class="tp">int</span> klick = <span class="fn">digitalRead</span>(<span class="num">7</span>);
+
+  Serial.<span class="fn">print</span>(<span class="str">"X:"</span>); Serial.<span class="fn">print</span>(x);
+  Serial.<span class="fn">print</span>(<span class="str">" Y:"</span>); Serial.<span class="fn">print</span>(y);
+  Serial.<span class="fn">print</span>(<span class="str">" Klick:"</span>); Serial.<span class="fn">println</span>(klick == LOW ? <span class="str">"JA"</span> : <span class="str">"nein"</span>);
+  <span class="fn">delay</span>(<span class="num">200</span>);
+}</code></pre>
+  </div>
+
+  <div class="component-card">
+    <h4>Rotary Encoder (KY-040) – Drehgeber</h4>
+    <div class="screenshot-grid">
+      <div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Rotary_encoder.jpg" alt="Rotary Encoder" style="width:100%;border-radius:8px;border:2px solid var(--border);">
+        <p class="cap">Rotary Encoder Modul (Wikimedia Commons, CC BY 4.0)</p>
+      </div>
+      <div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Incremental_directional_encoder.gif" alt="Encoder Animation" style="width:100%;border-radius:8px;border:2px solid var(--border);">
+        <p class="cap">Animation: Encoder gibt Pulse aus je nach Drehrichtung (Wikimedia Commons)</p>
+      </div>
+    </div>
+    <p>Ein Rotary Encoder erkennt Drehbewegungen und Drehrichtung — unbegrenzte Umdrehungen möglich (kein Endanschlag wie beim Potentiometer).</p>
+    <ul>
+      <li><strong>Pins:</strong> CLK (zu Pin 2), DT (zu Pin 3), SW (Drucktaster, zu Pin 4), VCC (+), GND</li>
+      <li><strong>Funktionsprinzip:</strong> CLK und DT geben Rechteck-Pulse aus. Wenn CLK vor DT → Rechtsdrehen; wenn DT vor CLK → Linksdrehen</li>
+      <li><strong>Anwendung:</strong> Menü-Navigation, Lautstärke, Kanalwahl, Motorgeschwindigkeit, 3D-Drucker-Steuerrad</li>
+    </ul>
+    <pre><code><span class="kw">const int</span> CLK=<span class="num">2</span>, DT=<span class="num">3</span>, SW=<span class="num">4</span>;
+<span class="tp">int</span> position = <span class="num">0</span>;
+<span class="tp">int</span> letzterCLK;
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  <span class="fn">pinMode</span>(CLK, INPUT); <span class="fn">pinMode</span>(DT, INPUT); <span class="fn">pinMode</span>(SW, INPUT_PULLUP);
+  letzterCLK = <span class="fn">digitalRead</span>(CLK);
+  Serial.<span class="fn">begin</span>(<span class="num">9600</span>);
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">int</span> clkNeu = <span class="fn">digitalRead</span>(CLK);
+  <span class="kw">if</span> (clkNeu != letzterCLK && clkNeu == HIGH) {
+    position += (<span class="fn">digitalRead</span>(DT) != clkNeu) ? <span class="num">1</span> : -<span class="num">1</span>;
+    Serial.<span class="fn">print</span>(<span class="str">"Position: "</span>); Serial.<span class="fn">println</span>(position);
+  }
+  letzterCLK = clkNeu;
+  <span class="kw">if</span> (<span class="fn">digitalRead</span>(SW) == LOW) { position = <span class="num">0</span>; <span class="fn">delay</span>(<span class="num">200</span>); }
+}</code></pre>
+  </div>
+
+  <div class="component-card">
+    <h4>Hall-Effekt-Sensor (KY-003, A3144)</h4>
+    <p>Erkennt Magnetfelder. Wenn ein Magnet in der Nähe ist → LOW-Signal. Ideal für berührungslose Drehzahlmessung.</p>
+    <ul>
+      <li><strong>Pins:</strong> VCC, GND, Signal (Digital OUT)</li>
+      <li><strong>Varianten:</strong> Digitaler Hall-Sensor (EIN/AUS), analoger Hall-Sensor (Feldstärke messen)</li>
+      <li><strong>Anwendung:</strong> Türkontakt, Fahrrad-Tachometer, Motorumdrehungsmessung, Smart Lock</li>
+    </ul>
+    <pre><code><span class="tp">unsigned long</span> letzteUmdrehung = <span class="num">0</span>;
+<span class="tp">int</span> upm = <span class="num">0</span>;
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="kw">if</span> (<span class="fn">digitalRead</span>(<span class="num">7</span>) == LOW) {   <span class="cm">// Magnet erkannt</span>
+    <span class="tp">unsigned long</span> jetzt = <span class="fn">millis</span>();
+    <span class="tp">unsigned long</span> periode = jetzt - letzteUmdrehung;
+    <span class="kw">if</span> (periode > <span class="num">50</span>) {          <span class="cm">// Entprellung</span>
+      upm = <span class="num">60000</span> / periode;
+      Serial.<span class="fn">print</span>(<span class="str">"RPM: "</span>); Serial.<span class="fn">println</span>(upm);
+      letzteUmdrehung = jetzt;
+    }
+  }
+}</code></pre>
+  </div>
+
+  <div class="component-card">
+    <h4>Kapazitiver Berührungssensor (TTP223)</h4>
+    <p>Reagiert auf Berührung durch die Änderung der elektrischen Kapazität — kein mechanischer Kontakt nötig. Der Sensor erkennt sogar Berührung durch dünne Materialien hindurch.</p>
+    <ul>
+      <li><strong>Pins:</strong> VCC (3.3–5V), GND, Signal (HIGH bei Berührung)</li>
+      <li><strong>Anwendung:</strong> Touch-Lampe, berührungsloser Schalter, Eingabe-Pad, Türklingel</li>
+    </ul>
+  </div>
+
+  <div class="component-card">
+    <h4>4×4 Matrix-Keypad</h4>
+    <p>16 Tasten (0–9, A–D, *, #) in einem kompakten Modul. Benötigt nur 8 Pins (4 Zeilen + 4 Spalten) statt 16.</p>
+    <ul>
+      <li><strong>Bibliothek:</strong> <code>#include &lt;Keypad.h&gt;</code></li>
+      <li><strong>Anwendung:</strong> PIN-Code-Eingabe, Taschenrechner, Menü-Auswahl, Safe-Schloss</li>
+    </ul>
+    <pre><code>#include &lt;Keypad.h&gt;
+<span class="kw">const int</span> ZEILEN=<span class="num">4</span>, SPALTEN=<span class="num">4</span>;
+<span class="tp">char</span> tasten[ZEILEN][SPALTEN] = {
+  {<span class="str">'1'</span>,<span class="str">'2'</span>,<span class="str">'3'</span>,<span class="str">'A'</span>},
+  {<span class="str">'4'</span>,<span class="str">'5'</span>,<span class="str">'6'</span>,<span class="str">'B'</span>},
+  {<span class="str">'7'</span>,<span class="str">'8'</span>,<span class="str">'9'</span>,<span class="str">'C'</span>},
+  {<span class="str">'*'</span>,<span class="str">'0'</span>,<span class="str">'#'</span>,<span class="str">'D'</span>}
+};
+<span class="tp">byte</span> zeilen_pins[ZEILEN] = {<span class="num">9</span>,<span class="num">8</span>,<span class="num">7</span>,<span class="num">6</span>};
+<span class="tp">byte</span> spalten_pins[SPALTEN] = {<span class="num">5</span>,<span class="num">4</span>,<span class="num">3</span>,<span class="num">2</span>};
+Keypad kp = Keypad(makeKeymap(tasten), zeilen_pins, spalten_pins, ZEILEN, SPALTEN);
+
+<span class="tp">void</span> <span class="fn">setup</span>() { Serial.<span class="fn">begin</span>(<span class="num">9600</span>); }
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">char</span> taste = kp.<span class="fn">getKey</span>();
+  <span class="kw">if</span> (taste) { Serial.<span class="fn">println</span>(taste); }
+}</code></pre>
+  </div>
+
   <h3 id="kap6-aktoren">6.2 Aktoren & Ausgabe</h3>
 
   <div class="component-card">
@@ -985,6 +1357,153 @@ LiquidCrystal_I2C lcd(<span class="num">0x27</span>, <span class="num">16</span>
       <li><strong>Pins:</strong> VCC (5V), GND, IN (Steuerpin vom Arduino), NO (normally open), COM, NC (normally closed)</li>
       <li><strong>Anwendung:</strong> Hausgeräte schalten, Heizung, Pumpen, Türöffner</li>
     </ul>
+  </div>
+
+  <!-- ===== ERWEITERTE AKTOREN ===== -->
+  <h4 style="margin-top:28px;color:var(--dark-blue);border-bottom:2px solid var(--light-blue);padding-bottom:6px;">Erweiterte Ausgabe-Module</h4>
+
+  <div class="component-card">
+    <h4>OLED-Display 0.96" (SSD1306) – I2C</h4>
+    <p>Kleines aber gestochen scharfes Display (128×64 Pixel) mit Selbstleuchttechnik — kein Hintergrundlicht nötig. Sehr energiesparend und gut lesbar auch bei direktem Sonnenlicht.</p>
+    <ul>
+      <li><strong>Verbindung (I2C):</strong> VCC → 3.3V oder 5V | GND → GND | SDA → A4 | SCL → A5</li>
+      <li><strong>Bibliotheken:</strong> <code>#include &lt;Wire.h&gt;</code> + <code>#include &lt;Adafruit_SSD1306.h&gt;</code> + <code>#include &lt;Adafruit_GFX.h&gt;</code></li>
+      <li><strong>Auflösung:</strong> 128 × 64 Pixel, monochromatisch (weiß auf schwarz)</li>
+      <li><strong>Anwendung:</strong> Sensor-Dashboard, Statusanzeige, Mini-Spielfeld, Datenlogger-Ausgabe</li>
+    </ul>
+    <pre><code>#include &lt;Wire.h&gt;
+#include &lt;Adafruit_GFX.h&gt;
+#include &lt;Adafruit_SSD1306.h&gt;
+
+Adafruit_SSD1306 oled(<span class="num">128</span>, <span class="num">64</span>, &Wire, -<span class="num">1</span>);
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  oled.<span class="fn">begin</span>(SSD1306_SWITCHCAPVCC, <span class="num">0x3C</span>);   <span class="cm">// Adresse 0x3C oder 0x3D</span>
+  oled.<span class="fn">clearDisplay</span>();
+  oled.<span class="fn">setTextSize</span>(<span class="num">2</span>);
+  oled.<span class="fn">setTextColor</span>(WHITE);
+  oled.<span class="fn">setCursor</span>(<span class="num">0</span>, <span class="num">0</span>);
+  oled.<span class="fn">println</span>(<span class="str">"Hallo!"</span>);
+  oled.<span class="fn">setTextSize</span>(<span class="num">1</span>);
+  oled.<span class="fn">println</span>(<span class="str">"gaia-byte.de"</span>);
+  oled.<span class="fn">display</span>();     <span class="cm">// WICHTIG: erst display() zeigt tatsächlich etwas!</span>
+}
+<span class="tp">void</span> <span class="fn">loop</span>() {}</code></pre>
+    <div class="tip">OLED-Displays verfügen über Grafikfunktionen: <code>drawLine()</code>, <code>drawRect()</code>, <code>drawCircle()</code>, <code>drawBitmap()</code> — damit lassen sich auch einfache Grafiken und Icons darstellen.</div>
+  </div>
+
+  <div class="component-card">
+    <h4>NeoPixel / WS2812B – Adressierbare RGB-LEDs</h4>
+    <p>Jede NeoPixel-LED enthält einen eigenen kleinen Controller-Chip (WS2812B). Mit nur 1 Datenleitung können beliebig viele LEDs unabhängig in jeder Farbe und Helligkeit gesteuert werden.</p>
+    <ul>
+      <li><strong>Pins:</strong> VCC (5V — bei vielen LEDs EXTERNE Versorgung!), GND, DIN (Dateneingang)</li>
+      <li><strong>Bibliothek:</strong> <code>#include &lt;Adafruit_NeoPixel.h&gt;</code></li>
+      <li><strong>Farben:</strong> 16,7 Millionen Farben (je 0–255 für R, G, B)</li>
+      <li><strong>Helligkeit:</strong> <code>strip.setBrightness(50);</code> — immer auf 50 oder weniger setzen, sonst zu viel Strom!</li>
+      <li><strong>Anwendung:</strong> Ambilight, Lauflicht, Stimmungslicht, Weihnachtsbeleuchtung, LED-Stripes</li>
+    </ul>
+    <pre><code>#include &lt;Adafruit_NeoPixel.h&gt;
+
+<span class="kw">const int</span> PIN = <span class="num">6</span>, ANZAHL = <span class="num">8</span>;   <span class="cm">// 8 LEDs am Strip</span>
+Adafruit_NeoPixel strip(ANZAHL, PIN, NEO_GRB + NEO_KHZ800);
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  strip.<span class="fn">begin</span>();
+  strip.<span class="fn">setBrightness</span>(<span class="num">50</span>);   <span class="cm">// max. 50/255 für sicheren Betrieb am Arduino</span>
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="cm">// Regenbogen-Lauflicht</span>
+  <span class="kw">for</span> (<span class="tp">int</span> i = <span class="num">0</span>; i < ANZAHL; i++) {
+    strip.<span class="fn">clear</span>();
+    strip.<span class="fn">setPixelColor</span>(i, strip.<span class="fn">Color</span>(<span class="num">255</span>, <span class="num">0</span>, <span class="num">0</span>));   <span class="cm">// Rot</span>
+    strip.<span class="fn">show</span>();
+    <span class="fn">delay</span>(<span class="num">100</span>);
+  }
+  <span class="cm">// Alle Blau auf einmal</span>
+  <span class="kw">for</span> (<span class="tp">int</span> i = <span class="num">0</span>; i < ANZAHL; i++)
+    strip.<span class="fn">setPixelColor</span>(i, strip.<span class="fn">Color</span>(<span class="num">0</span>, <span class="num">0</span>, <span class="num">255</span>));
+  strip.<span class="fn">show</span>(); <span class="fn">delay</span>(<span class="num">500</span>);
+}</code></pre>
+    <div class="warn">Bei mehr als 10 NeoPixels unbedingt EXTERNE 5V-Stromversorgung verwenden! Eine LED kann bis zu 60 mA ziehen — 8 LEDs = 480 mA, das übersteigt den Arduino USB-Anschluss.</div>
+  </div>
+
+  <div class="component-card">
+    <h4>Schrittmotor 28BYJ-48 + ULN2003 Treiber</h4>
+    <p>Der 28BYJ-48 ist ein günstiger Unipolar-Schrittmotor mit eingebautem Getriebe. 2048 Schritte = 1 volle Umdrehung. Er dreht sich sehr präzise, aber langsam.</p>
+    <ul>
+      <li><strong>Treiber:</strong> ULN2003 Modul (im Set enthalten) — 4 Steuer-Leitungen + VCC + GND</li>
+      <li><strong>Anschluss:</strong> IN1→9, IN2→10, IN3→11, IN4→12 | VCC → 5V externe Versorgung | GND gemeinsam</li>
+      <li><strong>Bibliothek:</strong> <code>#include &lt;Stepper.h&gt;</code> (eingebaut, kein Download nötig)</li>
+      <li><strong>Schrittanzahl:</strong> 2048 Schritte/Umdrehung (mit Getriebe), max. ~15 RPM</li>
+      <li><strong>Anwendung:</strong> 3D-Drucker-Achse, Kamera-Slider, Vorhangsteuerung, Teleskop-Ausrichtung</li>
+    </ul>
+    <pre><code>#include &lt;Stepper.h&gt;
+
+<span class="kw">const int</span> SCHRITTE = <span class="num">2048</span>;
+Stepper motor(SCHRITTE, <span class="num">9</span>, <span class="num">11</span>, <span class="num">10</span>, <span class="num">12</span>);    <span class="cm">// Pins: IN1,IN3,IN2,IN4 (Reihenfolge wichtig!)</span>
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  motor.<span class="fn">setSpeed</span>(<span class="num">10</span>);    <span class="cm">// 10 RPM (max ~15 beim 28BYJ-48)</span>
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  motor.<span class="fn">step</span>(SCHRITTE);   <span class="cm">// 1 volle Umdrehung rechts</span>
+  <span class="fn">delay</span>(<span class="num">1000</span>);
+  motor.<span class="fn">step</span>(-SCHRITTE);  <span class="cm">// 1 volle Umdrehung links</span>
+  <span class="fn">delay</span>(<span class="num">1000</span>);
+}</code></pre>
+  </div>
+
+  <div class="component-card">
+    <h4>RFID-Leser RC522</h4>
+    <p>Liest RFID-Karten und -Tags über elektromagnetische Felder (13.56 MHz). Jede Karte hat eine einzigartige UID (Unique Identifier) — ideal für Zugangskontrolle.</p>
+    <ul>
+      <li><strong>Verbindung (SPI):</strong> SDA→10, SCK→13, MOSI→11, MISO→12, GND→GND, RST→9, 3.3V→3.3V (!)</li>
+      <li><strong>Achtung:</strong> 3.3V nicht 5V! Der RC522 ist 3.3V-Logik. Direkt an den 3.3V-Pin des Arduino!</li>
+      <li><strong>Bibliothek:</strong> <code>#include &lt;MFRC522.h&gt;</code> + <code>#include &lt;SPI.h&gt;</code></li>
+      <li><strong>Reichweite:</strong> ca. 1–5 cm</li>
+      <li><strong>Anwendung:</strong> Türöffner, Zeiterfassung, Bibliothekssystem, Schüler-Anwesenheit</li>
+    </ul>
+    <pre><code>#include &lt;SPI.h&gt;
+#include &lt;MFRC522.h&gt;
+
+MFRC522 rfid(<span class="num">10</span>, <span class="num">9</span>);  <span class="cm">// SDA=10, RST=9</span>
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  Serial.<span class="fn">begin</span>(<span class="num">9600</span>); SPI.<span class="fn">begin</span>(); rfid.<span class="fn">PCD_Init</span>();
+  Serial.<span class="fn">println</span>(<span class="str">"Karte vorhalten..."</span>);
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="kw">if</span> (!rfid.<span class="fn">PICC_IsNewCardPresent</span>() || !rfid.<span class="fn">PICC_ReadCardSerial</span>()) <span class="kw">return</span>;
+  Serial.<span class="fn">print</span>(<span class="str">"UID: "</span>);
+  <span class="kw">for</span> (<span class="tp">byte</span> i=<span class="num">0</span>; i < rfid.uid.size; i++) {
+    Serial.<span class="fn">print</span>(rfid.uid.uidByte[i] < <span class="num">0x10</span> ? <span class="str">" 0"</span> : <span class="str">" "</span>);
+    Serial.<span class="fn">print</span>(rfid.uid.uidByte[i], HEX);
+  }
+  Serial.<span class="fn">println</span>();
+}</code></pre>
+  </div>
+
+  <div class="component-card">
+    <h4>HC-SR04 Ultraschall — Foto &amp; Detail</h4>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/HC_SR04_Ultrasonic_Module.jpg" alt="HC-SR04 Sensor" style="max-width:360px;width:100%;border-radius:8px;border:2px solid var(--border);margin:8px 0;">
+    <p class="screenshot-caption" style="margin-top:4px;">HC-SR04 Ultraschall-Sensor — links Sender (T), rechts Empfänger (R) (Wikimedia Commons, CC BY-SA)</p>
+    <p>Das silberne "Auge" links ist der <strong>Ultraschallsender</strong> (Trig), rechts der <strong>Empfänger</strong> (Echo). Das Funktionsprinzip ist identisch zum Fledermaus-Echolot.</p>
+  </div>
+
+  <div class="component-card">
+    <h4>Servo SG90 — Foto &amp; Details</h4>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Tower_Pro_SG90_micro_servo_motor.jpg" alt="SG90 Servo" style="max-width:320px;width:100%;border-radius:8px;border:2px solid var(--border);margin:8px 0;">
+    <p class="screenshot-caption" style="margin-top:4px;">Tower Pro SG90 Micro Servo mit Zubehör (Wikimedia Commons, CC BY-SA)</p>
+  </div>
+
+  <div class="component-card">
+    <h4>PIR Sensor — Foto &amp; Details</h4>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/PIR_Motion_Sensor-Sensinova_%28SN-PR11%29.png" alt="PIR Sensor" style="max-width:280px;width:100%;border-radius:8px;border:2px solid var(--border);background:white;margin:8px 0;">
+    <p class="screenshot-caption" style="margin-top:4px;">PIR-Bewegungssensor mit weißer Fresnel-Linse die den Erkennungsbereich fokussiert (Wikimedia Commons)</p>
+    <p>Die weiße Kunststoff-Kuppel ist eine <strong>Fresnel-Linse</strong> — sie bündelt die Infrarotstrahlung von einem breiten Winkelbereich (~120°) auf den empfindlichen Pyroelektrischen Sensor darunter.</p>
   </div>
 
   <h3 id="kap6-passiv">6.3 Passive Bauteile</h3>
@@ -1151,6 +1670,11 @@ Verlustleistung: P = (U_Versorgung - U_LED) × I = 3V × 0.02A = 60 mW</code></p
   <h3 id="kap7-pwm">PWM – Pulsweiten-Modulation</h3>
   <p>PWM simuliert analoge Ausgangsspannungen mit digitalen Mitteln. Der Pin schaltet sehr schnell (490–980 Hz) zwischen HIGH und LOW. Das Verhältnis Ein-Zeit zu Gesamt-Zeit heißt <strong>Duty Cycle</strong>.</p>
 
+  <div style="text-align:center;margin:16px 0;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Pwm_duty_cycle.gif" alt="PWM Duty Cycle Animation" style="max-width:480px;width:100%;border-radius:8px;border:2px solid var(--border);">
+    <p class="screenshot-caption">PWM-Animation: Der Duty Cycle ändert sich von 0% bis 100% — das Signal ist immer HIGH oder LOW, aber im Durchschnitt ergibt sich eine mittlere Spannung (Wikimedia Commons)</p>
+  </div>
+
   <table>
     <tr><th>analogWrite()</th><th>Duty Cycle</th><th>Effektive Spannung</th><th>Wirkung auf LED</th></tr>
     <tr><td>0</td><td>0%</td><td>0V</td><td>Aus</td></tr>
@@ -1161,6 +1685,8 @@ Verlustleistung: P = (U_Versorgung - U_LED) × I = 3V × 0.02A = 60 mW</code></p
   </table>
 
   <h3>I2C-Bus</h3>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/I2C.svg" alt="I2C Bus Diagramm" style="max-width:500px;width:100%;background:white;border-radius:8px;border:2px solid var(--border);padding:8px;display:block;margin:10px 0;">
+  <p class="screenshot-caption">I2C-Bus: 1 Master (Arduino) steuert mehrere Slaves über nur 2 Leitungen (SDA + SCL) mit je eigener Adresse (Wikimedia Commons)</p>
   <p>I2C (Inter-Integrated Circuit, "I-Quadrat-C") ermöglicht es, viele Geräte mit nur 2 Drähten zu verbinden:</p>
   <ul>
     <li><strong>SDA (Serial Data):</strong> Daten-Leitung → Arduino A4 (Uno) / Pin 20 (Mega)</li>
@@ -1995,7 +2521,1774 @@ function calcR() {
   document.getElementById('rcalc-result').textContent = '= ' + text;
 }
 calcR();
+
+/* ---- Fallback für Kapitel-21-Kacheln ---- */
+function compIconFallback(img) {
+  var alt = img.alt || 'IC';
+  var words = alt.split(/[\s\/\(\)]+/).filter(function(w){ return w.length > 0; });
+  var abbr = words.slice(0, 3).map(function(w){ return w.charAt(0).toUpperCase(); }).join('');
+  if (abbr.length === 0) abbr = '?';
+  var div = document.createElement('div');
+  div.className = 'comp-icon-fb';
+  div.title = alt;
+  div.textContent = abbr;
+  if (img.parentNode) img.parentNode.replaceChild(div, img);
+}
+/* ---- Globaler Fallback: alle kaputten Bilder nach dem Laden behandeln ---- */
+window.addEventListener('load', function() {
+  document.querySelectorAll('img').forEach(function(img) {
+    if (!img.complete || img.naturalWidth === 0 || img.naturalHeight === 0) {
+      if (img.closest('.comp-tile') || img.closest('.logic-sym')) {
+        compIconFallback(img);
+      } else {
+        img.style.display = 'none';
+        var sib = img.nextElementSibling;
+        if (sib && (sib.classList.contains('screenshot-caption') || sib.classList.contains('cap'))) {
+          sib.style.display = 'none';
+        }
+      }
+    }
+  });
+});
 </script>
+
+<!-- ================================================================= -->
+<!-- KAPITEL 14: TINKERCAD EDITOR IM DETAIL                            -->
+<!-- ================================================================= -->
+<div class="section" id="kap14">
+  <div class="chapter-badge">Kapitel 14</div>
+  <h2>Tinkercad – Erweiterte Editor-Funktionen</h2>
+
+  <p>In Kapitel 1 hast du gesehen wie man sich anmeldet und das Dashboard bedient. Kapitel 2 zeigte den Editor-Aufbau. Hier gehen wir tiefer: Bauteil-Bibliothek, Code-Modi, Simulation und der Schaltplan-Exporter.</p>
+
+  <h3 id="kap14-bauteile">14.1 Die Bauteil-Bibliothek</h3>
+
+  <div class="screenshot-grid">
+    <div>
+      <img src="tinkercad/Screenshot 2026-06-24 110234.png" alt="Tinkercad Bauteil-Bibliothek">
+      <p class="cap">Die Bauteil-Bibliothek rechts im Editor — über das Suchfeld schnell filtern</p>
+    </div>
+    <div>
+      <img src="tinkercad/Screenshot 2026-06-24 110127.png" alt="Bauteil-Eigenschaften bearbeiten">
+      <p class="cap">Klick auf ein Bauteil öffnet seine Eigenschaften: Wert, Farbe, Beschriftung</p>
+    </div>
+  </div>
+
+  <p>Die Bibliothek enthält über 400 Bauteile. Sie ist in Kategorien unterteilt:</p>
+  <table>
+    <tr><th>Kategorie</th><th>Beispiele</th></tr>
+    <tr><td><strong>General</strong></td><td>Widerstand, Kondensator, Induktivität, Diode, Transistor</td></tr>
+    <tr><td><strong>Input</strong></td><td>Pushbutton, Potentiometer, Sensor (DHT11, PIR, Ultraschall)</td></tr>
+    <tr><td><strong>Output</strong></td><td>LED, RGB-LED, Buzzer, DC-Motor, Servo, Display</td></tr>
+    <tr><td><strong>Power</strong></td><td>Spannungsquellen, Batterien, Netzteile</td></tr>
+    <tr><td><strong>Microcontrollers</strong></td><td>Arduino Uno, Nano, Mega, micro:bit</td></tr>
+    <tr><td><strong>ICs</strong></td><td>555-Timer, 741-OpAmp, L293D, 74HC-Serie, Schieberegister</td></tr>
+    <tr><td><strong>Instruments</strong></td><td>Multimeter, Oszilloskop, Wattmeter, Logikanalysator</td></tr>
+  </table>
+
+  <div class="tip">Tipp: Gib einfach den Bauteilnamen in die Suchleiste ein (z.B. "DHT11" oder "servo") — Tinkercad findet das Bauteil sofort ohne dass du durch Kategorien scrollen musst.</div>
+
+  <h3 id="kap14-code">14.2 Code-Editor: Blöcke und Text</h3>
+
+  <div class="screenshot-grid">
+    <div>
+      <img src="tinkercad/Screenshot 2026-06-24 110303.png" alt="Blöcke + Text Modus">
+      <p class="cap">Blöcke + Text: Visuell programmieren, den generierten Arduino-Code gleichzeitig sehen</p>
+    </div>
+    <div>
+      <img src="tinkercad/Screenshot 2026-06-24 110142.png" alt="Reiner Text-Code-Editor">
+      <p class="cap">Reiner Text-Modus: vollständiger Arduino-C++ Editor mit Syntaxhervorhebung</p>
+    </div>
+  </div>
+
+  <p>Der Code-Editor hat drei Modi, wählbar oben rechts im Editor-Fenster:</p>
+  <table>
+    <tr><th>Modus</th><th>Für wen?</th><th>Vorteil</th></tr>
+    <tr><td><strong>Blöcke</strong></td><td>Einsteiger</td><td>Drag &amp; Drop, kein Tippen, keine Syntaxfehler</td></tr>
+    <tr><td><strong>Blöcke + Text</strong></td><td>Lernende</td><td>Sieht Blöcke UND generierten Code gleichzeitig</td></tr>
+    <tr><td><strong>Text</strong></td><td>Fortgeschrittene</td><td>Volle Arduino-C++ Kontrolle, alle Bibliotheken nutzbar</td></tr>
+  </table>
+
+  <div class="tip"><strong>Lernstrategie:</strong> Programmiere erst in Blöcken, wechsle dann zu "Blöcke + Text" — so siehst du welchen Code deine Blöcke erzeugen. Das ist der schnellste Weg zur echten Arduino-Programmierung.</div>
+
+  <h3 id="kap14-sim">14.3 Simulation und Schematic-Ansicht</h3>
+
+  <div class="screenshot-grid">
+    <div>
+      <img src="tinkercad/Screenshot 2026-06-24 110157.png" alt="Simulation läuft">
+      <p class="cap">Simulation gestartet: der Arduino führt den Code aus, LEDs leuchten, Serial Monitor zeigt Werte</p>
+    </div>
+    <div>
+      <img src="tinkercad/Screenshot 2026-06-24 110218.png" alt="Automatischer Schaltplan">
+      <p class="cap">Schematic-Ansicht: automatisch generierter professioneller Schaltplan der Steckbrett-Schaltung</p>
+    </div>
+  </div>
+
+  <table>
+    <tr><th>Simulations-Feature</th><th>Was es macht</th></tr>
+    <tr><td><strong>Play-Button (grün)</strong></td><td>Startet die Simulation — Arduino-Code läuft in Echtzeit</td></tr>
+    <tr><td><strong>Serial Monitor</strong></td><td>Zeigt <code>Serial.println()</code>-Ausgaben live an</td></tr>
+    <tr><td><strong>Multimeter</strong></td><td>Spannung, Strom oder Widerstand an beliebigen Punkten messen</td></tr>
+    <tr><td><strong>Oszilloskop</strong></td><td>Signalverlauf über Zeit darstellen — ideal für PWM, Frequenzen</td></tr>
+    <tr><td><strong>Schematic-View</strong></td><td>Klick auf "Schematic" oben — automatischer DIN-Schaltplan</td></tr>
+    <tr><td><strong>Interaktivität</strong></td><td>Buttons klicken, Potis drehen, Temperatursensor-Wert setzen</td></tr>
+  </table>
+
+  <div class="warn">Während die Simulation läuft kannst du keine Bauteile verschieben oder die Schaltung ändern. Stoppe zuerst die Simulation (roter Stop-Button).</div>
+
+  <h3 id="kap14-export">14.4 Praxis-Beispiel und Code-Export</h3>
+
+  <img src="tinkercad/4541672b.jpg" alt="Arduino mit Breadboard und LEDs in Tinkercad" class="screenshot">
+  <p class="screenshot-caption">Fertiges Tinkercad-Projekt: Arduino Uno, Breadboard, 5 farbige LEDs mit Vorwiderständen — bereit zur Simulation</p>
+
+  <div class="tip">
+    <strong>Code aus Tinkercad in die echte Arduino IDE übertragen:</strong>
+    <ol style="margin:8px 0 0;padding-left:18px;">
+      <li>Code-Editor öffnen → Modus "Text" wählen</li>
+      <li>Gesamten Code markieren (<kbd>Ctrl+A</kbd>) und kopieren (<kbd>Ctrl+C</kbd>)</li>
+      <li>Arduino IDE öffnen → neues Sketch → einfügen (<kbd>Ctrl+V</kbd>)</li>
+      <li>Echten Arduino anschließen → "Hochladen" klicken</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ================================================================= -->
+<!-- KAPITEL 15: FORTGESCHRITTENE SENSOREN                             -->
+<!-- ================================================================= -->
+<div class="section" id="kap15">
+  <div class="chapter-badge">Kapitel 15</div>
+  <h2>Fortgeschrittene Sensoren &amp; Module</h2>
+  <p>Nach den Grundsensoren kommen hier professionelle Module die in industriellen IoT-Projekten, Wetterstation und Robotern eingesetzt werden.</p>
+
+  <h3>15.1 BMP280 – Luftdruck- &amp; Höhensensor (I2C)</h3>
+  <div class="component-card">
+    <p>Der BMP280 misst <strong>Luftdruck</strong> (300–1100 hPa), <strong>Temperatur</strong> und berechnet daraus die <strong>Höhe über dem Meeresspiegel</strong>. Er ist extrem genau und perfekt für Wetterstation-Projekte.</p>
+    <ul>
+      <li><strong>Verbindung (I2C):</strong> VCC → 3.3V, GND, SDA → A4, SCL → A5</li>
+      <li><strong>Adresse:</strong> 0x76 oder 0x77 (je nach SDO-Pin)</li>
+      <li><strong>Bibliothek:</strong> Adafruit BMP280 oder BME280 (wenn Feuchtigkeitssensor dabei)</li>
+      <li><strong>Genauigkeit:</strong> ±1 hPa Druck, ±0.5°C Temperatur, ±1m Höhe</li>
+      <li><strong>Anwendung:</strong> Wetterstation, Drohne (Höhenhaltung), Wandercomputer, Smart Home</li>
+    </ul>
+    <pre><code>#include &lt;Wire.h&gt;
+#include &lt;Adafruit_BMP280.h&gt;
+
+Adafruit_BMP280 bmp;
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  Serial.<span class="fn">begin</span>(<span class="num">9600</span>);
+  <span class="kw">if</span> (!bmp.<span class="fn">begin</span>(<span class="num">0x76</span>)) {
+    Serial.<span class="fn">println</span>(<span class="str">"BMP280 nicht gefunden!"</span>);
+    <span class="kw">while</span>(<span class="num">1</span>);
+  }
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  Serial.<span class="fn">print</span>(<span class="str">"Temperatur: "</span>); Serial.<span class="fn">print</span>(bmp.<span class="fn">readTemperature</span>()); Serial.<span class="fn">println</span>(<span class="str">" C"</span>);
+  Serial.<span class="fn">print</span>(<span class="str">"Druck: "</span>);      Serial.<span class="fn">print</span>(bmp.<span class="fn">readPressure</span>()/100.0F); Serial.<span class="fn">println</span>(<span class="str">" hPa"</span>);
+  Serial.<span class="fn">print</span>(<span class="str">"Hoehe:  "</span>);     Serial.<span class="fn">print</span>(bmp.<span class="fn">readAltitude</span>(<span class="num">1013.25</span>)); Serial.<span class="fn">println</span>(<span class="str">" m"</span>);
+  <span class="fn">delay</span>(<span class="num">2000</span>);
+}</code></pre>
+    <div class="tip">BME280 = BMP280 + Luftfeuchtigkeit — alle drei Werte mit einem Sensor! Kostet nur minimal mehr und ist die bessere Wahl für Wetterstationen.</div>
+  </div>
+
+  <h3>15.2 MPU-6050 – Beschleunigungssensor &amp; Gyroskop (I2C)</h3>
+  <div class="component-card">
+    <p>Der MPU-6050 enthält einen 3-Achsen-Beschleunigungssensor UND ein 3-Achsen-Gyroskop im gleichen Chip. Er misst Bewegung, Neigung, Rotation und Erschütterungen in allen 6 Dimensionen (6 DOF = Degrees of Freedom).</p>
+    <ul>
+      <li><strong>Pins (I2C):</strong> VCC → 3.3V oder 5V, GND, SDA → A4, SCL → A5, INT (optional, für Interrupt)</li>
+      <li><strong>Adresse:</strong> 0x68 (standard), 0x69 wenn AD0-Pin auf HIGH</li>
+      <li><strong>Bibliothek:</strong> <code>MPU6050</code> by Electronic Cats oder Adafruit MPU6050</li>
+      <li><strong>Beschleunigung:</strong> ±2g, ±4g, ±8g oder ±16g wählbar</li>
+      <li><strong>Gyroskop:</strong> ±250, ±500, ±1000, ±2000 °/s wählbar</li>
+      <li><strong>Anwendung:</strong> Drohne (Stabilisierung), Balancierender Roboter, Schrittzähler, Spielcontroller, Erschütterungsalarm</li>
+    </ul>
+    <pre><code>#include &lt;Wire.h&gt;
+#include &lt;MPU6050.h&gt;
+
+MPU6050 mpu;
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  Wire.<span class="fn">begin</span>(); Serial.<span class="fn">begin</span>(<span class="num">9600</span>);
+  mpu.<span class="fn">initialize</span>();
+  Serial.<span class="fn">println</span>(mpu.<span class="fn">testConnection</span>() ? <span class="str">"MPU OK"</span> : <span class="str">"MPU Fehler"</span>);
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">int16_t</span> ax,ay,az,gx,gy,gz;
+  mpu.<span class="fn">getMotion6</span>(&ax,&ay,&az,&gx,&gy,&gz);
+
+  <span class="cm">// g-Wert berechnen (Empfindlichkeit bei ±2g = 16384 LSB/g)</span>
+  <span class="tp">float</span> x_g = ax / <span class="num">16384.0</span>;
+  <span class="tp">float</span> y_g = ay / <span class="num">16384.0</span>;
+
+  Serial.<span class="fn">print</span>(<span class="str">"X:"</span>); Serial.<span class="fn">print</span>(x_g,<span class="num">2</span>);
+  Serial.<span class="fn">print</span>(<span class="str">" Y:"</span>); Serial.<span class="fn">print</span>(y_g,<span class="num">2</span>);
+  Serial.<span class="fn">print</span>(<span class="str">" Gyro-Z:"</span>); Serial.<span class="fn">println</span>(gz);
+  <span class="fn">delay</span>(<span class="num">500</span>);
+}</code></pre>
+  </div>
+
+  <h3>15.3 Vibrationssensor (SW-420)</h3>
+  <div class="component-card">
+    <p>Einfacher mechanischer Erschütterungssensor mit einer federbelasteten Stahlkugel. Wenn er erschüttert wird, schließt die Kugel den Kontakt — direkt digital auslesbar.</p>
+    <ul>
+      <li><strong>Pins:</strong> VCC, GND, DO (Digital Output — HIGH bei Erschütterung)</li>
+      <li><strong>Empfindlichkeit:</strong> Per Trimmpotentiometer einstellbar</li>
+      <li><strong>Anwendung:</strong> Einbruchsalarm, Erdbeben-Detektor, Paketöffner-Alarm, Fallen-Auslöser</li>
+    </ul>
+    <pre><code><span class="kw">const int</span> VIB = <span class="num">7</span>, BUZZER = <span class="num">8</span>;
+<span class="tp">unsigned long</span> letzterAlarm = <span class="num">0</span>;
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="kw">if</span> (<span class="fn">digitalRead</span>(VIB) == HIGH) {
+    letzterAlarm = <span class="fn">millis</span>();
+  }
+  <span class="kw">if</span> (<span class="fn">millis</span>() - letzterAlarm < <span class="num">2000</span>) {
+    <span class="fn">tone</span>(BUZZER, <span class="num">2000</span>);  <span class="cm">// Alarm 2 Sekunden nach letzter Erschütterung</span>
+  } <span class="kw">else</span> {
+    <span class="fn">noTone</span>(BUZZER);
+  }
+}</code></pre>
+  </div>
+
+  <h3>15.4 Farbsensor (TCS3200 / TCS34725)</h3>
+  <div class="component-card">
+    <p>Erkennt die Farbe eines Objektes durch RGB-Filter. Eine integrierte LED beleuchtet das Objekt, die reflektierte Intensität wird in Rot, Grün und Blau aufgeteilt und gemessen.</p>
+    <ul>
+      <li><strong>TCS3200:</strong> Gibt Frequenz aus (je höher = mehr Licht), braucht keine Bibliothek</li>
+      <li><strong>TCS34725 (empfohlen):</strong> Gibt direkte 16-bit RGB-Werte aus per I2C</li>
+      <li><strong>Anwendung:</strong> Sortiermaschine, Qualitätskontrolle, Farbmischung, Lego-Sortierer, Reaktionsspiel</li>
+    </ul>
+    <pre><code>#include &lt;Wire.h&gt;
+#include &lt;Adafruit_TCS34725.h&gt;
+
+Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_4X);
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">uint16_t</span> r, g, b, c;
+  tcs.<span class="fn">getRawData</span>(&r, &g, &b, &c);
+
+  Serial.<span class="fn">print</span>(<span class="str">"R:"</span>); Serial.<span class="fn">print</span>(r);
+  Serial.<span class="fn">print</span>(<span class="str">" G:"</span>); Serial.<span class="fn">print</span>(g);
+  Serial.<span class="fn">print</span>(<span class="str">" B:"</span>); Serial.<span class="fn">println</span>(b);
+}</code></pre>
+  </div>
+
+  <h3>15.5 GPS-Modul (NEO-6M)</h3>
+  <div class="component-card">
+    <p>Empfängt GPS-Satellitensignale und liefert genaue Position (Breitengrad, Längengrad), Uhrzeit und Geschwindigkeit. Braucht eine freie Sicht zum Himmel.</p>
+    <ul>
+      <li><strong>Verbindung:</strong> TX → Arduino RX (Pin 0 oder SoftwareSerial), RX → Arduino TX, VCC → 3.3–5V, GND</li>
+      <li><strong>Bibliothek:</strong> <code>TinyGPS++</code> (einfachste Wahl)</li>
+      <li><strong>NMEA Protokoll:</strong> GPS sendet Textzeilen wie <code>$GPGGA,...</code> über UART</li>
+      <li><strong>Fix-Zeit:</strong> Kalt-Start ~30–60s, Warm-Start ~5s bis erste Position</li>
+      <li><strong>Anwendung:</strong> Fahrzeug-Tracker, Geocaching, Wandercomputer, automatische Uhr, Drohne</li>
+    </ul>
+    <pre><code>#include &lt;SoftwareSerial.h&gt;
+#include &lt;TinyGPS++.h&gt;
+
+SoftwareSerial ss(<span class="num">4</span>, <span class="num">3</span>);   <span class="cm">// RX, TX</span>
+TinyGPSPlus gps;
+
+<span class="tp">void</span> <span class="fn">setup</span>() { Serial.<span class="fn">begin</span>(<span class="num">9600</span>); ss.<span class="fn">begin</span>(<span class="num">9600</span>); }
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="kw">while</span>(ss.<span class="fn">available</span>() > <span class="num">0</span>) gps.<span class="fn">encode</span>(ss.<span class="fn">read</span>());
+  <span class="kw">if</span> (gps.location.<span class="fn">isUpdated</span>()) {
+    Serial.<span class="fn">print</span>(<span class="str">"Lat: "</span>); Serial.<span class="fn">print</span>(gps.location.<span class="fn">lat</span>(), <span class="num">6</span>);
+    Serial.<span class="fn">print</span>(<span class="str">" Lng: "</span>); Serial.<span class="fn">println</span>(gps.location.<span class="fn">lng</span>(), <span class="num">6</span>);
+  }
+}</code></pre>
+  </div>
+
+  <h3>15.6 Ultrasonic HC-SR04 Array – 3D-Objekterkennung</h3>
+  <div class="component-card">
+    <p>Mehrere HC-SR04 an einem Arduino Uno ermöglichen die 3D-Raumüberwachung. Vorne, links, rechts, oben — Hindernisse in alle Richtungen erkennen wie bei einem Roboter.</p>
+    <pre><code><span class="kw">const int</span> SENSOREN = <span class="num">3</span>;
+<span class="kw">const int</span> TRIG[SENSOREN] = {<span class="num">2</span>, <span class="num">4</span>, <span class="num">6</span>};   <span class="cm">// Vorne, Links, Rechts</span>
+<span class="kw">const int</span> ECHO[SENSOREN] = {<span class="num">3</span>, <span class="num">5</span>, <span class="num">7</span>};
+<span class="tp">float</span> messeDistanz(<span class="tp">int</span> trig, <span class="tp">int</span> echo) {
+  <span class="fn">digitalWrite</span>(trig, LOW); <span class="fn">delayMicroseconds</span>(<span class="num">2</span>);
+  <span class="fn">digitalWrite</span>(trig, HIGH); <span class="fn">delayMicroseconds</span>(<span class="num">10</span>); <span class="fn">digitalWrite</span>(trig, LOW);
+  <span class="kw">return</span> <span class="fn">pulseIn</span>(echo, HIGH) * <span class="num">0.0343</span> / <span class="num">2.0</span>;
+}
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  <span class="kw">for</span>(<span class="tp">int</span> i=<span class="num">0</span>;i<SENSOREN;i++) { <span class="fn">pinMode</span>(TRIG[i],OUTPUT); <span class="fn">pinMode</span>(ECHO[i],INPUT); }
+  Serial.<span class="fn">begin</span>(<span class="num">9600</span>);
+}
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="kw">const char</span>* namen[] = {<span class="str">"Vorne"</span>,<span class="str">"Links"</span>,<span class="str">"Rechts"</span>};
+  <span class="kw">for</span>(<span class="tp">int</span> i=<span class="num">0</span>;i<SENSOREN;i++) {
+    Serial.<span class="fn">print</span>(namen[i]); Serial.<span class="fn">print</span>(<span class="str">": "</span>);
+    Serial.<span class="fn">print</span>(<span class="fn">messeDistanz</span>(TRIG[i],ECHO[i])); Serial.<span class="fn">println</span>(<span class="str">" cm"</span>);
+  }
+  <span class="fn">delay</span>(<span class="num">500</span>);
+}</code></pre>
+  </div>
+</div>
+
+<!-- ================================================================= -->
+<!-- KAPITEL 16: FORTGESCHRITTENE PROGRAMMIERUNG                       -->
+<!-- ================================================================= -->
+<div class="section" id="kap16">
+  <div class="chapter-badge">Kapitel 16</div>
+  <h2>Fortgeschrittene Arduino-Programmierung</h2>
+  <p>Wenn du die Grundlagen beherrschst, öffnet sich eine Welt professioneller Programmiertechniken: State Machines, EEPROM-Speicher, Timer-Interrupts und Energiesparmodi.</p>
+
+  <h3>16.1 State Machine – Zustandsautomat</h3>
+  <p>Eine State Machine (Zustandsautomat) ist das mächtigste Muster für komplexe Arduino-Projekte. Statt verschachtelter if/else-Blöcke definierst du klare <em>Zustände</em> und <em>Übergänge</em>.</p>
+  <div class="component-card">
+    <h4>Beispiel: Smart-Lampe mit 4 Zuständen</h4>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0;text-align:center;">
+      <div style="background:#222;color:white;padding:10px;border-radius:6px;font-size:0.85em;"><strong>AUS</strong><br>LED off</div>
+      <div style="background:#fff3cd;padding:10px;border-radius:6px;font-size:0.85em;border:2px solid #ffc107;"><strong>SCHWACH</strong><br>PWM 64</div>
+      <div style="background:#fff8c5;padding:10px;border-radius:6px;font-size:0.85em;border:2px solid #ff9800;"><strong>MITTEL</strong><br>PWM 150</div>
+      <div style="background:#ffffaa;padding:10px;border-radius:6px;font-size:0.85em;border:2px solid #ffeb3b;"><strong>HELL</strong><br>PWM 255</div>
+    </div>
+    <pre><code><span class="kw">enum</span> Zustand { AUS, SCHWACH, MITTEL, HELL };
+Zustand aktuell = AUS;
+<span class="kw">const int</span> TASTE = <span class="num">2</span>, LED_PIN = <span class="num">9</span>;
+<span class="tp">bool</span> letzterTasten = HIGH;
+
+<span class="tp">void</span> <span class="fn">setZustand</span>(Zustand z) {
+  aktuell = z;
+  <span class="kw">switch</span>(z) {
+    <span class="kw">case</span> AUS:     <span class="fn">analogWrite</span>(LED_PIN,   <span class="num">0</span>); Serial.<span class="fn">println</span>(<span class="str">"AUS"</span>);    <span class="kw">break</span>;
+    <span class="kw">case</span> SCHWACH: <span class="fn">analogWrite</span>(LED_PIN,  <span class="num">64</span>); Serial.<span class="fn">println</span>(<span class="str">"SCHWACH"</span>); <span class="kw">break</span>;
+    <span class="kw">case</span> MITTEL:  <span class="fn">analogWrite</span>(LED_PIN, <span class="num">150</span>); Serial.<span class="fn">println</span>(<span class="str">"MITTEL"</span>);  <span class="kw">break</span>;
+    <span class="kw">case</span> HELL:    <span class="fn">analogWrite</span>(LED_PIN, <span class="num">255</span>); Serial.<span class="fn">println</span>(<span class="str">"HELL"</span>);    <span class="kw">break</span>;
+  }
+}
+
+<span class="tp">void</span> <span class="fn">setup</span>() { <span class="fn">pinMode</span>(TASTE, INPUT_PULLUP); Serial.<span class="fn">begin</span>(<span class="num">9600</span>); }
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">bool</span> jetzt = <span class="fn">digitalRead</span>(TASTE);
+  <span class="kw">if</span> (letzterTasten == HIGH && jetzt == LOW) {   <span class="cm">// Flanke: gedrückt</span>
+    <span class="fn">setZustand</span>((Zustand)((aktuell + <span class="num">1</span>) % <span class="num">4</span>));  <span class="cm">// Nächster Zustand (zyklisch)</span>
+    <span class="fn">delay</span>(<span class="num">50</span>);
+  }
+  letzterTasten = jetzt;
+}</code></pre>
+  </div>
+
+  <h3>16.2 EEPROM – Dauerhafter Speicher</h3>
+  <p>Der Arduino Uno hat 1024 Bytes EEPROM (Electrically Erasable Programmable Read-Only Memory). Diese bleiben erhalten, auch wenn der Arduino ausgeschaltet wird — mindestens 100.000 Schreibvorgänge garantiert.</p>
+  <div class="tip">EEPROM schreiben kostet Zeit (~3.3ms pro Byte) und hat begrenzte Lebenszeit (100.000 Zyklen). Schreibe nur wenn sich der Wert wirklich ändert!</div>
+  <pre><code>#include &lt;EEPROM.h&gt;
+
+<span class="kw">const int</span> ADRESSE_ZAEHLER = <span class="num">0</span>;   <span class="cm">// Byte-Adresse im EEPROM</span>
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  Serial.<span class="fn">begin</span>(<span class="num">9600</span>);
+  <span class="tp">int</span> zaehler = EEPROM.<span class="fn">read</span>(ADRESSE_ZAEHLER);   <span class="cm">// Beim Start lesen</span>
+  Serial.<span class="fn">print</span>(<span class="str">"Starts bisher: "</span>); Serial.<span class="fn">println</span>(zaehler);
+
+  zaehler++;                                       <span class="cm">// Erhöhen</span>
+  EEPROM.<span class="fn">write</span>(ADRESSE_ZAEHLER, zaehler);         <span class="cm">// Zurückschreiben</span>
+
+  <span class="cm">// Strings speichern</span>
+  String name = <span class="str">"Hallo"</span>;
+  <span class="kw">for</span>(<span class="tp">int</span> i=<span class="num">0</span>; i<name.<span class="fn">length</span>(); i++) EEPROM.<span class="fn">write</span>(<span class="num">10</span>+i, name[i]);
+  EEPROM.<span class="fn">write</span>(<span class="num">10</span>+name.<span class="fn">length</span>(), <span class="num">0</span>);   <span class="cm">// Null-Terminator</span>
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {}</code></pre>
+
+  <h3>16.3 Interrupts – Reaktion ohne Polling</h3>
+  <p>Statt in der <code>loop()</code> ständig zu prüfen ob ein Taster gedrückt ist (<em>Polling</em>), kann der Arduino bei einem Ereignis sofort unterbrochen werden (<em>Interrupt</em>) — selbst mitten im <code>delay()</code>!</p>
+  <table>
+    <tr><th>Arduino Uno</th><th>Interrupt</th><th>Modus</th></tr>
+    <tr><td>Pin 2</td><td>INT0</td><td>RISING, FALLING, CHANGE, LOW</td></tr>
+    <tr><td>Pin 3</td><td>INT1</td><td>RISING, FALLING, CHANGE, LOW</td></tr>
+  </table>
+  <pre><code><span class="tp">volatile</span> <span class="tp">int</span> zaehler = <span class="num">0</span>;    <span class="cm">// volatile: wird in Interrupt geändert!</span>
+
+<span class="tp">void</span> <span class="fn">IRAM_ATTR</span> tasteGedruckt() {
+  zaehler++;                   <span class="cm">// Interrupt Service Routine (ISR)</span>
+}
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  Serial.<span class="fn">begin</span>(<span class="num">9600</span>);
+  <span class="fn">pinMode</span>(<span class="num">2</span>, INPUT_PULLUP);
+  <span class="fn">attachInterrupt</span>(<span class="fn">digitalPinToInterrupt</span>(<span class="num">2</span>), tasteGedruckt, FALLING);
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="fn">delay</span>(<span class="num">1000</span>);   <span class="cm">// Interrupt feuert trotzdem!</span>
+  Serial.<span class="fn">print</span>(<span class="str">"Tastendrücke: "</span>); Serial.<span class="fn">println</span>(zaehler);
+}</code></pre>
+  <div class="warn">ISRs müssen kurz sein! Kein Serial.print(), kein delay(), keine langen Berechnungen darin. Nur schnelle Operationen wie Zähler erhöhen oder Flag setzen.</div>
+
+  <h3>16.4 millis() – Nicht-blockierende Zeitsteuerung</h3>
+  <p>Das größte Problem für Anfänger: <code>delay()</code> blockiert alles. Mit <code>millis()</code> können mehrere Dinge gleichzeitig passieren — das Herzstück der Arduino-Profiprogrammierung.</p>
+  <pre><code><span class="tp">unsigned long</span> vorherigeMillis_LED   = <span class="num">0</span>;
+<span class="tp">unsigned long</span> vorherigeMillis_Sensor = <span class="num">0</span>;
+<span class="kw">const long</span>    INTERVALL_LED    = <span class="num">500</span>;    <span class="cm">// LED blinkt alle 500ms</span>
+<span class="kw">const long</span>    INTERVALL_SENSOR = <span class="num">2000</span>;   <span class="cm">// Sensor alle 2 Sekunden</span>
+<span class="tp">bool</span> ledStatus = LOW;
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">unsigned long</span> jetzt = <span class="fn">millis</span>();
+
+  <span class="kw">if</span> (jetzt - vorherigeMillis_LED >= INTERVALL_LED) {
+    vorherigeMillis_LED = jetzt;
+    ledStatus = !ledStatus;
+    <span class="fn">digitalWrite</span>(<span class="num">13</span>, ledStatus);
+  }
+
+  <span class="kw">if</span> (jetzt - vorherigeMillis_Sensor >= INTERVALL_SENSOR) {
+    vorherigeMillis_Sensor = jetzt;
+    <span class="cm">// Sensor lesen — blockiert loop() nicht!</span>
+    Serial.<span class="fn">println</span>(<span class="fn">analogRead</span>(A0));
+  }
+  <span class="cm">// Taster, weitere Aufgaben — laufen parallel!</span>
+}</code></pre>
+
+  <h3>16.5 Software Serial – Mehrere UART-Ports</h3>
+  <p>Der Arduino Uno hat nur einen Hardware-UART (Pins 0+1). Mit <code>SoftwareSerial</code> kannst du auf beliebigen Pins serielle Kommunikation emulieren — ideal für GPS, Bluetooth, GSM-Module.</p>
+  <pre><code>#include &lt;SoftwareSerial.h&gt;
+
+SoftwareSerial bluetooth(<span class="num">10</span>, <span class="num">11</span>);   <span class="cm">// RX, TX — zu HC-05 Bluetooth-Modul</span>
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  Serial.<span class="fn">begin</span>(<span class="num">9600</span>);           <span class="cm">// Debug via USB</span>
+  bluetooth.<span class="fn">begin</span>(<span class="num">9600</span>);        <span class="cm">// HC-05 Standardbaud</span>
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="kw">if</span> (bluetooth.<span class="fn">available</span>()) {
+    <span class="tp">char</span> c = bluetooth.<span class="fn">read</span>();
+    Serial.<span class="fn">print</span>(<span class="str">"BT empfangen: "</span>); Serial.<span class="fn">println</span>(c);
+    <span class="kw">if</span> (c == <span class="str">'1'</span>) <span class="fn">digitalWrite</span>(<span class="num">13</span>, HIGH);
+    <span class="kw">if</span> (c == <span class="str">'0'</span>) <span class="fn">digitalWrite</span>(<span class="num">13</span>, LOW);
+  }
+}</code></pre>
+
+  <h3>16.6 Arrays &amp; Schleifen – Effizient mit vielen Pins</h3>
+  <pre><code><span class="cm">// Statt: pinMode(2,OUTPUT); pinMode(3,OUTPUT); ... (viel Copy-Paste)</span>
+<span class="kw">const int</span> LED_PINS[] = {<span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>, <span class="num">6</span>, <span class="num">7</span>, <span class="num">8</span>, <span class="num">9</span>};
+<span class="kw">const int</span> ANZAHL = <span class="kw">sizeof</span>(LED_PINS) / <span class="kw">sizeof</span>(LED_PINS[<span class="num">0</span>]);   <span class="cm">// = 8</span>
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  <span class="kw">for</span>(<span class="tp">int</span> i=<span class="num">0</span>; i<ANZAHL; i++) <span class="fn">pinMode</span>(LED_PINS[i], OUTPUT);
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="cm">// Lauflicht vorwärts</span>
+  <span class="kw">for</span>(<span class="tp">int</span> i=<span class="num">0</span>; i<ANZAHL; i++) {
+    <span class="fn">digitalWrite</span>(LED_PINS[i], HIGH);
+    <span class="fn">delay</span>(<span class="num">100</span>);
+    <span class="fn">digitalWrite</span>(LED_PINS[i], LOW);
+  }
+  <span class="cm">// Lauflicht rückwärts</span>
+  <span class="kw">for</span>(<span class="tp">int</span> i=ANZAHL-<span class="num">1</span>; i>=<span class="num">0</span>; i--) {
+    <span class="fn">digitalWrite</span>(LED_PINS[i], HIGH);
+    <span class="fn">delay</span>(<span class="num">100</span>);
+    <span class="fn">digitalWrite</span>(LED_PINS[i], LOW);
+  }
+}</code></pre>
+
+  <h3>16.7 Funktionen – Code wiederverwendbar machen</h3>
+  <pre><code><span class="cm">// Schlechter Stil — Code-Duplikation:</span>
+<span class="cm">// digitalWrite(5, HIGH); delay(200); digitalWrite(5, LOW); delay(200);</span>
+<span class="cm">// digitalWrite(5, HIGH); delay(200); digitalWrite(5, LOW); delay(200);</span>
+
+<span class="cm">// Guter Stil — Funktion mit Parametern:</span>
+<span class="tp">void</span> <span class="fn">blinken</span>(<span class="tp">int</span> pin, <span class="tp">int</span> mal, <span class="tp">int</span> pauseMs) {
+  <span class="kw">for</span>(<span class="tp">int</span> i=<span class="num">0</span>; i<mal; i++) {
+    <span class="fn">digitalWrite</span>(pin, HIGH); <span class="fn">delay</span>(pauseMs);
+    <span class="fn">digitalWrite</span>(pin, LOW);  <span class="fn">delay</span>(pauseMs);
+  }
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="fn">blinken</span>(<span class="num">5</span>, <span class="num">3</span>, <span class="num">100</span>);   <span class="cm">// LED 5, 3x blinken, je 100ms</span>
+  <span class="fn">blinken</span>(<span class="num">6</span>, <span class="num">1</span>, <span class="num">500</span>);   <span class="cm">// LED 6, 1x blinken, 500ms</span>
+  <span class="fn">delay</span>(<span class="num">1000</span>);
+}</code></pre>
+
+  <h3>16.8 Structs – Zusammengehörige Daten bündeln</h3>
+  <pre><code><span class="kw">struct</span> Sensor {
+  <span class="tp">int</span> pin;
+  <span class="tp">float</span> letzterWert;
+  <span class="tp">unsigned long</span> letzteLeszeit;
+  <span class="kw">const char</span>* name;
+};
+
+Sensor sensoren[] = {
+  {A0, <span class="num">0</span>, <span class="num">0</span>, <span class="str">"Temperatur"</span>},
+  {A1, <span class="num">0</span>, <span class="num">0</span>, <span class="str">"Licht"</span>},
+  {A2, <span class="num">0</span>, <span class="num">0</span>, <span class="str">"Feuchte"</span>}
+};
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="kw">for</span>(<span class="tp">int</span> i=<span class="num">0</span>; i<<span class="num">3</span>; i++) {
+    sensoren[i].letzterWert = <span class="fn">analogRead</span>(sensoren[i].pin);
+    Serial.<span class="fn">print</span>(sensoren[i].name); Serial.<span class="fn">print</span>(<span class="str">": "</span>);
+    Serial.<span class="fn">println</span>(sensoren[i].letzterWert);
+  }
+  <span class="fn">delay</span>(<span class="num">1000</span>);
+}</code></pre>
+</div>
+
+<!-- ================================================================= -->
+<!-- KAPITEL 17: NEUE PROJEKTE P13-P18                                 -->
+<!-- ================================================================= -->
+<div class="section" id="kap17">
+  <div class="chapter-badge">Kapitel 17</div>
+  <h2>Neue Projekte – P13 bis P18</h2>
+  <p>Sechs weitere vollständige Projekte — von der Wetterstation bis zum digitalen Piano. Alle funktionieren in Tinkercad Circuits.</p>
+
+  <div class="project-card" id="p13">
+    <div class="project-header">P13 – Digitale Wetterstation mit OLED</div>
+    <div class="project-body">
+      <p><strong>Was du brauchst:</strong> DHT22, BMP280, OLED SSD1306 (128×64), Arduino Uno</p>
+      <p><strong>Was es kann:</strong> Temperatur, Luftfeuchtigkeit, Luftdruck und errechnete Höhe auf dem OLED anzeigen. Alle 2 Sekunden aktualisieren.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0;">
+        <div style="background:#e8f4ff;padding:10px;border-radius:6px;">
+          <strong>Verkabelung DHT22:</strong><br>VCC→5V | GND | Data→Pin7 | 10kΩ Pull-up
+        </div>
+        <div style="background:#e8f4ff;padding:10px;border-radius:6px;">
+          <strong>Verkabelung OLED+BMP280 (I2C):</strong><br>VCC→3.3V | GND | SDA→A4 | SCL→A5
+        </div>
+      </div>
+      <pre><code>#include &lt;Wire.h&gt;
+#include &lt;DHT.h&gt;
+#include &lt;Adafruit_BMP280.h&gt;
+#include &lt;Adafruit_SSD1306.h&gt;
+#include &lt;Adafruit_GFX.h&gt;
+
+DHT dht(<span class="num">7</span>, DHT22);
+Adafruit_BMP280 bmp;
+Adafruit_SSD1306 oled(<span class="num">128</span>, <span class="num">64</span>, &Wire, -<span class="num">1</span>);
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  dht.<span class="fn">begin</span>(); bmp.<span class="fn">begin</span>(<span class="num">0x76</span>);
+  oled.<span class="fn">begin</span>(SSD1306_SWITCHCAPVCC, <span class="num">0x3C</span>);
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">float</span> temp = dht.<span class="fn">readTemperature</span>();
+  <span class="tp">float</span> hum  = dht.<span class="fn">readHumidity</span>();
+  <span class="tp">float</span> hpa  = bmp.<span class="fn">readPressure</span>() / <span class="num">100.0</span>;
+
+  oled.<span class="fn">clearDisplay</span>();
+  oled.<span class="fn">setTextSize</span>(<span class="num">1</span>); oled.<span class="fn">setTextColor</span>(WHITE);
+  oled.<span class="fn">setCursor</span>(<span class="num">0</span>,<span class="num">0</span>);  oled.<span class="fn">print</span>(<span class="str">"Temp:  "</span>); oled.<span class="fn">print</span>(temp,<span class="num">1</span>);   oled.<span class="fn">println</span>(<span class="str">" C"</span>);
+  oled.<span class="fn">setCursor</span>(<span class="num">0</span>,<span class="num">16</span>); oled.<span class="fn">print</span>(<span class="str">"Feuchte: "</span>); oled.<span class="fn">print</span>(hum,<span class="num">1</span>); oled.<span class="fn">println</span>(<span class="str">"%"</span>);
+  oled.<span class="fn">setCursor</span>(<span class="num">0</span>,<span class="num">32</span>); oled.<span class="fn">print</span>(<span class="str">"Druck: "</span>); oled.<span class="fn">print</span>(hpa,<span class="num">1</span>); oled.<span class="fn">println</span>(<span class="str">" hPa"</span>);
+  oled.<span class="fn">setCursor</span>(<span class="num">0</span>,<span class="num">48</span>); oled.<span class="fn">print</span>(<span class="str">"Hoehe: "</span>); oled.<span class="fn">print</span>(bmp.<span class="fn">readAltitude</span>(<span class="num">1013.25</span>),<span class="num">0</span>); oled.<span class="fn">println</span>(<span class="str">" m"</span>);
+  oled.<span class="fn">display</span>();
+  <span class="fn">delay</span>(<span class="num">2000</span>);
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="project-card" id="p14">
+    <div class="project-header">P14 – RFID Türschloss</div>
+    <div class="project-body">
+      <p><strong>Was du brauchst:</strong> RC522 RFID-Leser, Servo SG90, grüne/rote LED, Buzzer, Arduino Uno</p>
+      <p><strong>Was es kann:</strong> Bekannte Karten öffnen die Tür (Servo 0→90°), unbekannte Karten lösen Alarm aus.</p>
+      <pre><code>#include &lt;SPI.h&gt;
+#include &lt;MFRC522.h&gt;
+#include &lt;Servo.h&gt;
+
+MFRC522 rfid(<span class="num">10</span>, <span class="num">9</span>);
+Servo servo;
+<span class="kw">const int</span> LED_OK=<span class="num">5</span>, LED_ERR=<span class="num">6</span>, BUZZER=<span class="num">8</span>;
+
+<span class="cm">// Erlaubte UIDs — hier deine Karten eintragen!</span>
+<span class="tp">byte</span> erlaubteUID[] = {<span class="num">0xDE</span>, <span class="num">0xAD</span>, <span class="num">0xBE</span>, <span class="num">0xEF</span>};
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  SPI.<span class="fn">begin</span>(); rfid.<span class="fn">PCD_Init</span>(); servo.<span class="fn">attach</span>(<span class="num">3</span>); servo.<span class="fn">write</span>(<span class="num">0</span>);
+  <span class="fn">pinMode</span>(LED_OK,OUTPUT); <span class="fn">pinMode</span>(LED_ERR,OUTPUT); <span class="fn">pinMode</span>(BUZZER,OUTPUT);
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="kw">if</span> (!rfid.<span class="fn">PICC_IsNewCardPresent</span>() || !rfid.<span class="fn">PICC_ReadCardSerial</span>()) <span class="kw">return</span>;
+
+  <span class="tp">bool</span> ok = <span class="kw">true</span>;
+  <span class="kw">for</span>(<span class="tp">int</span> i=<span class="num">0</span>; i<<span class="num">4</span>; i++) ok &= (rfid.uid.uidByte[i] == erlaubteUID[i]);
+
+  <span class="kw">if</span>(ok) {
+    <span class="fn">digitalWrite</span>(LED_OK, HIGH); servo.<span class="fn">write</span>(<span class="num">90</span>);
+    <span class="fn">delay</span>(<span class="num">3000</span>);
+    servo.<span class="fn">write</span>(<span class="num">0</span>); <span class="fn">digitalWrite</span>(LED_OK, LOW);
+  } <span class="kw">else</span> {
+    <span class="fn">digitalWrite</span>(LED_ERR, HIGH); <span class="fn">tone</span>(BUZZER, <span class="num">1000</span>, <span class="num">500</span>);
+    <span class="fn">delay</span>(<span class="num">1000</span>); <span class="fn">digitalWrite</span>(LED_ERR, LOW);
+  }
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="project-card" id="p15">
+    <div class="project-header">P15 – Digitales Piano (8 Töne)</div>
+    <div class="project-body">
+      <p><strong>Was du brauchst:</strong> 8 Taster, 1 Buzzer (oder Lautsprecher), 8 Widerstände (10 kΩ), Arduino Uno</p>
+      <p><strong>Was es kann:</strong> Eine vollständige C-Dur-Oktave spielen — C, D, E, F, G, A, H, C.</p>
+      <pre><code><span class="kw">const int</span> TASTEN[] = {<span class="num">2</span>,<span class="num">3</span>,<span class="num">4</span>,<span class="num">5</span>,<span class="num">6</span>,<span class="num">7</span>,<span class="num">8</span>,<span class="num">9</span>};
+<span class="kw">const int</span> BUZZER = <span class="num">10</span>;
+<span class="kw">const int</span> NOTEN[] = {<span class="num">262</span>,<span class="num">294</span>,<span class="num">330</span>,<span class="num">349</span>,<span class="num">392</span>,<span class="num">440</span>,<span class="num">494</span>,<span class="num">523</span>};  <span class="cm">// C4-C5</span>
+<span class="kw">const char</span>* NAMEN[] = {<span class="str">"C"</span>,<span class="str">"D"</span>,<span class="str">"E"</span>,<span class="str">"F"</span>,<span class="str">"G"</span>,<span class="str">"A"</span>,<span class="str">"H"</span>,<span class="str">"C5"</span>};
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  <span class="kw">for</span>(<span class="tp">int</span> i=<span class="num">0</span>; i<<span class="num">8</span>; i++) <span class="fn">pinMode</span>(TASTEN[i], INPUT_PULLUP);
+  Serial.<span class="fn">begin</span>(<span class="num">9600</span>);
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">bool</span> gespielt = <span class="kw">false</span>;
+  <span class="kw">for</span>(<span class="tp">int</span> i=<span class="num">0</span>; i<<span class="num">8</span>; i++) {
+    <span class="kw">if</span>(<span class="fn">digitalRead</span>(TASTEN[i]) == LOW) {
+      <span class="fn">tone</span>(BUZZER, NOTEN[i]);
+      Serial.<span class="fn">println</span>(NAMEN[i]);
+      gespielt = <span class="kw">true</span>;
+    }
+  }
+  <span class="kw">if</span>(!gespielt) <span class="fn">noTone</span>(BUZZER);
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="project-card" id="p16">
+    <div class="project-header">P16 – Gas-Alarm mit Lüfter &amp; NeoPixel-Status</div>
+    <div class="project-body">
+      <p><strong>Was du brauchst:</strong> MQ-2 Sensor, NeoPixel Ring (8 LEDs), Lüfter (über L293D oder Relais), Buzzer</p>
+      <p><strong>Was es kann:</strong> 4 Sicherheitsstufen: Grün (OK), Gelb (Warnung), Orange (Kritisch), Rot+Alarm (Gefahr). Bei Rot: Lüfter AN, Buzzer, alle LEDs rot blinkend.</p>
+      <pre><code>#include &lt;Adafruit_NeoPixel.h&gt;
+Adafruit_NeoPixel ring(<span class="num">8</span>, <span class="num">6</span>, NEO_GRB + NEO_KHZ800);
+<span class="kw">const int</span> BUZZER=<span class="num">8</span>, LUEFTER=<span class="num">9</span>;
+
+<span class="tp">void</span> <span class="fn">setStatus</span>(<span class="tp">int</span> stufe) {
+  ring.<span class="fn">clear</span>();
+  <span class="tp">uint32_t</span> farbe;
+  <span class="kw">switch</span>(stufe) {
+    <span class="kw">case</span> <span class="num">0</span>: farbe=ring.<span class="fn">Color</span>(<span class="num">0</span>,<span class="num">255</span>,<span class="num">0</span>);   <span class="fn">noTone</span>(BUZZER); <span class="fn">digitalWrite</span>(LUEFTER,LOW);  <span class="kw">break</span>; <span class="cm">// Grün</span>
+    <span class="kw">case</span> <span class="num">1</span>: farbe=ring.<span class="fn">Color</span>(<span class="num">255</span>,<span class="num">255</span>,<span class="num">0</span>); <span class="fn">noTone</span>(BUZZER); <span class="fn">digitalWrite</span>(LUEFTER,LOW);  <span class="kw">break</span>; <span class="cm">// Gelb</span>
+    <span class="kw">case</span> <span class="num">2</span>: farbe=ring.<span class="fn">Color</span>(<span class="num">255</span>,<span class="num">128</span>,<span class="num">0</span>); <span class="fn">noTone</span>(BUZZER); <span class="fn">digitalWrite</span>(LUEFTER,HIGH); <span class="kw">break</span>; <span class="cm">// Orange</span>
+    <span class="kw">case</span> <span class="num">3</span>: farbe=ring.<span class="fn">Color</span>(<span class="num">255</span>,<span class="num">0</span>,<span class="num">0</span>);   <span class="fn">tone</span>(BUZZER,<span class="num">3000</span>); <span class="fn">digitalWrite</span>(LUEFTER,HIGH); <span class="kw">break</span>; <span class="cm">// Rot!</span>
+  }
+  <span class="kw">for</span>(<span class="tp">int</span> i=<span class="num">0</span>;i<<span class="num">8</span>;i++) ring.<span class="fn">setPixelColor</span>(i,farbe);
+  ring.<span class="fn">show</span>();
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">int</span> gas = <span class="fn">analogRead</span>(A0);
+  <span class="kw">if</span>      (gas < <span class="num">200</span>) <span class="fn">setStatus</span>(<span class="num">0</span>);
+  <span class="kw">else if</span> (gas < <span class="num">400</span>) <span class="fn">setStatus</span>(<span class="num">1</span>);
+  <span class="kw">else if</span> (gas < <span class="num">600</span>) <span class="fn">setStatus</span>(<span class="num">2</span>);
+  <span class="kw">else</span>                <span class="fn">setStatus</span>(<span class="num">3</span>);
+  <span class="fn">delay</span>(<span class="num">300</span>);
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="project-card" id="p17">
+    <div class="project-header">P17 – Automatisches Gewächshaus</div>
+    <div class="project-body">
+      <p><strong>Was du brauchst:</strong> DHT11, Bodenfeuchtesensor, Wasserpumpe (über Relais), Lüfter (über L293D), LCD 16×2</p>
+      <p><strong>Was es kann:</strong> Temperatur und Bodenfeuchte überwachen. Pumpe läuft bei zu trockener Erde, Lüfter bei zu hoher Temperatur. Alles auf LCD anzeigen.</p>
+      <pre><code>#include &lt;DHT.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+
+DHT dht(<span class="num">7</span>, DHT11);
+LiquidCrystal_I2C lcd(<span class="num">0x27</span>, <span class="num">16</span>, <span class="num">2</span>);
+<span class="kw">const int</span> PUMPE=<span class="num">8</span>, LUEFTER=<span class="num">9</span>;
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  dht.<span class="fn">begin</span>(); lcd.<span class="fn">begin</span>(); lcd.<span class="fn">backlight</span>();
+  <span class="fn">pinMode</span>(PUMPE,OUTPUT); <span class="fn">pinMode</span>(LUEFTER,OUTPUT);
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">float</span> temp = dht.<span class="fn">readTemperature</span>();
+  <span class="tp">int</span>   erde = <span class="fn">analogRead</span>(A0);
+
+  lcd.<span class="fn">setCursor</span>(<span class="num">0</span>,<span class="num">0</span>); lcd.<span class="fn">print</span>(<span class="str">"Temp: "</span>); lcd.<span class="fn">print</span>(temp,<span class="num">1</span>); lcd.<span class="fn">print</span>(<span class="str">"C  "</span>);
+  lcd.<span class="fn">setCursor</span>(<span class="num">0</span>,<span class="num">1</span>); lcd.<span class="fn">print</span>(<span class="str">"Erde: "</span>); lcd.<span class="fn">print</span>(erde > <span class="num">500</span> ? <span class="str">"TROCKEN"</span> : <span class="str">"OK    "</span>);
+
+  <span class="fn">digitalWrite</span>(PUMPE,   erde > <span class="num">500</span> ? HIGH : LOW);
+  <span class="fn">digitalWrite</span>(LUEFTER, temp > <span class="num">28</span>  ? HIGH : LOW);
+  <span class="fn">delay</span>(<span class="num">5000</span>);
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="project-card" id="p18">
+    <div class="project-header">P18 – NeoPixel Audio-Visualizer</div>
+    <div class="project-body">
+      <p><strong>Was du brauchst:</strong> Schallsensor KY-038 (Analog-Ausgang), NeoPixel Strip (12 LEDs), Arduino Uno</p>
+      <p><strong>Was es kann:</strong> Lautstärke wird in Echtzeit als Balken auf dem NeoPixel-Strip dargestellt — leise = wenige LEDs, laut = alle leuchten in Regenbogenfarben.</p>
+      <pre><code>#include &lt;Adafruit_NeoPixel.h&gt;
+Adafruit_NeoPixel strip(<span class="num">12</span>, <span class="num">6</span>, NEO_GRB + NEO_KHZ800);
+
+<span class="tp">uint32_t</span> <span class="fn">regenbogen</span>(<span class="tp">int</span> pos) {
+  pos = pos % <span class="num">256</span>;
+  <span class="kw">if</span>(pos < <span class="num">85</span>)  <span class="kw">return</span> strip.<span class="fn">Color</span>(pos*<span class="num">3</span>, <span class="num">255</span>-pos*<span class="num">3</span>, <span class="num">0</span>);
+  <span class="kw">if</span>(pos < <span class="num">170</span>) { pos-=<span class="num">85</span>;  <span class="kw">return</span> strip.<span class="fn">Color</span>(<span class="num">255</span>-pos*<span class="num">3</span>, <span class="num">0</span>, pos*<span class="num">3</span>); }
+  pos-=<span class="num">170</span>; <span class="kw">return</span> strip.<span class="fn">Color</span>(<span class="num">0</span>, pos*<span class="num">3</span>, <span class="num">255</span>-pos*<span class="num">3</span>);
+}
+
+<span class="tp">void</span> <span class="fn">setup</span>() { strip.<span class="fn">begin</span>(); strip.<span class="fn">setBrightness</span>(<span class="num">60</span>); }
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">int</span> laut = <span class="fn">analogRead</span>(A0);
+  <span class="tp">int</span> aktiv = <span class="fn">map</span>(<span class="fn">constrain</span>(laut, <span class="num">0</span>, <span class="num">1023</span>), <span class="num">0</span>, <span class="num">1023</span>, <span class="num">0</span>, <span class="num">12</span>);
+  strip.<span class="fn">clear</span>();
+  <span class="kw">for</span>(<span class="tp">int</span> i=<span class="num">0</span>; i<aktiv; i++) strip.<span class="fn">setPixelColor</span>(i, <span class="fn">regenbogen</span>(i*<span class="num">20</span>));
+  strip.<span class="fn">show</span>();
+  <span class="fn">delay</span>(<span class="num">30</span>);
+}</code></pre>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================= -->
+<!-- KAPITEL 18: KOMMUNIKATION & VERNETZUNG                            -->
+<!-- ================================================================= -->
+<div class="section" id="kap18">
+  <div class="chapter-badge">Kapitel 18</div>
+  <h2>Kommunikation &amp; Vernetzung</h2>
+  <p>Arduinos können miteinander und mit der Außenwelt kommunizieren — über Kabel, Infrarot, Bluetooth, WiFi und sogar GSM (Handy-Netz).</p>
+
+  <h3>18.1 Bluetooth HC-05/HC-06</h3>
+  <div class="component-card">
+    <p>Drahtlose serielle Kommunikation über Bluetooth 2.0. Dein Smartphone kann den Arduino steuern oder Daten empfangen.</p>
+    <ul>
+      <li><strong>HC-05:</strong> Master + Slave (kann andere Geräte initiieren)</li>
+      <li><strong>HC-06:</strong> Nur Slave (einfacher, günstiger)</li>
+      <li><strong>Pins:</strong> TX → Arduino RX | RX → Arduino TX (über Spannungsteiler 5V→3.3V!) | VCC → 5V | GND</li>
+      <li><strong>Standard-PIN:</strong> 1234 oder 0000</li>
+      <li><strong>App für Smartphone:</strong> "Serial Bluetooth Terminal" (Android, kostenlos)</li>
+    </ul>
+    <pre><code>#include &lt;SoftwareSerial.h&gt;
+SoftwareSerial bt(<span class="num">10</span>, <span class="num">11</span>);   <span class="cm">// RX=10, TX=11</span>
+
+<span class="tp">void</span> <span class="fn">setup</span>() { Serial.<span class="fn">begin</span>(<span class="num">9600</span>); bt.<span class="fn">begin</span>(<span class="num">9600</span>); }
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="kw">if</span>(bt.<span class="fn">available</span>()) {
+    <span class="tp">char</span> c = bt.<span class="fn">read</span>();
+    <span class="kw">if</span>(c == <span class="str">'1'</span>) { <span class="fn">digitalWrite</span>(<span class="num">13</span>, HIGH); bt.<span class="fn">println</span>(<span class="str">"LED AN"</span>); }
+    <span class="kw">if</span>(c == <span class="str">'0'</span>) { <span class="fn">digitalWrite</span>(<span class="num">13</span>, LOW);  bt.<span class="fn">println</span>(<span class="str">"LED AUS"</span>); }
+  }
+  <span class="kw">if</span>(Serial.<span class="fn">available</span>()) bt.<span class="fn">write</span>(Serial.<span class="fn">read</span>());  <span class="cm">// Weiterleitung</span>
+}</code></pre>
+  </div>
+
+  <h3>18.2 Zwei Arduinos per I2C verbinden</h3>
+  <div class="component-card">
+    <p>I2C erlaubt es, einen Arduino als <strong>Master</strong> und andere als <strong>Slaves</strong> zu betreiben. Der Master fragt die Slaves ab, Slaves antworten wenn sie gefragt werden.</p>
+    <pre><code><span class="cm">// === MASTER-Code (Arduino 1) ===</span>
+#include &lt;Wire.h&gt;
+<span class="tp">void</span> <span class="fn">setup</span>() { Wire.<span class="fn">begin</span>(); Serial.<span class="fn">begin</span>(<span class="num">9600</span>); }
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  Wire.<span class="fn">requestFrom</span>(<span class="num">8</span>, <span class="num">1</span>);   <span class="cm">// 1 Byte von Adresse 8 anfordern</span>
+  <span class="kw">while</span>(Wire.<span class="fn">available</span>()) {
+    <span class="tp">int</span> wert = Wire.<span class="fn">read</span>();
+    Serial.<span class="fn">print</span>(<span class="str">"Slave sagt: "</span>); Serial.<span class="fn">println</span>(wert);
+  }
+  <span class="fn">delay</span>(<span class="num">1000</span>);
+}
+
+<span class="cm">// === SLAVE-Code (Arduino 2) — Adresse 8 ===</span>
+#include &lt;Wire.h&gt;
+<span class="tp">void</span> <span class="fn">setup</span>() { Wire.<span class="fn">begin</span>(<span class="num">8</span>); Wire.<span class="fn">onRequest</span>(antworten); }
+<span class="tp">void</span> <span class="fn">antworten</span>() {
+  Wire.<span class="fn">write</span>(<span class="fn">analogRead</span>(A0) / <span class="num">4</span>);   <span class="cm">// Sensorwert schicken</span>
+}
+<span class="tp">void</span> <span class="fn">loop</span>() {}</code></pre>
+  </div>
+
+  <h3>18.3 NRF24L01 – 2.4 GHz Funk-Verbindung</h3>
+  <div class="component-card">
+    <p>Das NRF24L01-Modul ermöglicht drahtlose Kommunikation über 2.4 GHz mit bis zu 100m Reichweite (mit Antenne: 1000m!). Zwei Arduinos können so bidirektional kommunizieren.</p>
+    <ul>
+      <li><strong>Verbindung (SPI):</strong> VCC → 3.3V (!), GND, CE→9, CSN→10, SCK→13, MOSI→11, MISO→12</li>
+      <li><strong>Bibliothek:</strong> <code>RF24</code> von TMRh20</li>
+      <li><strong>Frequenzkanäle:</strong> 125 verschiedene Kanäle — mehrere Paare können gleichzeitig funken</li>
+    </ul>
+  </div>
+
+  <h3>18.4 Protokoll-Übersicht</h3>
+  <table>
+    <tr><th>Protokoll</th><th>Reichweite</th><th>Geschwindigkeit</th><th>Pins</th><th>Anwendung</th></tr>
+    <tr><td><strong>UART/Serial</strong></td><td>Kabel</td><td>bis 115.200 bps</td><td>2 (TX+RX)</td><td>PC-Verbindung, GPS, Bluetooth-Modul</td></tr>
+    <tr><td><strong>I2C</strong></td><td>Kabel &lt;1m</td><td>100k–400k bps</td><td>2 (SDA+SCL)</td><td>Sensoren, Displays, 127 Geräte gleichzeitig</td></tr>
+    <tr><td><strong>SPI</strong></td><td>Kabel &lt;30cm</td><td>bis 10 Mbps</td><td>4 (MOSI,MISO,SCK,CS)</td><td>SD-Karte, RFID, TFT-Displays</td></tr>
+    <tr><td><strong>IR (Infrarot)</strong></td><td>~5m</td><td>38 kHz</td><td>1</td><td>Fernbedienung, TV-Steuerung</td></tr>
+    <tr><td><strong>Bluetooth HC-05</strong></td><td>~10m</td><td>115.200 bps</td><td>2 (TX+RX)</td><td>Smartphone-Steuerung</td></tr>
+    <tr><td><strong>NRF24L01</strong></td><td>100–1000m</td><td>250k–2M bps</td><td>5 (SPI)</td><td>Sensorknoten, RC-Fahrzeuge</td></tr>
+    <tr><td><strong>WiFi (ESP8266)</strong></td><td>WLAN-Netz</td><td>bis 54 Mbps</td><td>1 (AT-Commands)</td><td>IoT, HTTP-Server, MQTT, Cloud</td></tr>
+  </table>
+</div>
+
+<!-- ================================================================= -->
+<!-- KAPITEL 19: ESP32 & NÄCHSTE SCHRITTE                              -->
+<!-- ================================================================= -->
+<div class="section" id="kap19">
+  <div class="chapter-badge">Kapitel 19</div>
+  <h2>Nächste Schritte – ESP32, Raspberry Pi &amp; IoT</h2>
+  <p>Der Arduino Uno ist ein fantastischer Einstieg — aber er hat Grenzen: kein WiFi, kein Bluetooth, wenig RAM. Hier erfährst du, wohin die Reise als nächstes gehen kann.</p>
+
+  <h3>19.1 ESP32 – der Arduino mit WiFi &amp; Bluetooth</h3>
+  <div class="component-card">
+    <p>Der ESP32 von Espressif ist der natürliche Nachfolger des Arduino Uno für IoT-Projekte. Er läuft in der Arduino IDE und ist fast pin-kompatibel — aber viel leistungsfähiger.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0;">
+      <div>
+        <strong>ESP32 Vorteile:</strong>
+        <ul>
+          <li>WiFi 802.11 b/g/n eingebaut</li>
+          <li>Bluetooth 4.2 + BLE eingebaut</li>
+          <li>Dual-Core 240 MHz (vs. Arduino 16 MHz)</li>
+          <li>520 KB RAM (vs. Arduino 2 KB)</li>
+          <li>4 MB Flash (vs. Arduino 32 KB)</li>
+          <li>34 GPIO-Pins, 18× ADC, 2× DAC</li>
+          <li>WLAN-Webserver mit wenigen Zeilen</li>
+        </ul>
+      </div>
+      <div>
+        <strong>ESP32 in Arduino IDE:</strong>
+        <ul>
+          <li>Board-Manager: URL hinzufügen</li>
+          <li>Suche nach "ESP32" von Espressif</li>
+          <li>Setup/Loop funktioniert identisch</li>
+          <li>Zusätzlich: <code>WiFi.h</code>, <code>BluetoothSerial.h</code></li>
+          <li>Preis: ~4–8 Euro (sehr günstig!)</li>
+        </ul>
+      </div>
+    </div>
+    <pre><code><span class="cm">// ESP32 als WLAN-Webserver — LED per Browser steuern</span>
+#include &lt;WiFi.h&gt;
+#include &lt;WebServer.h&gt;
+
+<span class="kw">const char</span>* ssid     = <span class="str">"DeinWLAN"</span>;
+<span class="kw">const char</span>* password = <span class="str">"DeinPasswort"</span>;
+WebServer server(<span class="num">80</span>);
+<span class="kw">const int</span> LED = <span class="num">2</span>;
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  <span class="fn">pinMode</span>(LED, OUTPUT);
+  WiFi.<span class="fn">begin</span>(ssid, password);
+  <span class="kw">while</span>(WiFi.<span class="fn">status</span>() != WL_CONNECTED) <span class="fn">delay</span>(<span class="num">500</span>);
+  Serial.<span class="fn">println</span>(<span class="str">"IP: "</span> + WiFi.<span class="fn">localIP</span>().<span class="fn">toString</span>());
+
+  server.<span class="fn">on</span>(<span class="str">"/an"</span>,  []() { <span class="fn">digitalWrite</span>(LED,HIGH); server.<span class="fn">send</span>(<span class="num">200</span>,<span class="str">"text/plain"</span>,<span class="str">"AN"</span>); });
+  server.<span class="fn">on</span>(<span class="str">"/aus"</span>, []() { <span class="fn">digitalWrite</span>(LED,LOW);  server.<span class="fn">send</span>(<span class="num">200</span>,<span class="str">"text/plain"</span>,<span class="str">"AUS"</span>); });
+  server.<span class="fn">begin</span>();
+}
+<span class="tp">void</span> <span class="fn">loop</span>() { server.<span class="fn">handleClient</span>(); }</code></pre>
+  </div>
+
+  <h3>19.2 Raspberry Pi – Linux-Computer im Taschenformat</h3>
+  <div class="component-card">
+    <p>Der Raspberry Pi läuft ein vollständiges Linux-Betriebssystem. Er hat GPIO-Pins für Elektronik, aber auch HDMI, USB, Ethernet — ein vollwertiger Computer in der Größe einer Kreditkarte.</p>
+    <table>
+      <tr><th>Eigenschaft</th><th>Arduino Uno</th><th>Raspberry Pi 4</th></tr>
+      <tr><td>Betriebssystem</td><td>Keins (Bare Metal)</td><td>Linux (Raspberry Pi OS)</td></tr>
+      <tr><td>Programmierung</td><td>C++ (Arduino)</td><td>Python, C, Node.js, Java...</td></tr>
+      <tr><td>Echtzeit</td><td>Ja (exakt)</td><td>Nein (OS-Overhead)</td></tr>
+      <tr><td>WiFi</td><td>Nein</td><td>Ja (eingebaut)</td></tr>
+      <tr><td>Kamera</td><td>Nein</td><td>Ja (CSI-Anschluss)</td></tr>
+      <tr><td>Stromverbrauch</td><td>~50mA</td><td>~600mA–2A</td></tr>
+      <tr><td>Preis</td><td>~20€</td><td>~50–80€</td></tr>
+    </table>
+    <div class="tip"><strong>Wann was?</strong> Arduino = Sensoren, Motoren, Echtzeit-Steuerung. Raspberry Pi = KI, Kamera, Webserver, komplexe Software. Ideal: Beides kombinieren — Arduino als Sensor-Interface, Pi als Gehirn.</div>
+  </div>
+
+  <h3>19.3 IoT-Protokolle — MQTT</h3>
+  <div class="component-card">
+    <p>MQTT (Message Queuing Telemetry Transport) ist DAS IoT-Protokoll. Sehr leichtgewichtig, ideal für schwache Prozessoren und schlechte Netzwerke.</p>
+    <div style="background:var(--light-bg);padding:14px;border-radius:8px;margin:10px 0;font-family:monospace;font-size:0.9em;">
+      <strong>Prinzip:</strong><br>
+      Publisher → MQTT-Broker → Subscriber<br><br>
+      ESP32 (Temperatur) → <strong>broker.hivemq.com</strong> → Raspberry Pi (Dashboard)<br>
+      ESP32 (Lampe) ← <strong>broker.hivemq.com</strong> ← Smartphone (App)
+    </div>
+    <ul>
+      <li><strong>Topics:</strong> Wie Ordnerpfade: <code>home/wohnzimmer/temperatur</code></li>
+      <li><strong>QoS 0:</strong> Fire & Forget (schnell, nicht garantiert)</li>
+      <li><strong>QoS 1:</strong> Mindestens einmal (bestätigt)</li>
+      <li><strong>QoS 2:</strong> Genau einmal (langsam, sicher)</li>
+      <li><strong>Bibliothek für ESP32:</strong> PubSubClient</li>
+    </ul>
+  </div>
+
+  <h3>19.4 Lernpfad — Von Tinkercad zum IoT-Entwickler</h3>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin:12px 0;text-align:center;">
+    <div style="background:#e3f2fd;padding:12px;border-radius:8px;border:2px solid #2196f3;">
+      <strong>Stufe 1</strong><br>
+      <small>Tinkercad<br>Arduino Uno<br>Grundsensoren</small>
+    </div>
+    <div style="padding:12px;display:flex;align-items:center;justify-content:center;font-size:1.5em;">→</div>
+    <div style="background:#e8f5e9;padding:12px;border-radius:8px;border:2px solid #4caf50;">
+      <strong>Stufe 2</strong><br>
+      <small>Echter Arduino<br>Eigene Schaltung<br>I2C + SPI</small>
+    </div>
+    <div style="padding:12px;display:flex;align-items:center;justify-content:center;font-size:1.5em;">→</div>
+    <div style="background:#fff3e0;padding:12px;border-radius:8px;border:2px solid #ff9800;">
+      <strong>Stufe 3</strong><br>
+      <small>ESP32<br>WiFi + BT<br>MQTT</small>
+    </div>
+    <div style="padding:12px;display:flex;align-items:center;justify-content:center;font-size:1.5em;">→</div>
+    <div style="background:#fce4ec;padding:12px;border-radius:8px;border:2px solid #e91e63;">
+      <strong>Stufe 4</strong><br>
+      <small>Raspberry Pi<br>Python + KI<br>Dashboard</small>
+    </div>
+    <div style="padding:12px;display:flex;align-items:center;justify-content:center;font-size:1.5em;">→</div>
+    <div style="background:#ede7f6;padding:12px;border-radius:8px;border:2px solid #9c27b0;">
+      <strong>Stufe 5</strong><br>
+      <small>PCB Design<br>KiCad/EasyEDA<br>Eigene Hardware</small>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================= -->
+<!-- KAPITEL 20: CHEAT SHEET & SCHNELLREFERENZ                        -->
+<!-- ================================================================= -->
+<div class="section" id="kap20">
+  <div class="chapter-badge">Kapitel 20</div>
+  <h2>Cheat Sheet – Vollständige Schnellreferenz</h2>
+  <p>Alle wichtigen Arduino-Befehle, Formeln und Pinbelegungen auf einen Blick — ideal als Nachschlagewerk.</p>
+
+  <h3>20.1 Arduino Funktionen – Vollständige Referenz</h3>
+  <table>
+    <tr><th>Funktion</th><th>Syntax</th><th>Rückgabe</th><th>Beschreibung</th></tr>
+    <tr><td><strong>pinMode()</strong></td><td><code>pinMode(pin, modus)</code></td><td>void</td><td>INPUT, OUTPUT, INPUT_PULLUP</td></tr>
+    <tr><td><strong>digitalWrite()</strong></td><td><code>digitalWrite(pin, wert)</code></td><td>void</td><td>HIGH (5V) oder LOW (0V)</td></tr>
+    <tr><td><strong>digitalRead()</strong></td><td><code>digitalRead(pin)</code></td><td>int (0/1)</td><td>Liest digitalen Zustand</td></tr>
+    <tr><td><strong>analogWrite()</strong></td><td><code>analogWrite(pin, 0-255)</code></td><td>void</td><td>PWM — nur Pins 3,5,6,9,10,11</td></tr>
+    <tr><td><strong>analogRead()</strong></td><td><code>analogRead(A0-A5)</code></td><td>int (0-1023)</td><td>10-bit ADC, 5V Referenz</td></tr>
+    <tr><td><strong>delay()</strong></td><td><code>delay(ms)</code></td><td>void</td><td>Blockierend warten (in ms)</td></tr>
+    <tr><td><strong>delayMicroseconds()</strong></td><td><code>delayMicroseconds(µs)</code></td><td>void</td><td>Warten in Mikrosekunden</td></tr>
+    <tr><td><strong>millis()</strong></td><td><code>millis()</code></td><td>unsigned long</td><td>Zeit seit Start in ms (läuft über nach ~49 Tagen)</td></tr>
+    <tr><td><strong>micros()</strong></td><td><code>micros()</code></td><td>unsigned long</td><td>Zeit seit Start in Mikrosekunden</td></tr>
+    <tr><td><strong>map()</strong></td><td><code>map(wert, von1, bis1, von2, bis2)</code></td><td>long</td><td>Wertebereich umrechnen</td></tr>
+    <tr><td><strong>constrain()</strong></td><td><code>constrain(wert, min, max)</code></td><td>long</td><td>Wert auf Bereich begrenzen</td></tr>
+    <tr><td><strong>min() / max()</strong></td><td><code>min(a, b)</code></td><td>auto</td><td>Kleinstes/Größtes von zwei Werten</td></tr>
+    <tr><td><strong>abs()</strong></td><td><code>abs(x)</code></td><td>auto</td><td>Absolutwert (Betrag)</td></tr>
+    <tr><td><strong>sqrt()</strong></td><td><code>sqrt(x)</code></td><td>double</td><td>Quadratwurzel</td></tr>
+    <tr><td><strong>pow()</strong></td><td><code>pow(basis, exp)</code></td><td>double</td><td>Potenz (z.B. pow(2,10)=1024)</td></tr>
+    <tr><td><strong>tone()</strong></td><td><code>tone(pin, freq, dauer)</code></td><td>void</td><td>Rechteckton auf Pin ausgeben</td></tr>
+    <tr><td><strong>noTone()</strong></td><td><code>noTone(pin)</code></td><td>void</td><td>Ton stoppen</td></tr>
+    <tr><td><strong>pulseIn()</strong></td><td><code>pulseIn(pin, HIGH)</code></td><td>unsigned long</td><td>Pulslänge messen (µs) — für HC-SR04</td></tr>
+    <tr><td><strong>attachInterrupt()</strong></td><td><code>attachInterrupt(INT, ISR, modus)</code></td><td>void</td><td>Hardware-Interrupt anbinden</td></tr>
+    <tr><td><strong>random()</strong></td><td><code>random(min, max)</code></td><td>long</td><td>Zufallszahl im Bereich</td></tr>
+    <tr><td><strong>randomSeed()</strong></td><td><code>randomSeed(analogRead(A0))</code></td><td>void</td><td>Zufallsgenerator initialisieren</td></tr>
+    <tr><td><strong>Serial.begin()</strong></td><td><code>Serial.begin(9600)</code></td><td>void</td><td>Serielle Kommunikation starten</td></tr>
+    <tr><td><strong>Serial.print()</strong></td><td><code>Serial.print(wert)</code></td><td>void</td><td>Ausgabe ohne Zeilenumbruch</td></tr>
+    <tr><td><strong>Serial.println()</strong></td><td><code>Serial.println(wert)</code></td><td>void</td><td>Ausgabe mit Zeilenumbruch</td></tr>
+    <tr><td><strong>Serial.available()</strong></td><td><code>Serial.available()</code></td><td>int</td><td>Bytes im Empfangspuffer</td></tr>
+    <tr><td><strong>Serial.read()</strong></td><td><code>Serial.read()</code></td><td>int</td><td>Ein Byte aus dem Puffer lesen</td></tr>
+  </table>
+
+  <h3>20.2 Datentypen &amp; Größen (Arduino Uno)</h3>
+  <table>
+    <tr><th>Typ</th><th>Größe</th><th>Wertebereich</th><th>Verwendung</th></tr>
+    <tr><td><code>bool</code></td><td>1 Byte</td><td>true / false</td><td>Schalter, Zustände</td></tr>
+    <tr><td><code>byte</code></td><td>1 Byte</td><td>0–255</td><td>Farben, Bytes</td></tr>
+    <tr><td><code>char</code></td><td>1 Byte</td><td>-128 bis 127</td><td>Buchstaben</td></tr>
+    <tr><td><code>int</code></td><td>2 Bytes</td><td>-32768 bis 32767</td><td>Ganzzahlen (Standard)</td></tr>
+    <tr><td><code>unsigned int</code></td><td>2 Bytes</td><td>0–65535</td><td>Nur positive Zahlen</td></tr>
+    <tr><td><code>long</code></td><td>4 Bytes</td><td>±2,1 Milliarden</td><td>Große Zahlen</td></tr>
+    <tr><td><code>unsigned long</code></td><td>4 Bytes</td><td>0–4,3 Milliarden</td><td>millis(), Zeitstempel</td></tr>
+    <tr><td><code>float</code></td><td>4 Bytes</td><td>±3.4×10³⁸ (~7 Dezimalstellen)</td><td>Kommazahlen</td></tr>
+    <tr><td><code>double</code></td><td>4 Bytes</td><td>Gleich wie float (auf Uno!)</td><td>Kommazahlen</td></tr>
+    <tr><td><code>String</code></td><td>Variabel</td><td>Beliebig</td><td>Text — vorsicht: Fragmentiert RAM!</td></tr>
+    <tr><td><code>char[]</code></td><td>Fixe Größe</td><td>Beliebig</td><td>Text — besser als String für kleinen RAM</td></tr>
+  </table>
+
+  <h3>20.3 Widerstands-Farbcode – Schnellreferenz</h3>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;">
+    <div style="background:#000;color:white;padding:6px 10px;border-radius:4px;min-width:80px;text-align:center;"><strong>Schwarz = 0</strong></div>
+    <div style="background:#8B4513;color:white;padding:6px 10px;border-radius:4px;min-width:80px;text-align:center;"><strong>Braun = 1</strong></div>
+    <div style="background:#FF0000;color:white;padding:6px 10px;border-radius:4px;min-width:80px;text-align:center;"><strong>Rot = 2</strong></div>
+    <div style="background:#FF6600;color:white;padding:6px 10px;border-radius:4px;min-width:80px;text-align:center;"><strong>Orange = 3</strong></div>
+    <div style="background:#FFFF00;color:#333;padding:6px 10px;border-radius:4px;min-width:80px;text-align:center;border:1px solid #ccc;"><strong>Gelb = 4</strong></div>
+    <div style="background:#00AA00;color:white;padding:6px 10px;border-radius:4px;min-width:80px;text-align:center;"><strong>Grün = 5</strong></div>
+    <div style="background:#0000FF;color:white;padding:6px 10px;border-radius:4px;min-width:80px;text-align:center;"><strong>Blau = 6</strong></div>
+    <div style="background:#9B59B6;color:white;padding:6px 10px;border-radius:4px;min-width:80px;text-align:center;"><strong>Violett = 7</strong></div>
+    <div style="background:#888;color:white;padding:6px 10px;border-radius:4px;min-width:80px;text-align:center;"><strong>Grau = 8</strong></div>
+    <div style="background:#FFF;color:#333;padding:6px 10px;border-radius:4px;min-width:80px;text-align:center;border:1px solid #ccc;"><strong>Weiß = 9</strong></div>
+  </div>
+  <p><strong>Formel (4-Ring):</strong> R = (Ring1 × 10 + Ring2) × 10^Ring3 Ohm | Ring4 = Toleranz (Gold ±5%, Silber ±10%)</p>
+  <p><strong>Beispiel: Gelb-Violett-Rot-Gold:</strong> (4×10+7) × 10² = 47 × 100 = <strong>4700 Ω = 4,7 kΩ ±5%</strong></p>
+
+  <h3>20.4 Häufige Formeln</h3>
+  <table>
+    <tr><th>Formel</th><th>Berechnung</th><th>Beispiel</th></tr>
+    <tr><td><strong>Ohmsches Gesetz</strong></td><td>U = I × R | I = U/R | R = U/I</td><td>5V ÷ 0.02A = 250 Ω</td></tr>
+    <tr><td><strong>LED-Vorwiderstand</strong></td><td>R = (U<sub>ges</sub> − U<sub>LED</sub>) ÷ I<sub>LED</sub></td><td>(5−2) ÷ 0.02 = 150 Ω → 220 Ω nehmen</td></tr>
+    <tr><td><strong>Spannungsteiler</strong></td><td>U<sub>out</sub> = U<sub>in</sub> × R2 ÷ (R1+R2)</td><td>5V × 10k ÷ 20k = 2.5V</td></tr>
+    <tr><td><strong>Analog → Spannung</strong></td><td>U = analogRead() × 5 ÷ 1023</td><td>512 × 5 ÷ 1023 = 2.5V</td></tr>
+    <tr><td><strong>Spannung → Analog</strong></td><td>Wert = U × 1023 ÷ 5</td><td>3.3V × 1023 ÷ 5 = 675</td></tr>
+    <tr><td><strong>TMP36 → Celsius</strong></td><td>T = (U_mV − 500) ÷ 10</td><td>(750mV−500) ÷ 10 = 25°C</td></tr>
+    <tr><td><strong>HC-SR04 → cm</strong></td><td>d = pulseIn() × 0.0343 ÷ 2</td><td>3000µs × 0.0343 ÷ 2 = 51.5 cm</td></tr>
+    <tr><td><strong>PWM → Spannung</strong></td><td>U = dutyCycle × 5 ÷ 255</td><td>128 × 5 ÷ 255 = 2.5V</td></tr>
+    <tr><td><strong>Leistung</strong></td><td>P = U × I = I² × R = U² ÷ R</td><td>5V × 0.02A = 0.1W = 100mW</td></tr>
+    <tr><td><strong>Parallelschaltung R</strong></td><td>1/R<sub>ges</sub> = 1/R1 + 1/R2</td><td>2× 220Ω parallel = 110Ω</td></tr>
+    <tr><td><strong>Reihenschaltung R</strong></td><td>R<sub>ges</sub> = R1 + R2 + R3</td><td>100+220+470 = 790Ω</td></tr>
+  </table>
+
+  <h3>20.5 Arduino Uno Pinout – Komplette Tabelle</h3>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Arduino_Uno_-_R3.jpg" alt="Arduino Uno R3" style="max-width:450px;width:100%;border-radius:8px;border:2px solid var(--border);margin:10px 0;" onerror="this.style.display='none'">
+  <table>
+    <tr><th>Pin</th><th>Funktion</th><th>Besonderheit</th></tr>
+    <tr><td><strong>0 (RX)</strong></td><td>Digital I/O</td><td>UART Empfang — nicht blockieren wenn Serial.begin() aktiv!</td></tr>
+    <tr><td><strong>1 (TX)</strong></td><td>Digital I/O</td><td>UART Senden — nicht nutzen wenn serieller Monitor offen</td></tr>
+    <tr><td><strong>2</strong></td><td>Digital I/O</td><td>Interrupt INT0 (attachInterrupt)</td></tr>
+    <tr><td><strong>3</strong></td><td>Digital I/O + PWM</td><td>Interrupt INT1 | 490 Hz PWM</td></tr>
+    <tr><td><strong>4</strong></td><td>Digital I/O</td><td>–</td></tr>
+    <tr><td><strong>5</strong></td><td>Digital I/O + PWM</td><td>980 Hz PWM</td></tr>
+    <tr><td><strong>6</strong></td><td>Digital I/O + PWM</td><td>980 Hz PWM</td></tr>
+    <tr><td><strong>7–8</strong></td><td>Digital I/O</td><td>–</td></tr>
+    <tr><td><strong>9</strong></td><td>Digital I/O + PWM</td><td>490 Hz PWM | OC1A Timer1</td></tr>
+    <tr><td><strong>10</strong></td><td>Digital I/O + PWM</td><td>490 Hz PWM | OC1B | SPI SS</td></tr>
+    <tr><td><strong>11</strong></td><td>Digital I/O + PWM</td><td>490 Hz PWM | SPI MOSI</td></tr>
+    <tr><td><strong>12</strong></td><td>Digital I/O</td><td>SPI MISO</td></tr>
+    <tr><td><strong>13</strong></td><td>Digital I/O + LED</td><td>SPI SCK | Eingebaute LED</td></tr>
+    <tr><td><strong>A0–A5</strong></td><td>Analog IN + Digital I/O</td><td>10-bit ADC | A4=SDA, A5=SCL (I2C!)</td></tr>
+    <tr><td><strong>5V</strong></td><td>Spannungsversorgung</td><td>Max. 800 mA ab USB</td></tr>
+    <tr><td><strong>3.3V</strong></td><td>Spannungsversorgung</td><td>Max. 150 mA</td></tr>
+    <tr><td><strong>Vin</strong></td><td>Spannungseingang</td><td>7–12V (empfohlen) über Spannungsregler</td></tr>
+    <tr><td><strong>GND</strong></td><td>Masse (0V)</td><td>Mehrere Pins vorhanden</td></tr>
+    <tr><td><strong>RESET</strong></td><td>Reset-Signal</td><td>LOW = Reset (SHORT: Pins 10+RST beim Hochladen)</td></tr>
+    <tr><td><strong>AREF</strong></td><td>Analog-Referenz</td><td>Externe Referenzspannung für ADC (default: 5V)</td></tr>
+  </table>
+
+  <h3>20.6 Häufige Fehler – Diagnose-Checkliste</h3>
+  <table>
+    <tr><th>Symptom</th><th>Ursache</th><th>Lösung</th></tr>
+    <tr><td>LED leuchtet nicht</td><td>Vorwiderstand fehlt, falsche Polung, falscher Pin</td><td>R ≥ 150Ω prüfen, langer Pin = Anode (+)</td></tr>
+    <tr><td>Servo zittert/brummt</td><td>Zu wenig Strom vom Arduino-5V-Pin</td><td>Externe 5V-Versorgung, GND gemeinsam</td></tr>
+    <tr><td>Sensor gibt immer 0</td><td>Kein Pull-up, falsche Spannung, SDA/SCL vertauscht</td><td>10kΩ zu VCC, Adresse mit I2C-Scanner prüfen</td></tr>
+    <tr><td>Programm hängt</td><td>Unendliche Schleife, kein delay bei polling</td><td>millis()-Muster verwenden, Serial-Debug hinzufügen</td></tr>
+    <tr><td>Zahlen "überlaufen"</td><td>int-Variable zu klein für Wert</td><td>long oder unsigned long verwenden</td></tr>
+    <tr><td>Compilefehler: not declared</td><td>Variable vor Verwendung nicht definiert, Tipp-Fehler</td><td>Auf Groß-/Kleinschreibung achten, Deklaration prüfen</td></tr>
+    <tr><td>I2C-Display schwarz</td><td>display() vergessen, falsche Adresse, Kontrast</td><td>oled.display() aufrufen, I2C-Scanner verwenden</td></tr>
+    <tr><td>NeoPixel flackert</td><td>Zu viel Strom, fehlender 470Ω Datenwiderstand</td><td>Externe 5V, 470Ω zwischen Pin und DIN</td></tr>
+  </table>
+</div>
+
+<!-- ================================================================= -->
+<!-- KAPITEL 21: ALLE TINKERCAD-KOMPONENTEN (VOLLSTÄNDIGE REFERENZ)   -->
+<!-- ================================================================= -->
+<div class="section" id="kap21">
+  <div class="chapter-badge">Kapitel 21</div>
+  <h2>Alle Tinkercad-Komponenten – Vollständige Referenz</h2>
+  <p>Tinkercad Circuits enthält über 100 Bauteile in 9 Kategorien. Dieser Abschnitt dokumentiert jedes einzelne Bauteil mit Erklärung, Symbolen und Anwendungshinweisen.</p>
+
+  <style>
+    .comp-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:14px; margin:14px 0; }
+    .comp-tile { background:var(--light-bg); border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center; }
+    .comp-tile img { width:64px; height:64px; object-fit:contain; margin:4px auto; display:block; background:white; border-radius:6px; padding:4px; border:1px solid #dde; }
+    .comp-tile strong { display:block; font-size:0.9em; color:var(--dark-blue); margin:6px 0 3px; }
+    .comp-icon-fb { width:64px;height:64px;background:var(--dark-blue);color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.65em;font-weight:700;letter-spacing:0.3px;text-align:center;margin:4px auto;padding:4px;line-height:1.3;word-break:break-word; }
+    .logic-sym img { height:52px;width:auto;max-width:140px;background:white;border-radius:4px;padding:4px;border:1px solid #ddd;display:inline-block; }
+    .comp-tile p { font-size:0.78em; margin:0; color:#555; text-align:left; }
+    .cat-title { background:var(--dark-blue); color:white; padding:8px 16px; border-radius:6px; margin:24px 0 12px; font-size:1.05em; font-weight:700; }
+    .logic-sym { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin:8px 0; }
+    .logic-sym img { height:50px; width:auto; background:white; border-radius:4px; padding:3px; border:1px solid #ddd; }
+  </style>
+
+  <!-- ===== 1. PASSIVE BAUTEILE ===== -->
+  <div class="cat-title">Kategorie 1: Passive Bauteile (General)</div>
+  <div class="comp-grid">
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Resistors.jpg" alt="Resistor" onerror="compIconFallback(this)" style="object-fit:cover;">
+      <strong>Resistor (Widerstand)</strong>
+      <p>Begrenzt den Stromfluss. Gemessen in Ohm (Ω). Unentbehrlich für LEDs, Spannungsteiler und Signale. Farbcode auf dem Gehäuse zeigt den Wert.</p>
+      <p style="margin-top:4px;"><em>Formel: R = U ÷ I | Typisch: 220Ω, 1kΩ, 10kΩ</em></p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Capacitors_%287189597135%29.jpg" alt="Capacitor" onerror="compIconFallback(this)" style="object-fit:cover;">
+      <strong>Capacitor (Kondensator)</strong>
+      <p>Speichert elektrische Ladung. Puffert Spannungsschwankungen, filtert Rauschen. Nicht-gepolt — Einbaurichtung egal. Einheit: Farad (F), typisch: 100nF, 10µF.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://www.ato.com/content/images/thumbs/0011836_0033f-1kv-disc-ceramic-capacitor_550.jpeg" alt="Polarized Capacitor" onerror="compIconFallback(this)">
+      <strong>Polarized Capacitor (Elko)</strong>
+      <p>Elektrolyt-Kondensator mit Polung! Langer Bein = Plus (+). Bei falscher Polung kann er platzen. Hohe Kapazitäten: 100µF–10.000µF für Netzteil-Puffer.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Diodes.jpg" alt="Diode" onerror="compIconFallback(this)">
+      <strong>Diode</strong>
+      <p>Lässt Strom nur in eine Richtung durch (Anode → Kathode). Schutzelement gegen falsche Polung. Spannungsabfall: ~0.7V bei Silizium, ~0.3V bei Schottky.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Zener_diode_symbol.svg" alt="Zener Diode" onerror="compIconFallback(this)">
+      <strong>Zener Diode</strong>
+      <p>Spezielle Diode die ab einer bestimmten Spannung (Zenerspannung, z.B. 5.1V) auch rückwärts leitet. Wird als Spannungsstabilisator eingesetzt.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Electronic_component_inductors.jpg" alt="Inductor" onerror="compIconFallback(this)">
+      <strong>Inductor (Spule)</strong>
+      <p>Speichert Energie im Magnetfeld. Widerstand steigt mit Frequenz. Verwendung in Schaltnetzteilen, Filtern, Transformatoren. Einheit: Henry (H), typisch: 10µH–10mH.</p>
+    </div>
+  </div>
+
+  <!-- ===== 2. INPUT / SENSOREN ===== -->
+  <div class="cat-title">Kategorie 2: Eingabe &amp; Sensoren (Input)</div>
+  <div class="comp-grid">
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/3_Tact_switches.jpg" alt="Pushbutton" onerror="compIconFallback(this)">
+      <strong>Pushbutton (Taster)</strong>
+      <p>Tastschalter — schließt Kontakt nur solange gedrückt. 4 Beine: gegenüberliegende Beine sind intern verbunden. Immer mit Pull-up (INPUT_PULLUP) oder Pull-down (10kΩ) verwenden.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/3_Potentiometers.jpg" alt="Potentiometer" onerror="compIconFallback(this)">
+      <strong>Potentiometer (Poti)</strong>
+      <p>Einstellbarer Widerstand mit 3 Pins: links = GND, rechts = VCC, Mitte = Schleifer (0–5V). Liest sich mit analogRead() aus. Typisch: 10kΩ.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Switches.jpg" alt="Slideswitch" onerror="compIconFallback(this)">
+      <strong>Slideswitch (Schiebeschalter)</strong>
+      <p>Mechanischer Schalter der einrastet — bleibt in Position. Ideal für EIN/AUS-Funktion. 3 Pins: Mitte = gemeinsam, links/rechts = die zwei Schaltpositionen.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/LDR.jpg" alt="Photoresistor" onerror="compIconFallback(this)">
+      <strong>Photoresistor (LDR)</strong>
+      <p>Lichtabhängiger Widerstand (Light-Dependent Resistor). Im Dunkeln: hoher Widerstand (~1MΩ). Im Licht: niedriger Widerstand (~1kΩ). Mit 10kΩ Teiler an A0 anschließen.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Photodiodes.jpg" alt="Photodiode" onerror="compIconFallback(this)">
+      <strong>Photodiode</strong>
+      <p>Erzeugt Strom wenn Licht auftrifft (Photovoltaik-Prinzip). Schneller als LDR, ideal für Lichtschranken und optische Kommunikation. In Sperrrichtung betreiben!</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Ambient_light_sensor.jpg" alt="Ambient Light Sensor" onerror="compIconFallback(this)">
+      <strong>Ambient Light Sensor</strong>
+      <p>Professioneller Lichtsensor (z.B. BH1750, TSL2561) mit kalibrierter Lux-Ausgabe. Genauer als LDR. Gibt Lux-Werte aus die dem menschlichen Auge entsprechen.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Flex_sensor.jpg" alt="Flex Sensor" onerror="compIconFallback(this)">
+      <strong>Flex Sensor (Biegesensor)</strong>
+      <p>Langer dünner Streifen — Widerstand ändert sich je nach Biegung. Gerade: ~10kΩ, gebogen: bis ~50kΩ. Verwendet in Daten-Handschuh, Roboter-Finger, Körperhaltung.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Force_sensitive_resistor_%28FSR%29.jpg" alt="Force Sensor" onerror="compIconFallback(this)">
+      <strong>Force Sensor (FSR)</strong>
+      <p>Drucksensor — Widerstand sinkt mit zunehmendem Druck. Kein Druck: MΩ-Bereich. Leichter Druck: ~100kΩ, starker Druck: &lt;1kΩ. Analog über Spannungsteiler lesen.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/IR_sensor_module.jpg" alt="IR sensor" onerror="compIconFallback(this)">
+      <strong>IR Sensor (Infrarot-Nähe)</strong>
+      <p>Sendet IR-Licht und erkennt Reflexion. Erkennt Objekte auf 2–30cm. Digital-Ausgang: LOW wenn Objekt erkannt. Verwendet in Linienverfolgung und Hinderniserkennung.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/HC_SR04_Ultrasonic_Module.jpg" alt="Ultrasonic Sensor" onerror="compIconFallback(this)">
+      <strong>Ultrasonic Distance Sensor (HC-SR04)</strong>
+      <p>Misst Entfernung per Schallecho: 2–400 cm, ±3mm Genauigkeit. 4 Pins: VCC, GND, Trig (Senden), Echo (Empfangen). Berechnung: d = pulseIn() × 0.0343 / 2.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/PIR_Motion_Sensor-Sensinova_%28SN-PR11%29.png" alt="PIR Sensor" onerror="compIconFallback(this)">
+      <strong>PIR Sensor (Bewegungsmelder)</strong>
+      <p>Erkennt Körperwärme-Bewegung (pyroelektrisch). HIGH-Signal für 1–60s nach Bewegung. Verzögerung und Empfindlichkeit per Poti einstellbar. 5–12V, 3 Pins: VCC, GND, OUT.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Soil_hygrometer_sensor.jpg" alt="Soil Moisture Sensor" onerror="compIconFallback(this)">
+      <strong>Soil Moisture Sensor</strong>
+      <p>Misst Bodenfeuchte über elektrischen Widerstand zwischen zwei Sonden. Trocken = ~1000, nass = ~0 (analog). Für Bewässerungsautomatik, Zimmerpflanzen-Monitor.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Tilt_sensor.jpg" alt="Tilt Sensor" onerror="compIconFallback(this)">
+      <strong>Tilt Sensor (Neigungsschalter)</strong>
+      <p>Kleine Kugel im Rohr — schließt Kontakt wenn geneigt. Einfachste Form der Lageerfassung. Kein Winkel, nur ein/aus. Für einfache Kippdetektion und Anti-Diebstahl.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/TMP36GZ.jpg" alt="Temperature Sensor TMP36" onerror="compIconFallback(this)">
+      <strong>Temperature Sensor (TMP36)</strong>
+      <p>Analoger Temperatursensor: Ausgangsspannung proportional zur Temperatur. Formel: T = (U_mV − 500) / 10°C. Bereich −40 bis +125°C. 3 Pins: VCC, OUT, GND.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/MQ-2_gas_sensor.jpg" alt="Gas Sensor MQ-2" onerror="compIconFallback(this)">
+      <strong>Gas Sensor (MQ-2)</strong>
+      <p>Erkennt brennbare Gase (LPG, Methan, Propan, Wasserstoff) und Rauch. Analog + Digital-Ausgang. 30s Aufwärmzeit nötig! Metalloxid-Schicht auf Keramikträger.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/4x4_Keypad.jpg" alt="Keypad 4x4" onerror="compIconFallback(this)">
+      <strong>Keypad 4×4 (Zahlenblock)</strong>
+      <p>16 Tasten (0–9, A–D, *, #) über Matrix mit nur 8 Leitungen. Bibliothek: Keypad.h. Anwendung: PIN-Code, Taschenrechner, Menüsteuerung, Safe-Schloss.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/DIP_switch.jpg" alt="DIP Switch" onerror="compIconFallback(this)">
+      <strong>DIP Switch (DPST / SPST×4 / SPST×6)</strong>
+      <p>Mehrere Miniatur-Schalter auf einem Gehäuse. DPST = Doppelpol. Für Hardware-Konfiguration, Adressen einstellen (I2C), Modusauswahl ohne Reprogrammierung.</p>
+    </div>
+  </div>
+
+  <!-- ===== 3. OUTPUT / AKTOREN ===== -->
+  <div class="cat-title">Kategorie 3: Ausgabe &amp; Aktoren (Output)</div>
+  <div class="comp-grid">
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Light-Emitting_Diode_22860_Composite.png" alt="LED" onerror="compIconFallback(this)">
+      <strong>LED (Light Emitting Diode)</strong>
+      <p>Leuchtet wenn Strom in Durchlassrichtung fließt. Immer Vorwiderstand! (150–470Ω). Langer Bein = Anode (+). Spannungsabfall: Rot ~2V, Blau/Weiß ~3.2V. max. 20mA.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/RGBLEDs.jpg" alt="LED RGB" onerror="compIconFallback(this)">
+      <strong>LED RGB</strong>
+      <p>Drei LEDs (Rot, Grün, Blau) in einem Gehäuse. 4 Beine: gemeinsame Kathode (−) oder Anode (+). Jede Farbe separat über PWM dimmbar → 16,7 Millionen Farben möglich.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Glühlampe.jpg" alt="Light bulb" onerror="compIconFallback(this)">
+      <strong>Light Bulb (Glühbirne)</strong>
+      <p>In Tinkercad als einfaches Ausgabe-Element. Im echten Leben: Schaltet man LEDs bevorzugt da Glühbirnen viel Strom und Wärme erzeugen. Für Simulation und Lernzwecke geeignet.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/NeoPixel_Ring.jpg" alt="NeoPixel" onerror="compIconFallback(this)">
+      <strong>NeoPixel (WS2812B) — Einzeln</strong>
+      <p>Eine adressierbare RGB-LED mit eingebautem WS2812B-Controller. Kaskadierbar über eine Datenleitung. Bibliothek: Adafruit_NeoPixel. VCC = 5V, max. 60mA pro LED.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Neopixel_ring.jpg" alt="NeoPixel Ring" onerror="compIconFallback(this)">
+      <strong>NeoPixel Ring (12 / 16 / 24 LEDs)</strong>
+      <p>Kreisförmige NeoPixel-Anordnung. Ring 12 = Clock/Uhr, Ring 16 = Statusanzeige, Ring 24 = Equalizer. Alle auf einer Datenleitung. Externe 5V-Versorgung bei 24 LEDs nötig.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/WS2812B_LED_Strip.jpg" alt="NeoPixel Strip" onerror="compIconFallback(this)">
+      <strong>NeoPixel Strip (4/6/8/10/12/16/20 LEDs)</strong>
+      <p>Linearer LED-Streifen. Verfügbar in verschiedenen Längen. Einstieg: Strip 8 für Audio-Visualizer. Strip 20 für Ambilight. Alle identisch programmiert über Adafruit_NeoPixel.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Vibration_Motor.jpg" alt="Vibration Motor" onerror="compIconFallback(this)">
+      <strong>Vibration Motor</strong>
+      <p>Kleiner Elektromotor mit exzentrischem Gewicht erzeugt Vibration. DC 3–5V, 85mA. Braucht Transistor (NPN) da Arduino nur 40mA ausgeben kann. Für Haptik, Alarme, Smartphone-Rütteleffekt.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Electric_motor.gif" alt="DC Motor" onerror="compIconFallback(this)">
+      <strong>DC Motor</strong>
+      <p>Gleichstrommotor — dreht sich wenn Spannung angelegt wird. Richtung durch Polung bestimmbar. Braucht L293D H-Bridge für Arduino-Steuerung da zu viel Strom. Drehzahl: PWM über Enable-Pin.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/DC_motor_encoder.jpg" alt="DC Motor with encoder" onerror="compIconFallback(this)">
+      <strong>DC Motor with Encoder</strong>
+      <p>DC Motor + eingebautem Drehgeber (Encoder). Der Encoder gibt Pulse pro Umdrehung aus → genaue Positionsmessung und Geschwindigkeitsregelung möglich. Für Präzisions-Robotik.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Tower_Pro_SG90_micro_servo_motor.jpg" alt="Micro Servo SG90" onerror="compIconFallback(this)">
+      <strong>Micro Servo (SG90)</strong>
+      <p>Präzisions-Motor für 0–180° Winkelsteuerung. 3 Drähte: Braun=GND, Rot=5V, Orange=Signal (PWM). Bibliothek: Servo.h. Drehmoment: 1.8 kg·cm. Ideal für Roboter-Greifer, Lenkung.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Gearmotor.jpg" alt="Hobby Gearmotor" onerror="compIconFallback(this)">
+      <strong>Hobby Gearmotor</strong>
+      <p>DC Motor mit eingebautem Getriebe. Niedrigere Drehzahl aber höheres Drehmoment als reiner DC Motor. Typisch: 1:48 Untersetzung, ~100 RPM. Für Räder, Förderbänder, Greifer.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Buzzer.png" alt="Piezo" onerror="compIconFallback(this)">
+      <strong>Piezo (Summers / Buzzer)</strong>
+      <p>Erzeugt Töne durch Piezokeramik. Arduino: tone(pin, frequenz). Frequenzen: C4=262Hz, A4=440Hz. Passive Piezos brauchen Frequenz, aktive summen beim Anlegen von Spannung.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/IR_Remote_Control.jpg" alt="IR Remote" onerror="compIconFallback(this)">
+      <strong>IR Remote (Infrarot-Fernbedienung)</strong>
+      <p>Sends NEC/RC5/Sony IR-Codes bei Tastendruck. Dazu: IR-Empfänger (TSOP38238) am Arduino. Bibliothek: IRremote.h. Jede Taste = einzigartiger 32-bit Hex-Code.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/7_Segment_Display_with_Labeled_Segments_AHGJBCDF.svg" alt="7 Segment Display" onerror="compIconFallback(this)" style="background:white;">
+      <strong>7-Segment Display</strong>
+      <p>Sieben einzelne LEDs (A–G) plus Dezimalpunkt. Gemeinsame Anode oder Kathode. Direkt an Arduino: 7 Pins + je 220Ω. Für Multiplexed-Displays mit 74HC595 Schieberegister kombinieren.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/LCD_16x2.jpg" alt="LCD 16x2" onerror="compIconFallback(this)">
+      <strong>LCD 16×2 (direkt)</strong>
+      <p>16 Zeichen × 2 Zeilen Textdisplay mit HD44780 Controller. Direktanschluss: 6 Datenpins + Kontrastpoti + Hintergrundlicht. Bibliothek: LiquidCrystal.h (eingebaut).</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/LCD_I2C_Module.jpg" alt="LCD 16x2 I2C" onerror="compIconFallback(this)">
+      <strong>LCD 16×2 (I2C) — Empfohlen!</strong>
+      <p>Gleiche Anzeige aber nur 4 Pins statt 16! I2C-Backpack mit PCF8574. Anschluss: VCC, GND, SDA(A4), SCL(A5). Bibliothek: LiquidCrystal_I2C. Adresse: 0x27 oder 0x3F.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/7_segment_clock.jpg" alt="7-Segment Clock Display" onerror="compIconFallback(this)">
+      <strong>7-Segment Clock Display</strong>
+      <p>Vier 7-Segment-Ziffern mit Doppelpunkt für Uhranzeige (HH:MM). Meist TM1637-Chip auf dem Modul → nur 2 Pins (CLK + DIO). Bibliothek: TM1637Display.h.</p>
+    </div>
+  </div>
+
+  <!-- ===== 4. STROMVERSORGUNG ===== -->
+  <div class="cat-title">Kategorie 4: Stromversorgung (Power)</div>
+  <div class="comp-grid">
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/9V_battery.jpg" alt="9V Battery" onerror="compIconFallback(this)">
+      <strong>9V Battery (9V-Block)</strong>
+      <p>Häufigste externe Spannungsquelle für Arduino. An Vin-Pin anschließen (7–12V erlaubt). Interner Regler wandelt auf 5V. Warnung: Zu viel Verlustleistung bei 9V → nutze 7V wenn möglich.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/AA_battery.jpg" alt="1.5V Battery" onerror="compIconFallback(this)">
+      <strong>1.5V Battery (AA/AAA)</strong>
+      <p>Standard-Haushaltsbatterie. Einzelne Zelle = 1.5V. 4 in Reihe = 6V für Arduino. Geringe Belastbarkeit, schnell entladen bei Motorlasten. Besser: Li-Ion Akkus (3.7V).</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Coin_cell_battery_CR2032.jpg" alt="Coin Cell 3V" onerror="compIconFallback(this)">
+      <strong>Coin Cell 3V (CR2032)</strong>
+      <p>Knopfzelle mit 3V Nennspannung. Sehr geringe Kapazität (~220mAh). Ideal für RTC-Uhren (DS3231) als Backup-Strom, Bluetooth-Beacons, Temperatursensoren im Schlafmodus.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Amorphous_solar_cell.jpg" alt="Solar Cell" onerror="compIconFallback(this)">
+      <strong>Solar Cell (Solarzelle)</strong>
+      <p>Wandelt Sonnenlicht in Strom um. Spannung je nach Größe: 0.5V/Zelle. Für Arduino: 6V-Panel + Laderegler + Akku. Simulation in Tinkercad: justierbare Lichtintensität.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Potato_battery.jpg" alt="Potato Battery" onerror="compIconFallback(this)">
+      <strong>Potato Battery (Kartoffelbatterie)</strong>
+      <p>Galvanisches Element aus Kartoffel + Zink/Kupfer-Elektroden. Erzeugt ~0.8V pro Kartoffel. In Serie: bis ~3V. Bildungszwecke: zeigt elektrochemische Reaktion. Zu schwach für Arduino.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Lemon_Battery.jpg" alt="Lemon Battery" onerror="compIconFallback(this)">
+      <strong>Lemon Battery (Zitronenbatterie)</strong>
+      <p>Gleiche Funktionsweise wie Kartoffel — Zitronensäure als Elektrolyt. ~0.7–1V pro Zitrone. Klassisches Schulexperiment um Elektrochemie zu demonstrieren. Kann LED schwach leuchten.</p>
+    </div>
+  </div>
+
+  <!-- ===== 5. BREADBOARDS ===== -->
+  <div class="cat-title">Kategorie 5: Steckplatinen (Breadboards)</div>
+  <div class="comp-grid">
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/400_points_breadboard.jpg" alt="Breadboard" onerror="compIconFallback(this)">
+      <strong>Breadboard (Vollgröße)</strong>
+      <p>830 Steckpunkte. Zwei Stromschienen (+/−) oben &amp; unten. Mitte: 63 Spalten × 10 Reihen, durch Mittelgraben geteilt. Innen verbunden: jeweils 5 horizontale Punkte pro Reihe.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Breadboard_small.jpg" alt="Breadboard Small" onerror="compIconFallback(this)">
+      <strong>Breadboard Small (400 Punkte)</strong>
+      <p>Halbgroßes Breadboard mit 400 Steckpunkten. Kompakter für kleinere Projekte. Weniger Stromschienen. Ideal für 1–3 ICs und einfache Schaltungen.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Breadboard_mini.jpg" alt="Breadboard Mini" onerror="compIconFallback(this)">
+      <strong>Breadboard Mini (170 Punkte)</strong>
+      <p>Kleinstes Breadboard ohne Stromschienen. 170 Punkte in 17 Spalten. Für sehr einfache Schaltungen, Einzelkomponenten-Tests, platzsparend im Gehäuse.</p>
+    </div>
+  </div>
+
+  <!-- ===== 6. MIKROCONTROLLER ===== -->
+  <div class="cat-title">Kategorie 6: Mikrocontroller</div>
+  <div class="comp-grid">
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Micro_bit_v2.0.jpg" alt="micro:bit" onerror="compIconFallback(this)" style="object-fit:cover;">
+      <strong>micro:bit (BBC)</strong>
+      <p>Einsteiger-Mikrocontroller von BBC für Schulen. 5×5 LED-Matrix eingebaut, 2 Tasten, Bluetooth, Beschleunigungssensor, Kompass. Programmierung: MakeCode (Blöcke) oder MicroPython.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Microbit_with_breakout.jpg" alt="micro:bit with Breakout" onerror="compIconFallback(this)">
+      <strong>micro:bit with Breakout</strong>
+      <p>micro:bit + Erweiterungs-Platine die alle I/O-Pins auf Steckbrett-kompatible Header führt. Ermöglicht Anschluss von Sensoren und Modulen ohne Krokodilklemmen.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Arduino_Uno_-_R3.jpg" alt="Arduino Uno R3" onerror="compIconFallback(this)" style="object-fit:cover;">
+      <strong>Arduino Uno R3</strong>
+      <p>Der Standard-Arduino. ATmega328P, 16MHz, 32KB Flash, 2KB RAM. 14 digitale Pins (6 PWM), 6 analoge Eingänge (10-bit). USB-Programmierung. Spannung: 5V Logic.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/ATtiny85.jpg" alt="ATtiny" onerror="compIconFallback(this)">
+      <strong>ATtiny (ATtiny85 / ATtiny84)</strong>
+      <p>Winziger 8-Pin Mikrocontroller aus der AVR-Familie. ATtiny85: 5 I/O-Pins, 8KB Flash, 512B RAM. Programmierbar mit Arduino IDE via ISP-Programmer. Für minimale, günstige Produkte.</p>
+    </div>
+  </div>
+
+  <!-- ===== 7. MESSINSTRUMENTE ===== -->
+  <div class="cat-title">Kategorie 7: Messinstrumente (Instruments)</div>
+  <div class="comp-grid">
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Fluke_87V_Multimeter.jpg" alt="Multimeter" onerror="compIconFallback(this)">
+      <strong>Multimeter</strong>
+      <p>Misst Spannung (V), Strom (A), Widerstand (Ω), Diodendurchgang, Kapazität. In Tinkercad: Virtuelles Multimeter misst Spannung und Strom an beliebigen Punkten der Schaltung in Echtzeit.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Power_supply_unit.jpg" alt="Power Supply" onerror="compIconFallback(this)">
+      <strong>Power Supply (Labornetzteil)</strong>
+      <p>Einstellbare Spannungsquelle (0–30V) und Strombegrenzung. In Tinkercad: Virtuelle Versorgung mit einstellbarer Spannung &amp; Strom. Ersetzt Batterien in der Simulation.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Function_generator.jpg" alt="Function Generator" onerror="compIconFallback(this)">
+      <strong>Function Generator (Signalgenerator)</strong>
+      <p>Erzeugt periodische Signale: Sinus, Rechteck, Dreieck. In Tinkercad: Einstellbare Frequenz (Hz–MHz), Amplitude und Wellenform. Ideal zum Testen von Filtern und Verstärkern.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Tektronix_465_Oscilloscope.jpg" alt="Oscilloscope" onerror="compIconFallback(this)">
+      <strong>Oscilloscope (Oszilloskop)</strong>
+      <p>Visualisiert Spannungsverläufe über Zeit. X-Achse = Zeit, Y-Achse = Spannung. In Tinkercad: Misst PWM-Signale, Sensorwerte, digitale Protokolle. Einstellen: Zeitbasis und Volt/Division.</p>
+    </div>
+  </div>
+
+  <!-- ===== 8. INTEGRIERTE SCHALTKREISE ===== -->
+  <div class="cat-title">Kategorie 8: Integrierte Schaltkreise (ICs)</div>
+
+  <h3>8.1 Timer ICs</h3>
+  <div class="comp-grid">
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/JRC_NE555_beschriftet.jpg" alt="555 Timer" onerror="compIconFallback(this)">
+      <strong>555 Timer (NE555)</strong>
+      <p>Einer der meistgenutzten ICs der Geschichte! 3 Modi: <strong>Astabil</strong> (Rechteck-Oszillator), <strong>Monostabil</strong> (Einmalige Verzögerung), <strong>Bistabil</strong> (Flip-Flop). 8-Pin DIP. Frequenz durch R1, R2 und C einstellbar: f = 1.44 / ((R1+2R2)×C).</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/556_Timer.jpg" alt="556 Dual Timer" onerror="compIconFallback(this)">
+      <strong>556 Dual Timer</strong>
+      <p>Zwei 555-Timer in einem 14-Pin DIP-Gehäuse. Beide unabhängig schaltbar. Spart Platz und gemeinsame Stromversorgung. Für Anwendungen die zwei unabhängige Timer benötigen.</p>
+    </div>
+  </div>
+
+  <h3>8.2 Operationsverstärker</h3>
+  <div class="comp-grid">
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Op-amp_symbol.svg" alt="741 Op-Amp" onerror="compIconFallback(this)" style="background:white;">
+      <strong>741 Operationsverstärker (µA741)</strong>
+      <p>Klassischer Operationsverstärker (Op-Amp). Verstärkt Spannungsdifferenz zwischen (+) und (−) Eingang. Anwendungen: Verstärker, Komparator, Integrator, Addierer, Subtrahierer, aktive Filter. Verstärkung einstellbar durch Rückkopplungs-Widerstand.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Op-amp_symbol.svg" alt="LM339 Comparator" onerror="compIconFallback(this)" style="background:white;">
+      <strong>LM339 Quad Comparator</strong>
+      <p>4 Komparatoren in einem IC. Vergleicht zwei Spannungen: wenn (+)>(−) → Ausgang HIGH, sonst LOW. Open-Collector-Ausgang braucht Pull-up-Widerstand. Für Schwellenwert-Detektion.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Op-amp_symbol.svg" alt="LM393 Comparator" onerror="compIconFallback(this)" style="background:white;">
+      <strong>LM393 Dual Comparator</strong>
+      <p>2 Komparatoren in einem 8-Pin IC. Günstigere Variante des LM339. Gleiche Funktionsweise. Häufig auf Sensor-Modulen (MQ-2, Schallsensor) für den Digital-Ausgang eingebaut.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/4N35_Optocoupler.jpg" alt="4N35 Optocoupler" onerror="compIconFallback(this)">
+      <strong>4N35 Optocoupler (Optokoppler)</strong>
+      <p>Galvanische Trennung durch Licht! LED sendet, Phototransistor empfängt. Eingang und Ausgang sind elektrisch KOMPLETT getrennt. Schutz: Arduino von Hochspannungskreisen trennen, Schaltnetzteile, Industriesteuerung.</p>
+    </div>
+  </div>
+
+  <!-- ===== 9. TRANSISTOREN & LEISTUNGSSTEUERUNG ===== -->
+  <div class="cat-title">Kategorie 9: Transistoren &amp; Leistungssteuerung (Power Control)</div>
+
+  <h3>9.1 Bipolar-Transistoren (BJT)</h3>
+  <div class="comp-grid">
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/BJT_NPN_symbol_%28case%29.svg" alt="NPN Transistor" onerror="compIconFallback(this)" style="background:white;">
+      <strong>NPN Transistor (2N2222 / BC547)</strong>
+      <p>Steuert großen Strom mit kleinem Strom. Basis(B) steuert, Kollektor(C) zur Last, Emitter(E) zu GND. Wenn B HIGH → Strom fließt C→E. Wichtig: Basiswiderstand (1–10kΩ) zwischen Arduino-Pin und Basis!</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/52/BJT_PNP_symbol_%28case%29.svg" alt="PNP Transistor" onerror="compIconFallback(this)" style="background:white;">
+      <strong>PNP Transistor (BC557)</strong>
+      <p>Umgekehrte Polarität zum NPN. Emitter(E) zu VCC, Kollektor(C) zur Last, Basis(B) steuert. Wenn B LOW → Strom fließt E→C. Für High-Side-Schaltung (Last zwischen Transistor und GND).</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/TIP120_transistor.jpg" alt="TIP120" onerror="compIconFallback(this)">
+      <strong>TIP120 (Darlington NPN)</strong>
+      <p>Leistungs-Darlington-Transistor. Zwei NPN-Transistoren in einem Gehäuse — extrem hohe Stromverstärkung (β&gt;1000). Schaltet bis 5A, 60V. Für Schrittmotoren, größere DC-Motoren, Solenoids. Benötigt Freilaufdiode!</p>
+    </div>
+  </div>
+
+  <h3>9.2 Feldeffekt-Transistoren (MOSFET)</h3>
+  <div class="comp-grid">
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/MOSFET_N-Ch_Enh_Labelled.svg" alt="nMOS MOSFET" onerror="compIconFallback(this)" style="background:white;">
+      <strong>Small Signal nMOS (BS170)</strong>
+      <p>Kleiner N-Kanal MOSFET für Signalschaltungen bis ~500mA. Gate(G), Drain(D), Source(S). Einschalten wenn U_GS &gt; Threshold (~2V). Kein Gate-Widerstand nötig (kein Basisstrom). Sehr schnell schaltend.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/MOSFET_P-Ch_Enh_Labelled.svg" alt="pMOS MOSFET" onerror="compIconFallback(this)" style="background:white;">
+      <strong>Small Signal pMOS (BS250)</strong>
+      <p>P-Kanal MOSFET. Leitet wenn Gate NIEDRIGER als Source. Für High-Side-Switches. Komplementär zum nMOS — zusammen in CMOS-Logik oder Halbbrücken verwendet.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/N_channel_Mosfet.jpg" alt="nMOS Power" onerror="compIconFallback(this)">
+      <strong>nMOS / pMOS (Power MOSFET)</strong>
+      <p>Leistungs-MOSFETs (z.B. IRF520, IRLZ44N) schalten Ampere-Ströme bei geringen Gate-Spannungen. Sehr geringer Einschaltwiderstand (mΩ). Ideal für LED-Stripes, Motoren, Heizwiderstände.</p>
+    </div>
+  </div>
+
+  <h3>9.3 Relais</h3>
+  <div class="comp-grid">
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Relay_in_cross_section.JPG" alt="Relay SPDT" onerror="compIconFallback(this)" style="object-fit:cover;">
+      <strong>Relay SPDT (Einpoliger Wechsler)</strong>
+      <p>Mechanischer Schalter elektrisch gesteuert. SPDT = Single Pole Double Throw. Kontakte: COM (gemeinsam), NO (normally open), NC (normally closed). Steuerstrom: 5V/70mA. Schaltet: bis 250V AC / 10A.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Relay_DPDT.jpg" alt="Relay DPDT" onerror="compIconFallback(this)">
+      <strong>Relay DPDT (Doppelpoliger Wechsler)</strong>
+      <p>DPDT = Double Pole Double Throw. Schaltet zwei Stromkreise gleichzeitig — wie zwei SPDT in einem. Nützlich für Motorumkehr (Richtung) oder gleichzeitiges Schalten mehrerer Verbraucher.</p>
+    </div>
+  </div>
+
+  <h3>9.4 Spannungsregler</h3>
+  <div class="comp-grid">
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/7805-L.jpg" alt="LM7805" onerror="compIconFallback(this)">
+      <strong>5V Regulator LM7805</strong>
+      <p>Linearer Spannungsregler: Eingang 7–35V → Ausgang konstant 5V, max. 1A. 3 Pins: Eingang, GND, Ausgang. Erzeugt Wärme bei großer Spannungsdifferenz → Kühlkörper bei &gt;500mA nötig!</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/LM1117_3.3V.jpg" alt="3.3V Regulator" onerror="compIconFallback(this)">
+      <strong>3.3V Regulator (LM1117-3.3 / AMS1117)</strong>
+      <p>Wandelt 5V auf 3.3V — wichtig für ESP32, ESP8266, RFID RC522, Bluetooth-Module die 3.3V Logic brauchen. LDO (Low Drop-Out): nur 1.2V Spannungsdifferenz nötig. Bis 800mA.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/L293D_Motor_Driver.jpg" alt="H-bridge L293D" onerror="compIconFallback(this)">
+      <strong>H-Bridge Motor Driver (L293D)</strong>
+      <p>Steuert 2 DC-Motoren bidirektional (vorwärts + rückwärts). Enthält 4 Transistor-Halbbrücken. Eingang: Arduino-Steuersignale. Ausgang: Motor bis 600mA/Kanal, 4.5–36V. Eingebaute Freilaufdioden!</p>
+    </div>
+  </div>
+
+  <!-- ===== 10. VERBINDER ===== -->
+  <div class="cat-title">Kategorie 10: Verbinder (Connectors)</div>
+  <div class="comp-grid">
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Pin_Header_2.54mm.jpg" alt="8 Pin Header" onerror="compIconFallback(this)">
+      <strong>8 Pin Header (Steckleiste)</strong>
+      <p>Einreihige Steckleiste mit 2.54mm Rastermaß. Verbindet Module mit Breadboard oder PCB. Varianten: Einzel- (SIL) und Doppelreihig (DIL). Abschneidbar auf beliebige Länge.</p>
+    </div>
+
+    <div class="comp-tile">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/USB_Type-A_receptacle_Black.jpg" alt="USB standard A" onerror="compIconFallback(this)">
+      <strong>USB Standard A (Stecker)</strong>
+      <p>Liefert 5V/500mA (USB 2.0) oder 5V/900mA (USB 3.0). In Tinkercad als Stromquelle. Im echten Projekt: Arduino direkt per USB-B (Quadratisch) programmieren und versorgen.</p>
+    </div>
+  </div>
+
+  <!-- ===== 11. LOGIK-ICS ===== -->
+  <div class="cat-title">Kategorie 11: Logik-ICs (Logic) — 74HC-Serie</div>
+  <p>Die 74HC-Serie sind CMOS-Logik-ICs (5V, schnell, geringer Stromverbrauch). Sie implementieren Grundgatter und kombinierte Schaltungen der Digitaltechnik.</p>
+
+  <h3>11.1 Grundgatter</h3>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:12px 0;">
+
+    <div class="component-card" style="padding:12px;">
+      <div class="logic-sym">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/AND_ANSI_Labelled.svg" alt="AND gate">
+      </div>
+      <strong>Quad AND Gate (74HC08)</strong>
+      <p>4 unabhängige AND-Gatter in einem 14-Pin DIP. Ausgang = HIGH nur wenn ALLE Eingänge HIGH. Wahrheitstafel: 0&amp;0=0, 0&amp;1=0, 1&amp;1=1. Verwendung: Bedingungsverknüpfung, Masken.</p>
+    </div>
+
+    <div class="component-card" style="padding:12px;">
+      <div class="logic-sym">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/OR_ANSI_Labelled.svg" alt="OR gate">
+      </div>
+      <strong>Quad OR Gate (74HC32)</strong>
+      <p>4 OR-Gatter. Ausgang = HIGH wenn MINDESTENS EIN Eingang HIGH. 0|0=0, 0|1=1, 1|1=1. Verwendung: Mehrere Auslöser zusammenführen (Alarm von Sensor A ODER Sensor B).</p>
+    </div>
+
+    <div class="component-card" style="padding:12px;">
+      <div class="logic-sym">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/NAND_ANSI_Labelled.svg" alt="NAND gate">
+      </div>
+      <strong>Quad NAND Gate (74HC00)</strong>
+      <p>NOT-AND — Invertiertes AND. Ausgang = LOW nur wenn ALLE Eingänge HIGH. Das "universelle Gatter" — aus NAND allein kann man JEDE Logikfunktion aufbauen! 0↑0=1, 1↑1=0.</p>
+    </div>
+
+    <div class="component-card" style="padding:12px;">
+      <div class="logic-sym">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/NOR_ANSI_Labelled.svg" alt="NOR gate">
+      </div>
+      <strong>Quad NOR Gate (74HC02)</strong>
+      <p>NOT-OR — Invertiertes OR. Ausgang = HIGH nur wenn ALLE Eingänge LOW. Auch ein universelles Gatter! 0↓0=1, 0↓1=0, 1↓1=0. In CMOS-Schaltungen häufig eingesetzt.</p>
+    </div>
+
+    <div class="component-card" style="padding:12px;">
+      <div class="logic-sym">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/XOR_ANSI_Labelled.svg" alt="XOR gate">
+      </div>
+      <strong>Quad XOR Gate (74HC86)</strong>
+      <p>Exklusiv-ODER. Ausgang = HIGH wenn Eingänge VERSCHIEDEN. 0⊕0=0, 0⊕1=1, 1⊕1=0. Verwendung: Paritätsprüfung, Halbaddierer, Verschlüsselung (XOR-Cipher), Differenz-Detektor.</p>
+    </div>
+
+    <div class="component-card" style="padding:12px;">
+      <div class="logic-sym">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/NOT_ANSI_Labelled.svg" alt="NOT gate">
+      </div>
+      <strong>Hex Inverter (74HC04)</strong>
+      <p>6 Inverter (NOT-Gatter). Dreht das Signal um: 0→1, 1→0. Verwendung: Signal invertieren, Bustreiber-Regeneration, Oszillator mit RC-Glied, Level-Shifter in Kombination.</p>
+    </div>
+  </div>
+
+  <h3>11.2 Schmitt-Trigger</h3>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:12px 0;">
+    <div class="component-card" style="padding:12px;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Smitt_hysteresis_graph.svg" alt="Schmitt Trigger Hysterese" style="width:100%;max-width:200px;background:white;padding:4px;border-radius:4px;" onerror="compIconFallback(this)">
+      <strong>Inverting Schmitt Trigger (74HC14)</strong>
+      <p>6 Inverter mit Schmitt-Trigger-Eingang. Schaltet erst um wenn Spannung einen Schwellenwert überschreitet (Hysterese). Entprellt rauschende Signale — ideal für Taster, Sensoren mit langsamen Flanken.</p>
+      <p><em>Schwellenwerte bei 5V: Ein bei ~1.7V, Aus bei ~3.3V</em></p>
+    </div>
+
+    <div class="component-card" style="padding:12px;">
+      <strong>Quad NAND Schmitt Trigger (74HC132)</strong>
+      <p>4 NAND-Gatter mit Schmitt-Trigger-Eingängen. Kombiniert NAND-Logik mit Rauschunterdrückung. Für kritische Schaltungen wo saubere digitale Flanken wichtig sind.</p>
+    </div>
+  </div>
+
+  <h3>11.3 Gatter mit 3+ Eingängen</h3>
+  <div class="comp-grid">
+    <div class="comp-tile">
+      <strong style="font-size:0.95em;">Triple 3-Input NAND (74HC10)</strong>
+      <p>3 NAND-Gatter mit je 3 Eingängen. Ausgang = LOW nur wenn ALLE 3 Eingänge HIGH. Für 3-Eingang Logikbedingungen ohne externe Verknüpfung.</p>
+    </div>
+    <div class="comp-tile">
+      <strong style="font-size:0.95em;">Triple 3-Input AND (74HC11)</strong>
+      <p>3 AND-Gatter mit je 3 Eingängen. Ausgang = HIGH nur wenn alle 3 HIGH. Für 3-fache Bedingungsverknüpfung, Sicherheitsschaltungen (A UND B UND C muss wahr sein).</p>
+    </div>
+    <div class="comp-tile">
+      <strong style="font-size:0.95em;">Triple 3-Input NOR (74HC27)</strong>
+      <p>3 NOR-Gatter mit je 3 Eingängen. Ausgang = HIGH nur wenn ALLE 3 Eingänge LOW. Für 3-Eingang Null-Detektion.</p>
+    </div>
+    <div class="comp-tile">
+      <strong style="font-size:0.95em;">Dual 4-Input NAND (74HC20)</strong>
+      <p>2 NAND-Gatter mit je 4 Eingängen. Für komplexe 4-Eingang Logik in kompaktem Gehäuse. Typisch in Adressdekodierung und Steuerlogik.</p>
+    </div>
+    <div class="comp-tile">
+      <strong style="font-size:0.95em;">Dual 4-Input AND (74HC21)</strong>
+      <p>2 AND-Gatter mit je 4 Eingängen. Alle 4 müssen HIGH sein für HIGH-Ausgang. Für 4-fache Sicherheitsbedingungen.</p>
+    </div>
+  </div>
+
+  <h3>11.4 Flip-Flops &amp; Sequentielle Logik</h3>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:12px 0;">
+
+    <div class="component-card" style="padding:12px;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/D-Type_Flip-flop.svg" alt="D Flip-Flop" style="width:100%;max-width:180px;background:white;padding:4px;border-radius:4px;" onerror="compIconFallback(this)">
+      <strong>Dual D Flip-Flop (74HC74)</strong>
+      <p>2 D-Typ Flip-Flops (Datenspeicher). Bei positiver CLK-Flanke wird D-Eingang auf Q gespeichert. Speichert 1 Bit pro FF. Anwendung: Register, Frequenzteiler (/2), Schieberegister-Baustein.</p>
+    </div>
+
+    <div class="component-card" style="padding:12px;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/JK_flip_flop.svg" alt="JK Flip-Flop" style="width:100%;max-width:180px;background:white;padding:4px;border-radius:4px;" onerror="compIconFallback(this)">
+      <strong>Dual J-K Flip-Flop (74HC73)</strong>
+      <p>2 J-K Flip-Flops — flexibler als D-FF. 4 Modi: Speichern (J=K=0), Setzen (J=1,K=0), Rücksetzen (J=0,K=1), Toggle (J=K=1). Basis für Zähler und Zustandsmaschinen.</p>
+    </div>
+
+    <div class="component-card" style="padding:12px;">
+      <strong>4-Bit Latch (74HC75)</strong>
+      <p>Speichert 4 Bits gleichzeitig. Solange Enable=HIGH: Ausgang folgt Eingang (transparent). Bei Enable=LOW: Wert eingefroren. Für temporäres Datenspeichern beim Multiplexen.</p>
+    </div>
+  </div>
+
+  <h3>11.5 Zähler &amp; Rechenwerke</h3>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:12px 0;">
+
+    <div class="component-card" style="padding:12px;">
+      <strong>4-Bit Binary Counter (74HC93)</strong>
+      <p>Zählt Taktimpulse von 0 bis 15 (4-Bit = 2⁴=16 Zustände). Binärausgabe an Q0–Q3. Reset-Eingang. Kaskadierbar für mehr Bits. Anwendung: Frequenzteiler, Taktgenerator-Teiler, Ereigniszähler.</p>
+    </div>
+
+    <div class="component-card" style="padding:12px;">
+      <strong>4-Bit Adder (74HC283)</strong>
+      <p>Addiert zwei 4-Bit Zahlen (A + B = Summe + Übertrag). Carry-In/Out für Kaskadierung zu 8, 12, 16 Bit Addierer. Basis jedes Prozessor-ALU (Arithmetic Logic Unit).</p>
+    </div>
+
+    <div class="component-card" style="padding:12px;">
+      <strong>8-Bit Shift Register (74HC595)</strong>
+      <p>Der meistgenutzte IC mit Arduino! Steuert 8 Ausgänge mit nur 3 Arduino-Pins (DATA, CLOCK, LATCH). Kaskadierbar: 2× 74HC595 = 16 Ausgänge mit 3 Pins! Für 7-Segment, LED-Matrix, Tastatur-Scan.</p>
+      <pre style="font-size:0.7em;margin:4px 0;"><code>shiftOut(dataPin, clockPin, MSBFIRST, byte);</code></pre>
+    </div>
+
+    <div class="component-card" style="padding:12px;">
+      <strong>Johnson Decade Counter (74HC4017)</strong>
+      <p>10-Output-Dekadenzähler — aktiviert Ausgänge Q0–Q9 der Reihe nach (ein HIGH wandert durch alle 10). Perfekt für Lauflicht-Sequenzen, 10-Stufen-Anzeige ohne Programmierung, Schrittfolgen.</p>
+    </div>
+  </div>
+
+  <h3>11.6 Display-Decoder &amp; Bus-Erweiter</h3>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:12px 0;">
+
+    <div class="component-card" style="padding:12px;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/7_Segment_Display_with_Labeled_Segments_AHGJBCDF.svg" alt="7 Segment Decoder" onerror="compIconFallback(this)" style="width:60px;background:white;padding:4px;border-radius:4px;">
+      <strong>7-Segment Decoder (CD4511)</strong>
+      <p>Wandelt 4-Bit BCD-Zahl (0–9) in 7-Segment-Ansteuersignale um. 4 BCD-Eingänge → 7 Segment-Ausgänge (a–g). Spart 3 Arduino-Pins statt direkter 7-Segment-Ansteuerung. Nur Ziffern 0–9!</p>
+    </div>
+
+    <div class="component-card" style="padding:12px;">
+      <strong>8-Port I2C Expander (PCF8574)</strong>
+      <p>Erweitert Arduino um 8 zusätzliche digitale I/O-Pins über nur 2 I2C-Leitungen (SDA+SCL)! 3 Adresspins → 8 verschiedene Adressen möglich → bis 64 Extra-Pins über I2C! Das LCD-I2C-Modul benutzt diesen Chip intern.</p>
+    </div>
+  </div>
+
+  <!-- ===== ÜBERSICHT ===== -->
+  <h3 style="margin-top:28px;">Übersicht: Alle Tinkercad-Komponenten</h3>
+  <table>
+    <tr><th>Kategorie</th><th>Anzahl</th><th>Wichtigste Komponenten</th></tr>
+    <tr><td>Passive Bauteile</td><td>6</td><td>Resistor, Capacitor, Elko, Diode, Zener, Inductor</td></tr>
+    <tr><td>Eingabe &amp; Sensoren</td><td>17</td><td>Pushbutton, Poti, LDR, PIR, Ultraschall, Flex, Force, IR, Gas, DHT...</td></tr>
+    <tr><td>Ausgabe &amp; Aktoren</td><td>20</td><td>LED, RGB, NeoPixel (12 Varianten), Servo, DC Motor, LCD, 7-Seg...</td></tr>
+    <tr><td>Stromversorgung</td><td>6</td><td>9V, 1.5V, Knopfzelle, Solar, Kartoffel, Zitrone</td></tr>
+    <tr><td>Steckplatinen</td><td>3</td><td>Vollgröße (830 Punkte), Klein (400), Mini (170)</td></tr>
+    <tr><td>Mikrocontroller</td><td>4</td><td>Arduino Uno R3, micro:bit, micro:bit+Breakout, ATtiny</td></tr>
+    <tr><td>Messinstrumente</td><td>4</td><td>Multimeter, Netzteil, Funktionsgenerator, Oszilloskop</td></tr>
+    <tr><td>Integrierte Schaltkreise</td><td>6</td><td>555, 556, 741 Op-Amp, LM339, LM393, 4N35 Optokoppler</td></tr>
+    <tr><td>Leistungssteuerung</td><td>12</td><td>NPN/PNP, nMOS/pMOS, TIP120, Relay SPDT/DPDT, LM7805, L293D</td></tr>
+    <tr><td>Verbinder</td><td>2</td><td>8 Pin Header, USB-A</td></tr>
+    <tr><td>Logik-ICs (74HC)</td><td>22</td><td>AND/OR/NAND/NOR/XOR, Schmitt, FF, Counter, Adder, Shift Reg...</td></tr>
+    <tr><td><strong>Gesamt</strong></td><td><strong>~102</strong></td><td><strong>Alle in Tinkercad Circuits verfügbaren Bauteile</strong></td></tr>
+  </table>
+</div>
 
 <footer>
   <p>Tinkercad Circuits – Vollständiges Handbuch | gaia-byte.de | Für den Einsatz im CPS-Kurs</p>
