@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tinkercad Circuits – Vollständiges Handbuch | gaia-byte.de</title>
+<style>
+:root {
+  --dark-blue: #1E3A5F;
+  --mid-blue: #2c5282;
+  --light-blue: #4a90d9;
+  --accent: #e8f4fd;
+  --green: #276749;
+  --green-bg: #f0fff4;
+  --yellow-bg: #fffbeb;
+  --red-bg: #fff5f5;
+  --gray-bg: #f7f8fa;
+  --code-bg: #1a1a2e;
+  --text: #1a202c;
+  --border: #cbd5e0;
+  --sidebar-w: 290px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; line-height: 1.75; color: var(--text); background: #eef2f7; }
+
+header {
+  background: var(--dark-blue); color: white;
+  position: sticky; top: 0; z-index: 200;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+.header-inner {
+  max-width: 1500px; margin: 0 auto;
+  display: flex; align-items: center; gap: 20px; padding: 12px 28px;
+}
+.logo { font-size: 1.4rem; font-weight: 800; }
+.logo span { color: #63b3ed; }
+.logo-sub { font-size: 0.82rem; opacity: 0.7; margin-left: 4px; }
+.header-badge { margin-left: auto; background: #e53e3e; color: white; padding: 3px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; }
+.header-links { display: flex; gap: 16px; margin-left: 20px; }
+.header-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem; }
+.header-links a:hover { color: white; }
+
+.layout { display: flex; max-width: 1500px; margin: 0 auto; }
+
+nav.sidebar {
+  width: var(--sidebar-w); flex-shrink: 0;
+  background: white; border-right: 2px solid var(--border);
+  height: calc(100vh - 54px); overflow-y: auto;
+  position: sticky; top: 54px;
+}
+.sidebar-title {
+  background: var(--dark-blue); color: white;
+  padding: 12px 18px; font-weight: 700; font-size: 0.78rem;
+  letter-spacing: 1.5px; text-transform: uppercase; position: sticky; top: 0;
+}
+nav.sidebar ul { list-style: none; padding: 6px 0; }
+nav.sidebar ul li a {
+  display: block; padding: 6px 18px;
+  color: #2d3748; text-decoration: none; font-size: 0.83rem;
+  border-left: 3px solid transparent; transition: all 0.15s;
+}
+nav.sidebar ul li a:hover { background: var(--accent); border-left-color: var(--light-blue); color: var(--dark-blue); }
+nav.sidebar .nav-section { font-weight: 700; color: var(--dark-blue); font-size: 0.78rem; padding: 10px 18px 4px; text-transform: uppercase; letter-spacing: 0.8px; background: #f8fafc; border-top: 1px solid var(--border); margin-top: 4px; }
+nav.sidebar .nav-sub a { padding-left: 30px; color: #4a5568; font-size: 0.8rem; }
+
+main { flex: 1; padding: 28px 36px 60px; min-width: 0; }
+
+.section { background: white; border-radius: 12px; padding: 36px 42px; margin-bottom: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); border-top: 4px solid var(--dark-blue); }
+.chapter-badge { display: inline-block; background: var(--dark-blue); color: white; font-size: 0.72rem; font-weight: 700; padding: 3px 12px; border-radius: 4px; margin-bottom: 10px; letter-spacing: 1.5px; text-transform: uppercase; }
+h1 { font-size: 2rem; color: var(--dark-blue); margin-bottom: 10px; font-weight: 800; }
+h2 { font-size: 1.6rem; color: var(--dark-blue); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 3px solid var(--light-blue); font-weight: 700; }
+h3 { font-size: 1.2rem; color: var(--mid-blue); margin: 24px 0 10px; font-weight: 700; }
+h4 { font-size: 1rem; color: var(--dark-blue); margin: 16px 0 8px; font-weight: 700; }
+p { margin-bottom: 12px; }
+ul, ol { margin: 10px 0 14px 24px; }
+li { margin-bottom: 6px; }
+strong { color: var(--dark-blue); }
+a { color: var(--light-blue); }
+
+pre {
+  background: var(--code-bg); color: #e2e8f0;
+  padding: 20px 24px; border-radius: 8px; overflow-x: auto;
+  margin: 14px 0; font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.88rem; line-height: 1.7; border-left: 4px solid var(--light-blue);
+}
+code { background: #eef2f7; color: #c53030; padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', monospace; font-size: 0.88rem; }
+pre code { background: none; color: inherit; padding: 0; }
+.kw { color: #c792ea; }
+.cm { color: #546e7a; font-style: italic; }
+.str { color: #c3e88d; }
+.num { color: #f78c6c; }
+.fn { color: #82aaff; }
+.tp { color: #ffcb6b; }
+
+.tip { background: var(--green-bg); border-left: 4px solid #38a169; padding: 14px 18px; border-radius: 6px; margin: 14px 0; }
+.tip::before { content: "Tipp: "; font-weight: 700; color: var(--green); }
+.warn { background: var(--red-bg); border-left: 4px solid #e53e3e; padding: 14px 18px; border-radius: 6px; margin: 14px 0; }
+.warn::before { content: "Achtung: "; font-weight: 700; color: #c53030; }
+.info { background: var(--accent); border-left: 4px solid var(--light-blue); padding: 14px 18px; border-radius: 6px; margin: 14px 0; }
+.info::before { content: "Info: "; font-weight: 700; color: var(--dark-blue); }
+.note { background: var(--yellow-bg); border-left: 4px solid #d69e2e; padding: 14px 18px; border-radius: 6px; margin: 14px 0; }
+.note::before { content: "Merke: "; font-weight: 700; color: #744210; }
+
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.88rem; }
+th { background: var(--dark-blue); color: white; padding: 10px 14px; text-align: left; font-weight: 700; }
+td { padding: 9px 14px; border-bottom: 1px solid var(--border); }
+tr:nth-child(even) { background: #f8fafc; }
+tr:hover { background: var(--accent); }
+
+.screenshot {
+  width: 100%; border-radius: 10px; margin: 16px 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15); border: 2px solid var(--border);
+  display: block;
+}
+.screenshot-caption {
+  text-align: center; font-size: 0.8rem; color: #718096;
+  margin-top: -8px; margin-bottom: 16px; font-style: italic;
+}
+.screenshot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+.screenshot-grid img { width: 100%; border-radius: 8px; border: 2px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.screenshot-grid .cap { font-size: 0.78rem; color: #718096; text-align: center; margin-top: 4px; }
+
+.project-header {
+  background: linear-gradient(135deg, var(--dark-blue), var(--mid-blue));
+  color: white; padding: 20px 28px; border-radius: 10px 10px 0 0; margin: -36px -42px 24px;
+}
+.project-meta { display: flex; gap: 20px; margin-top: 8px; flex-wrap: wrap; }
+.project-meta span { background: rgba(255,255,255,0.15); padding: 3px 12px; border-radius: 20px; font-size: 0.82rem; }
+
+.step { display: flex; gap: 16px; margin: 16px 0; }
+.step-num { background: var(--dark-blue); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px; }
+.step-content { flex: 1; }
+
+.component-card { background: var(--gray-bg); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; margin: 12px 0; }
+.component-card h4 { margin-top: 0; color: var(--dark-blue); }
+
+.stars { color: #f6ad55; font-size: 1.1rem; }
+
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; margin: 20px 0; }
+.toc-card { background: var(--accent); border: 1px solid #bee3f8; border-radius: 8px; padding: 14px 18px; }
+.toc-card a { color: var(--dark-blue); text-decoration: none; font-weight: 700; display: block; margin-bottom: 4px; }
+.toc-card p { font-size: 0.82rem; color: #4a5568; margin: 0; }
+
+.back-top { position: fixed; bottom: 30px; right: 30px; background: var(--dark-blue); color: white; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-size: 0.82rem; font-weight: 700; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 100; }
+.back-top:hover { background: var(--mid-blue); }
+
+footer { background: var(--dark-blue); color: rgba(255,255,255,0.7); text-align: center; padding: 24px; font-size: 0.82rem; margin-top: 40px; }
+
+.ansicht-tabs { display: flex; gap: 8px; margin: 12px 0; flex-wrap: wrap; }
+.tab-badge { background: var(--dark-blue); color: white; padding: 4px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; }
+
+.copy-btn {
+  position: absolute; top: 10px; right: 12px;
+  background: rgba(255,255,255,0.12); color: #e2e8f0;
+  border: 1px solid rgba(255,255,255,0.2); border-radius: 5px;
+  padding: 3px 10px; font-size: 0.75rem; cursor: pointer;
+  transition: background 0.15s;
+}
+.copy-btn:hover { background: rgba(255,255,255,0.25); }
+.copy-btn.copied { background: #276749; border-color: #38a169; }
+pre { position: relative; }
+nav.sidebar ul li a.active { background: var(--accent); border-left-color: var(--dark-blue); color: var(--dark-blue); font-weight: 700; }
+.resistance-calc { background: var(--gray-bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin: 16px 0; }
+.resistance-calc h4 { margin-top: 0; }
+.resistance-calc select { padding: 6px 10px; border-radius: 5px; border: 1px solid var(--border); font-size: 0.88rem; margin: 4px; }
+.resistance-calc .result { font-size: 1.3rem; font-weight: 700; color: var(--dark-blue); margin-top: 12px; }
+.color-dot { display: inline-block; width: 16px; height: 16px; border-radius: 3px; vertical-align: middle; margin-right: 4px; border: 1px solid rgba(0,0,0,0.2); }
+@media print {
+  nav.sidebar, header, .back-top { display: none; }
+  main { padding: 0; }
+  .section { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <div class="logo">Tinkercad <span>Circuits</span> <span class="logo-sub">Vollständiges Handbuch</span></div>
+    </div>
+    <div class="header-links">
+      <a href="https://www.tinkercad.com/circuits" target="_blank">Tinkercad öffnen</a>
+      <a href="https://www.arduino.cc/reference" target="_blank">Arduino Referenz</a>
+    </div>
+    <div class="header-badge">gaia-byte.de</div>
+  </div>
+</header>
+
+<div class="layout">
+
+<nav class="sidebar">
+  <div class="sidebar-title">Inhaltsverzeichnis</div>
+  <ul>
+    <li class="nav-section">Einführung</li>
+    <li><a href="#kap1">1. Was ist Tinkercad?</a></li>
+    <li class="nav-sub"><a href="#kap1-konto">Konto erstellen</a></li>
+    <li class="nav-sub"><a href="#kap1-bereiche">Die drei Bereiche</a></li>
+    <li class="nav-sub"><a href="#kap1-dashboard">Das Dashboard</a></li>
+    <li class="nav-section">Die Plattform</li>
+    <li><a href="#kap2">2. Circuits – Oberfläche</a></li>
+    <li class="nav-sub"><a href="#kap2-canvas">Die Arbeitsfläche</a></li>
+    <li class="nav-sub"><a href="#kap2-toolbar">Toolbar & Menüs</a></li>
+    <li class="nav-sub"><a href="#kap2-bibliothek">Komponentenbibliothek</a></li>
+    <li class="nav-sub"><a href="#kap2-verbinden">Verbindungen ziehen</a></li>
+    <li class="nav-sub"><a href="#kap2-ansichten">Ansichten</a></li>
+    <li><a href="#kap3">3. Das Breadboard</a></li>
+    <li class="nav-section">Arduino</li>
+    <li><a href="#kap4">4. Arduino – Mikrocontroller</a></li>
+    <li class="nav-sub"><a href="#kap4-uno">Arduino Uno R3</a></li>
+    <li class="nav-sub"><a href="#kap4-pins">Alle Pins erklärt</a></li>
+    <li class="nav-sub"><a href="#kap4-weitere">Weitere Boards</a></li>
+    <li><a href="#kap5">5. Arduino Programmierung</a></li>
+    <li class="nav-sub"><a href="#kap5-grundlagen">C++ Grundlagen</a></li>
+    <li class="nav-sub"><a href="#kap5-befehle">Wichtige Befehle</a></li>
+    <li class="nav-sub"><a href="#kap5-editor">Code-Editor</a></li>
+    <li class="nav-sub"><a href="#kap5-bibliotheken">Bibliotheken</a></li>
+    <li class="nav-section">Komponenten</li>
+    <li><a href="#kap6">6. Alle Komponenten</a></li>
+    <li class="nav-sub"><a href="#kap6-sensoren">Sensoren</a></li>
+    <li class="nav-sub"><a href="#kap6-aktoren">Aktoren & Ausgabe</a></li>
+    <li class="nav-sub"><a href="#kap6-passiv">Passive Bauteile</a></li>
+    <li class="nav-sub"><a href="#kap6-ics">ICs & Chips</a></li>
+    <li class="nav-section">Theorie</li>
+    <li><a href="#kap7">7. Schaltkreis-Theorie</a></li>
+    <li class="nav-sub"><a href="#kap7-ohm">Ohmsches Gesetz</a></li>
+    <li class="nav-sub"><a href="#kap7-schaltungen">Reihe & Parallel</a></li>
+    <li class="nav-sub"><a href="#kap7-pwm">PWM & I2C & SPI</a></li>
+    <li class="nav-section">Projekte</li>
+    <li><a href="#kap8">8. Schritt-für-Schritt Projekte</a></li>
+    <li class="nav-sub"><a href="#proj1">P1: Blinkende LED</a></li>
+    <li class="nav-sub"><a href="#proj2">P2: LED mit Taster</a></li>
+    <li class="nav-sub"><a href="#proj3">P3: Lauflicht</a></li>
+    <li class="nav-sub"><a href="#proj4">P4: PWM Dimmer</a></li>
+    <li class="nav-sub"><a href="#proj5">P5: Temperatur TMP36</a></li>
+    <li class="nav-sub"><a href="#proj6">P6: Ultraschall HC-SR04</a></li>
+    <li class="nav-sub"><a href="#proj7">P7: Ampel</a></li>
+    <li class="nav-sub"><a href="#proj8">P8: Servo-Motor</a></li>
+    <li class="nav-sub"><a href="#proj9">P9: LCD-Display</a></li>
+    <li class="nav-sub"><a href="#proj10">P10: Bewegungsalarm</a></li>
+    <li class="nav-sub"><a href="#proj11">P11: Mini-Wetterstation</a></li>
+    <li class="nav-sub"><a href="#proj12">P12: Motorsteuerung</a></li>
+    <li class="nav-section">Mehr</li>
+    <li><a href="#kap9">9. CPS mit Tinkercad</a></li>
+    <li><a href="#kap10">10. Projektvorschläge</a></li>
+    <li><a href="#kap11">11. Häufige Fehler</a></li>
+    <li><a href="#kap12">12. Glossar</a></li>
+    <li><a href="#kap13">13. Ressourcen</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- TITELSEITE -->
+<div class="section" style="border-top-color: #63b3ed; text-align: center; padding: 48px;">
+  <div style="font-size: 3.5rem; margin-bottom: 16px;">⚡</div>
+  <h1 style="font-size: 2.6rem; margin-bottom: 8px;">Tinkercad Circuits</h1>
+  <p style="font-size: 1.2rem; color: #4a5568; margin-bottom: 24px;">Vollständiges Handbuch — Von 0 bis 100</p>
+  <p style="max-width: 620px; margin: 0 auto 24px; color: #4a5568;">Dieses Handbuch führt Sie Schritt für Schritt durch die Welt der elektronischen Schaltungen mit Tinkercad und Arduino. Von der ersten LED bis zur Mini-Wetterstation — alles erklärt, alles mit echten Screenshots.</p>
+  <div class="toc-grid" style="text-align: left; max-width: 800px; margin: 20px auto 0;">
+    <div class="toc-card"><a href="#kap1">Tinkercad kennenlernen</a><p>Plattform, Konto, Dashboard, Bereiche</p></div>
+    <div class="toc-card"><a href="#kap2">Circuits-Oberfläche</a><p>Arbeitsfläche, Toolbar, Ansichten, Verbinden</p></div>
+    <div class="toc-card"><a href="#kap4">Arduino & Pins</a><p>Uno R3, alle Pins, Nano, Mega erklärt</p></div>
+    <div class="toc-card"><a href="#kap5">Arduino Programmierung</a><p>C++, alle Befehle, Code-Editor, Blöcke</p></div>
+    <div class="toc-card"><a href="#kap6">Alle Komponenten</a><p>Sensoren, Aktoren, ICs, passive Bauteile</p></div>
+    <div class="toc-card"><a href="#kap8">12 vollständige Projekte</a><p>Schritt-für-Schritt mit komplettem Code</p></div>
+    <div class="toc-card"><a href="#kap10">35 Projektideen</a><p>Einsteiger bis Fortgeschritten, Gruppenarbeit</p></div>
+    <div class="toc-card"><a href="#kap12">60+ Glossar-Einträge</a><p>Alle Fachbegriffe auf Deutsch erklärt</p></div>
+  </div>
+</div>
+
+<!-- KAPITEL 1 -->
+<div class="section" id="kap1">
+  <div class="chapter-badge">Kapitel 1</div>
+  <h2>Was ist Tinkercad?</h2>
+
+  <img src="tinkercad/Screenshot 2026-06-24 105638.png" alt="Tinkercad Startseite" class="screenshot">
+  <p class="screenshot-caption">Die Tinkercad-Startseite unter tinkercad.com</p>
+
+  <p>Tinkercad ist eine kostenlose, vollständig browserbasierte Plattform von <strong>Autodesk</strong> (dem Hersteller von AutoCAD). Man braucht keine Software herunterzuladen, keine Installation, kein teures Programm — alles läuft direkt im Webbrowser. Die Plattform wurde 2011 gegründet und 2013 von Autodesk übernommen. Heute nutzen Millionen Schüler, Studenten, Lehrer und Hobby-Bastler weltweit Tinkercad, um Elektronikprojekte zu planen, zu bauen und zu simulieren.</p>
+
+  <p>Das Besondere an Tinkercad Circuits ist die <strong>Simulation</strong>: Sie können eine Schaltung mit einem Arduino-Mikrocontroller und echten Sensoren zusammenbauen, Code schreiben und dann auf den "Simulation starten"-Button drücken — die Schaltung läuft virtuell, als hätten Sie echte Hardware vor sich. LEDs leuchten, Displays zeigen Text, Servos drehen sich. Das ist ideal zum Lernen, denn Fehler kosten nichts.</p>
+
+  <h3 id="kap1-bereiche">Die Bereiche von Tinkercad</h3>
+
+  <img src="tinkercad/Screenshot 2026-06-24 105805.png" alt="Tinkercad Bereiche" class="screenshot">
+  <p class="screenshot-caption">Tinkercad bietet mehrere Bereiche: 3D Design, Circuits, Codeblocks, Sim Lab und mehr</p>
+
+  <table>
+    <tr><th>Bereich</th><th>Was kann ich dort?</th><th>Wofür?</th></tr>
+    <tr><td><strong>3D-Design</strong></td><td>Dreidimensionale Objekte entwerfen und 3D-drucken</td><td>Gehäuse, Modelle, CAD</td></tr>
+    <tr><td><strong>Circuits</strong> ★</td><td>Elektronikschaltungen mit Arduino simulieren</td><td>CPS, Elektronik, Programmierung</td></tr>
+    <tr><td><strong>Codeblocks</strong></td><td>Visuelle Programmierung mit 3D-Objekten</td><td>Einsteiger-Programmierung</td></tr>
+    <tr><td><strong>Sim Lab</strong></td><td>Physik simulieren (Kräfte, Mechanik)</td><td>Naturwissenschaften</td></tr>
+  </table>
+
+  <div class="info">In diesem Handbuch konzentrieren wir uns ausschließlich auf den Bereich <strong>Circuits</strong> — genau das, was für Cyber-Physical Systems und Arduino-Programmierung benötigt wird.</div>
+
+  <h3 id="kap1-konto">Konto erstellen — Schritt für Schritt</h3>
+
+  <img src="tinkercad/Screenshot 2026-06-24 105721.png" alt="Tinkercad nach Anmeldung" class="screenshot">
+  <p class="screenshot-caption">Nach der Anmeldung erscheint das persönliche Dashboard</p>
+
+  <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Browser öffnen</strong> — Chrome, Firefox oder Edge empfohlen. Gehen Sie auf <code>tinkercad.com</code>.</div></div>
+  <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Anmelden / Registrieren</strong> — Klicken Sie oben rechts auf "Log In" bzw. "Sign Up". Wählen Sie "Konto erstellen".</div></div>
+  <div class="step"><div class="step-num">3</div><div class="step-content"><strong>Anmeldemethode wählen</strong> — Sie können sich mit einer E-Mail-Adresse, einem Google-Konto oder einem Apple-Konto anmelden. Für Schulen gibt es spezielle Klassenräume.</div></div>
+  <div class="step"><div class="step-num">4</div><div class="step-content"><strong>Profil einrichten</strong> — Wählen Sie einen Nutzernamen und bestätigen Sie Ihre E-Mail-Adresse.</div></div>
+  <div class="step"><div class="step-num">5</div><div class="step-content"><strong>Dashboard</strong> — Nach der Anmeldung sehen Sie Ihr persönliches Dashboard mit allen Projekten.</div></div>
+
+  <div class="tip">Wenn Sie Tinkercad in der Schule / im Kurs nutzen, können Sie einem <strong>Klassenraum</strong> beitreten (über tinkercad.com/classrooms). Dort können Lehrer Aufgaben stellen und Projekte einsehen.</div>
+
+  <h3 id="kap1-dashboard">Das Tinkercad-Dashboard</h3>
+
+  <img src="tinkercad/Screenshot 2026-06-24 105947.png" alt="Tinkercad Dashboard" class="screenshot">
+  <p class="screenshot-caption">Das persönliche Dashboard mit allen Projekten (hier: Hussein Azghir)</p>
+
+  <p>Das Dashboard ist Ihre zentrale Startseite nach der Anmeldung:</p>
+  <ul>
+    <li><strong>Linke Seitenleiste:</strong> Navigation — Home, Classes, Designs, Collections, Tutorials, Challenges</li>
+    <li><strong>3D Designs:</strong> Alle gespeicherten 3D-Projekte, Tutorial-Einstieg (Place It, View It, Move It)</li>
+    <li><strong>Circuits:</strong> Alle Ihre Schaltungsprojekte. "Create your first Circuits design" startet ein neues Projekt</li>
+    <li><strong>Codeblocks:</strong> Visuelle Programmierprojekte</li>
+    <li><strong>Tutorials:</strong> Eingebaute Tutorials — Start Simulating, Editing Components, Wiring Components</li>
+  </ul>
+
+  <img src="tinkercad/Screenshot 2026-06-24 110019.png" alt="Tinkercad Dashboard Circuits-Bereich" class="screenshot">
+  <p class="screenshot-caption">Der Circuits-Bereich im Dashboard mit eingebauten Tutorial-Kacheln: "Start Simulating", "Editing Components", "Wiring Components"</p>
+
+  <div class="tip">Alle Projekte werden automatisch in der Cloud gespeichert. Kein manuelles Speichern nötig! Von jedem Computer aus erreichbar — einfach anmelden.</div>
+</div>
+
+<!-- KAPITEL 2 -->
+<div class="section" id="kap2">
+  <div class="chapter-badge">Kapitel 2</div>
+  <h2>Circuits – Die Oberfläche</h2>
+
+  <p>Um ein neues Circuit-Projekt zu starten, klicken Sie im Dashboard auf <strong>"Circuits"</strong>, dann auf den grünen Button <strong>"+ Create your first Circuits design"</strong>. Das neue Projekt öffnet sich im Circuit-Editor.</p>
+
+  <h3 id="kap2-canvas">Die Arbeitsfläche (Canvas)</h3>
+
+  <img src="tinkercad/Screenshot 2026-06-24 110039.png" alt="Leeres Circuit-Projekt" class="screenshot">
+  <p class="screenshot-caption">Ein neues leeres Circuit-Projekt — links die Arbeitsfläche, rechts die Komponentenbibliothek</p>
+
+  <p>Die graue Rasterfläche in der Mitte ist Ihre <strong>Arbeitsfläche</strong> (Canvas). Hier platzieren Sie alle Bauteile und ziehen Verbindungsdrähte.</p>
+
+  <ul>
+    <li><strong>Zoomen:</strong> Mausrad scrollen oder die +/- Buttons unten rechts</li>
+    <li><strong>Verschieben:</strong> Maus mit gedrückter mittlerer Maustaste oder Space + Linksklick</li>
+    <li><strong>Bauteil auswählen:</strong> Linksklick auf das Bauteil</li>
+    <li><strong>Bauteil verschieben:</strong> Bauteil anklicken und ziehen</li>
+    <li><strong>Mehrere auswählen:</strong> Shift + Klick oder Auswahlrahmen ziehen</li>
+    <li><strong>Bauteil löschen:</strong> Auswählen, dann Entf/Delete-Taste oder Papierkorb-Symbol</li>
+    <li><strong>Rückgängig:</strong> Strg+Z (Windows) / Cmd+Z (Mac)</li>
+  </ul>
+
+  <h3 id="kap2-toolbar">Die Toolbar oben</h3>
+  <table>
+    <tr><th>Symbol / Button</th><th>Funktion</th><th>Tastenkürzel</th></tr>
+    <tr><td>Rückgängig (Pfeil links)</td><td>Letzte Aktion rückgängig machen</td><td>Strg+Z</td></tr>
+    <tr><td>Wiederholen (Pfeil rechts)</td><td>Rückgängig gemachte Aktion wiederholen</td><td>Strg+Y</td></tr>
+    <tr><td>Papierkorb</td><td>Ausgewählte Bauteile löschen</td><td>Del / Backspace</td></tr>
+    <tr><td>Drehen</td><td>Ausgewähltes Bauteil um 90° drehen</td><td>R</td></tr>
+    <tr><td>Kopieren / Einfügen</td><td>Bauteil kopieren und einfügen</td><td>Strg+C / Strg+V</td></tr>
+    <tr><td>Code</td><td>Code-Editor öffnen</td><td>–</td></tr>
+    <tr><td>Start Simulation</td><td>Simulation starten</td><td>S</td></tr>
+    <tr><td>Send To</td><td>Schaltplan exportieren oder teilen</td><td>–</td></tr>
+  </table>
+
+  <h3 id="kap2-bibliothek">Die Komponentenbibliothek</h3>
+
+  <p>Auf der rechten Seite finden Sie alle verfügbaren Bauteile. Das Dropdown "Basic" zeigt die wichtigsten Kategorien. Sie können:</p>
+  <ul>
+    <li><strong>Suchen:</strong> Im Suchfeld oben eingeben (z.B. "Arduino", "LED", "TMP36")</li>
+    <li><strong>Kategorien:</strong> Basic / All — im Dropdown wechseln</li>
+    <li><strong>Platzieren:</strong> Bauteil aus dem Panel auf die Arbeitsfläche ziehen</li>
+    <li><strong>Bearbeiten:</strong> Auf platziertes Bauteil klicken → Eigenschaften ändern (z.B. Widerstandswert)</li>
+  </ul>
+
+  <div class="tip">Die "Basic"-Kategorie zeigt die häufigsten Bauteile: Resistor, LED, Pushbutton, Potentiometer, Capacitor, 9V Battery, Breadboard, micro:bit, Arduino Uno R3, DC Motor, Servo und mehr.</div>
+
+  <h3 id="kap2-verbinden">Verbindungen ziehen</h3>
+
+  <img src="tinkercad/Screenshot 2026-06-24 110127.png" alt="Editing Components Tutorial" class="screenshot">
+  <p class="screenshot-caption">Tutorial "Editing Components" — Arduino Uno mit 3 blauen LEDs und 200-Ohm-Widerständen verbunden</p>
+
+  <p>Das Verbinden von Bauteilen ist das Herzstück von Tinkercad Circuits:</p>
+
+  <div class="step"><div class="step-num">1</div><div class="step-content">Fahren Sie mit der Maus über einen <strong>Pin</strong> (Anschluss) eines Bauteils. Der Cursor ändert sich.</div></div>
+  <div class="step"><div class="step-num">2</div><div class="step-content"><strong>Klicken</strong> Sie auf den Pin. Ein farbiger Draht beginnt zu folgen.</div></div>
+  <div class="step"><div class="step-num">3</div><div class="step-content">Führen Sie den Draht zum <strong>Ziel-Pin</strong> und klicken Sie dort.</div></div>
+  <div class="step"><div class="step-num">4</div><div class="step-content">Die Verbindung ist hergestellt. Der Draht wird als farbige Linie angezeigt.</div></div>
+
+  <div class="tip">Drähte können jede Farbe haben. <strong>Konvention:</strong> Rot = Plus (+/VCC/5V), Schwarz = Minus (GND), andere Farben für Signale. Farbe ändern: Draht auswählen → Farbpunkt anklicken.</div>
+  <div class="warn">Ein loser Draht (nicht verbunden) zeigt einen roten Punkt an seinem Ende. Erst wenn beide Enden verbunden sind, ist die Verbindung gültig.</div>
+
+  <h3 id="kap2-ansichten">Drei Ansichten in Tinkercad</h3>
+
+  <div class="ansicht-tabs">
+    <div class="tab-badge">1 — Schaltungsansicht</div>
+    <div class="tab-badge">2 — Schaltplanansicht</div>
+    <div class="tab-badge">3 — Bauteilliste</div>
+  </div>
+
+  <p>Oben rechts im Editor finden Sie drei Icons zum Wechseln der Ansicht:</p>
+
+  <div class="screenshot-grid">
+    <div>
+      <img src="tinkercad/Screenshot 2026-06-24 110218.png" alt="Schaltplanansicht">
+      <p class="cap">Schaltplanansicht (Schematic View) — professioneller Stromlaufplan als PDF exportierbar</p>
+    </div>
+    <div>
+      <img src="tinkercad/Screenshot 2026-06-24 110234.png" alt="Bauteilliste">
+      <p class="cap">Bauteilliste (Component List) — alle Bauteile mit Anzahl und Typ als CSV exportierbar</p>
+    </div>
+  </div>
+
+  <ul>
+    <li><strong>Schaltungsansicht (Standard):</strong> Reale Darstellung der Bauteile auf der Arbeitsfläche. Zum Bauen und Simulieren.</li>
+    <li><strong>Schaltplanansicht:</strong> Professioneller Stromlaufplan (Schematic). Als PDF speicherbar. Zeigt alle Verbindungen in der Norm-Darstellung.</li>
+    <li><strong>Bauteilliste:</strong> Tabelle mit allen verwendeten Bauteilen, Anzahl und Bezeichnung. Als CSV herunterladbar — ideal für Einkaufslisten.</li>
+  </ul>
+
+  <h3>Vollständige Tastaturkürzel</h3>
+  <table>
+    <tr><th>Kürzel</th><th>Funktion</th></tr>
+    <tr><td>Strg + Z</td><td>Rückgängig</td></tr>
+    <tr><td>Strg + Y</td><td>Wiederholen</td></tr>
+    <tr><td>Strg + C</td><td>Kopieren</td></tr>
+    <tr><td>Strg + V</td><td>Einfügen</td></tr>
+    <tr><td>Del / Backspace</td><td>Löschen</td></tr>
+    <tr><td>R</td><td>Bauteil drehen (90°)</td></tr>
+    <tr><td>S</td><td>Simulation starten/stoppen</td></tr>
+    <tr><td>Esc</td><td>Auswahl aufheben / Draht abbrechen</td></tr>
+    <tr><td>Strg + A</td><td>Alle Bauteile auswählen</td></tr>
+    <tr><td>Mausrad</td><td>Rein-/Rauszoomen</td></tr>
+  </table>
+
+  <h3>Projekte verwalten</h3>
+  <ul>
+    <li><strong>Umbenennen:</strong> Klicken Sie oben links auf den Projektnamen (Standard: "Spectacular Trug" o.ä.)</li>
+    <li><strong>Automatisch gespeichert:</strong> Tinkercad speichert automatisch — kein Button nötig</li>
+    <li><strong>Teilen:</strong> Rechts oben "Send To" → "Share Link" → Link kopieren → an Lehrer schicken</li>
+    <li><strong>Duplizieren:</strong> Im Dashboard → Klick auf Projekt → "Duplizieren"</li>
+  </ul>
+</div>
+
+<!-- KAPITEL 3 -->
+<div class="section" id="kap3">
+  <div class="chapter-badge">Kapitel 3</div>
+  <h2>Das Breadboard – Herzstück jeder Schaltung</h2>
+
+  <p>Das <strong>Breadboard</strong> (Steckbrett) ist eines der wichtigsten Hilfsmittel in der Elektronik. Es ermöglicht, Bauteile ohne Löten miteinander zu verbinden. In Tinkercad finden Sie es in der Kategorie "Basic" als "Breadboard Small" (170 Punkte) oder als großes Breadboard.</p>
+
+  <h3>Aufbau des Breadboards</h3>
+
+  <p>Ein typisches Breadboard (830 Kontaktpunkte) besteht aus drei Bereichen:</p>
+  <ul>
+    <li><strong>Stromschienen (Power Rails):</strong> Die langen Reihen oben und unten (+/−). Alle Punkte einer Stromschiene sind elektrisch verbunden. Rot = Plus (+), Blau/Schwarz = GND (−).</li>
+    <li><strong>Hauptbereich:</strong> Die kurzen Reihen in der Mitte (Spalten a-e links und f-j rechts). Jede Reihe von 5 Punkten auf einer Seite ist intern verbunden.</li>
+    <li><strong>Mittelkanal:</strong> Die Lücke in der Mitte trennt die linke (a-e) von der rechten (f-j) Seite. ICs werden hier hineingespannt, damit ihre Pins nicht kurzgeschlossen werden.</li>
+  </ul>
+
+  <div class="warn">Wichtiger Fehler von Anfängern: Die Punkte ÜBER der Mittellücke sind NICHT mit den Punkten DARUNTER verbunden! Jede Seite ist separat. Ein Bauteil dessen Pins diese Lücke überbrückt — beide Hälften sind getrennt.</div>
+
+  <h3>Wie benutze ich das Breadboard?</h3>
+  <ol>
+    <li>Verbinden Sie die <code>+</code> Stromschiene (rot) mit <code>5V</code> des Arduino</li>
+    <li>Verbinden Sie die <code>−</code> Stromschiene (schwarz/blau) mit <code>GND</code> des Arduino</li>
+    <li>Stecken Sie Bauteile in die Hauptreihen des Breadboards</li>
+    <li>Verbinden Sie Reihen untereinander oder mit den Stromschienen</li>
+    <li>Verwenden Sie Widerstände immer <em>in Reihe</em> mit LEDs</li>
+  </ol>
+
+  <div class="tip">In Tinkercad sehen Sie sofort, welche Pins verbunden sind: Wenn Sie auf einen Breadboard-Pin klicken, leuchten alle intern verbundenen Pins auf.</div>
+
+  <h3>Breadboard-Größen in Tinkercad</h3>
+  <table>
+    <tr><th>Typ</th><th>Punkte</th><th>Für was geeignet</th></tr>
+    <tr><td>Breadboard Small</td><td>170</td><td>Kleine Schaltungen, erste Experimente</td></tr>
+    <tr><td>Breadboard (Standard)</td><td>400</td><td>Mittlere Projekte</td></tr>
+    <tr><td>Breadboard (Groß)</td><td>830</td><td>Komplexe Projekte, Arduino + mehrere Module</td></tr>
+  </table>
+</div>
+
+<!-- KAPITEL 4 -->
+<div class="section" id="kap4">
+  <div class="chapter-badge">Kapitel 4</div>
+  <h2>Arduino – Der Mikrocontroller</h2>
+
+  <p>Ein <strong>Mikrocontroller</strong> ist ein kleiner Computer auf einem einzigen Chip. Er kann Eingaben lesen (Sensoren, Taster), Entscheidungen treffen (Programm) und Ausgaben steuern (LEDs, Motoren, Displays). Arduino ist die beliebteste Mikrocontroller-Familie der Welt für Einsteiger und Maker.</p>
+
+  <p>Das Arduino-Projekt startete 2003 am Interaction Design Institute Ivrea (Italien). Das Ziel: Einen einfachen, günstigen Mikrocontroller für Designer und Künstler ohne technischen Hintergrund zu schaffen. Heute ist Arduino <strong>Open Source</strong> — der gesamte Hardware-Plan und alle Software sind öffentlich zugänglich.</p>
+
+  <h3 id="kap4-uno">Arduino Uno R3 – Das Standardboard</h3>
+  <p>Der <strong>Arduino Uno R3</strong> ist das häufigste Board in Tinkercad. "Uno" bedeutet "Eins" auf Italienisch — es war der erste standardisierte Arduino. Das R3 steht für Revision 3 (aktuelle Version).</p>
+
+  <div class="info">In der Komponentenbibliothek von Tinkercad finden Sie den Arduino Uno R3 unter "Basic" → "Arduino Uno R3". Ziehen Sie ihn einfach auf die Arbeitsfläche.</div>
+
+  <h3 id="kap4-pins">Alle Pins des Arduino Uno R3 erklärt</h3>
+  <table>
+    <tr><th>Pin</th><th>Bezeichnung</th><th>Funktion</th><th>Spannung / Wert</th></tr>
+    <tr><td>0</td><td>D0 / RX</td><td>Digital I/O, serielle Datenempfang</td><td>0V oder 5V</td></tr>
+    <tr><td>1</td><td>D1 / TX</td><td>Digital I/O, serielle Datenübertragung</td><td>0V oder 5V</td></tr>
+    <tr><td>2</td><td>D2</td><td>Digital I/O, Interrupt-fähig</td><td>0V oder 5V</td></tr>
+    <tr><td>3</td><td>D3 ~</td><td>Digital I/O, <strong>PWM</strong>, Interrupt-fähig</td><td>0V / 5V / PWM 0-255</td></tr>
+    <tr><td>4</td><td>D4</td><td>Digital I/O</td><td>0V oder 5V</td></tr>
+    <tr><td>5</td><td>D5 ~</td><td>Digital I/O, <strong>PWM</strong></td><td>0V / 5V / PWM 0-255</td></tr>
+    <tr><td>6</td><td>D6 ~</td><td>Digital I/O, <strong>PWM</strong></td><td>0V / 5V / PWM 0-255</td></tr>
+    <tr><td>7</td><td>D7</td><td>Digital I/O</td><td>0V oder 5V</td></tr>
+    <tr><td>8</td><td>D8</td><td>Digital I/O</td><td>0V oder 5V</td></tr>
+    <tr><td>9</td><td>D9 ~</td><td>Digital I/O, <strong>PWM</strong></td><td>0V / 5V / PWM 0-255</td></tr>
+    <tr><td>10</td><td>D10 ~</td><td>Digital I/O, <strong>PWM</strong>, SPI SS</td><td>0V / 5V / PWM 0-255</td></tr>
+    <tr><td>11</td><td>D11 ~</td><td>Digital I/O, <strong>PWM</strong>, SPI MOSI</td><td>0V / 5V / PWM 0-255</td></tr>
+    <tr><td>12</td><td>D12</td><td>Digital I/O, SPI MISO</td><td>0V oder 5V</td></tr>
+    <tr><td>13</td><td>D13</td><td>Digital I/O, <strong>eingebaute LED (L)</strong>, SPI CLK</td><td>0V oder 5V</td></tr>
+    <tr><td>A0–A5</td><td>Analog 0–5</td><td>Analoge Eingänge (auch als Digital nutzbar)</td><td>0–1023 (10-bit, entspricht 0–5V)</td></tr>
+    <tr><td>5V</td><td>VCC</td><td>5V Stromversorgungsausgang</td><td>5V (max. 500mA gesamt)</td></tr>
+    <tr><td>3.3V</td><td>3V3</td><td>3.3V Stromversorgungsausgang</td><td>3.3V (max. 150mA)</td></tr>
+    <tr><td>GND</td><td>GND</td><td>Masse / Minus / Erdung (2× vorhanden)</td><td>0V</td></tr>
+    <tr><td>VIN</td><td>VIN</td><td>Externe Spannungsversorgung (7–12V)</td><td>7–12V Eingang</td></tr>
+    <tr><td>RST</td><td>RESET</td><td>Arduino neu starten (LOW = Reset)</td><td>–</td></tr>
+    <tr><td>AREF</td><td>AREF</td><td>Externe Referenzspannung für analogRead()</td><td>–</td></tr>
+  </table>
+
+  <div class="note">PWM-Pins sind mit einer Tilde (~) markiert: 3, 5, 6, 9, 10, 11. Nur diese Pins können analogWrite() für stufenlose Helligkeitssteuerung oder Motorgeschwindigkeit!</div>
+
+  <h3>Technische Daten Arduino Uno R3</h3>
+  <table>
+    <tr><th>Eigenschaft</th><th>Wert</th></tr>
+    <tr><td>Prozessor</td><td>ATmega328P (Microchip)</td></tr>
+    <tr><td>Taktfrequenz</td><td>16 MHz</td></tr>
+    <tr><td>Betriebsspannung</td><td>5V</td></tr>
+    <tr><td>Flash-Speicher (Programm)</td><td>32 KB (0.5 KB für Bootloader belegt)</td></tr>
+    <tr><td>SRAM (Arbeitsspeicher)</td><td>2 KB</td></tr>
+    <tr><td>EEPROM (Dauerspeicher)</td><td>1 KB</td></tr>
+    <tr><td>Digitale I/O-Pins</td><td>14 (davon 6× PWM)</td></tr>
+    <tr><td>Analoge Eingänge</td><td>6 (10-bit ADC, Werte 0–1023)</td></tr>
+    <tr><td>Max. Strom pro Pin</td><td>40 mA</td></tr>
+    <tr><td>Max. Gesamtstrom (5V/GND)</td><td>500 mA</td></tr>
+    <tr><td>PWM-Frequenz</td><td>490 Hz (Pin 5,6: 980 Hz)</td></tr>
+    <tr><td>Versorgung USB</td><td>5V über USB-B Anschluss</td></tr>
+    <tr><td>Versorgung extern</td><td>7–12V über VIN oder Hohlstecker</td></tr>
+  </table>
+
+  <h3 id="kap4-weitere">Weitere Arduino-Boards in Tinkercad</h3>
+  <div class="component-card">
+    <h4>Arduino Nano</h4>
+    <p>Kompakter als der Uno — gleiche Leistung (ATmega328P), deutlich kleinere Baugröße. Ideal für Projekte mit wenig Platz. 8 analoge Eingänge (A0–A7). In Tinkercad über Suche "Arduino Nano" verfügbar.</p>
+  </div>
+  <div class="component-card">
+    <h4>Arduino Mega 2560</h4>
+    <p>Großes Board mit ATmega2560: 54 digitale I/O-Pins (15× PWM!), 16 analoge Eingänge, 4 serielle Ports, 256 KB Flash. Für komplexe Projekte mit vielen Komponenten. In Tinkercad verfügbar.</p>
+  </div>
+  <div class="component-card">
+    <h4>micro:bit</h4>
+    <p>Britischer Mikrocontroller mit eingebautem 5×5 LED-Display, Beschleunigungssensor, Kompass und Bluetooth. Besonders einsteigerfreundlich. In Tinkercad simulierbar — eigene Blocke-Programmierung.</p>
+  </div>
+</div>
+
+<!-- KAPITEL 5 -->
+<div class="section" id="kap5">
+  <div class="chapter-badge">Kapitel 5</div>
+  <h2>Arduino Programmierung</h2>
+
+  <p>Arduino wird in <strong>C++</strong> programmiert — genauer in einem vereinfachten C++, das speziell für Mikrocontroller entwickelt wurde. Tinkercad bietet zwei Programmiermodi: einen <strong>blockbasierten Editor</strong> für Einsteiger und einen <strong>Text-Editor</strong> für C++.</p>
+
+  <h3 id="kap5-editor">Der Code-Editor in Tinkercad</h3>
+
+  <div class="screenshot-grid">
+    <div>
+      <img src="tinkercad/Screenshot 2026-06-24 110303.png" alt="Block und Text Editor">
+      <p class="cap">Block + Text Modus: Blöcke links, automatisch generierter C++-Code rechts</p>
+    </div>
+    <div>
+      <img src="tinkercad/Screenshot 2026-06-24 110142.png" alt="Text Editor mit Ampel-Code">
+      <p class="cap">Text-Modus: direkter C++-Editor mit Syntaxhervorhebung</p>
+    </div>
+  </div>
+
+  <p>Klicken Sie in einem Circuit-Projekt auf den <strong>"Code"</strong>-Button (oben rechts). Sie sehen drei Modi:</p>
+  <ul>
+    <li><strong>Blocks:</strong> Visueller Drag-and-Drop-Editor. Ideal für den Einstieg. Vorgefertigte Blöcke für jeden Befehl.</li>
+    <li><strong>Text:</strong> Direkter C++-Editor. Volle Kontrolle, alle Möglichkeiten.</li>
+    <li><strong>Blocks + Text:</strong> Beide gleichzeitig — Blöcke links, generierter Code rechts. Perfekt zum Lernen wie Blöcke zu Code werden!</li>
+  </ul>
+
+  <h3>Simulation und Debugger</h3>
+
+  <img src="tinkercad/Screenshot 2026-06-24 110157.png" alt="Simulation mit Debugger" class="screenshot">
+  <p class="screenshot-caption">Während der Simulation: "Stop Simulation"-Button und der eingebaute Debugger-Hinweis</p>
+
+  <p>Der <strong>Debugger</strong> in Tinkercad ermöglicht:</p>
+  <ul>
+    <li><strong>Breakpoints:</strong> Durch Klick auf Zeilennummern — Programm hält dort an</li>
+    <li><strong>Variablenwerte:</strong> Hover über Variablen während Pause zeigt aktuellen Wert</li>
+    <li><strong>Schrittweise:</strong> Buttons zum Weiterspringen Zeile für Zeile</li>
+    <li><strong>Serial Monitor:</strong> Unten erscheint das Serial-Fenster für <code>Serial.println()</code> Ausgaben</li>
+  </ul>
+
+  <div class="tip">Tipp: Während der Simulation können Sie Bauteilwerte ändern! Potentiometer drehen, Temperatursensor-Wert setzen, Taster drücken — alles interaktiv.</div>
+
+  <h3 id="kap5-grundlagen">C++ Grundlagen für Arduino</h3>
+
+  <h4>Die zwei Pflichtfunktionen jedes Sketches</h4>
+
+  <pre><code><span class="cm">// setup() läuft EINMAL beim Start (oder nach Reset)</span>
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  <span class="cm">// Hier: Pins konfigurieren, Serial starten, Bibliotheken initialisieren</span>
+}
+
+<span class="cm">// loop() läuft ENDLOS in einer Schleife (immer wieder)</span>
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="cm">// Hier: der eigentliche Programmcode — Sensoren lesen, Aktoren steuern</span>
+}</code></pre>
+
+  <h4>Variablen und Datentypen</h4>
+  <table>
+    <tr><th>Typ</th><th>Beispiel</th><th>Bereich / Erklärung</th></tr>
+    <tr><td><code>int</code></td><td><code>int zahl = 42;</code></td><td>Ganze Zahlen: −32.768 bis 32.767</td></tr>
+    <tr><td><code>long</code></td><td><code>long gross = 100000L;</code></td><td>Große ganze Zahlen: ±2 Milliarden</td></tr>
+    <tr><td><code>unsigned long</code></td><td><code>unsigned long t = millis();</code></td><td>Positive Zahlen bis 4 Milliarden (für millis())</td></tr>
+    <tr><td><code>float</code></td><td><code>float temp = 23.5;</code></td><td>Dezimalzahlen (6–7 Stellen Genauigkeit)</td></tr>
+    <tr><td><code>bool</code></td><td><code>bool an = true;</code></td><td>Nur true (1) oder false (0)</td></tr>
+    <tr><td><code>char</code></td><td><code>char buchstabe = 'A';</code></td><td>Ein einzelnes Zeichen (ASCII)</td></tr>
+    <tr><td><code>String</code></td><td><code>String text = "Hallo";</code></td><td>Zeichenkette (verbraucht viel RAM — sparsam einsetzen!)</td></tr>
+    <tr><td><code>byte</code></td><td><code>byte b = 255;</code></td><td>0 bis 255 (8-bit, kein Vorzeichen)</td></tr>
+    <tr><td><code>const int</code></td><td><code>const int LED = 13;</code></td><td>Unveränderliche Konstante — für Pin-Nummern ideal</td></tr>
+  </table>
+
+  <h4>Bedingungen und Schleifen</h4>
+  <pre><code><span class="cm">// IF-Bedingung</span>
+<span class="kw">if</span> (temperatur > 30) {
+  <span class="fn">digitalWrite</span>(LED_PIN, HIGH);      <span class="cm">// zu heiß → LED an</span>
+} <span class="kw">else if</span> (temperatur > 20) {
+  <span class="fn">analogWrite</span>(LED_PIN, <span class="num">128</span>);        <span class="cm">// warm → halb hell</span>
+} <span class="kw">else</span> {
+  <span class="fn">digitalWrite</span>(LED_PIN, LOW);       <span class="cm">// kalt → LED aus</span>
+}
+
+<span class="cm">// FOR-Schleife (5 mal wiederholen)</span>
+<span class="kw">for</span> (<span class="tp">int</span> i = <span class="num">0</span>; i < <span class="num">5</span>; i++) {
+  <span class="fn">digitalWrite</span>(LED_PIN, HIGH);
+  <span class="fn">delay</span>(<span class="num">200</span>);
+  <span class="fn">digitalWrite</span>(LED_PIN, LOW);
+  <span class="fn">delay</span>(<span class="num">200</span>);
+}
+
+<span class="cm">// WHILE-Schleife (warte bis Taster gedrückt)</span>
+<span class="kw">while</span> (<span class="fn">digitalRead</span>(TASTER_PIN) == LOW) {
+  <span class="cm">// Schleife läuft solange Taster nicht gedrückt</span>
+  <span class="fn">delay</span>(<span class="num">10</span>);
+}
+
+<span class="cm">// SWITCH-CASE</span>
+<span class="kw">switch</span> (modus) {
+  <span class="kw">case</span> <span class="num">1</span>: <span class="fn">digitalWrite</span>(ROT, HIGH);   <span class="kw">break</span>;
+  <span class="kw">case</span> <span class="num">2</span>: <span class="fn">digitalWrite</span>(GRUEN, HIGH); <span class="kw">break</span>;
+  <span class="kw">default</span>: <span class="fn">digitalWrite</span>(ROT, LOW);
+}</code></pre>
+
+  <h3 id="kap5-befehle">Alle wichtigen Arduino-Befehle</h3>
+
+  <h4>Digital I/O</h4>
+  <table>
+    <tr><th>Befehl</th><th>Erklärung</th><th>Beispiel</th></tr>
+    <tr><td><code>pinMode(pin, mode)</code></td><td>Pin als Eingang (INPUT) oder Ausgang (OUTPUT) definieren. Immer in setup()!</td><td><code>pinMode(13, OUTPUT);</code></td></tr>
+    <tr><td><code>digitalWrite(pin, value)</code></td><td>Digitalpin auf HIGH (5V) oder LOW (0V) setzen</td><td><code>digitalWrite(13, HIGH);</code></td></tr>
+    <tr><td><code>digitalRead(pin)</code></td><td>Zustand eines digitalen Eingangs lesen → HIGH oder LOW</td><td><code>int z = digitalRead(2);</code></td></tr>
+  </table>
+
+  <h4>Analog I/O</h4>
+  <table>
+    <tr><th>Befehl</th><th>Erklärung</th><th>Beispiel</th></tr>
+    <tr><td><code>analogRead(pin)</code></td><td>Analogspannung lesen → Wert 0–1023 (entspricht 0–5V)</td><td><code>int w = analogRead(A0);</code></td></tr>
+    <tr><td><code>analogWrite(pin, value)</code></td><td>PWM-Signal ausgeben (0=aus, 255=voll). Nur PWM-Pins (~)!</td><td><code>analogWrite(9, 128);</code></td></tr>
+    <tr><td><code>analogReference(type)</code></td><td>Referenzspannung für analogRead() ändern (DEFAULT, INTERNAL, EXTERNAL)</td><td><code>analogReference(INTERNAL);</code></td></tr>
+  </table>
+
+  <h4>Zeit</h4>
+  <table>
+    <tr><th>Befehl</th><th>Erklärung</th><th>Beispiel</th></tr>
+    <tr><td><code>delay(ms)</code></td><td>Programm pausieren (Millisekunden). 1000ms = 1 Sekunde. Blockiert alles!</td><td><code>delay(500);</code></td></tr>
+    <tr><td><code>millis()</code></td><td>Millisekunden seit Programmstart. Für nicht-blockierendes Timing.</td><td><code>unsigned long t = millis();</code></td></tr>
+    <tr><td><code>micros()</code></td><td>Mikrosekunden seit Programmstart (1000µs = 1ms)</td><td><code>unsigned long t = micros();</code></td></tr>
+    <tr><td><code>delayMicroseconds(us)</code></td><td>Pause in Mikrosekunden</td><td><code>delayMicroseconds(10);</code></td></tr>
+  </table>
+
+  <h4>Serial (Serieller Monitor)</h4>
+  <table>
+    <tr><th>Befehl</th><th>Erklärung</th></tr>
+    <tr><td><code>Serial.begin(9600)</code></td><td>Serielle Kommunikation starten. Immer in setup(). 9600 = Baud-Rate (Zeichen/s).</td></tr>
+    <tr><td><code>Serial.println(wert)</code></td><td>Wert ausgeben + automatischer Zeilenumbruch</td></tr>
+    <tr><td><code>Serial.print(wert)</code></td><td>Wert ausgeben ohne Zeilenumbruch</td></tr>
+    <tr><td><code>Serial.available()</code></td><td>Anzahl empfangener Zeichen die noch nicht gelesen wurden</td></tr>
+    <tr><td><code>Serial.read()</code></td><td>Ein Zeichen aus dem Empfangspuffer lesen</td></tr>
+    <tr><td><code>Serial.parseInt()</code></td><td>Empfangene Zahl als int einlesen</td></tr>
+  </table>
+
+  <h4>Nützliche Hilfsfunktionen</h4>
+  <pre><code><span class="cm">// Wert umrechnen (z.B. Potentiometer 0–1023 → Winkel 0–180°)</span>
+<span class="tp">int</span> winkel = <span class="fn">map</span>(pot_wert, <span class="num">0</span>, <span class="num">1023</span>, <span class="num">0</span>, <span class="num">180</span>);
+
+<span class="cm">// Wert auf Bereich begrenzen (Clipping)</span>
+<span class="tp">int</span> begrenzt = <span class="fn">constrain</span>(wert, <span class="num">0</span>, <span class="num">255</span>);
+
+<span class="cm">// Zufallszahl zwischen 1 und 6 (Würfel)</span>
+<span class="tp">int</span> wuerfel = <span class="fn">random</span>(<span class="num">1</span>, <span class="num">7</span>);         <span class="cm">// random(min, max) → max ist EXKLUSIV</span>
+<span class="fn">randomSeed</span>(<span class="fn">analogRead</span>(<span class="num">0</span>));        <span class="cm">// Zufall initialisieren (immer zuerst)</span>
+
+<span class="cm">// Ton auf Pin 8: Frequenz 440 Hz (Kammerton A), Dauer 500ms</span>
+<span class="fn">tone</span>(<span class="num">8</span>, <span class="num">440</span>, <span class="num">500</span>);
+<span class="fn">noTone</span>(<span class="num">8</span>);
+
+<span class="cm">// Mathematische Hilfsfunktionen</span>
+<span class="tp">int</span> groesser = <span class="fn">max</span>(a, b);          <span class="cm">// größeren Wert zurückgeben</span>
+<span class="tp">int</span> kleiner  = <span class="fn">min</span>(a, b);          <span class="cm">// kleineren Wert zurückgeben</span>
+<span class="tp">int</span> betrag   = <span class="fn">abs</span>(wert);          <span class="cm">// Absolutwert (kein Vorzeichen)</span>
+<span class="tp">double</span> wurzel = <span class="fn">sqrt</span>(<span class="num">16</span>);          <span class="cm">// Quadratwurzel → 4.0</span>
+<span class="tp">double</span> pot    = <span class="fn">pow</span>(<span class="num">2</span>, <span class="num">8</span>);          <span class="cm">// Potenz → 256.0</span>
+
+<span class="cm">// Interrupts (reagieren sofort auf Pin-Änderung)</span>
+<span class="fn">attachInterrupt</span>(<span class="fn">digitalPinToInterrupt</span>(<span class="num">2</span>), isr_funktion, FALLING);
+<span class="cm">// RISING, FALLING, CHANGE, LOW</span></code></pre>
+
+  <h3>Nicht-blockierendes Timing mit millis()</h3>
+  <p><code>delay()</code> blockiert das gesamte Programm — während des Wartens kann kein Taster gelesen, kein Sensor ausgewertet, keine andere LED gesteuert werden. Die professionelle Alternative ist <code>millis()</code>:</p>
+  <pre><code><span class="cm">// FALSCH: delay() blockiert alles!</span>
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="fn">digitalWrite</span>(LED, HIGH);
+  <span class="fn">delay</span>(<span class="num">1000</span>);               <span class="cm">// ← Taster NICHT lesbar in dieser Zeit</span>
+  <span class="fn">digitalWrite</span>(LED, LOW);
+  <span class="fn">delay</span>(<span class="num">1000</span>);
+}
+
+<span class="cm">// RICHTIG: millis() — non-blocking, alles läuft parallel</span>
+<span class="tp">unsigned long</span> letzteZeit = <span class="num">0</span>;
+<span class="tp">int</span> ledZustand = LOW;
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">unsigned long</span> jetzt = <span class="fn">millis</span>();
+
+  <span class="kw">if</span> (jetzt - letzteZeit >= <span class="num">1000</span>) {   <span class="cm">// 1000ms vergangen?</span>
+    letzteZeit = jetzt;
+    ledZustand = (ledZustand == LOW) ? HIGH : LOW;
+    <span class="fn">digitalWrite</span>(LED, ledZustand);
+  }
+
+  <span class="cm">// Hier kann gleichzeitig noch anderes passieren!</span>
+  <span class="kw">if</span> (<span class="fn">digitalRead</span>(TASTER) == HIGH) {
+    <span class="fn">digitalWrite</span>(LED2, HIGH);  <span class="cm">// ← funktioniert ohne Unterbrechung</span>
+  }
+}</code></pre>
+  <div class="note">Merke: <code>millis()</code> gibt <strong>immer</strong> den richtigen Wert zurück, auch wenn das Ergebnis von <code>jetzt - letzteZeit</code> nach einem Überlauf (nach ~49 Tagen) überläuft — dank unsigned-Arithmetik bleibt die Differenz korrekt.</div>
+
+  <h3 id="kap5-bibliotheken">Wichtige Bibliotheken</h3>
+  <table>
+    <tr><th>Bibliothek</th><th>#include</th><th>Wofür?</th></tr>
+    <tr><td>Servo</td><td><code>#include &lt;Servo.h&gt;</code></td><td>Servo-Motoren steuern (0–180°)</td></tr>
+    <tr><td>LiquidCrystal</td><td><code>#include &lt;LiquidCrystal.h&gt;</code></td><td>LCD-Displays 16×2 ansteuern</td></tr>
+    <tr><td>Wire</td><td><code>#include &lt;Wire.h&gt;</code></td><td>I2C-Kommunikation (SDA/SCL)</td></tr>
+    <tr><td>SPI</td><td><code>#include &lt;SPI.h&gt;</code></td><td>SPI-Kommunikation</td></tr>
+    <tr><td>EEPROM</td><td><code>#include &lt;EEPROM.h&gt;</code></td><td>Werte dauerhaft speichern (bleiben nach Reset)</td></tr>
+    <tr><td>Stepper</td><td><code>#include &lt;Stepper.h&gt;</code></td><td>Schrittmotoren steuern</td></tr>
+    <tr><td>SoftwareSerial</td><td><code>#include &lt;SoftwareSerial.h&gt;</code></td><td>Zusätzliche serielle Ports auf beliebigen Pins</td></tr>
+  </table>
+
+  <div class="info">Alle eingebauten Bibliotheken (Servo, LiquidCrystal, Wire, SPI, EEPROM, Stepper) sind in Tinkercad bereits verfügbar — einfach per #include einbinden, keine Installation nötig.</div>
+</div>
+
+<!-- KAPITEL 6 -->
+<div class="section" id="kap6">
+  <div class="chapter-badge">Kapitel 6</div>
+  <h2>Alle Komponenten in Tinkercad Circuits</h2>
+
+  <h3 id="kap6-sensoren">6.1 Sensoren</h3>
+
+  <h4>Temperatursensoren</h4>
+  <div class="component-card">
+    <h4>TMP36 – Analoger Temperatursensor</h4>
+    <p>Der TMP36 ist der häufigste Temperatursensor in Tinkercad. Er gibt eine Spannung proportional zur Temperatur aus.</p>
+    <ul>
+      <li><strong>Pins (Flachseite vorne):</strong> Links = VCC (5V), Mitte = Signal (zu A0), Rechts = GND</li>
+      <li><strong>Ausgabe:</strong> 10 mV pro °C, Offset 500 mV. Bei 25°C → 750 mV.</li>
+      <li><strong>Messbereich:</strong> −40°C bis +125°C</li>
+      <li><strong>Formel:</strong> <code>temperatur = (analogRead(A0) * 5.0 / 1023.0 - 0.5) * 100</code></li>
+      <li><strong>Anwendung:</strong> Thermometer, Thermostat, Temperaturalarm, Kühlüberwachung</li>
+    </ul>
+  </div>
+  <div class="component-card">
+    <h4>LM35 – Präzisions-Temperatursensor</h4>
+    <p>Ähnlich wie TMP36, aber noch einfachere Formel: 10 mV/°C ab 0°C, kein negativer Offset.</p>
+    <ul>
+      <li><strong>Formel:</strong> <code>temperatur = analogRead(A0) * 500.0 / 1023.0</code></li>
+      <li><strong>Messbereich:</strong> 2°C bis 150°C (kein Negativbereich!)</li>
+    </ul>
+  </div>
+
+  <h4>Distanzsensoren</h4>
+  <div class="component-card">
+    <h4>HC-SR04 – Ultraschall-Distanzsensor</h4>
+    <p>Misst Abstände durch Schallwellen (ähnlich wie Fledermäuse). Sendet einen Ultraschall-Burst und misst die Laufzeit des Echos.</p>
+    <ul>
+      <li><strong>Pins:</strong> VCC (5V), Trig (Auslöser-Signal → Ausgang), Echo (Echo-Signal → Eingang), GND</li>
+      <li><strong>Messbereich:</strong> 2 cm bis 400 cm, Genauigkeit ±3 mm</li>
+      <li><strong>Distanzformel:</strong> <code>cm = pulseIn(ECHO, HIGH) * 0.034 / 2</code></li>
+      <li><strong>Anwendung:</strong> Roboter-Hinderniserkennung, Parkassistent, Füllstandsmessung, Einbruchalarm</li>
+    </ul>
+  </div>
+
+  <h4>Lichtsensoren</h4>
+  <div class="component-card">
+    <h4>LDR – Fotowiderstand (Light Dependent Resistor / Photoresistor)</h4>
+    <p>Der LDR ändert seinen Widerstand je nach Lichtmenge. Bei Helligkeit: niedriger Widerstand. Bei Dunkelheit: hoher Widerstand.</p>
+    <ul>
+      <li><strong>Anschluss:</strong> Als Spannungsteiler mit 10 kΩ Festwiderstand: 5V → LDR → Knoten (zu A0) → 10 kΩ → GND</li>
+      <li><strong>Ausgabe:</strong> <code>analogRead(A0)</code> → ~0 (sehr dunkel) bis ~1023 (sehr hell)</li>
+      <li><strong>Anwendung:</strong> Automatisches Nachtlicht, Jalousie, Tag-/Nacht-Steuerung</li>
+    </ul>
+  </div>
+
+  <h4>Bewegungssensoren</h4>
+  <div class="component-card">
+    <h4>PIR-Sensor – Passiv-Infrarot-Bewegungssensor</h4>
+    <p>Erkennt die Infrarotstrahlung (Wärme) von Menschen und Tieren. "Passiv" bedeutet: er sendet nichts aus, empfängt nur.</p>
+    <ul>
+      <li><strong>Pins:</strong> VCC (5V), Signal (digital HIGH bei Bewegung), GND</li>
+      <li><strong>Ausgabe:</strong> Digital — HIGH (5V) bei Bewegung erkannt, LOW sonst</li>
+      <li><strong>Nachhaltezeit:</strong> Signal bleibt einige Sekunden HIGH nach letzter Erkennung</li>
+      <li><strong>Anwendung:</strong> Einbruchalarm, automatisches Licht, Besucherzähler, Benachrichtigungssystem</li>
+    </ul>
+  </div>
+  <div class="component-card">
+    <h4>Neigungsschalter (Tilt Sensor)</h4>
+    <p>Einfacher Schalter mit Quecksilber- oder Metallkugel, die bei Neigung Kontakte verbindet. Ideal für Sturzdetektion.</p>
+    <ul>
+      <li><strong>Ausgabe:</strong> Digital (HIGH/LOW) — geschlossen wenn geneigt</li>
+      <li><strong>Anwendung:</strong> Sturzerkennung, Erschütterungsalarm, Orientierungserkennung</li>
+    </ul>
+  </div>
+
+  <h4>Eingabe-Sensoren</h4>
+  <div class="component-card">
+    <h4>Potentiometer</h4>
+    <p>Ein drehbarer Widerstand mit 3 Anschlüssen. Ideal für analoge Eingaben (Lautstärke, Helligkeit, Winkel).</p>
+    <ul>
+      <li><strong>Pins:</strong> Links = GND, Mitte = Signal (zu A0), Rechts = 5V (oder umgekehrt)</li>
+      <li><strong>Ausgabe:</strong> <code>analogRead(A0)</code> → 0 bis 1023 (linear)</li>
+      <li><strong>Anwendung:</strong> Lautstärkeregler, Dimmer, Servo-Handsteuerung, Joystick</li>
+    </ul>
+  </div>
+  <div class="component-card">
+    <h4>Taster (Push Button)</h4>
+    <p>Druckschalter: gedrückt = Stromfluss, losgelassen = kein Strom. Benötigt Pull-down Widerstand!</p>
+    <ul>
+      <li><strong>Pull-down:</strong> 10 kΩ zwischen Signalpin und GND → definiert LOW wenn nicht gedrückt</li>
+      <li><strong>Intern Pull-up:</strong> <code>pinMode(pin, INPUT_PULLUP)</code> → kein externer Widerstand nötig, Logik invertiert (LOW = gedrückt)</li>
+      <li><strong>Anwendung:</strong> Start/Stop, Menünavigation, Ereignisauslöser, Zähler</li>
+    </ul>
+  </div>
+  <div class="component-card">
+    <h4>Flex-Sensor</h4>
+    <p>Flexibler Sensor — sein Widerstand ändert sich mit der Biegung. Flach: ~25 kΩ, stark gebogen: ~100 kΩ.</p>
+    <ul><li>Wie LDR anschließen (Spannungsteiler mit 47 kΩ)</li></ul>
+  </div>
+  <div class="component-card">
+    <h4>Force Sensor (FSR) – Kraftsensor</h4>
+    <p>Widerstand ändert sich mit ausgeübtem Druck. Kein Druck: ~1 MΩ, voller Druck: ~200 Ω.</p>
+    <ul><li>Wie LDR anschließen (Spannungsteiler mit 10 kΩ)</li></ul>
+  </div>
+
+  <h3 id="kap6-aktoren">6.2 Aktoren & Ausgabe</h3>
+
+  <div class="component-card">
+    <h4>LED – Light Emitting Diode</h4>
+    <p>Die häufigste Ausgabekomponente. Leuchtet wenn Strom in Durchlassrichtung fließt.</p>
+    <ul>
+      <li><strong>Anode (+):</strong> Längeres Bein → über Widerstand zum Arduino-Pin</li>
+      <li><strong>Kathode (−):</strong> Kürzeres Bein → zu GND</li>
+      <li><strong>Vorwiderstand PFLICHT:</strong> <code>R = (5V − U_LED) / 0.02A</code></li>
+      <li><strong>Standard:</strong> Rot/Gelb (U≈2V) → 150 Ω → nehme 220 Ω. Blau/Weiß (U≈3.2V) → 90 Ω → nehme 100 Ω.</li>
+    </ul>
+  </div>
+  <div class="component-card">
+    <h4>RGB-LED</h4>
+    <p>Drei LEDs (Rot, Grün, Blau) in einem Gehäuse. Durch Mischen beliebige Farben möglich (16 Millionen Farben mit PWM).</p>
+    <ul>
+      <li><strong>Gemeinsame Kathode (häufiger):</strong> 4 Pins: GND (lang), R, G, B — je ein 220 Ω Widerstand</li>
+      <li><strong>Farben mischen:</strong> <code>analogWrite()</code> für R/G/B auf drei PWM-Pins (0–255)</li>
+      <li>Gelb = R:255 G:200 B:0 | Lila = R:255 G:0 B:255 | Weiß = R:255 G:255 B:255</li>
+    </ul>
+  </div>
+  <div class="component-card">
+    <h4>7-Segment-Anzeige</h4>
+    <p>Zeigt Zahlen 0–9 und einige Buchstaben. Besteht aus 7 LEDs (Segmente a–g) und optionalem Dezimalpunkt (dp).</p>
+    <ul>
+      <li><strong>Varianten:</strong> Gemeinsame Anode (GND durch Segment schaltet) oder gemeinsame Kathode (5V durch Segment schaltet)</li>
+      <li><strong>Benötigt:</strong> 7–8 digitale Pins (oder Schieberegister 74HC595 für nur 3 Pins)</li>
+    </ul>
+  </div>
+  <div class="component-card">
+    <h4>LCD 16×2 – Flüssigkristallanzeige</h4>
+    <p>Zeigt 2 Zeilen à 16 Zeichen. Standard-Display für Arduino-Projekte. Günstig und einfach zu bedienen.</p>
+    <ul>
+      <li><strong>Bibliothek:</strong> <code>#include &lt;LiquidCrystal.h&gt;</code></li>
+      <li><strong>Anschluss:</strong> 4-Bit-Modus benötigt 6 Arduino-Pins (RS, EN, D4–D7)</li>
+      <li><strong>Kontrast:</strong> Potentiometer am VO-Pin einstellen (muss justiert werden!)</li>
+      <li><strong>Anwendung:</strong> Temperaturanzeige, Statusmeldungen, Menüs, einfache Spielanzeigen</li>
+    </ul>
+  </div>
+  <div class="component-card">
+    <h4>Servo-Motor SG90</h4>
+    <p>Dreht sich präzise auf einen bestimmten Winkel (0–180°). Hat eingebaute Positions-Rückmeldung — dreht genau dahin, wohin man sagt.</p>
+    <ul>
+      <li><strong>Pins:</strong> Braun = GND, Rot = 5V, Orange = Signal (PWM-Pin)</li>
+      <li><strong>Bibliothek:</strong> <code>#include &lt;Servo.h&gt;</code></li>
+      <li><strong>Stromaufnahme:</strong> 100–250 mA → bei mehreren Servos externe Stromversorgung empfohlen!</li>
+      <li><strong>Anwendung:</strong> Roboterarm, Schloss, Klappe, Zeiger, Lenkmechanismus</li>
+    </ul>
+  </div>
+  <div class="component-card">
+    <h4>DC-Motor (Gleichstrommotor)</h4>
+    <p>Dreht sich kontinuierlich. Benötigt einen Motortreiber (H-Brücke), da der Arduino-Pin max. 40 mA liefert, Motoren aber viel mehr brauchen.</p>
+    <ul>
+      <li><strong>Motortreiber:</strong> L293D (steuert 2 Motoren, bis 600 mA je Motor)</li>
+      <li><strong>Drehrichtung:</strong> Durch Umkehren der Spannung</li>
+      <li><strong>Geschwindigkeit:</strong> Durch PWM auf Enable-Pin</li>
+    </ul>
+  </div>
+  <div class="component-card">
+    <h4>Piezo-Buzzer</h4>
+    <p>Erzeugt Töne durch schnelles elektrisches Vibrieren einer Piezokeramik. Zwei Arten:</p>
+    <ul>
+      <li><strong>Aktiver Buzzer:</strong> Hat eigene Schaltung — gibt immer gleichen Ton aus. <code>digitalWrite(pin, HIGH)</code> reicht.</li>
+      <li><strong>Passiver Buzzer (Tinkercad Standard):</strong> Frequenz von außen vorgeben — ideal für Melodien. Befehl: <code>tone(pin, frequenz, dauer)</code></li>
+      <li><strong>Noten:</strong> Alle Frequenzen in der Tabelle unten</li>
+    </ul>
+    <table style="margin-top:10px">
+      <tr><th>Note</th><th>Hz</th><th>Note</th><th>Hz</th><th>Note</th><th>Hz</th></tr>
+      <tr><td>C3</td><td>131</td><td>C4 (mittl.)</td><td>262</td><td>C5</td><td>523</td></tr>
+      <tr><td>D3</td><td>147</td><td>D4</td><td>294</td><td>D5</td><td>587</td></tr>
+      <tr><td>E3</td><td>165</td><td>E4</td><td>330</td><td>E5</td><td>659</td></tr>
+      <tr><td>F3</td><td>175</td><td>F4</td><td>349</td><td>F5</td><td>698</td></tr>
+      <tr><td>G3</td><td>196</td><td>G4</td><td>392</td><td>G5</td><td>784</td></tr>
+      <tr><td>A3</td><td>220</td><td>A4 (Kammerton)</td><td>440</td><td>A5</td><td>880</td></tr>
+      <tr><td>H3/B3</td><td>247</td><td>H4/B4</td><td>494</td><td>H5/B5</td><td>988</td></tr>
+    </table>
+    <pre style="margin-top:10px"><code><span class="cm">// Melodie: Für Elise (Anfang)</span>
+<span class="kw">int</span> noten[] = {<span class="num">659</span>,<span class="num">623</span>,<span class="num">659</span>,<span class="num">623</span>,<span class="num">659</span>,<span class="num">494</span>,<span class="num">587</span>,<span class="num">523</span>,<span class="num">440</span>,<span class="num">0</span>,
+               <span class="num">262</span>,<span class="num">330</span>,<span class="num">440</span>,<span class="num">494</span>,<span class="num">0</span>,<span class="num">330</span>,<span class="num">415</span>,<span class="num">494</span>,<span class="num">523</span>};
+<span class="kw">int</span> dauer[]  = {<span class="num">150</span>,<span class="num">150</span>,<span class="num">150</span>,<span class="num">150</span>,<span class="num">150</span>,<span class="num">150</span>,<span class="num">150</span>,<span class="num">150</span>,<span class="num">300</span>,<span class="num">150</span>,
+               <span class="num">150</span>,<span class="num">150</span>,<span class="num">300</span>,<span class="num">150</span>,<span class="num">150</span>,<span class="num">150</span>,<span class="num">150</span>,<span class="num">300</span>};
+<span class="kw">for</span> (<span class="tp">int</span> i=<span class="num">0</span>; i<<span class="num">19</span>; i++) {
+  <span class="kw">if</span>(noten[i]>0) <span class="fn">tone</span>(<span class="num">8</span>, noten[i], dauer[i]);
+  <span class="fn">delay</span>(dauer[i]+<span class="num">30</span>);
+  <span class="fn">noTone</span>(<span class="num">8</span>);
+}</code></pre>
+  </div>
+  <div class="component-card">
+    <h4>LCD 16×2 mit I2C-Adapter (nur 2 Drähte!)</h4>
+    <p>Der I2C-Backpack (Adresse 0x27 oder 0x3F) reduziert die Verbindungen von 6 auf nur 2 Datenleitungen (SDA + SCL). In Tinkercad als separates Modul: "LCD 16x2 + I2C".</p>
+    <ul>
+      <li><strong>Verbindung:</strong> VCC → 5V | GND → GND | SDA → A4 | SCL → A5</li>
+      <li><strong>Bibliothek:</strong> <code>#include &lt;LiquidCrystal_I2C.h&gt;</code> (in Tinkercad als "LiquidCrystal I2C" suchen)</li>
+    </ul>
+    <pre><code>#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+
+LiquidCrystal_I2C lcd(<span class="num">0x27</span>, <span class="num">16</span>, <span class="num">2</span>);   <span class="cm">// Adresse 0x27, 16 Spalten, 2 Zeilen</span>
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  lcd.<span class="fn">init</span>();
+  lcd.<span class="fn">backlight</span>();        <span class="cm">// Hintergrundlicht an</span>
+  lcd.<span class="fn">setCursor</span>(<span class="num">0</span>, <span class="num">0</span>);
+  lcd.<span class="fn">print</span>(<span class="str">"Hallo I2C!"</span>);
+  lcd.<span class="fn">setCursor</span>(<span class="num">0</span>, <span class="num">1</span>);
+  lcd.<span class="fn">print</span>(<span class="str">"Nur 2 Kabel :)"</span>);
+}
+<span class="tp">void</span> <span class="fn">loop</span>() {}</code></pre>
+    <div class="tip">Falls das Display nichts anzeigt: Adresse prüfen! Viele Module haben 0x3F statt 0x27. Einfach im Code tauschen und neu simulieren.</div>
+  </div>
+  <div class="component-card">
+    <h4>Relais</h4>
+    <p>Ein elektronisch schaltbarer mechanischer Schalter. Mit 5V-Signal (vom Arduino) größere Lasten schalten — in echter Hardware auch 230V Steckdosen, 12V Motoren etc. In Tinkercad nur simuliert.</p>
+    <ul>
+      <li><strong>Pins:</strong> VCC (5V), GND, IN (Steuerpin vom Arduino), NO (normally open), COM, NC (normally closed)</li>
+      <li><strong>Anwendung:</strong> Hausgeräte schalten, Heizung, Pumpen, Türöffner</li>
+    </ul>
+  </div>
+
+  <h3 id="kap6-passiv">6.3 Passive Bauteile</h3>
+
+  <h4>Widerstand – Farbcode lesen</h4>
+  <p>Widerstände werden durch farbige Ringe codiert. Bei 4-Ring-Widerständen: Ring 1 = 1. Ziffer, Ring 2 = 2. Ziffer, Ring 3 = Multiplikator, Ring 4 = Toleranz.</p>
+  <table>
+    <tr><th>Farbe</th><th>Ziffer</th><th>Multiplikator</th><th>Toleranz</th></tr>
+    <tr><td>Schwarz</td><td>0</td><td>×1</td><td>–</td></tr>
+    <tr><td>Braun</td><td>1</td><td>×10</td><td>±1%</td></tr>
+    <tr><td>Rot</td><td>2</td><td>×100</td><td>±2%</td></tr>
+    <tr><td>Orange</td><td>3</td><td>×1.000</td><td>–</td></tr>
+    <tr><td>Gelb</td><td>4</td><td>×10.000</td><td>–</td></tr>
+    <tr><td>Grün</td><td>5</td><td>×100.000</td><td>±0.5%</td></tr>
+    <tr><td>Blau</td><td>6</td><td>×1.000.000</td><td>±0.25%</td></tr>
+    <tr><td>Violett</td><td>7</td><td>–</td><td>±0.1%</td></tr>
+    <tr><td>Grau</td><td>8</td><td>–</td><td>–</td></tr>
+    <tr><td>Weiß</td><td>9</td><td>–</td><td>–</td></tr>
+    <tr><td>Gold</td><td>–</td><td>×0.1</td><td>±5%</td></tr>
+    <tr><td>Silber</td><td>–</td><td>×0.01</td><td>±10%</td></tr>
+  </table>
+  <div class="note">Beispiel: Rot-Rot-Braun-Gold = 2-2-×10-±5% = 220 Ω ±5% (das ist der Standard-LED-Vorwiderstand!)</div>
+  <div class="note">Merkhilfe: <strong>S</strong>chwarz <strong>B</strong>raun <strong>R</strong>ot <strong>O</strong>range <strong>G</strong>elb <strong>G</strong>rün <strong>B</strong>lau <strong>V</strong>iolett <strong>G</strong>rau <strong>W</strong>eiß → "Sei bereit, rohes Obst genüsslich blau-violett grau-weiß zu verzehren"</div>
+
+  <div class="resistance-calc">
+    <h4>Widerstandswert-Rechner (Farbcode → Ohm)</h4>
+    <p>Ring 1: <select id="r1" onchange="calcR()">
+      <option value="0" style="background:#222;color:#fff">Schwarz (0)</option>
+      <option value="1" style="background:#7B3F00;color:#fff">Braun (1)</option>
+      <option value="2" style="background:#e53e3e;color:#fff" selected>Rot (2)</option>
+      <option value="3" style="background:#dd6b20;color:#fff">Orange (3)</option>
+      <option value="4" style="background:#d69e2e;color:#fff">Gelb (4)</option>
+      <option value="5" style="background:#38a169;color:#fff">Grün (5)</option>
+      <option value="6" style="background:#3182ce;color:#fff">Blau (6)</option>
+      <option value="7" style="background:#805ad5;color:#fff">Violett (7)</option>
+      <option value="8" style="background:#718096;color:#fff">Grau (8)</option>
+      <option value="9" style="background:#fff;color:#222">Weiß (9)</option>
+    </select>
+    Ring 2: <select id="r2" onchange="calcR()">
+      <option value="0" style="background:#222;color:#fff">Schwarz (0)</option>
+      <option value="1" style="background:#7B3F00;color:#fff">Braun (1)</option>
+      <option value="2" style="background:#e53e3e;color:#fff" selected>Rot (2)</option>
+      <option value="3" style="background:#dd6b20;color:#fff">Orange (3)</option>
+      <option value="4" style="background:#d69e2e;color:#fff">Gelb (4)</option>
+      <option value="5" style="background:#38a169;color:#fff">Grün (5)</option>
+      <option value="6" style="background:#3182ce;color:#fff">Blau (6)</option>
+      <option value="7" style="background:#805ad5;color:#fff">Violett (7)</option>
+      <option value="8" style="background:#718096;color:#fff">Grau (8)</option>
+      <option value="9" style="background:#fff;color:#222">Weiß (9)</option>
+    </select>
+    Multiplikator: <select id="r3" onchange="calcR()">
+      <option value="1">Schwarz × 1</option>
+      <option value="10" selected>Braun × 10</option>
+      <option value="100">Rot × 100</option>
+      <option value="1000">Orange × 1.000</option>
+      <option value="10000">Gelb × 10.000</option>
+      <option value="100000">Grün × 100.000</option>
+      <option value="0.1">Gold × 0.1</option>
+      <option value="0.01">Silber × 0.01</option>
+    </select></p>
+    <div class="result" id="rcalc-result">= 220 Ω</div>
+  </div>
+
+  <div class="component-card">
+    <h4>Kondensator (Capacitor)</h4>
+    <p>Speichert elektrische Energie kurzfristig. Kann Spannungsspitzen dämpfen und Energiepuffer sein.</p>
+    <ul>
+      <li><strong>Elektrolyt-Kondensator:</strong> Polarisiert (+ und − beachten!), große Kapazitäten (1 µF bis 10.000 µF). Langer Pin = +.</li>
+      <li><strong>Keramik-Kondensator:</strong> Nicht polarisiert, kleine Kapazitäten (1 pF bis 1 µF). Gut für Entstörung.</li>
+      <li><strong>Einheit:</strong> Farad (F). Üblich: µF (Mikrofarad = 10⁻⁶ F), nF (Nanofarad), pF (Pikofarad).</li>
+      <li><strong>Anwendung:</strong> Spannungsstabilisierung, RC-Tiefpass-Filter, Timer mit 555</li>
+    </ul>
+  </div>
+  <div class="component-card">
+    <h4>Transistor NPN (2N2222, BC547)</h4>
+    <p>Elektronisch steuerbarer Schalter. Mit wenig Basisstrom (ca. 1 mA) einen größeren Kollektorstrom (bis 600 mA) schalten.</p>
+    <ul>
+      <li><strong>Pins:</strong> Basis (B) = Steuereingang, Kollektor (C) = Ausgang+, Emitter (E) = Ausgang−/GND</li>
+      <li><strong>Basiswiderstand:</strong> 1 kΩ von Arduino-Pin zur Basis</li>
+      <li><strong>Anwendung:</strong> Motoren und LEDs schalten, Relais ansteuern, Verstärker</li>
+    </ul>
+  </div>
+  <div class="component-card">
+    <h4>Diode (1N4007)</h4>
+    <p>Lässt Strom nur in eine Richtung fließen. Wichtig als Schutzdiode an Motoren/Relais (Freilaufdiode gegen Induktionsspitzen).</p>
+  </div>
+
+  <h3 id="kap6-ics">6.4 Integrierte Schaltkreise (ICs)</h3>
+
+  <div class="component-card">
+    <h4>555-Timer</h4>
+    <p>Einer der meistverkauften Chips der Welt (~1 Milliarde Stück/Jahr). Extrem vielseitig für Zeit- und Frequenzanwendungen.</p>
+    <ul>
+      <li><strong>Astabiler Modus:</strong> Blinkt/oscilliert kontinuierlich. Frequenz: <code>f = 1.44 / ((R1 + 2×R2) × C)</code></li>
+      <li><strong>Monostabiler Modus:</strong> Gibt einen einzigen Impuls aus. Dauer: <code>t = 1.1 × R × C</code></li>
+      <li><strong>Anwendung:</strong> Blinker, Ton-Generator, Zeitschalter, PWM ohne Arduino</li>
+    </ul>
+  </div>
+  <div class="component-card">
+    <h4>74HC595 – Schieberegister</h4>
+    <p>Erweitert die Ausgänge des Arduino: 3 Pins steuern 8 Ausgänge. Mehrere kaskadierbar (3 Pins → 16/24/32... Ausgänge).</p>
+    <ul>
+      <li><strong>Arduino-Funktion:</strong> <code>shiftOut(dataPin, clockPin, MSBFIRST, byteWert);</code></li>
+      <li><strong>Anwendung:</strong> Viele LEDs, 7-Segment-Displays, LED-Matrizen</li>
+    </ul>
+  </div>
+  <div class="component-card">
+    <h4>L293D – H-Brücke (Motortreiber)</h4>
+    <p>Ermöglicht DC-Motoren in beide Richtungen zu drehen und Geschwindigkeit per PWM zu regeln. Steuert 2 Motoren gleichzeitig.</p>
+    <ul>
+      <li><strong>Max. Strom:</strong> 600 mA pro Kanal (Spitze 1.2 A)</li>
+      <li><strong>Betriebsspannung Motor:</strong> 4.5 V bis 36 V (separate Versorgung!)</li>
+      <li><strong>Anwendung:</strong> Roboter, Fahrzeuge, Lüfter, Pumpen</li>
+    </ul>
+  </div>
+  <div class="component-card">
+    <h4>LM741 – Operationsverstärker (Op-Amp)</h4>
+    <p>Klassischer Operationsverstärker zum Verstärken, Vergleichen oder Berechnen von Analogsignalen.</p>
+  </div>
+  <div class="component-card">
+    <h4>LM7805 – Spannungsregler 5V</h4>
+    <p>Wandelt 7–35 V stabil in 5 V um. Für eigene Stromversorgung außerhalb von Tinkercad. Braucht Kühlkörper bei hohem Strom.</p>
+  </div>
+</div>
+
+<!-- KAPITEL 7 -->
+<div class="section" id="kap7">
+  <div class="chapter-badge">Kapitel 7</div>
+  <h2>Schaltkreis-Theorie</h2>
+
+  <h3 id="kap7-ohm">Das Ohmsche Gesetz</h3>
+  <p>Das <strong>Ohmsche Gesetz</strong> ist die wichtigste Formel der Elektronik. Formuliert von Georg Simon Ohm (1827). Es beschreibt den Zusammenhang zwischen Spannung (U), Strom (I) und Widerstand (R):</p>
+
+  <div style="text-align:center; background: var(--dark-blue); color: white; padding: 24px; border-radius: 10px; font-size: 1.4rem; font-weight: 700; margin: 16px 0; letter-spacing: 1px;">
+    U = R × I &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; I = U / R &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; R = U / I
+  </div>
+
+  <table>
+    <tr><th>Größe</th><th>Einheit</th><th>Symbol</th><th>Erklärung</th></tr>
+    <tr><td>Spannung</td><td>Volt (V)</td><td>U</td><td>Der "Druck" im Stromkreis — Antriebskraft für Elektronen</td></tr>
+    <tr><td>Strom</td><td>Ampere (A)</td><td>I</td><td>Wieviel Ladung pro Sekunde fließt (Stärke des Flusses)</td></tr>
+    <tr><td>Widerstand</td><td>Ohm (Ω)</td><td>R</td><td>Wie stark der Stromfluss behindert wird</td></tr>
+    <tr><td>Leistung</td><td>Watt (W)</td><td>P</td><td>P = U × I — verbrauchte elektrische Leistung</td></tr>
+  </table>
+
+  <h4>LED-Vorwiderstand berechnen</h4>
+  <p>Gegeben: Arduino 5V, rote LED (Durchlassspannung U_LED = 2V, empfohlener Strom I = 20 mA = 0.02 A)</p>
+  <pre><code>R = (U_Versorgung - U_LED) / I_LED
+R = (5V - 2V) / 0.02A
+R = 3V / 0.02A = 150 Ω → nächster Standardwert: 220 Ω
+
+Verlustleistung: P = (U_Versorgung - U_LED) × I = 3V × 0.02A = 60 mW</code></pre>
+
+  <h3 id="kap7-schaltungen">Reihen- und Parallelschaltung</h3>
+  <table>
+    <tr><th>Eigenschaft</th><th>Reihenschaltung</th><th>Parallelschaltung</th></tr>
+    <tr><td>Strom</td><td>Überall gleich (I₁ = I₂ = I)</td><td>Teilt sich auf (I = I₁ + I₂)</td></tr>
+    <tr><td>Spannung</td><td>Teilt sich auf (U = U₁ + U₂)</td><td>Überall gleich (U₁ = U₂ = U)</td></tr>
+    <tr><td>Widerstand gesamt</td><td>Addiert: R = R₁ + R₂</td><td>Kleiner als kleinster: 1/R = 1/R₁ + 1/R₂</td></tr>
+    <tr><td>Typisches Beispiel</td><td>LED mit Vorwiderstand</td><td>Mehrere LEDs direkt an 5V/GND</td></tr>
+    <tr><td>Ausfall einer Komponente</td><td>Alle gehen aus</td><td>Rest läuft weiter</td></tr>
+  </table>
+
+  <h3 id="kap7-pwm">PWM – Pulsweiten-Modulation</h3>
+  <p>PWM simuliert analoge Ausgangsspannungen mit digitalen Mitteln. Der Pin schaltet sehr schnell (490–980 Hz) zwischen HIGH und LOW. Das Verhältnis Ein-Zeit zu Gesamt-Zeit heißt <strong>Duty Cycle</strong>.</p>
+
+  <table>
+    <tr><th>analogWrite()</th><th>Duty Cycle</th><th>Effektive Spannung</th><th>Wirkung auf LED</th></tr>
+    <tr><td>0</td><td>0%</td><td>0V</td><td>Aus</td></tr>
+    <tr><td>64</td><td>25%</td><td>~1.25V</td><td>Sehr schwach</td></tr>
+    <tr><td>128</td><td>50%</td><td>~2.5V</td><td>Halbe Helligkeit</td></tr>
+    <tr><td>192</td><td>75%</td><td>~3.75V</td><td>Dreiviertel hell</td></tr>
+    <tr><td>255</td><td>100%</td><td>5V</td><td>Volle Helligkeit</td></tr>
+  </table>
+
+  <h3>I2C-Bus</h3>
+  <p>I2C (Inter-Integrated Circuit, "I-Quadrat-C") ermöglicht es, viele Geräte mit nur 2 Drähten zu verbinden:</p>
+  <ul>
+    <li><strong>SDA (Serial Data):</strong> Daten-Leitung → Arduino A4 (Uno) / Pin 20 (Mega)</li>
+    <li><strong>SCL (Serial Clock):</strong> Takt-Leitung → Arduino A5 (Uno) / Pin 21 (Mega)</li>
+    <li>Jedes Gerät hat eine eigene <strong>Adresse</strong> (7-bit, z.B. 0x27 für LCD mit I2C-Backpack)</li>
+    <li>Bis zu 127 verschiedene Adressen gleichzeitig möglich!</li>
+    <li><strong>Pull-up Widerstände</strong> (4.7 kΩ) auf SDA und SCL zu 5V nötig</li>
+  </ul>
+
+  <h3>SPI-Bus</h3>
+  <p>SPI (Serial Peripheral Interface) ist schneller als I2C aber braucht mehr Drähte:</p>
+  <ul>
+    <li><strong>MOSI:</strong> Master Out Slave In → Daten vom Arduino zum Gerät</li>
+    <li><strong>MISO:</strong> Master In Slave Out → Daten vom Gerät zum Arduino</li>
+    <li><strong>SCK:</strong> Takt-Leitung</li>
+    <li><strong>SS/CS:</strong> Chip Select — wählt das angesprochene Gerät aus</li>
+  </ul>
+
+  <h3>Pull-up und Pull-down Widerstände</h3>
+  <p>Ohne Pull-up/Pull-down "schwimmt" ein nicht verbundener Eingang zwischen HIGH und LOW — gibt zufällige Werte. Ein Widerstand "zieht" den Eingang auf einen definierten Pegel:</p>
+  <table>
+    <tr><th>Variante</th><th>Schaltung</th><th>Zustand ohne Eingabe</th><th>Zustand mit Taster</th></tr>
+    <tr><td>Pull-down (10 kΩ)</td><td>Signal-Pin → 10 kΩ → GND</td><td>LOW (0V)</td><td>HIGH (5V)</td></tr>
+    <tr><td>Pull-up extern (10 kΩ)</td><td>Signal-Pin → 10 kΩ → 5V</td><td>HIGH (5V)</td><td>LOW (0V) bei Taster zu GND</td></tr>
+    <tr><td>Pull-up intern</td><td><code>INPUT_PULLUP</code></td><td>HIGH (5V)</td><td>LOW wenn Taster zu GND</td></tr>
+  </table>
+</div>
+
+<!-- KAPITEL 8: PROJEKTE -->
+<div class="section" id="kap8">
+  <div class="chapter-badge">Kapitel 8</div>
+  <h2>Schritt-für-Schritt Projekte</h2>
+  <p>Alle 12 Projekte sind vollständig in Tinkercad Circuits nachbaubar. Lesen Sie jede Verbindungstabelle sorgfältig, bevor Sie mit dem Code beginnen. Die Projekte bauen aufeinander auf — empfehlenswert der Reihe nach.</p>
+
+  <div class="toc-grid">
+    <div class="toc-card"><a href="#proj1">P1: Blinkende LED</a><p>Einsteiger | 10 Min</p></div>
+    <div class="toc-card"><a href="#proj2">P2: LED mit Taster</a><p>Einsteiger | 15 Min</p></div>
+    <div class="toc-card"><a href="#proj3">P3: Lauflicht</a><p>Einsteiger | 20 Min</p></div>
+    <div class="toc-card"><a href="#proj4">P4: PWM Dimmer</a><p>Einsteiger | 15 Min</p></div>
+    <div class="toc-card"><a href="#proj5">P5: Temperaturmessung</a><p>Einsteiger | 20 Min</p></div>
+    <div class="toc-card"><a href="#proj6">P6: Ultraschall-Warner</a><p>Mittel | 25 Min</p></div>
+    <div class="toc-card"><a href="#proj7">P7: Ampel</a><p>Mittel | 30 Min</p></div>
+    <div class="toc-card"><a href="#proj8">P8: Servo-Motor</a><p>Mittel | 20 Min</p></div>
+    <div class="toc-card"><a href="#proj9">P9: LCD-Display</a><p>Mittel | 35 Min</p></div>
+    <div class="toc-card"><a href="#proj10">P10: Bewegungsalarm</a><p>Mittel | 25 Min</p></div>
+    <div class="toc-card"><a href="#proj11">P11: Mini-Wetterstation</a><p>Fortgeschritten | 45 Min</p></div>
+    <div class="toc-card"><a href="#proj12">P12: DC-Motor Steuerung</a><p>Fortgeschritten | 40 Min</p></div>
+  </div>
+</div>
+
+<!-- PROJEKT 1 -->
+<div class="section" id="proj1">
+  <div class="project-header">
+    <div class="chapter-badge" style="background:rgba(255,255,255,0.2)">Projekt 1</div>
+    <h2 style="color:white;border:none;padding:0;margin:8px 0">Blinkende LED – Hello World!</h2>
+    <div class="project-meta"><span>Einsteiger</span><span>10 Minuten</span><span>2 Bauteile</span></div>
+  </div>
+  <p>Das "Hallo Welt" der Elektronik! Eine LED blinkt im Sekundentakt — einfach, aber der perfekte Einstieg in Tinkercad und Arduino.</p>
+  <h3>Benötigte Bauteile</h3>
+  <table>
+    <tr><th>Bauteil</th><th>Wert</th><th>Anzahl</th></tr>
+    <tr><td>Arduino Uno R3</td><td>–</td><td>1</td></tr>
+    <tr><td>LED</td><td>Rot oder beliebige Farbe</td><td>1</td></tr>
+    <tr><td>Widerstand</td><td>220 Ω</td><td>1</td></tr>
+  </table>
+  <h3>Verbindungen</h3>
+  <table>
+    <tr><th>Von</th><th>Nach</th><th>Drahtfarbe</th></tr>
+    <tr><td>Arduino Pin 13</td><td>Widerstand (ein Ende)</td><td>Gelb</td></tr>
+    <tr><td>Widerstand (anderes Ende)</td><td>LED Anode (+, langes Bein)</td><td>Gelb</td></tr>
+    <tr><td>LED Kathode (−, kurzes Bein)</td><td>Arduino GND</td><td>Schwarz</td></tr>
+  </table>
+  <div class="step"><div class="step-num">1</div><div class="step-content">Arduino Uno auf Arbeitsfläche ziehen</div></div>
+  <div class="step"><div class="step-num">2</div><div class="step-content">LED platzieren — Anode (langes Bein) zeigt Richtung Arduino</div></div>
+  <div class="step"><div class="step-num">3</div><div class="step-content">Widerstand 220 Ω platzieren (Klick auf Widerstand → Wert "220" eingeben)</div></div>
+  <div class="step"><div class="step-num">4</div><div class="step-content">Verbindungen gemäß Tabelle ziehen</div></div>
+  <div class="step"><div class="step-num">5</div><div class="step-content">Code eingeben → Simulation starten</div></div>
+  <h3>Code</h3>
+  <pre><code><span class="cm">// Projekt 1: Blinkende LED</span>
+<span class="kw">const int</span> LED_PIN = <span class="num">13</span>;
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  <span class="fn">pinMode</span>(LED_PIN, OUTPUT);
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="fn">digitalWrite</span>(LED_PIN, HIGH);  <span class="cm">// LED an</span>
+  <span class="fn">delay</span>(<span class="num">1000</span>);                   <span class="cm">// 1 Sekunde warten</span>
+  <span class="fn">digitalWrite</span>(LED_PIN, LOW);   <span class="cm">// LED aus</span>
+  <span class="fn">delay</span>(<span class="num">1000</span>);                   <span class="cm">// 1 Sekunde warten</span>
+}</code></pre>
+  <div class="tip">Tipp: Pin 13 hat eine eingebaute LED auf dem Arduino-Board — Sie können das Projekt ohne externe LED testen, indem Sie die LED-L auf dem Arduino beobachten!</div>
+  <h3>Variationen</h3>
+  <ul>
+    <li><strong>Herzschlag:</strong> delay(100), delay(100), delay(800) — zweimaliges kurzes Blinken</li>
+    <li><strong>SOS:</strong> 3× kurz (200ms), 3× lang (600ms), 3× kurz</li>
+    <li><strong>Schneller/langsamer:</strong> delay(200) = schnell, delay(2000) = langsam</li>
+  </ul>
+</div>
+
+<!-- PROJEKT 2 -->
+<div class="section" id="proj2">
+  <div class="project-header">
+    <div class="chapter-badge" style="background:rgba(255,255,255,0.2)">Projekt 2</div>
+    <h2 style="color:white;border:none;padding:0;margin:8px 0">LED mit Taster steuern</h2>
+    <div class="project-meta"><span>Einsteiger</span><span>15 Minuten</span><span>4 Bauteile</span></div>
+  </div>
+  <p>Taster gedrückt → LED leuchtet. Losgelassen → LED aus. Sie lernen digitale Eingaben zu lesen.</p>
+  <h3>Benötigte Bauteile</h3>
+  <table>
+    <tr><th>Bauteil</th><th>Wert</th><th>Anzahl</th></tr>
+    <tr><td>Arduino Uno R3</td><td>–</td><td>1</td></tr>
+    <tr><td>LED</td><td>beliebige Farbe</td><td>1</td></tr>
+    <tr><td>Widerstand (LED)</td><td>220 Ω</td><td>1</td></tr>
+    <tr><td>Taster</td><td>–</td><td>1</td></tr>
+    <tr><td>Widerstand (Pull-down)</td><td>10 kΩ</td><td>1</td></tr>
+  </table>
+  <table>
+    <tr><th>Von</th><th>Nach</th><th>Drahtfarbe</th></tr>
+    <tr><td>Arduino 5V</td><td>Taster (eine Seite)</td><td>Rot</td></tr>
+    <tr><td>Taster (andere Seite)</td><td>Arduino Pin 2 UND 10 kΩ</td><td>Blau</td></tr>
+    <tr><td>10 kΩ (anderes Ende)</td><td>Arduino GND</td><td>Schwarz</td></tr>
+    <tr><td>Arduino Pin 13</td><td>220 Ω → LED Anode</td><td>Gelb</td></tr>
+    <tr><td>LED Kathode</td><td>Arduino GND</td><td>Schwarz</td></tr>
+  </table>
+  <pre><code><span class="kw">const int</span> TASTER = <span class="num">2</span>, LED = <span class="num">13</span>;
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  <span class="fn">pinMode</span>(TASTER, INPUT);
+  <span class="fn">pinMode</span>(LED, OUTPUT);
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="kw">if</span> (<span class="fn">digitalRead</span>(TASTER) == HIGH) {
+    <span class="fn">digitalWrite</span>(LED, HIGH);  <span class="cm">// Taster gedrückt → LED an</span>
+  } <span class="kw">else</span> {
+    <span class="fn">digitalWrite</span>(LED, LOW);   <span class="cm">// Taster los → LED aus</span>
+  }
+}</code></pre>
+  <div class="tip">Kurzform: <code>digitalWrite(LED, digitalRead(TASTER));</code> macht genau dasselbe in einer Zeile.</div>
+  <div class="note">Erweiterung: Toggle-Funktion — Taster einmal drücken → LED bleibt AN; nochmals drücken → LED geht AUS. Dafür benötigt man eine Variable die den Zustand speichert.</div>
+</div>
+
+<!-- PROJEKT 3 -->
+<div class="section" id="proj3">
+  <div class="project-header">
+    <div class="chapter-badge" style="background:rgba(255,255,255,0.2)">Projekt 3</div>
+    <h2 style="color:white;border:none;padding:0;margin:8px 0">Lauflicht – 5 LEDs</h2>
+    <div class="project-meta"><span>Einsteiger</span><span>20 Minuten</span><span>10 Bauteile</span></div>
+  </div>
+  <p>5 LEDs leuchten nacheinander vor und zurück — klassisches Knight-Rider-Lauflicht. Hier lernen Sie Arrays und for-Schleifen.</p>
+  <img src="tinkercad/4541672b.jpg" alt="Arduino Uno mit 5 farbigen LEDs und Widerständen auf Breadboard" class="screenshot">
+  <p class="screenshot-caption">Typische Lauflicht-Schaltung: Arduino Uno + Breadboard mit 5 bunten LEDs (gelb, rot, grün, blau, braun) je mit 220 Ω Vorwiderstand</p>
+  <h3>Benötigte Bauteile</h3>
+  <table>
+    <tr><th>Bauteil</th><th>Wert</th><th>Anzahl</th></tr>
+    <tr><td>Arduino Uno R3</td><td>–</td><td>1</td></tr>
+    <tr><td>LED</td><td>verschiedene Farben empfohlen</td><td>5</td></tr>
+    <tr><td>Widerstand</td><td>220 Ω je LED</td><td>5</td></tr>
+  </table>
+  <p>Verbinden: Pin 8 → 220Ω → LED1, Pin 9 → LED2, Pin 10 → LED3, Pin 11 → LED4, Pin 12 → LED5. Alle LED-Kathoden zu GND.</p>
+  <pre><code><span class="kw">const int</span> pins[] = {<span class="num">8</span>, <span class="num">9</span>, <span class="num">10</span>, <span class="num">11</span>, <span class="num">12</span>};
+<span class="kw">const int</span> N = <span class="num">5</span>;
+<span class="kw">const int</span> PAUSE = <span class="num">120</span>;
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  <span class="kw">for</span> (<span class="tp">int</span> i = <span class="num">0</span>; i < N; i++) <span class="fn">pinMode</span>(pins[i], OUTPUT);
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="cm">// Vorwärts</span>
+  <span class="kw">for</span> (<span class="tp">int</span> i = <span class="num">0</span>; i < N; i++) {
+    <span class="fn">digitalWrite</span>(pins[i], HIGH); <span class="fn">delay</span>(PAUSE);
+    <span class="fn">digitalWrite</span>(pins[i], LOW);
+  }
+  <span class="cm">// Rückwärts</span>
+  <span class="kw">for</span> (<span class="tp">int</span> i = N-<span class="num">1</span>; i >= <span class="num">0</span>; i--) {
+    <span class="fn">digitalWrite</span>(pins[i], HIGH); <span class="fn">delay</span>(PAUSE);
+    <span class="fn">digitalWrite</span>(pins[i], LOW);
+  }
+}</code></pre>
+</div>
+
+<!-- PROJEKT 4 -->
+<div class="section" id="proj4">
+  <div class="project-header">
+    <div class="chapter-badge" style="background:rgba(255,255,255,0.2)">Projekt 4</div>
+    <h2 style="color:white;border:none;padding:0;margin:8px 0">Dimmbares Licht mit PWM</h2>
+    <div class="project-meta"><span>Einsteiger</span><span>15 Minuten</span><span>3 Bauteile</span></div>
+  </div>
+  <p>Mit einem Potentiometer die Helligkeit einer LED stufenlos von 0% bis 100% steuern.</p>
+  <table>
+    <tr><th>Von</th><th>Nach</th></tr>
+    <tr><td>Potentiometer links</td><td>GND</td></tr>
+    <tr><td>Potentiometer mitte</td><td>A0</td></tr>
+    <tr><td>Potentiometer rechts</td><td>5V</td></tr>
+    <tr><td>Pin 9 (~PWM)</td><td>220 Ω → LED Anode</td></tr>
+    <tr><td>LED Kathode</td><td>GND</td></tr>
+  </table>
+  <pre><code><span class="kw">const int</span> POT = A0, LED = <span class="num">9</span>;
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  <span class="fn">pinMode</span>(LED, OUTPUT);
+  Serial.<span class="fn">begin</span>(<span class="num">9600</span>);
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">int</span> rohwert = <span class="fn">analogRead</span>(POT);              <span class="cm">// 0–1023</span>
+  <span class="tp">int</span> hell = <span class="fn">map</span>(rohwert, <span class="num">0</span>, <span class="num">1023</span>, <span class="num">0</span>, <span class="num">255</span>); <span class="cm">// 0–255</span>
+  <span class="fn">analogWrite</span>(LED, hell);
+
+  Serial.<span class="fn">print</span>(<span class="str">"Pot: "</span>); Serial.<span class="fn">print</span>(rohwert);
+  Serial.<span class="fn">print</span>(<span class="str">"  Hell: "</span>); Serial.<span class="fn">println</span>(hell);
+  <span class="fn">delay</span>(<span class="num">50</span>);
+}</code></pre>
+  <div class="tip">Im Serial Monitor von Tinkercad sehen Sie während der Simulation die aktuellen Werte in Echtzeit!</div>
+</div>
+
+<!-- PROJEKT 5 -->
+<div class="section" id="proj5">
+  <div class="project-header">
+    <div class="chapter-badge" style="background:rgba(255,255,255,0.2)">Projekt 5</div>
+    <h2 style="color:white;border:none;padding:0;margin:8px 0">Temperaturmessung mit TMP36</h2>
+    <div class="project-meta"><span>Einsteiger</span><span>20 Minuten</span><span>2 Bauteile</span></div>
+  </div>
+  <table>
+    <tr><th>TMP36 Pin</th><th>Arduino Pin</th></tr>
+    <tr><td>Links (VCC)</td><td>5V</td></tr>
+    <tr><td>Mitte (Signal)</td><td>A0</td></tr>
+    <tr><td>Rechts (GND)</td><td>GND</td></tr>
+  </table>
+  <pre><code><span class="tp">void</span> <span class="fn">setup</span>() { Serial.<span class="fn">begin</span>(<span class="num">9600</span>); }
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">int</span> roh = <span class="fn">analogRead</span>(A0);
+  <span class="tp">float</span> volt = roh * <span class="num">5.0</span> / <span class="num">1023.0</span>;      <span class="cm">// Spannung in Volt</span>
+  <span class="tp">float</span> temp = (volt - <span class="num">0.5</span>) * <span class="num">100.0</span>;   <span class="cm">// Celsius</span>
+
+  Serial.<span class="fn">print</span>(<span class="str">"Temp: "</span>);
+  Serial.<span class="fn">print</span>(temp, <span class="num">1</span>);
+  Serial.<span class="fn">println</span>(<span class="str">" C"</span>);
+  <span class="fn">delay</span>(<span class="num">1000</span>);
+}</code></pre>
+  <div class="tip">In Tinkercad: Klicken Sie während der Simulation auf den TMP36 → Schieberegler erscheint → Temperatur zwischen −40°C und +125°C einstellen!</div>
+</div>
+
+<!-- PROJEKT 6 -->
+<div class="section" id="proj6">
+  <div class="project-header">
+    <div class="chapter-badge" style="background:rgba(255,255,255,0.2)">Projekt 6</div>
+    <h2 style="color:white;border:none;padding:0;margin:8px 0">Ultraschall-Distanzwarner (HC-SR04)</h2>
+    <div class="project-meta"><span>Mittel</span><span>25 Minuten</span><span>4 Bauteile</span></div>
+  </div>
+  <p>Misst den Abstand zu einem Objekt und warnt mit Buzzer: je näher, desto schneller/höher.</p>
+  <table>
+    <tr><th>Bauteil/Pin</th><th>Arduino Pin</th></tr>
+    <tr><td>HC-SR04 VCC</td><td>5V</td></tr>
+    <tr><td>HC-SR04 GND</td><td>GND</td></tr>
+    <tr><td>HC-SR04 Trig</td><td>Pin 9</td></tr>
+    <tr><td>HC-SR04 Echo</td><td>Pin 10</td></tr>
+    <tr><td>Buzzer +</td><td>Pin 8</td></tr>
+    <tr><td>Buzzer −</td><td>GND</td></tr>
+  </table>
+  <pre><code><span class="kw">const int</span> TRIG=<span class="num">9</span>, ECHO=<span class="num">10</span>, BUZZ=<span class="num">8</span>;
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  <span class="fn">pinMode</span>(TRIG,OUTPUT); <span class="fn">pinMode</span>(ECHO,INPUT); <span class="fn">pinMode</span>(BUZZ,OUTPUT);
+  Serial.<span class="fn">begin</span>(<span class="num">9600</span>);
+}
+
+<span class="tp">float</span> <span class="fn">messen</span>() {
+  <span class="fn">digitalWrite</span>(TRIG,LOW);  <span class="fn">delayMicroseconds</span>(<span class="num">2</span>);
+  <span class="fn">digitalWrite</span>(TRIG,HIGH); <span class="fn">delayMicroseconds</span>(<span class="num">10</span>);
+  <span class="fn">digitalWrite</span>(TRIG,LOW);
+  <span class="kw">return</span> <span class="fn">pulseIn</span>(ECHO,HIGH) * <span class="num">0.034</span> / <span class="num">2</span>;
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">float</span> d = <span class="fn">messen</span>();
+  Serial.<span class="fn">print</span>(<span class="str">"Distanz: "</span>); Serial.<span class="fn">print</span>(d); Serial.<span class="fn">println</span>(<span class="str">" cm"</span>);
+
+  <span class="kw">if</span> (d < <span class="num">10</span>) {
+    <span class="fn">tone</span>(BUZZ, <span class="num">2000</span>);            <span class="cm">// sehr nah: Dauerton hoch</span>
+  } <span class="kw">else if</span> (d < <span class="num">30</span>) {
+    <span class="fn">tone</span>(BUZZ, <span class="num">800</span>, <span class="num">150</span>); <span class="fn">delay</span>(<span class="num">300</span>); <span class="cm">// mittel: Piepen</span>
+  } <span class="kw">else if</span> (d < <span class="num">60</span>) {
+    <span class="fn">tone</span>(BUZZ, <span class="num">400</span>, <span class="num">100</span>); <span class="fn">delay</span>(<span class="num">600</span>); <span class="cm">// weit: langsam</span>
+  } <span class="kw">else</span> {
+    <span class="fn">noTone</span>(BUZZ);                 <span class="cm">// sehr weit: kein Ton</span>
+  }
+  <span class="fn">delay</span>(<span class="num">100</span>);
+}</code></pre>
+</div>
+
+<!-- PROJEKT 7 -->
+<div class="section" id="proj7">
+  <div class="project-header">
+    <div class="chapter-badge" style="background:rgba(255,255,255,0.2)">Projekt 7</div>
+    <h2 style="color:white;border:none;padding:0;margin:8px 0">Automatische Ampel</h2>
+    <div class="project-meta"><span>Mittel</span><span>30 Minuten</span><span>6 Bauteile</span></div>
+  </div>
+  <table>
+    <tr><th>LED</th><th>Arduino Pin</th><th>Widerstand</th></tr>
+    <tr><td>Rot</td><td>Pin 11</td><td>220 Ω</td></tr>
+    <tr><td>Gelb</td><td>Pin 12</td><td>220 Ω</td></tr>
+    <tr><td>Grün</td><td>Pin 13</td><td>220 Ω</td></tr>
+  </table>
+  <pre><code><span class="kw">const int</span> R=<span class="num">11</span>, G_=<span class="num">12</span>, GR=<span class="num">13</span>;
+
+<span class="tp">void</span> <span class="fn">aus</span>() { <span class="fn">digitalWrite</span>(R,LOW); <span class="fn">digitalWrite</span>(G_,LOW); <span class="fn">digitalWrite</span>(GR,LOW); }
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  <span class="fn">pinMode</span>(R,OUTPUT); <span class="fn">pinMode</span>(G_,OUTPUT); <span class="fn">pinMode</span>(GR,OUTPUT);
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="fn">aus</span>(); <span class="fn">digitalWrite</span>(R,HIGH);  <span class="fn">delay</span>(<span class="num">4000</span>);  <span class="cm">// Rot: 4s</span>
+  <span class="fn">aus</span>(); <span class="fn">digitalWrite</span>(G_,HIGH); <span class="fn">delay</span>(<span class="num">1000</span>);  <span class="cm">// Gelb: 1s</span>
+  <span class="fn">aus</span>(); <span class="fn">digitalWrite</span>(GR,HIGH); <span class="fn">delay</span>(<span class="num">4000</span>);  <span class="cm">// Grün: 4s</span>
+  <span class="fn">aus</span>(); <span class="fn">digitalWrite</span>(G_,HIGH); <span class="fn">delay</span>(<span class="num">1000</span>);  <span class="cm">// Gelb: 1s</span>
+}</code></pre>
+  <div class="note">Erweiterung: Fußgänger-Taster hinzufügen — wenn gedrückt, Grünphase verkürzen und Grünsignal für Fußgänger geben.</div>
+</div>
+
+<!-- PROJEKT 8 -->
+<div class="section" id="proj8">
+  <div class="project-header">
+    <div class="chapter-badge" style="background:rgba(255,255,255,0.2)">Projekt 8</div>
+    <h2 style="color:white;border:none;padding:0;margin:8px 0">Servo-Motor mit Potentiometer</h2>
+    <div class="project-meta"><span>Mittel</span><span>20 Minuten</span><span>3 Bauteile</span></div>
+  </div>
+  <table>
+    <tr><th>Bauteil/Pin</th><th>Arduino Pin</th></tr>
+    <tr><td>Servo braun (GND)</td><td>GND</td></tr>
+    <tr><td>Servo rot (VCC)</td><td>5V</td></tr>
+    <tr><td>Servo orange (Signal)</td><td>Pin 9 (~)</td></tr>
+    <tr><td>Potentiometer links</td><td>GND</td></tr>
+    <tr><td>Potentiometer mitte</td><td>A0</td></tr>
+    <tr><td>Potentiometer rechts</td><td>5V</td></tr>
+  </table>
+  <pre><code>#include &lt;Servo.h&gt;
+
+Servo servo;
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  servo.<span class="fn">attach</span>(<span class="num">9</span>);  <span class="cm">// Servo an Pin 9</span>
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">int</span> pot = <span class="fn">analogRead</span>(A0);
+  <span class="tp">int</span> winkel = <span class="fn">map</span>(pot, <span class="num">0</span>, <span class="num">1023</span>, <span class="num">0</span>, <span class="num">180</span>);
+  servo.<span class="fn">write</span>(winkel);
+  <span class="fn">delay</span>(<span class="num">15</span>);
+}</code></pre>
+  <div class="tip">Den Servo können Sie in Tinkercad auch automatisch schwenken lassen: for-Schleife von 0° bis 180° und zurück, mit delay(15) je Schritt.</div>
+</div>
+
+<!-- PROJEKT 9 -->
+<div class="section" id="proj9">
+  <div class="project-header">
+    <div class="chapter-badge" style="background:rgba(255,255,255,0.2)">Projekt 9</div>
+    <h2 style="color:white;border:none;padding:0;margin:8px 0">LCD-Display mit Text und Uhr</h2>
+    <div class="project-meta"><span>Mittel</span><span>35 Minuten</span><span>3 Bauteile</span></div>
+  </div>
+  <p>Das LCD 16×2 zeigt 2 Zeilen à 16 Zeichen. In Tinkercad suchen: "LCD 16x2" oder "LCD1602".</p>
+  <table>
+    <tr><th>LCD Pin</th><th>Bedeutung</th><th>Arduino</th></tr>
+    <tr><td>1 (VSS)</td><td>GND</td><td>GND</td></tr>
+    <tr><td>2 (VDD)</td><td>Versorgung</td><td>5V</td></tr>
+    <tr><td>3 (VO)</td><td>Kontrast</td><td>Potentiometer Mitte</td></tr>
+    <tr><td>4 (RS)</td><td>Register Select</td><td>Pin 12</td></tr>
+    <tr><td>5 (RW)</td><td>Read/Write → immer Write</td><td>GND</td></tr>
+    <tr><td>6 (EN)</td><td>Enable</td><td>Pin 11</td></tr>
+    <tr><td>11 (D4)</td><td>Datenleitungen</td><td>Pin 5</td></tr>
+    <tr><td>12 (D5)</td><td>Datenleitungen</td><td>Pin 4</td></tr>
+    <tr><td>13 (D6)</td><td>Datenleitungen</td><td>Pin 3</td></tr>
+    <tr><td>14 (D7)</td><td>Datenleitungen</td><td>Pin 2</td></tr>
+    <tr><td>15 (A)</td><td>LED Hintergrundbeleuchtung +</td><td>5V (über 220 Ω)</td></tr>
+    <tr><td>16 (K)</td><td>LED Hintergrundbeleuchtung −</td><td>GND</td></tr>
+  </table>
+  <pre><code>#include &lt;LiquidCrystal.h&gt;
+LiquidCrystal lcd(<span class="num">12</span>, <span class="num">11</span>, <span class="num">5</span>, <span class="num">4</span>, <span class="num">3</span>, <span class="num">2</span>);
+
+<span class="tp">unsigned long</span> startzeit;
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  lcd.<span class="fn">begin</span>(<span class="num">16</span>, <span class="num">2</span>);
+  lcd.<span class="fn">print</span>(<span class="str">"Hallo! :)"</span>);
+  lcd.<span class="fn">setCursor</span>(<span class="num">0</span>, <span class="num">1</span>);
+  lcd.<span class="fn">print</span>(<span class="str">"gaia-byte.de"</span>);
+  startzeit = <span class="fn">millis</span>();
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">unsigned long</span> sek = (<span class="fn">millis</span>() - startzeit) / <span class="num">1000</span>;
+  lcd.<span class="fn">setCursor</span>(<span class="num">0</span>, <span class="num">0</span>);
+  lcd.<span class="fn">print</span>(<span class="str">"Zeit: "</span>); lcd.<span class="fn">print</span>(sek); lcd.<span class="fn">print</span>(<span class="str">"s   "</span>);
+  <span class="fn">delay</span>(<span class="num">200</span>);
+}</code></pre>
+  <div class="warn">LCD zeigt nur Rechtecke? Kontrast-Potentiometer drehen! In Tinkercad: Schieberegler am VO-Potentiometer während der Simulation anpassen.</div>
+</div>
+
+<!-- PROJEKT 10 -->
+<div class="section" id="proj10">
+  <div class="project-header">
+    <div class="chapter-badge" style="background:rgba(255,255,255,0.2)">Projekt 10</div>
+    <h2 style="color:white;border:none;padding:0;margin:8px 0">Bewegungsalarm mit PIR-Sensor</h2>
+    <div class="project-meta"><span>Mittel</span><span>25 Minuten</span><span>4 Bauteile</span></div>
+  </div>
+  <table>
+    <tr><th>Bauteil/Pin</th><th>Arduino Pin</th></tr>
+    <tr><td>PIR VCC</td><td>5V</td></tr>
+    <tr><td>PIR GND</td><td>GND</td></tr>
+    <tr><td>PIR Signal</td><td>Pin 7</td></tr>
+    <tr><td>LED + 220 Ω</td><td>Pin 13</td></tr>
+    <tr><td>Buzzer +</td><td>Pin 8</td></tr>
+    <tr><td>Buzzer −</td><td>GND</td></tr>
+  </table>
+  <pre><code><span class="kw">const int</span> PIR=<span class="num">7</span>, LED=<span class="num">13</span>, BUZZ=<span class="num">8</span>;
+<span class="tp">int</span> letzterZustand = LOW;
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  <span class="fn">pinMode</span>(PIR, INPUT); <span class="fn">pinMode</span>(LED, OUTPUT); <span class="fn">pinMode</span>(BUZZ, OUTPUT);
+  Serial.<span class="fn">begin</span>(<span class="num">9600</span>);
+  Serial.<span class="fn">println</span>(<span class="str">"PIR wird initialisiert..."</span>);
+  <span class="fn">delay</span>(<span class="num">5000</span>);  <span class="cm">// PIR braucht 5s zum "Aufwärmen"</span>
+  Serial.<span class="fn">println</span>(<span class="str">"Bereit!"</span>);
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="tp">int</span> bewegung = <span class="fn">digitalRead</span>(PIR);
+
+  <span class="kw">if</span> (bewegung == HIGH && letzterZustand == LOW) {
+    Serial.<span class="fn">println</span>(<span class="str">"ALARM: Bewegung erkannt!"</span>);
+    <span class="fn">digitalWrite</span>(LED, HIGH);
+    <span class="fn">tone</span>(BUZZ, <span class="num">2000</span>, <span class="num">500</span>);
+  }
+  <span class="kw">if</span> (bewegung == LOW && letzterZustand == HIGH) {
+    Serial.<span class="fn">println</span>(<span class="str">"Keine Bewegung mehr."</span>);
+    <span class="fn">digitalWrite</span>(LED, LOW);
+  }
+  letzterZustand = bewegung;
+  <span class="fn">delay</span>(<span class="num">200</span>);
+}</code></pre>
+</div>
+
+<!-- PROJEKT 11 -->
+<div class="section" id="proj11">
+  <div class="project-header">
+    <div class="chapter-badge" style="background:rgba(255,255,255,0.2)">Projekt 11</div>
+    <h2 style="color:white;border:none;padding:0;margin:8px 0">Mini-Wetterstation</h2>
+    <div class="project-meta"><span>Fortgeschritten</span><span>45 Minuten</span><span>5 Bauteile</span></div>
+  </div>
+  <p>Kombiniert TMP36 (Temperatur) + LDR (Helligkeit) + LCD (Anzeige). Ein vollständiges Sensorprojekt.</p>
+  <table>
+    <tr><th>Bauteil/Pin</th><th>Arduino</th></tr>
+    <tr><td>TMP36 mitte (Signal)</td><td>A0</td></tr>
+    <tr><td>LDR + 10 kΩ Spannungsteiler</td><td>A1</td></tr>
+    <tr><td>LCD (wie Projekt 9)</td><td>Pins 2,3,4,5,11,12</td></tr>
+  </table>
+  <pre><code>#include &lt;LiquidCrystal.h&gt;
+LiquidCrystal lcd(<span class="num">12</span>, <span class="num">11</span>, <span class="num">5</span>, <span class="num">4</span>, <span class="num">3</span>, <span class="num">2</span>);
+
+<span class="tp">void</span> <span class="fn">setup</span>() { lcd.<span class="fn">begin</span>(<span class="num">16</span>, <span class="num">2</span>); }
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="cm">// Temperatur</span>
+  <span class="tp">float</span> volt = <span class="fn">analogRead</span>(A0) * <span class="num">5.0</span> / <span class="num">1023.0</span>;
+  <span class="tp">float</span> temp = (volt - <span class="num">0.5</span>) * <span class="num">100.0</span>;
+
+  <span class="cm">// Helligkeit in Prozent</span>
+  <span class="tp">int</span> licht = <span class="fn">map</span>(<span class="fn">analogRead</span>(A1), <span class="num">0</span>, <span class="num">1023</span>, <span class="num">0</span>, <span class="num">100</span>);
+
+  <span class="cm">// Zeile 1: Temperatur</span>
+  lcd.<span class="fn">setCursor</span>(<span class="num">0</span>, <span class="num">0</span>);
+  lcd.<span class="fn">print</span>(<span class="str">"Temp: "</span>); lcd.<span class="fn">print</span>(temp, <span class="num">1</span>); lcd.<span class="fn">print</span>(<span class="str">"C    "</span>);
+
+  <span class="cm">// Zeile 2: Helligkeit</span>
+  lcd.<span class="fn">setCursor</span>(<span class="num">0</span>, <span class="num">1</span>);
+  lcd.<span class="fn">print</span>(<span class="str">"Licht: "</span>); lcd.<span class="fn">print</span>(licht); lcd.<span class="fn">print</span>(<span class="str">"%  "</span>);
+
+  <span class="fn">delay</span>(<span class="num">500</span>);
+}</code></pre>
+</div>
+
+<!-- PROJEKT 12 -->
+<div class="section" id="proj12">
+  <div class="project-header">
+    <div class="chapter-badge" style="background:rgba(255,255,255,0.2)">Projekt 12</div>
+    <h2 style="color:white;border:none;padding:0;margin:8px 0">DC-Motor Steuerung mit L293D</h2>
+    <div class="project-meta"><span>Fortgeschritten</span><span>40 Minuten</span><span>4 Bauteile</span></div>
+  </div>
+  <table>
+    <tr><th>L293D Pin</th><th>Verbindung</th></tr>
+    <tr><td>Pin 1 (EN1)</td><td>Arduino Pin 9 (PWM)</td></tr>
+    <tr><td>Pin 2 (IN1)</td><td>Arduino Pin 8</td></tr>
+    <tr><td>Pin 7 (IN2)</td><td>Arduino Pin 7</td></tr>
+    <tr><td>Pin 3 (OUT1)</td><td>Motor Anschluss 1</td></tr>
+    <tr><td>Pin 6 (OUT2)</td><td>Motor Anschluss 2</td></tr>
+    <tr><td>Pin 8 (VSS)</td><td>9V Batterie + (SEPARAT!)</td></tr>
+    <tr><td>Pin 4+5+12+13 (GND)</td><td>GND (gemeinsam mit Arduino)</td></tr>
+    <tr><td>Pin 16 (VCC)</td><td>Arduino 5V</td></tr>
+  </table>
+  <pre><code><span class="kw">const int</span> EN=<span class="num">9</span>, IN1=<span class="num">8</span>, IN2=<span class="num">7</span>;
+
+<span class="tp">void</span> <span class="fn">setup</span>() {
+  <span class="fn">pinMode</span>(EN,OUTPUT); <span class="fn">pinMode</span>(IN1,OUTPUT); <span class="fn">pinMode</span>(IN2,OUTPUT);
+}
+
+<span class="tp">void</span> <span class="fn">vorwaerts</span>(<span class="tp">int</span> v) {
+  <span class="fn">analogWrite</span>(EN, v);
+  <span class="fn">digitalWrite</span>(IN1,HIGH); <span class="fn">digitalWrite</span>(IN2,LOW);
+}
+<span class="tp">void</span> <span class="fn">rueckwaerts</span>(<span class="tp">int</span> v) {
+  <span class="fn">analogWrite</span>(EN, v);
+  <span class="fn">digitalWrite</span>(IN1,LOW); <span class="fn">digitalWrite</span>(IN2,HIGH);
+}
+<span class="tp">void</span> <span class="fn">bremsen</span>() {
+  <span class="fn">analogWrite</span>(EN, <span class="num">0</span>);
+}
+
+<span class="tp">void</span> <span class="fn">loop</span>() {
+  <span class="fn">vorwaerts</span>(<span class="num">200</span>); <span class="fn">delay</span>(<span class="num">2000</span>);
+  <span class="fn">bremsen</span>();     <span class="fn">delay</span>(<span class="num">500</span>);
+  <span class="fn">rueckwaerts</span>(<span class="num">150</span>); <span class="fn">delay</span>(<span class="num">2000</span>);
+  <span class="fn">bremsen</span>();     <span class="fn">delay</span>(<span class="num">500</span>);
+}</code></pre>
+  <div class="warn">WICHTIG: Der DC-Motor MUSS eine SEPARATE Stromversorgung bekommen (9V-Batterie an VSS). Niemals den Motor direkt vom Arduino-5V versorgen — er würde zu viel Strom ziehen und den Arduino beschädigen!</div>
+</div>
+
+<!-- KAPITEL 9 -->
+<div class="section" id="kap9">
+  <div class="chapter-badge">Kapitel 9</div>
+  <h2>Tinkercad für CPS (Cyber-Physical Systems)</h2>
+
+  <p><strong>Cyber-Physical Systems (CPS)</strong> verbinden die digitale Welt (Computer, Algorithmen, Software) mit der physischen Welt (Motoren, Sensoren, Umgebung). Jedes CPS folgt dem Sense-Compute-Actuate-Kreislauf:</p>
+
+  <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin:24px 0;flex-wrap:wrap;">
+    <div style="background:#1E3A5F;color:white;padding:18px 22px;border-radius:8px;text-align:center;font-weight:700;min-width:120px;">Sensoren<br><span style="font-weight:400;font-size:0.85rem">Umwelt messen</span></div>
+    <div style="font-size:2rem;color:#4a90d9;font-weight:300">→</div>
+    <div style="background:#2c5282;color:white;padding:18px 22px;border-radius:8px;text-align:center;font-weight:700;min-width:120px;">Mikrocontroller<br><span style="font-weight:400;font-size:0.85rem">Entscheiden</span></div>
+    <div style="font-size:2rem;color:#4a90d9;font-weight:300">→</div>
+    <div style="background:#2b6cb0;color:white;padding:18px 22px;border-radius:8px;text-align:center;font-weight:700;min-width:120px;">Aktoren<br><span style="font-weight:400;font-size:0.85rem">Welt verändern</span></div>
+    <div style="font-size:2rem;color:#4a90d9;font-weight:300">↩</div>
+  </div>
+
+  <h3>CPS-Anwendungen in Tinkercad simulieren</h3>
+  <table>
+    <tr><th>CPS-Anwendung</th><th>Sensor (Tinkercad)</th><th>Controller</th><th>Aktor (Tinkercad)</th></tr>
+    <tr><td>Smart Home Heizung</td><td>TMP36</td><td>Arduino Uno</td><td>Servo (Thermostat) / Relais</td></tr>
+    <tr><td>Automatisches Licht</td><td>LDR + PIR</td><td>Arduino Uno</td><td>LED / Relais</td></tr>
+    <tr><td>Parkassistent</td><td>HC-SR04</td><td>Arduino Uno</td><td>Buzzer + LED-Leiste</td></tr>
+    <tr><td>Bewässerungsanlage</td><td>Feuchtigkeitssensor</td><td>Arduino Uno</td><td>Servo (Ventil)</td></tr>
+    <tr><td>Einbruchalarm</td><td>PIR + Tilt Sensor</td><td>Arduino Uno</td><td>Buzzer + LCD</td></tr>
+    <tr><td>Produktionszähler</td><td>HC-SR04 (Detektor)</td><td>Arduino Uno</td><td>LCD (Zähler)</td></tr>
+    <tr><td>Wettermessstation</td><td>TMP36 + LDR</td><td>Arduino Uno</td><td>LCD + Serial Monitor</td></tr>
+    <tr><td>Autonomes Fahrzeug</td><td>HC-SR04 (vorne)</td><td>Arduino Uno</td><td>L293D + 2× DC-Motor</td></tr>
+  </table>
+
+  <h3>CPS-Eigenschaften in Tinkercad simulierbar</h3>
+  <ul>
+    <li><strong>Echtzeitsensorik:</strong> Sensoren lesen in jedem loop()-Durchlauf (ca. alle paar ms)</li>
+    <li><strong>Regelkreis:</strong> Messen → Berechnen → Steuern — beliebig oft pro Sekunde</li>
+    <li><strong>Mehrere Sensoren gleichzeitig:</strong> TMP36 + LDR + PIR + HC-SR04 parallel auslesen</li>
+    <li><strong>Datalogging:</strong> Serial.println() gibt alle Werte mit Zeitstempel aus</li>
+    <li><strong>Fehlertoleranz:</strong> if/else Logik für Ausfallsicherheit programmierbar</li>
+  </ul>
+
+  <div class="note">Tinkercad kann KEINE echten Netzwerk-Protokolle simulieren (kein WLAN, kein MQTT, kein HTTP). Für vernetzte CPS-Systeme wird in der Praxis ein ESP32 oder Raspberry Pi mit echter Hardware eingesetzt.</div>
+</div>
+
+<!-- KAPITEL 10 -->
+<div class="section" id="kap10">
+  <div class="chapter-badge">Kapitel 10</div>
+  <h2>Projektvorschläge für Kursteilnehmer</h2>
+
+  <h3><span class="stars">★</span> Einsteiger (Woche 1–2)</h3>
+  <table>
+    <tr><th>#</th><th>Projektname</th><th>Beschreibung</th><th>Kernbauteile</th></tr>
+    <tr><td>1</td><td>Blinkende LED</td><td>LED blinkt im Sekundentakt</td><td>LED, 220 Ω</td></tr>
+    <tr><td>2</td><td>SOS-Blinker</td><td>Morsezeichen SOS als LED-Sequenz</td><td>LED, 220 Ω</td></tr>
+    <tr><td>3</td><td>Taster-LED</td><td>Taster ein → LED leuchtet</td><td>LED, Taster, 10 kΩ</td></tr>
+    <tr><td>4</td><td>Toggle-Schalter</td><td>Taster drücken → LED-Zustand wechselt</td><td>LED, Taster</td></tr>
+    <tr><td>5</td><td>LED-Dimmer</td><td>Potentiometer regelt LED-Helligkeit (PWM)</td><td>LED, Potentiometer</td></tr>
+    <tr><td>6</td><td>Polizeilicht</td><td>2 blaue LEDs abwechselnd sehr schnell blinken</td><td>2× LED</td></tr>
+    <tr><td>7</td><td>Buzzer-Alarm</td><td>Taster → Buzzer piept mit tone()</td><td>Buzzer, Taster</td></tr>
+    <tr><td>8</td><td>Melodie spielen</td><td>Bekannte Melodie mit tone() und Frequenzwerten</td><td>Buzzer</td></tr>
+    <tr><td>9</td><td>Countdown-Timer</td><td>10–9–8–...–0 im Serial Monitor ausgeben</td><td>–</td></tr>
+    <tr><td>10</td><td>3-LED-Lauflicht</td><td>3 LEDs nacheinander leuchten, vorwärts und rückwärts</td><td>3× LED</td></tr>
+  </table>
+
+  <h3><span class="stars">★★</span> Mittel (Woche 3–4)</h3>
+  <table>
+    <tr><th>#</th><th>Projektname</th><th>Beschreibung</th><th>Kernbauteile</th></tr>
+    <tr><td>11</td><td>Digitales Thermometer</td><td>TMP36 lesen, Temp. im Serial Monitor anzeigen</td><td>TMP36</td></tr>
+    <tr><td>12</td><td>Temperatur-Alarm</td><td>Über 30°C → rote LED + Buzzer piept</td><td>TMP36, LED, Buzzer</td></tr>
+    <tr><td>13</td><td>Ampelsteuerung</td><td>Vollständige Ampelsequenz Rot-Gelb-Grün</td><td>3× LED</td></tr>
+    <tr><td>14</td><td>Parkassistent</td><td>HC-SR04 + Buzzer: näher → schnelleres Piepen</td><td>HC-SR04, Buzzer</td></tr>
+    <tr><td>15</td><td>Bewegungslicht</td><td>PIR erkennt → LED geht an, nach 5s automatisch aus</td><td>PIR, LED</td></tr>
+    <tr><td>16</td><td>Helligkeitsregler</td><td>LDR: je dunkler die Umgebung, desto heller die LED</td><td>LDR, LED, PWM</td></tr>
+    <tr><td>17</td><td>Servo-Handsteuerung</td><td>Potentiometer dreht Servo-Winkel präzise</td><td>Servo, Potentiometer</td></tr>
+    <tr><td>18</td><td>Digitaler Würfel</td><td>Taster → Zufallszahl 1–6, auf 6 LEDs als Würfelmuster</td><td>6× LED, Taster</td></tr>
+    <tr><td>19</td><td>Reaktionstest</td><td>Zufällige Zeit → LED an → Taster drücken → Zeit messen</td><td>LED, Taster</td></tr>
+    <tr><td>20</td><td>Sekunden-Uhr LCD</td><td>Vergangene Sekunden seit Start auf LCD anzeigen</td><td>LCD 16×2</td></tr>
+  </table>
+
+  <h3><span class="stars">★★★</span> Fortgeschritten (Woche 5–6)</h3>
+  <table>
+    <tr><th>#</th><th>Projektname</th><th>Beschreibung</th><th>Kernbauteile</th></tr>
+    <tr><td>21</td><td>Mini-Wetterstation</td><td>Temp + Helligkeit auf LCD anzeigen, beide Zeilen</td><td>TMP36, LDR, LCD</td></tr>
+    <tr><td>22</td><td>Smart Safe</td><td>Geheime Taster-Kombination öffnet Servo-Schloss</td><td>3× Taster, Servo, LCD</td></tr>
+    <tr><td>23</td><td>Auto-Bewässerung</td><td>Bodenfeuchtesensor < Schwelle → Servo öffnet Ventil</td><td>Feuchte-Sensor, Servo</td></tr>
+    <tr><td>24</td><td>RGB-Farbmixer</td><td>3 Potentiometer steuern je einen Farbkanal (R, G, B)</td><td>RGB-LED, 3× Poti</td></tr>
+    <tr><td>25</td><td>Alarmsystem</td><td>PIR + Code per Taster + LCD-Statusanzeige + Buzzer</td><td>PIR, 4× Taster, LCD</td></tr>
+    <tr><td>26</td><td>Mini-Roboterarm</td><td>3 Servos via 3 Potentiometer unabhängig steuern</td><td>3× Servo, 3× Poti</td></tr>
+    <tr><td>27</td><td>DC-Motorsteuerung</td><td>L293D + 2 Taster: vorwärts / rückwärts / Geschwindigkeit</td><td>L293D, DC-Motor, 2× Taster</td></tr>
+    <tr><td>28</td><td>Zähler-Display</td><td>Taster erhöht Zähler, zweiter setzt zurück → auf LCD</td><td>LCD, 2× Taster</td></tr>
+    <tr><td>29</td><td>Ultraschall-Lineal</td><td>Distanz in cm und Zoll auf LCD mit Balken-Grafik</td><td>HC-SR04, LCD</td></tr>
+    <tr><td>30</td><td>Intelligentes Nachtlicht</td><td>LDR: ab Dunkelheit → LED langsam einblenden per PWM</td><td>LDR, LED (PWM)</td></tr>
+  </table>
+
+  <h3>Gruppenprojekte (3–4 Personen)</h3>
+  <table>
+    <tr><th>#</th><th>Projektname</th><th>Beschreibung</th><th>Schwierigkeit</th></tr>
+    <tr><td>G1</td><td>Smart Home Modell</td><td>Temperatur + Licht + Sicherheit + LCD-Dashboard</td><td>★★★★</td></tr>
+    <tr><td>G2</td><td>Miniklimaanlage</td><td>TMP36 → bei Überhitzung → Servo-Klappe + Lüfter</td><td>★★★</td></tr>
+    <tr><td>G3</td><td>Fertigungslinie</td><td>HC-SR04 zählt Objekte auf Förderband, LCD zeigt Stand</td><td>★★★</td></tr>
+    <tr><td>G4</td><td>Autonomes Fahrzeug</td><td>HC-SR04 vorne + L293D + 2 Motoren: fährt und weicht aus</td><td>★★★★</td></tr>
+    <tr><td>G5</td><td>Multi-Sensor-Station</td><td>5 Sensoren + Serial-Datalog + Alarm-System + Display</td><td>★★★★</td></tr>
+  </table>
+</div>
+
+<!-- KAPITEL 11 -->
+<div class="section" id="kap11">
+  <div class="chapter-badge">Kapitel 11</div>
+  <h2>Häufige Fehler und ihre Lösungen</h2>
+  <table>
+    <tr><th>#</th><th>Fehler / Symptom</th><th>Ursache</th><th>Lösung</th></tr>
+    <tr><td>1</td><td>LED leuchtet nicht</td><td>Falsch herum eingebaut (Anode/Kathode vertauscht)</td><td>Anode (langes Bein, +) zum Arduino, Kathode (−) zu GND</td></tr>
+    <tr><td>2</td><td>LED sehr schwach</td><td>Vorwiderstand zu groß</td><td>Kleineren Widerstand verwenden (220 Ω statt 1 kΩ)</td></tr>
+    <tr><td>3</td><td>LED leuchtet, aber sofort kaputt</td><td>Kein Vorwiderstand → zu viel Strom</td><td>Immer 220 Ω Widerstand in Reihe zur LED!</td></tr>
+    <tr><td>4</td><td>Taster reagiert nicht / springt</td><td>Kein Pull-down Widerstand — Pin "schwebt"</td><td>10 kΩ von Signalpin zu GND hinzufügen</td></tr>
+    <tr><td>5</td><td>Taster löst mehrfach aus</td><td>Mechanisches Prellen (Kontakt schließt mehrmals)</td><td><code>delay(50)</code> nach Tastererkennung oder Software-Entprellung</td></tr>
+    <tr><td>6</td><td>analogWrite() zeigt keine Wirkung</td><td>Pin ohne PWM (~) gewählt</td><td>Nur Pins 3, 5, 6, 9, 10, 11 für analogWrite() verwenden</td></tr>
+    <tr><td>7</td><td>Servo zittert oder ruckt ständig</td><td>Zu viel Strom vom Arduino → Spannungseinbruch</td><td>Servo extern mit 5V versorgen, GND gemeinsam mit Arduino</td></tr>
+    <tr><td>8</td><td>LCD zeigt schwarze Rechtecke</td><td>Kontrast zu hoch</td><td>VO-Potentiometer langsam drehen bis Text erscheint</td></tr>
+    <tr><td>9</td><td>LCD zeigt gar nichts</td><td>Pinbelegung falsch oder Kontrast 0</td><td>Pinbelegung prüfen, Kontrast erhöhen</td></tr>
+    <tr><td>10</td><td>TMP36 zeigt falsche Werte</td><td>Falsche Umrechnungsformel</td><td><code>temp = (analogRead(A0) * 5.0 / 1023.0 - 0.5) * 100</code></td></tr>
+    <tr><td>11</td><td>HC-SR04 gibt immer 0 cm aus</td><td>Trig/Echo-Pins vertauscht</td><td>Trig = Ausgabe (SIGNAL SENDEN), Echo = Eingabe (EMPFANGEN)</td></tr>
+    <tr><td>12</td><td>Simulation startet nicht</td><td>Syntaxfehler im Code</td><td>Roten Fehlertext lesen. Häufigste Ursachen: fehlendes Semikolon, falsche Klammern</td></tr>
+    <tr><td>13</td><td>Nichts funktioniert</td><td>GND fehlt — kein gemeinsamer Massebezug</td><td>ALLE Bauteile müssen eine GND-Verbindung haben</td></tr>
+    <tr><td>14</td><td>PIR reagiert beim Start sofort</td><td>Sensor noch nicht kalibriert</td><td><code>delay(5000);</code> am Anfang von setup() — PIR braucht 5s</td></tr>
+    <tr><td>15</td><td>Motor dreht sich nicht</td><td>L293D Enable-Pin (EN) ist LOW</td><td>EN-Pin auf HIGH setzen (<code>digitalWrite(EN, HIGH)</code>)</td></tr>
+    <tr><td>16</td><td>Buzzer macht keinen Ton</td><td>Aktiver vs. passiver Buzzer verwechselt</td><td>Passiver Buzzer braucht <code>tone()</code>; aktiver nur <code>digitalWrite(HIGH)</code></td></tr>
+    <tr><td>17</td><td>LDR liest immer 1023</td><td>Kein Pull-down Widerstand → Spannungsteiler fehlt</td><td>10 kΩ zwischen LDR-Signal und GND</td></tr>
+    <tr><td>18</td><td>Sketch zu groß (Speicherfehler)</td><td>Zu viele String-Literale im RAM</td><td><code>Serial.println(F("Text"));</code> — F()-Makro spart RAM</td></tr>
+    <tr><td>19</td><td>delay() blockiert andere Funktionen</td><td>delay() hält ALLES an — kein Multitasking</td><td><code>millis()</code>-basiertes Timing verwenden (non-blocking)</td></tr>
+    <tr><td>20</td><td>Servo dreht nur beim Start</td><td><code>servo.attach()</code> fehlt in setup()</td><td><code>meinServo.attach(PIN);</code> muss in <code>setup()</code> stehen</td></tr>
+    <tr><td>21</td><td>analogRead() gibt immer 0</td><td>Pin versehentlich als OUTPUT konfiguriert</td><td>Analoge Pins (A0–A5) NICHT mit <code>pinMode()</code> setzen</td></tr>
+    <tr><td>22</td><td>Integer-Überlauf</td><td><code>int</code> kann max. 32.767 speichern</td><td><code>long</code> statt <code>int</code> für große Zahlen / millis() verwenden</td></tr>
+    <tr><td>23</td><td>Division ergibt 0</td><td>Integer-Division rundet ab (5/2 = 2, nicht 2.5)</td><td><code>float ergebnis = 5.0 / 2;</code> — mindestens eine Zahl als float</td></tr>
+    <tr><td>24</td><td>Simulation sehr langsam</td><td>Zu viele Serial.print() in loop()</td><td><code>delay(200)</code> in loop() oder Serial-Ausgaben reduzieren</td></tr>
+    <tr><td>25</td><td>Schaltung zeigt falsches Verhalten</td><td>Mehrere GND-Verbindungen fehlen oder sind getrennt</td><td>Jeden GND-Anschluss einzeln prüfen — alle müssen verbunden sein</td></tr>
+  </table>
+</div>
+
+<!-- KAPITEL 12: GLOSSAR -->
+<div class="section" id="kap12">
+  <div class="chapter-badge">Kapitel 12</div>
+  <h2>Glossar – Alle Fachbegriffe erklärt</h2>
+
+  <table>
+    <tr><th>Begriff</th><th>Erklärung</th></tr>
+    <tr><td><strong>Aktor</strong></td><td>Bauteil, das auf die physische Welt wirkt (Motor, LED, Buzzer, Ventil, Servo)</td></tr>
+    <tr><td><strong>Analogsignal</strong></td><td>Signal mit beliebig vielen Werten (z.B. 0–5V kontinuierlich — Gegenteil: Digitalsignal)</td></tr>
+    <tr><td><strong>analogRead()</strong></td><td>Arduino-Befehl zum Lesen analoger Spannung → Wert 0–1023</td></tr>
+    <tr><td><strong>analogWrite()</strong></td><td>Arduino-Befehl für PWM-Ausgabe auf ~Pins → Wert 0–255</td></tr>
+    <tr><td><strong>Anode</strong></td><td>Plusseite einer Diode/LED (langes Bein, +)</td></tr>
+    <tr><td><strong>Arduino</strong></td><td>Open-Source Mikrocontroller-Plattform (Hardware + Software + Community)</td></tr>
+    <tr><td><strong>ATmega328P</strong></td><td>Der 8-bit Mikrocontroller-Chip auf dem Arduino Uno</td></tr>
+    <tr><td><strong>Autodesk</strong></td><td>Amerikanisches Software-Unternehmen, Eigentümer von Tinkercad seit 2013</td></tr>
+    <tr><td><strong>Baud-Rate</strong></td><td>Übertragungsgeschwindigkeit der seriellen Verbindung (z.B. 9600 Zeichen/Sekunde)</td></tr>
+    <tr><td><strong>Bibliothek</strong></td><td>Vorgefertigter Code für bestimmte Bauteile → <code>#include &lt;Name.h&gt;</code></td></tr>
+    <tr><td><strong>Breadboard</strong></td><td>Steckbrett für lötstfreies Aufbauen von Schaltungen</td></tr>
+    <tr><td><strong>Buzzer</strong></td><td>Piezoelektrischer Tonerzeuger (aktiv oder passiv)</td></tr>
+    <tr><td><strong>Canvas</strong></td><td>Die Arbeitsfläche / Zeichenfläche in Tinkercad Circuits</td></tr>
+    <tr><td><strong>CPS</strong></td><td>Cyber-Physical System — Verbindung digitaler und physischer Welt</td></tr>
+    <tr><td><strong>DC-Motor</strong></td><td>Gleichstrommotor — dreht sich kontinuierlich je nach Spannung</td></tr>
+    <tr><td><strong>delay()</strong></td><td>Pausiert das Arduino-Programm für X Millisekunden (blockierend)</td></tr>
+    <tr><td><strong>digitalWrite()</strong></td><td>Setzt digitalen Pin auf HIGH (5V) oder LOW (0V)</td></tr>
+    <tr><td><strong>Digitalsignal</strong></td><td>Signal mit nur zwei Zuständen: HIGH oder LOW (1 oder 0)</td></tr>
+    <tr><td><strong>Duty Cycle</strong></td><td>Einschalt-Verhältnis bei PWM: 50% = halb der Zeit HIGH</td></tr>
+    <tr><td><strong>EEPROM</strong></td><td>Dauerhafter Speicher im Arduino (bleibt nach Neustart, 1 KB beim Uno)</td></tr>
+    <tr><td><strong>Flash</strong></td><td>Programm-Speicher im Arduino (32 KB beim Uno)</td></tr>
+    <tr><td><strong>float</strong></td><td>Datentyp für Dezimalzahlen in C++ (z.B. 23.5)</td></tr>
+    <tr><td><strong>Frequenz</strong></td><td>Anzahl der Schwingungen pro Sekunde → Einheit Hertz (Hz)</td></tr>
+    <tr><td><strong>GND</strong></td><td>Ground — Masse/Minus/Nullpunkt, 0V Referenz</td></tr>
+    <tr><td><strong>H-Brücke</strong></td><td>Schaltung zum Steuern von Motoren in beide Drehrichtungen</td></tr>
+    <tr><td><strong>HC-SR04</strong></td><td>Ultraschall-Distanzsensor: misst 2–400 cm per Schallecho</td></tr>
+    <tr><td><strong>HIGH</strong></td><td>Logisch 1 — entspricht 5V beim Arduino Uno</td></tr>
+    <tr><td><strong>I2C</strong></td><td>Kommunikationsbus mit 2 Leitungen (SDA+SCL) für viele Geräte</td></tr>
+    <tr><td><strong>INPUT</strong></td><td>Pin-Modus: Eingang — Signale lesen</td></tr>
+    <tr><td><strong>INPUT_PULLUP</strong></td><td>Eingang mit internem Pull-up Widerstand — kein externer Widerstand nötig</td></tr>
+    <tr><td><strong>int</strong></td><td>Ganzzahl-Datentyp in C++: −32.768 bis 32.767</td></tr>
+    <tr><td><strong>IoT</strong></td><td>Internet of Things — vernetzte Geräte im Alltag</td></tr>
+    <tr><td><strong>Kathode</strong></td><td>Minusseite einer Diode/LED (kurzes Bein, −)</td></tr>
+    <tr><td><strong>Kondensator</strong></td><td>Bauteil zum kurzfristigen Speichern elektrischer Energie</td></tr>
+    <tr><td><strong>L293D</strong></td><td>H-Brücken-IC für DC-Motoren, bis 600 mA je Kanal</td></tr>
+    <tr><td><strong>LCD</strong></td><td>Liquid Crystal Display — Flüssigkristall-Anzeige</td></tr>
+    <tr><td><strong>LDR</strong></td><td>Light Dependent Resistor — Widerstand ändert sich mit Lichtmenge</td></tr>
+    <tr><td><strong>LED</strong></td><td>Light Emitting Diode — leuchtet wenn Strom in Durchlassrichtung fließt</td></tr>
+    <tr><td><strong>loop()</strong></td><td>Arduino-Funktion die endlos wiederholt wird</td></tr>
+    <tr><td><strong>LOW</strong></td><td>Logisch 0 — entspricht 0V beim Arduino Uno</td></tr>
+    <tr><td><strong>map()</strong></td><td>Wandelt Wert aus einem Bereich in einen anderen um</td></tr>
+    <tr><td><strong>Mikrocontroller</strong></td><td>Kleiner Computer auf einem Chip mit CPU, RAM, Flash, I/O</td></tr>
+    <tr><td><strong>millis()</strong></td><td>Gibt Millisekunden seit Programmstart zurück — für non-blocking Timing</td></tr>
+    <tr><td><strong>MQTT</strong></td><td>Nachrichtenprotokoll für IoT-Kommunikation (nicht in Tinkercad)</td></tr>
+    <tr><td><strong>Ohm (Ω)</strong></td><td>Einheit des elektrischen Widerstands</td></tr>
+    <tr><td><strong>Ohmsches Gesetz</strong></td><td>U = R × I — Grundgesetz der Elektrotechnik</td></tr>
+    <tr><td><strong>Open Source</strong></td><td>Quellcode und Hardware-Pläne sind öffentlich und frei nutzbar</td></tr>
+    <tr><td><strong>OUTPUT</strong></td><td>Pin-Modus: Ausgang — Signale ausgeben</td></tr>
+    <tr><td><strong>PIR-Sensor</strong></td><td>Passiv-Infrarot-Sensor — erkennt Körperwärme/Bewegung</td></tr>
+    <tr><td><strong>pinMode()</strong></td><td>Definiert ob ein Pin Eingang (INPUT) oder Ausgang (OUTPUT) ist</td></tr>
+    <tr><td><strong>Potentiometer</strong></td><td>Drehbarer Spannungsteiler — liefert 0–5V am Mittelabgriff</td></tr>
+    <tr><td><strong>Pull-down</strong></td><td>Widerstand (10 kΩ) von Signalpin zu GND — definiert LOW als Ruhezustand</td></tr>
+    <tr><td><strong>Pull-up</strong></td><td>Widerstand von Signalpin zu VCC — definiert HIGH als Ruhezustand</td></tr>
+    <tr><td><strong>pulseIn()</strong></td><td>Misst Dauer eines HIGH-Pulses in Mikrosekunden (z.B. für HC-SR04)</td></tr>
+    <tr><td><strong>PWM</strong></td><td>Pulsweiten-Modulation — simuliert analoge Ausgabe durch schnelles Schalten</td></tr>
+    <tr><td><strong>Relais</strong></td><td>Elektronisch schaltbarer mechanischer Schalter für größere Lasten</td></tr>
+    <tr><td><strong>RGB-LED</strong></td><td>LED mit drei Farbkanälen (Rot/Grün/Blau) — alle Farben durch Mischen</td></tr>
+    <tr><td><strong>SCL</strong></td><td>Serial Clock Line — Taktleitung des I2C-Busses (A5 beim Uno)</td></tr>
+    <tr><td><strong>SDA</strong></td><td>Serial Data Line — Datenleitung des I2C-Busses (A4 beim Uno)</td></tr>
+    <tr><td><strong>Sensor</strong></td><td>Wandelt physikalische Größe in elektrisches Signal um</td></tr>
+    <tr><td><strong>Serial Monitor</strong></td><td>Konsole in Tinkercad/Arduino IDE für Textausgabe vom Arduino</td></tr>
+    <tr><td><strong>Servo</strong></td><td>Motor der sich exakt auf Winkel 0–180° positioniert</td></tr>
+    <tr><td><strong>setup()</strong></td><td>Arduino-Funktion die einmal beim Start ausgeführt wird</td></tr>
+    <tr><td><strong>Sketch</strong></td><td>Arduino-Programm (eine .ino Datei)</td></tr>
+    <tr><td><strong>SPI</strong></td><td>Synchrones Serielles Interface — schneller 4-Draht-Kommunikationsbus</td></tr>
+    <tr><td><strong>SRAM</strong></td><td>Arbeitsspeicher des Arduino (2 KB beim Uno — sehr knapp!)</td></tr>
+    <tr><td><strong>Tinkercad</strong></td><td>Kostenlose Browserplattform von Autodesk für 3D-Design und Circuits</td></tr>
+    <tr><td><strong>TMP36</strong></td><td>Analoger Temperatursensor, 10 mV/°C, Offset 500 mV</td></tr>
+    <tr><td><strong>tone()</strong></td><td>Erzeugt Rechteckwelle auf Pin (Frequenz in Hz) → Buzzer-Ton</td></tr>
+    <tr><td><strong>Transistor</strong></td><td>Elektronischer Schalter/Verstärker (NPN: Basis steuert Kollektor-Emitter)</td></tr>
+    <tr><td><strong>VCC / VDD</strong></td><td>Versorgungsspannung (beim Arduino Uno: 5V oder 3.3V)</td></tr>
+    <tr><td><strong>void</strong></td><td>Rückgabetyp einer Funktion ohne Rückgabewert</td></tr>
+    <tr><td><strong>Widerstand</strong></td><td>Passives Bauteil das Stromfluss begrenzt (Einheit: Ohm)</td></tr>
+  </table>
+</div>
+
+<!-- KAPITEL 13 -->
+<div class="section" id="kap13">
+  <div class="chapter-badge">Kapitel 13</div>
+  <h2>Weiterführende Ressourcen</h2>
+
+  <h3>Offizielle Dokumentation</h3>
+  <table>
+    <tr><th>Ressource</th><th>URL</th><th>Inhalt</th></tr>
+    <tr><td>Arduino Referenz</td><td>arduino.cc/reference</td><td>Alle Arduino-Befehle mit Erklärungen und Beispielen</td></tr>
+    <tr><td>Tinkercad Hilfe</td><td>tinkercad.com/help</td><td>Offizielle Tinkercad-Dokumentation und Tutorials</td></tr>
+    <tr><td>Tinkercad für Lehrer</td><td>tinkercad.com/teachers</td><td>Klassenraum-Ressourcen, Lehrpläne, Unterrichtsmaterial</td></tr>
+    <tr><td>Arduino Forum</td><td>forum.arduino.cc</td><td>Community-Hilfe für alle Fragen und Probleme</td></tr>
+    <tr><td>Arduino GitHub</td><td>github.com/arduino</td><td>Open-Source Quellcode der Arduino-Bibliotheken</td></tr>
+    <tr><td>Instructables</td><td>instructables.com</td><td>Tausende Arduino-Projekte mit Schritt-für-Schritt-Anleitungen</td></tr>
+    <tr><td>Hackster.io</td><td>hackster.io</td><td>IoT und Hardware-Projekte Community</td></tr>
+  </table>
+
+  <h3>Nächste Schritte nach Tinkercad</h3>
+  <ol>
+    <li><strong>Echtes Arduino Starter Kit kaufen (~30–50€):</strong> Arduino Uno + Breadboard + LEDs + Sensoren + Widerstände — alles in einem Paket. Alles was in Tinkercad funktioniert, funktioniert auch auf echter Hardware!</li>
+    <li><strong>Arduino IDE installieren:</strong> arduino.cc/en/software — kostenlos für Windows, Mac und Linux. Programme direkt auf echte Hardware laden.</li>
+    <li><strong>ESP32 als nächsten Schritt:</strong> Arduino-kompatibel + eingebautem WLAN + Bluetooth + mehr Pins. Ideal für echte IoT/CPS-Projekte. Kostet ca. 5–10€.</li>
+    <li><strong>Raspberry Pi für komplexere CPS:</strong> Mini-Linux-Computer — für Kamera-Integration, Machine Learning am Edge, Datenbankanbindung.</li>
+    <li><strong>Protokolle lernen:</strong> MQTT für IoT-Kommunikation, HTTP-REST für Web-APIs, LoRaWAN für weitreichende Funkübertragung.</li>
+    <li><strong>Open Source Projekte:</strong> create.arduino.cc — vorgefertigte Projekte direkt in die Arduino IDE laden.</li>
+  </ol>
+
+  <div class="note">Alles was Sie in Tinkercad gebaut und simuliert haben, können Sie 1:1 auf echter Hardware aufbauen. Tinkercad ist der perfekte Einstieg — die echte Hardware macht nochmal mehr Spaß!</div>
+
+  <div style="text-align:center;background:var(--dark-blue);color:white;padding:32px;border-radius:10px;margin-top:24px;">
+    <div style="font-size:2.5rem;margin-bottom:12px;">★</div>
+    <h3 style="color:white;border:none;padding:0;font-size:1.5rem;">Herzlichen Glückwunsch!</h3>
+    <p style="margin:12px 0 0;opacity:0.85;max-width:500px;margin:12px auto 0;">Sie haben das vollständige Tinkercad Circuits Handbuch abgeschlossen. Jetzt sind Sie bereit, eigene Cyber-Physical Systems zu entwerfen, zu simulieren und zu bauen!</p>
+  </div>
+</div>
+
+</main>
+</div>
+
+<a href="#" class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#8679; Oben</a>
+
+<script>
+// Copy-Button für alle Code-Blöcke
+document.querySelectorAll('pre').forEach(pre => {
+  const btn = document.createElement('button');
+  btn.className = 'copy-btn';
+  btn.textContent = 'Kopieren';
+  btn.onclick = () => {
+    navigator.clipboard.writeText(pre.innerText.replace(/Kopieren$/, '').trim()).then(() => {
+      btn.textContent = 'Kopiert!';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Kopieren'; btn.classList.remove('copied'); }, 1800);
+    });
+  };
+  pre.appendChild(btn);
+});
+
+// ScrollSpy: aktives Kapitel in Seitenleiste hervorheben
+const sections = document.querySelectorAll('div[id]');
+const navLinks = document.querySelectorAll('nav.sidebar a[href^="#"]');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const active = document.querySelector(`nav.sidebar a[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '-60px 0px -60% 0px' });
+
+sections.forEach(s => observer.observe(s));
+
+// Widerstandsrechner
+function calcR() {
+  const v1 = parseInt(document.getElementById('r1').value);
+  const v2 = parseInt(document.getElementById('r2').value);
+  const mult = parseFloat(document.getElementById('r3').value);
+  const ohm = (v1 * 10 + v2) * mult;
+  let text = ohm >= 1000000 ? (ohm/1000000).toFixed(2)+' MΩ' :
+             ohm >= 1000    ? (ohm/1000).toFixed(1)+' kΩ' :
+                               ohm+' Ω';
+  document.getElementById('rcalc-result').textContent = '= ' + text;
+}
+calcR();
+</script>
+
+<footer>
+  <p>Tinkercad Circuits – Vollständiges Handbuch | gaia-byte.de | Für den Einsatz im CPS-Kurs</p>
+  <p style="margin-top:6px;opacity:0.5;">Alle Projekte getestet in Tinkercad Circuits | Arduino Uno R3 | Screenshots: Hussein Azghir</p>
+</footer>
+
+</body>
+</html>
