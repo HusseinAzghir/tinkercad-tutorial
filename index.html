@@ -457,6 +457,9 @@ nav.sidebar ul li a.active { background: var(--accent); border-left-color: var(-
   <p class="screenshot-caption">Der Circuits-Bereich im Dashboard mit eingebauten Tutorial-Kacheln: "Start Simulating", "Editing Components", "Wiring Components"</p>
 
   <div class="tip">Alle Projekte werden automatisch in der Cloud gespeichert. Kein manuelles Speichern nötig! Von jedem Computer aus erreichbar — einfach anmelden.</div>
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Simple_circuit_diagram.gif" alt="Einfacher Stromkreis Animation" style="max-width:360px;width:100%;border-radius:8px;border:2px solid var(--border);display:block;margin:14px auto;">
+  <p class="cap" style="text-align:center;">Genau das machst du in Tinkercad: einen Stromkreis aufbauen und simulieren (Wikimedia Commons)</p>
 </div>
 
 <!-- KAPITEL 2 -->
@@ -965,6 +968,9 @@ nav.sidebar ul li a.active { background: var(--accent); border-left-color: var(-
     </svg>
     <p style="text-align:center;font-size:0.82rem;color:#555;margin:8px 0 0;">Der Arduino wiederholt loop() millionenfach pro Sekunde — bis der Strom ausgeht</p>
   </div>
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Little_arduino.gif" alt="Arduino Mikrocontroller Animation" style="max-width:280px;width:100%;border-radius:8px;border:2px solid var(--border);display:block;margin:14px auto;">
+  <p class="cap" style="text-align:center;">Mikrocontroller in Aktion: Chip verarbeitet Eingaben und steuert Ausgaben in Echtzeit (Wikimedia Commons)</p>
 
   <h4>Variablen und Datentypen — Was ist das?</h4>
 
@@ -1609,6 +1615,8 @@ Keypad kp = Keypad(makeKeymap(tasten), zeilen_pins, spalten_pins, ZEILEN, SPALTE
       <li><strong>Vorwiderstand PFLICHT:</strong> <code>R = (5V − U_LED) / 0.02A</code></li>
       <li><strong>Standard:</strong> Rot/Gelb (U≈2V) → 150 Ω → nehme 220 Ω. Blau/Weiß (U≈3.2V) → 90 Ω → nehme 100 Ω.</li>
     </ul>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Blinken_LED_480.gif" alt="Blinkende LED Animation" style="max-width:200px;width:100%;border-radius:8px;border:2px solid var(--border);display:block;margin:10px auto;">
+    <p class="cap" style="text-align:center;">LED blinkt — das klassische erste Arduino-Projekt (Wikimedia Commons)</p>
   </div>
   <div class="component-card">
     <h4>RGB-LED</h4>
@@ -1660,6 +1668,8 @@ Keypad kp = Keypad(makeKeymap(tasten), zeilen_pins, spalten_pins, ZEILEN, SPALTE
   </div>
   <div class="component-card">
     <h4>Piezo-Buzzer</h4>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/SchemaPiezo.gif" alt="Piezoelektrischer Effekt Animation" style="max-width:280px;width:100%;border-radius:8px;border:2px solid var(--border);display:block;margin:10px auto;">
+    <p class="cap" style="text-align:center;">Piezoelektrischer Effekt: Elektrisches Feld verformt Keramikscheibe → erzeugt Schall (Wikimedia Commons)</p>
     <p>Erzeugt Töne durch schnelles elektrisches Vibrieren einer Piezokeramik. Zwei Arten:</p>
     <ul>
       <li><strong>Aktiver Buzzer:</strong> Hat eigene Schaltung — gibt immer gleichen Ton aus. <code>digitalWrite(pin, HIGH)</code> reicht.</li>
@@ -1717,6 +1727,8 @@ LiquidCrystal_I2C lcd(<span class="num">0x27</span>, <span class="num">16</span>
       <li><strong>Pins:</strong> VCC (5V), GND, IN (Steuerpin vom Arduino), NO (normally open), COM, NC (normally closed)</li>
       <li><strong>Anwendung:</strong> Hausgeräte schalten, Heizung, Pumpen, Türöffner</li>
     </ul>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Electric_Bell_animation.gif" alt="Elektromagnetische Klingel zeigt Relais-Prinzip" style="max-width:220px;width:100%;border-radius:8px;border:2px solid var(--border);display:block;margin:10px auto;">
+    <p class="cap" style="text-align:center;">Relais-Prinzip: Elektromagnet schaltet Kontakt — wie eine elektrische Klingel (Wikimedia Commons)</p>
   </div>
 
   <!-- ===== ERWEITERTE AKTOREN ===== -->
@@ -1965,6 +1977,16 @@ MFRC522 rfid(<span class="num">10</span>, <span class="num">9</span>);  <span cl
   <div class="component-card">
     <h4>Diode (1N4007)</h4>
     <p>Lässt Strom nur in eine Richtung fließen. Wichtig als Schutzdiode an Motoren/Relais (Freilaufdiode gegen Induktionsspitzen).</p>
+    <div class="screenshot-grid" style="margin-top:10px;">
+      <div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Diode_bridge.gif" alt="Brückengleichrichter Diode Animation" style="width:100%;border-radius:8px;border:2px solid var(--border);">
+        <p class="cap">Brückengleichrichter: 4 Dioden wandeln Wechselstrom in Gleichstrom (Wikimedia Commons)</p>
+      </div>
+      <div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Relay_animation_with_flyback_diode.gif" alt="Relais mit Freilaufdiode Animation" style="width:100%;border-radius:8px;border:2px solid var(--border);">
+        <p class="cap">Relais mit Freilaufdiode: Schutzdiode verhindert Induktionsspannung beim Abschalten (Wikimedia Commons)</p>
+      </div>
+    </div>
   </div>
 
   <h3 id="kap6-ics">6.4 Integrierte Schaltkreise (ICs)</h3>
@@ -1993,6 +2015,8 @@ MFRC522 rfid(<span class="num">10</span>, <span class="num">9</span>);  <span cl
       <li><strong>Arduino-Funktion:</strong> <code>shiftOut(dataPin, clockPin, MSBFIRST, byteWert);</code></li>
       <li><strong>Anwendung:</strong> Viele LEDs, 7-Segment-Displays, LED-Matrizen</li>
     </ul>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/MFrey_LED-Matrix_Coffee.gif" alt="LED-Matrix Animation Kaffeetasse" style="max-width:200px;width:100%;border-radius:8px;border:2px solid var(--border);display:block;margin:10px auto;">
+    <p class="cap" style="text-align:center;">LED-Matrix in Aktion: Multiplex-Ansteuerung über Schieberegister — hier eine animierte Kaffeetasse (Wikimedia Commons)</p>
   </div>
   <div class="component-card">
     <h4>L293D – H-Brücke (Motortreiber)</h4>
@@ -2048,6 +2072,9 @@ R = (5V - 2V) / 0.02A
 R = 3V / 0.02A = 150 Ω → nächster Standardwert: 220 Ω
 
 Verlustleistung: P = (U_Versorgung - U_LED) × I = 3V × 0.02A = 60 mW</code></pre>
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Tuned_circuit_animation_3.gif" alt="LC Schwingkreis Animation" style="max-width:420px;width:100%;border-radius:8px;border:2px solid var(--border);display:block;margin:14px auto;">
+  <p class="cap" style="text-align:center;">LC-Schwingkreis: Energie pendelt zwischen Kondensator (Spannung) und Spule (Strom) — Grundlage für Radiosender und Filter (Wikimedia Commons)</p>
 
   <h3 id="kap7-schaltungen">Reihen- und Parallelschaltung</h3>
   <div class="component-card" style="border-left:4px solid #3182ce;">
@@ -2152,6 +2179,9 @@ Verlustleistung: P = (U_Versorgung - U_LED) × I = 3V × 0.02A = 60 mW</code></p
     <li><strong>SCK:</strong> Takt-Leitung</li>
     <li><strong>SS/CS:</strong> Chip Select — wählt das angesprochene Gerät aus</li>
   </ul>
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Phase_Comparison_image_two_waves.gif" alt="Zwei Signale Phasenvergleich" style="max-width:440px;width:100%;border-radius:8px;border:2px solid var(--border);display:block;margin:14px auto;">
+  <p class="cap" style="text-align:center;">Signalvergleich: SDA und SCL im I2C-Bus — Daten und Taktsignal synchronisiert (Wikimedia Commons)</p>
 
   <h3>Pull-up und Pull-down Widerstände — Was passiert ohne sie?</h3>
   <div class="component-card" style="border-left:4px solid #e53e3e;">
@@ -2815,6 +2845,9 @@ LiquidCrystal lcd(<span class="num">12</span>, <span class="num">11</span>, <spa
   </ul>
 
   <div class="note">Tinkercad kann KEINE echten Netzwerk-Protokolle simulieren (kein WLAN, kein MQTT, kein HTTP). Für vernetzte CPS-Systeme wird in der Praxis ein ESP32 oder Raspberry Pi mit echter Hardware eingesetzt.</div>
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Solar_cell_circuit_equivalent.gif" alt="Solaranlagen Regelkreis CPS" style="max-width:400px;width:100%;border-radius:8px;border:2px solid var(--border);display:block;margin:14px auto;">
+  <p class="cap" style="text-align:center;">CPS in der Praxis: Sensor misst Sonnenlicht → Controller regelt Ladung → Akku wird geladen — ein echter Sense-Compute-Actuate Regelkreis (Wikimedia Commons)</p>
 </div>
 
 <!-- KAPITEL 10 -->
@@ -3156,20 +3189,36 @@ document.querySelectorAll('pre').forEach(pre => {
 });
 
 // ScrollSpy: aktives Kapitel in Seitenleiste hervorheben
-const sections = document.querySelectorAll('div[id]');
+const sections = Array.from(document.querySelectorAll('div[id]'));
 const navLinks = document.querySelectorAll('nav.sidebar a[href^="#"]');
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navLinks.forEach(a => a.classList.remove('active'));
-      const active = document.querySelector(`nav.sidebar a[href="#${entry.target.id}"]`);
-      if (active) active.classList.add('active');
+function updateActiveNav() {
+  const scrollY = window.scrollY + 120;
+  let current = null;
+  for (const s of sections) {
+    if (s.offsetTop <= scrollY) current = s.id;
+    else break;
+  }
+  navLinks.forEach(a => a.classList.remove('active'));
+  if (current) {
+    const activeLink = document.querySelector('nav.sidebar a[href="#' + current + '"]');
+    if (activeLink) {
+      activeLink.classList.add('active');
+      const nav = document.querySelector('nav.sidebar');
+      if (nav) {
+        const linkTop = activeLink.offsetTop;
+        const navScroll = nav.scrollTop;
+        const navH = nav.clientHeight;
+        if (linkTop < navScroll + 60 || linkTop > navScroll + navH - 60) {
+          nav.scrollTo({ top: linkTop - navH / 2, behavior: 'smooth' });
+        }
+      }
     }
-  });
-}, { threshold: 0.15, rootMargin: '-60px 0px -60% 0px' });
+  }
+}
 
-sections.forEach(s => observer.observe(s));
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+updateActiveNav();
 
 // Widerstandsrechner
 function calcR() {
@@ -3496,6 +3545,9 @@ window.addEventListener('load', function() {
     </div>
   </div>
 
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Gimbal_3_axes_rotation.gif" alt="Gimbal 3 Achsen Rotation Animation" style="max-width:280px;width:100%;border-radius:8px;border:2px solid var(--border);display:block;margin:14px auto;">
+  <p class="cap" style="text-align:center;">Gimbal — 3 Freiheitsgrade: Roll, Nick (Pitch), Gier (Yaw) — genau das misst der MPU-6050 Gyroskop (Wikimedia Commons)</p>
+
   <h3>15.1 BMP280 – Luftdruck- &amp; Höhensensor (I2C)</h3>
   <div class="component-card">
     <p>Der BMP280 misst <strong>Luftdruck</strong> (300–1100 hPa), <strong>Temperatur</strong> und berechnet daraus die <strong>Höhe über dem Meeresspiegel</strong>. Er ist extrem genau und perfekt für Wetterstation-Projekte.</p>
@@ -3683,6 +3735,9 @@ TinyGPSPlus gps;
       <li><strong>struct:</strong> Ein Datentyp den du selbst definierst — fasst zusammengehörige Werte zusammen (z.B. pin + name + letzter Wert eines Sensors).</li>
     </ul>
   </div>
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/T_flip-flop.gif" alt="T Flip-Flop Timing Animation" style="max-width:420px;width:100%;border-radius:8px;border:2px solid var(--border);display:block;margin:14px auto;">
+  <p class="cap" style="text-align:center;">T-Flip-Flop Timing-Diagramm: Zustand wechselt bei jeder steigenden Flanke — Grundprinzip digitaler Zustandsautomaten (Wikimedia Commons)</p>
 
   <h3>16.1 State Machine – Zustandsautomat</h3>
   <p>Eine State Machine (Zustandsautomat) ist das mächtigste Muster für komplexe Arduino-Projekte. Statt verschachtelter if/else-Blöcke definierst du klare <em>Zustände</em> und <em>Übergänge</em>.</p>
@@ -4221,6 +4276,9 @@ Adafruit_NeoPixel strip(<span class="num">12</span>, <span class="num">6</span>,
     </svg>
   </div>
 
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Electric_Bell_animation.gif" alt="Elektromagnetische Schalter Animation" style="max-width:380px;width:100%;border-radius:8px;border:2px solid var(--border);display:block;margin:14px auto;">
+  <p class="cap" style="text-align:center;">Elektrische Klingel: Elektromagnet zieht Anker an → Kontakt öffnet → Magnet aus → Anker schnappt zurück — gleicher Mechanismus wie ein Relais (Wikimedia Commons)</p>
+
   <h3>18.1 Bluetooth HC-05/HC-06</h3>
   <div class="component-card">
     <p>Drahtlose serielle Kommunikation über Bluetooth 2.0. Dein Smartphone kann den Arduino steuern oder Daten empfangen.</p>
@@ -4306,6 +4364,9 @@ SoftwareSerial bt(<span class="num">10</span>, <span class="num">11</span>);   <
     <p><strong>IoT</strong> (Internet of Things = "Internet der Dinge") bezeichnet das Konzept, physische Geräte mit dem Internet zu verbinden. Deine Kaffeemaschine meldet wenn der Kaffee fertig ist. Dein Kühlschrank bestellt automatisch Milch nach. Dein Temperatursensor lädt die Daten in eine Cloud-Datenbank hoch.</p>
     <p style="margin-top:6px;">Der Arduino Uno allein kann kein IoT — er hat kein WiFi. Aber der <strong>ESP32</strong> hat WiFi und Bluetooth eingebaut und kostet nur ~5€. Er programmiert sich genau wie ein Arduino.</p>
   </div>
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Phase_Comparison_image_two_waves.gif" alt="Signalwellen IoT Kommunikation" style="max-width:420px;width:100%;border-radius:8px;border:2px solid var(--border);display:block;margin:14px auto;">
+  <p class="cap" style="text-align:center;">Signalübertragung im IoT: ESP32 sendet Datenpakete über WiFi — Takt- und Datensignal müssen synchron laufen (Wikimedia Commons)</p>
 
   <div class="component-card" style="border-left:4px solid #805ad5;">
     <h4>Was ist MQTT?</h4>
@@ -4968,6 +5029,8 @@ WebServer server(<span class="num">80</span>);
       <img src="https://editor.tinkercad.com/components/thumbnails/solarCell.png" alt="Solar Cell" onerror="compIconFallback(this)">
       <strong>Solar Cell (Solarzelle)</strong>
       <p>Wandelt Sonnenlicht in Strom um. Spannung je nach Größe: 0.5V/Zelle. Für Arduino: 6V-Panel + Laderegler + Akku. Simulation in Tinkercad: justierbare Lichtintensität.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Silicon_solar_cell.gif" alt="Silizium Solarzelle Funktionsprinzip" style="max-width:200px;width:100%;border-radius:6px;border:2px solid var(--border);display:block;margin:8px auto;">
+      <p class="cap" style="text-align:center;font-size:0.75rem;">Photovoltaischer Effekt: Photonen lösen Elektronen → Strom fließt (Wikimedia Commons)</p>
     </div>
 
     <div class="comp-tile">
@@ -5061,6 +5124,8 @@ WebServer server(<span class="num">80</span>);
       <img src="https://editor.tinkercad.com/components/thumbnails/oscilloscope.png" alt="Oscilloscope" onerror="compIconFallback(this)">
       <strong>Oscilloscope (Oszilloskop)</strong>
       <p>Visualisiert Spannungsverläufe über Zeit. X-Achse = Zeit, Y-Achse = Spannung. In Tinkercad: Misst PWM-Signale, Sensorwerte, digitale Protokolle. Einstellen: Zeitbasis und Volt/Division.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Scope_Holdoff_Waveform.gif" alt="Oszilloskop Waveform Animation" style="max-width:200px;width:100%;border-radius:6px;border:2px solid var(--border);display:block;margin:8px auto;">
+      <p class="cap" style="text-align:center;font-size:0.75rem;">Triggering: Oszilloskop synchronisiert Darstellung mit Signal-Flanke (Wikimedia Commons)</p>
     </div>
   </div>
 
@@ -5211,6 +5276,10 @@ WebServer server(<span class="num">80</span>);
   <p>Die 74HC-Serie sind CMOS-Logik-ICs (5V, schnell, geringer Stromverbrauch). Sie implementieren Grundgatter und kombinierte Schaltungen der Digitaltechnik.</p>
 
   <h3>11.1 Grundgatter</h3>
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Simple_adder_on_logic_gates.gif" alt="Halbaddierer aus Logikgattern Animation" style="max-width:420px;width:100%;border-radius:8px;border:2px solid var(--border);display:block;margin:0 auto 14px;">
+  <p class="cap" style="text-align:center;">Halbaddierer aus AND- und XOR-Gattern: 2 Bits werden addiert — Grundbaustein jedes Prozessors (Wikimedia Commons)</p>
+
   <div class="comp-grid-2">
     <div class="comp-tile">
       <img src="https://editor.tinkercad.com/components/thumbnails/ic74HC08.png" alt="Quad AND Gate" onerror="compIconFallback(this)">
